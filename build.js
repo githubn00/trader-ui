@@ -135,6 +135,16 @@ function assemble(bundlePath) {
     "location.host && url.includes(location.host)"
   );
 
+  // Disable history.replaceState/pushState for file:// — the terminal calls
+  // replaceState("/terminal") which resolves to file:///C:/terminal and throws
+  // a SecurityError because that path differs from the actual file:// origin.
+  const historyPatch = `<script>
+if (location.protocol === "file:") {
+  history.replaceState = history.pushState = function() {};
+}
+</script>`;
+  html = html.replace("</head>", historyPatch + "\n</head>");
+
   // Inline the bundle
   const bundle = fs.readFileSync(bundlePath, "utf8");
   html = html.replace("</body>", `<script>${bundle}</script>\n</body>`);
