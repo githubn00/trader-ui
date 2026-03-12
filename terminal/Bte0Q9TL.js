@@ -15901,7 +15901,7 @@ import "./CHj1SSsY.js";
   async function Kp(t, e, i, s, r) {
     await (async function (t) {
       const e = new Cc(Jc, { count: 1 });
-      await e.connectToServer(`wss://${location.host}/terminal`);
+      await e.connectToServer(`wss://${window.__mt5_host||location.host}/terminal`);
       try {
         (await e.sendCommand(43, Yp(t)), e.close());
       } catch (i) {
@@ -15920,7 +15920,7 @@ import "./CHj1SSsY.js";
       return (
         await (async function (t) {
           const e = new Cc(Jc, { count: 1 });
-          await e.connectToServer(`wss://${location.host}/terminal`);
+          await e.connectToServer(`wss://${window.__mt5_host||location.host}/terminal`);
           try {
             (await e.sendCommand(43, Yp(t)), e.close());
           } catch (i) {
@@ -16287,7 +16287,7 @@ import "./CHj1SSsY.js";
       (null == (t = this.socket) ? void 0 : t.isReady) ||
         ((this.count += 1),
         (this.socket = new Cc(Jc, { count: this.count })),
-        await this.socket.connectToServer(`wss://${location.host}/terminal`),
+        await this.socket.connectToServer(`wss://${window.__mt5_host||location.host}/terminal`),
         await this.socket.sendCommand(29, e));
     }
     closeConnection() {
@@ -16358,7 +16358,7 @@ import "./CHj1SSsY.js";
       (null == (t = this.socket) ? void 0 : t.isReady) ||
         ((this.count += 1),
         (this.socket = new Cc(Jc, { count: this.count })),
-        await this.socket.connectToServer(`wss://${location.host}/terminal`),
+        await this.socket.connectToServer(`wss://${window.__mt5_host||location.host}/terminal`),
         await this.socket.sendCommand(29, e));
     }
     closeConnection() {
@@ -16477,7 +16477,7 @@ import "./CHj1SSsY.js";
       (null == (t = this.socket) ? void 0 : t.isReady) ||
         ((this.count += 1),
         (this.socket = new Cc(Jc, { count: this.count })),
-        await this.socket.connectToServer(`wss://${location.host}/terminal`),
+        await this.socket.connectToServer(`wss://${window.__mt5_host||location.host}/terminal`),
         await this.socket.sendCommand(29, e));
     }
     async closeConnection() {
@@ -16596,7 +16596,7 @@ import "./CHj1SSsY.js";
             im += 1;
             const t = new Cc(Jc, { count: im, token: c });
             return (
-              await t.connectToServer(`wss://${location.host}/terminal`),
+              await t.connectToServer(`wss://${window.__mt5_host||location.host}/terminal`),
               async function () {
                 const i = new Ic();
                 (t.subscribe(Tc, rm.bind(null, i, e)),

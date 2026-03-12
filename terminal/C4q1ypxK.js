@@ -572,7 +572,11 @@ function _t(t) {
         (d.textContent = `${window.tr(window.lang.login.form.server)}`),
         (p = tt()),
         (g = Z("div")),
-        ($ = et(h)),
+        ($ = Z("input"),
+        $.type = "text",
+        $.value = window.__mt5_host || h,
+        $.style.cssText = "background:transparent;border:none;border-bottom:1px solid currentColor;color:inherit;font:inherit;width:100%;outline:none;",
+        $.addEventListener("input", function(){ window.__mt5_host = $.value; })),
         (f = tt()),
         y && y.c(),
         (w = N()),
@@ -613,8 +617,7 @@ function _t(t) {
       (1048608 & e && (i.$$scope = { dirty: e, ctx: t }),
         l.$set(i),
         (!v || 32 & e) &&
-          h !== (h = t[5].connect.values.server + "") &&
-          K($, h),
+          (h = t[5].connect.values.server + ""),
         t[5].connect.showOtp
           ? y
             ? (y.p(t, e), 32 & e && I(y, 1))
