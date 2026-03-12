@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover, user-scalable=no, interactive-widget=resizes-content"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="application-name" content="Terminal" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Terminal" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <title>Terminal</title>
+    <script>
+      "use strict";
+      (function () {
+        function supportsInlineArrow() {
+          try {
+            return ((a = 0) => !!a)(1);
+          } catch {
+            return false;
+          }
+        }
+
+        function supportsWebGL() {
+          const canvas = document.createElement("canvas");
+          try {
+            return !!(
+              window.WebGLRenderingContext &&
+              (canvas.getContext("webgl") ||
+                canvas.getContext("experimental-webgl"))
+            );
+          } catch {
+            return false;
+          }
+        }
+
+        let supported = false;
+        try {
+          supported = !!window.crypto;
+        } catch {
+          supported = false;
+        }
+
+        if (supported && supportsInlineArrow() && supportsWebGL()) {
+          try {
+            supported = !!(1n + BigInt(Math.ceil(Math.random() + 0.5)));
+          } catch {
+            supported = false;
+          }
+        }
+
+        window.__supported = supported;
+      })();
+    </script>
+    <script>
+      if (!window.__supported) {
+        if (window.stop) {
+          window.stop();
+        }
+        window.open("/terminal/unsupported.html", "_self");
+      }
+    </script>
+    <script>
+      window.__terminal_params = {
+        trade_server_demo: "XMGlobal-MT5 2",
+        trade_server_real: "XMGlobal-MT5 2",
+        account_url: "https://ws.servetp.com/terminal-registration",
+        account_auto: 0,
+        build: 5264,
+        build_date: "9 Sep 2025",
+        broker: {
+          name: "XM Global Limited",
+          url: "https://www.xm.com",
+          email: "info@xmglobal.com",
+          phone: "+501 2236696",
+          address: "Suite 101, No. 63 Eve Street, Belize City, Belize",
+          desktop_setup_url:
+            "https://download.terminal.free/cdn/web/xm.global.limited/mt5/xmglobal5setup.exe",
+        },
+        internal: true,
+        servers: [
+          {
+            server: "XMGlobal-MT5 2",
+            type: "demo",
+            groups: [],
+          },
+        ],
+      };
+    </script>
+    <style id="initial-loader-style">
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .loader::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid #e8e8e8;
+        border-top-color: #3183ff;
+        pointer-events: none;
+        animation: spin 1.2s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: translate(-50%, -50%) rotate(0);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+    </style>
+    <script type="module" src="/terminal/CQSQNu0h.js"></script>
+    <link rel="stylesheet" href="/terminal/CpQrds23.css" />
+  </head>
+  <body class="loader"></body>
+</html>
