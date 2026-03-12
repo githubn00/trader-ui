@@ -184,6 +184,33 @@ function assemble(bundlePath) {
     "location.host && url.includes(location.host)"
   );
 
+  // Polyfill fetch() for data: URIs — Chrome blocks fetch("data:...") from file://
+  // origin. Intercept those calls and decode them synchronously via atob().
+  const dataFetchPatch = `<script>
+(function() {
+  var _fetch = window.fetch;
+  window.fetch = function(url, opts) {
+    if (typeof url === "string" && url.startsWith("data:")) {
+      try {
+        var comma = url.indexOf(",");
+        var meta  = url.slice(5, comma);          // e.g. "text/xml;base64"
+        var body  = url.slice(comma + 1);
+        var mime  = meta.replace(";base64", "").split(";")[0] || "text/plain";
+        var isB64 = meta.includes("base64");
+        var bytes = isB64 ? atob(body) : decodeURIComponent(body);
+        var buf   = new Uint8Array(bytes.length);
+        for (var i = 0; i < bytes.length; i++) buf[i] = bytes.charCodeAt(i);
+        var blob  = new Blob([buf], { type: mime });
+        var res   = new Response(blob, { status: 200, headers: { "Content-Type": mime } });
+        return Promise.resolve(res);
+      } catch(e) { return Promise.reject(e); }
+    }
+    return _fetch.apply(this, arguments);
+  };
+})();
+</script>`;
+  html = html.replace("</head>", dataFetchPatch + "\n</head>");
+
   // Disable history.replaceState/pushState for file:// — the terminal calls
   // replaceState("/terminal") which resolves to file:///C:/terminal and throws
   // a SecurityError because that path differs from the actual file:// origin.
