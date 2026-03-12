@@ -128,6 +128,13 @@ function assemble(bundlePath) {
     }
   );
 
+  // Fix WebSocket shim for file:// (location.host is "" so includes("") is always true,
+  // corrupting URLs). Guard with a location.host truthiness check.
+  html = html.replace(
+    "url.includes(location.host)",
+    "location.host && url.includes(location.host)"
+  );
+
   // Inline the bundle
   const bundle = fs.readFileSync(bundlePath, "utf8");
   html = html.replace("</body>", `<script>${bundle}</script>\n</body>`);
