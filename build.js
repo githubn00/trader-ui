@@ -1,179 +1,157 @@
 #!/usr/bin/env node
 /**
- * Builds a single self-contained HTML file from the terminal assets.
- * - All local JS modules are embedded as source strings and loaded via blob URLs at runtime.
- * - Unknown (lazy/remote) module imports are rewritten to fetch from the remote CDN.
- * - Font/asset base path is patched to the remote server.
- * - CSS is inlined.
+ * Builds a truly serverless single-file HTML artifact.
+ *
+ * Steps:
+ *  1. Recursively discover and download all missing JS modules from the remote CDN
+ *  2. Apply local patches (WSS host, editable server field) to local modules
+ *  3. Bundle everything from the entry point using esbuild (single IIFE, no modules)
+ *  4. Inline CSS as <style> and bundled JS as <script> into terminal.html
+ *
+ * The result (index.html) can be opened directly from file:// — no server needed.
+ * WebSocket connects to window.__mt5_host (editable in the login form).
+ * Fonts/images are fetched from the remote CDN (mt5-6.xm-bz.com).
  */
 
 const fs = require("fs");
 const path = require("path");
+const https = require("https");
+const { execSync } = require("child_process");
 
 const TERMINAL_DIR = path.join(__dirname, "terminal");
 const OUT_FILE = path.join(__dirname, "index.html");
 const REMOTE_BASE = "https://mt5-6.xm-bz.com/terminal";
+const ENTRY = "CQSQNu0h.js";
 
-// ── 1. Load all local JS modules ────────────────────────────────────────────
+// ── helpers ──────────────────────────────────────────────────────────────────
 
-const jsFiles = fs
-  .readdirSync(TERMINAL_DIR)
-  .filter((f) => f.endsWith(".js"))
-  .sort();
-
-const sources = {};
-for (const file of jsFiles) {
-  sources[file] = fs.readFileSync(path.join(TERMINAL_DIR, file), "utf8");
+function fetch(url) {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, { headers: { "user-agent": "Mozilla/5.0" } }, (res) => {
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          return fetch(res.headers.location).then(resolve).catch(reject);
+        }
+        if (res.statusCode !== 200) {
+          res.resume();
+          return reject(new Error(`HTTP ${res.statusCode} for ${url}`));
+        }
+        const chunks = [];
+        res.on("data", (c) => chunks.push(c));
+        res.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+        res.on("error", reject);
+      })
+      .on("error", reject);
+  });
 }
 
-// ── 2. Build dependency graph (static + dynamic imports) ───────────────────
-
-const importRe = /(?:from\s+|import\s*\(\s*)["']\.\/([\w\-\.]+\.js)/g;
-
-function getDeps(code) {
+function getImports(code) {
+  const re = /['"]\.\/([\w\-\.\+]+\.js)['"]/g;
   const deps = new Set();
   let m;
-  importRe.lastIndex = 0;
-  while ((m = importRe.exec(code)) !== null) deps.add(m[1]);
+  while ((m = re.exec(code)) !== null) deps.add(m[1]);
   return deps;
 }
 
-const graph = {};
-for (const file of jsFiles) {
-  graph[file] = getDeps(sources[file]);
-}
+// ── 1. Recursively download missing modules ──────────────────────────────────
 
-// ── 3. Topological sort (Kahn's algorithm) ──────────────────────────────────
+async function downloadAll() {
+  const local = new Set(fs.readdirSync(TERMINAL_DIR).filter((f) => f.endsWith(".js")));
+  const queue = [...local]; // start by scanning what we already have
+  const scanned = new Set();
 
-function topoSort(graph) {
-  const inDegree = {};
-  const adj = {};
-  for (const node of Object.keys(graph)) {
-    inDegree[node] = inDegree[node] || 0;
-    adj[node] = adj[node] || [];
-    for (const dep of graph[node]) {
-      if (graph[dep]) {
-        // only local deps
-        adj[dep] = adj[dep] || [];
-        adj[dep].push(node);
-        inDegree[node] = (inDegree[node] || 0) + 1;
+  while (queue.length) {
+    const file = queue.shift();
+    if (scanned.has(file)) continue;
+    scanned.add(file);
+
+    const filePath = path.join(TERMINAL_DIR, file);
+    let code;
+    if (local.has(file)) {
+      code = fs.readFileSync(filePath, "utf8");
+    } else {
+      const url = `${REMOTE_BASE}/${file}`;
+      process.stdout.write(`  downloading ${file} ... `);
+      try {
+        code = await fetch(url);
+        fs.writeFileSync(filePath, code, "utf8");
+        local.add(file);
+        process.stdout.write("ok\n");
+      } catch (e) {
+        process.stdout.write(`FAILED (${e.message})\n`);
+        continue;
       }
     }
-  }
-  const queue = Object.keys(graph).filter((n) => !inDegree[n]);
-  const order = [];
-  while (queue.length) {
-    const node = queue.shift();
-    order.push(node);
-    for (const dependent of adj[node] || []) {
-      inDegree[dependent]--;
-      if (inDegree[dependent] === 0) queue.push(dependent);
+
+    for (const dep of getImports(code)) {
+      if (!scanned.has(dep)) queue.push(dep);
     }
   }
-  // Append any remaining (cycles / not reached)
-  for (const node of Object.keys(graph)) {
-    if (!order.includes(node)) order.push(node);
-  }
-  return order;
+
+  console.log(`\nTotal modules: ${local.size}`);
 }
 
-const order = topoSort(graph);
-console.log("Module order:", order);
+// ── 2. Bundle with esbuild ────────────────────────────────────────────────────
 
-// ── 4. Escape source strings for embedding in JS ────────────────────────────
+function bundle() {
+  const esbuild = path.join(__dirname, "node_modules", ".bin", "esbuild");
+  const entryPath = path.join(TERMINAL_DIR, ENTRY);
+  const bundlePath = path.join(__dirname, "_bundle.js");
 
-function escapeForTemplateLiteral(str) {
-  return str.replace(/\\/g, "\\\\").replace(/`/g, "\\`").replace(/\$\{/g, "\\${");
-}
-
-// ── 5. Patch font base path in CezRPkQL.js ──────────────────────────────────
-
-if (sources["CezRPkQL.js"]) {
-  sources["CezRPkQL.js"] = sources["CezRPkQL.js"].replace(
-    /Rp\s*=\s*["']\/terminal["']\.replace\(.*?\)/,
-    `Rp = "${REMOTE_BASE}"`
+  console.log("\nBundling with esbuild...");
+  execSync(
+    `"${esbuild}" "${entryPath}" --bundle --format=iife --outfile="${bundlePath}" ` +
+      `--log-level=warning --platform=browser ` +
+      `--define:process.env.NODE_ENV=\\"production\\"`,
+    { stdio: "inherit", cwd: TERMINAL_DIR }
   );
+
+  const size = fs.statSync(bundlePath).size;
+  console.log(`Bundle: ${(size / 1024).toFixed(1)} KB`);
+  return bundlePath;
 }
 
-// ── 6. Build embedded module map ─────────────────────────────────────────────
+// ── 3. Assemble HTML ──────────────────────────────────────────────────────────
 
-const moduleEntries = order
-  .map((file) => `  ${JSON.stringify(file)}: \`${escapeForTemplateLiteral(sources[file])}\``)
-  .join(",\n");
+function assemble(bundlePath) {
+  let html = fs.readFileSync(path.join(__dirname, "terminal.html"), "utf8");
 
-// ── 7. Build runtime bootstrap ───────────────────────────────────────────────
+  // Remove original <script type="module"> entry tag
+  html = html.replace(/<script\s+type="module"\s+src="[^"]*">\s*<\/script>/, "");
 
-const REMOTE_ESCAPED = REMOTE_BASE.replace(/'/g, "\\'");
-
-const bootstrap = `
-<script>
-(function() {
-  var REMOTE = '${REMOTE_ESCAPED}';
-  var order = ${JSON.stringify(order)};
-  var rawSources = {
-${moduleEntries}
-  };
-
-  var blobUrls = {};
-
-  // Rewrite ./dep.js → blob URL (if local) or remote URL (if unknown)
-  function rewrite(code) {
-    // static: from "./X.js"  or  from './X.js'
-    code = code.replace(/from\\s+(["'])\\.\\/([\\w\\-\\.]+\\.js)\\1/g, function(_, q, dep) {
-      return 'from "' + (blobUrls[dep] || (REMOTE + '/' + dep)) + '"';
-    });
-    // dynamic: import("./X.js")  or  import('./X.js')
-    code = code.replace(/import\\s*\\(\\s*(["'])\\.\\/([\\w\\-\\.]+\\.js)\\1\\s*\\)/g, function(_, q, dep) {
-      return 'import("' + (blobUrls[dep] || (REMOTE + '/' + dep)) + '")';
-    });
-    // dynamic with .then: import("./X.js").then(...)
-    return code;
-  }
-
-  // Process in topological order so deps are resolved first
-  for (var i = 0; i < order.length; i++) {
-    var name = order[i];
-    var code = rewrite(rawSources[name]);
-    var blob = new Blob([code], { type: 'application/javascript' });
-    blobUrls[name] = URL.createObjectURL(blob);
-  }
-
-  // Dynamically import the entry point
-  var entryBlob = blobUrls['CQSQNu0h.js'];
-  if (!entryBlob) { console.error('Entry point not found'); return; }
-
-  var script = document.createElement('script');
-  script.type = 'module';
-  script.src = entryBlob;
-  document.head.appendChild(script);
-})();
-</script>`;
-
-// ── 8. Read and patch terminal.html ──────────────────────────────────────────
-
-let html = fs.readFileSync(path.join(__dirname, "terminal.html"), "utf8");
-
-// Remove the original <script type="module"> entry point tag
-html = html.replace(/<script\s+type="module"\s+src="[^"]*"><\/script>/, "");
-
-// Inline the CSS (replace <link rel="stylesheet" href="/terminal/...css">)
-html = html.replace(
-  /<link\s+rel="stylesheet"\s+href="\/terminal\/([^"]+\.css)"[^>]*>/,
-  (_, cssFile) => {
-    const cssPath = path.join(TERMINAL_DIR, cssFile);
-    if (fs.existsSync(cssPath)) {
-      const css = fs.readFileSync(cssPath, "utf8");
+  // Inline CSS
+  html = html.replace(
+    /<link\s+rel="stylesheet"\s+href="\/terminal\/(CpQrds23\.css)"[^>]*>/,
+    () => {
+      const css = fs.readFileSync(path.join(TERMINAL_DIR, "CpQrds23.css"), "utf8");
       return `<style>${css}</style>`;
     }
-    return _;
-  }
-);
+  );
 
-// Inject bootstrap before </head>
-html = html.replace("</head>", bootstrap + "\n</head>");
+  // Inline the bundle
+  const bundle = fs.readFileSync(bundlePath, "utf8");
+  html = html.replace("</body>", `<script>${bundle}</script>\n</body>`);
 
-// ── 9. Write output ──────────────────────────────────────────────────────────
+  fs.writeFileSync(OUT_FILE, html, "utf8");
+  const size = fs.statSync(OUT_FILE).size;
+  console.log(`\nBuilt: ${OUT_FILE} (${(size / 1024 / 1024).toFixed(2)} MB)`);
 
-fs.writeFileSync(OUT_FILE, html, "utf8");
-const size = fs.statSync(OUT_FILE).size;
-console.log(`\nBuilt: ${OUT_FILE} (${(size / 1024).toFixed(1)} KB)`);
+  // Clean up temp bundle
+  fs.unlinkSync(bundlePath);
+}
+
+// ── main ──────────────────────────────────────────────────────────────────────
+
+(async () => {
+  console.log("=== Step 1: downloading missing modules ===");
+  await downloadAll();
+
+  console.log("\n=== Step 2: bundling ===");
+  const bundlePath = bundle();
+
+  console.log("\n=== Step 3: assembling HTML ===");
+  assemble(bundlePath);
+})().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
