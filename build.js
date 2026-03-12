@@ -91,7 +91,26 @@ async function downloadAll() {
   console.log(`\nTotal modules: ${local.size}`);
 }
 
-// ── 2. Bundle with esbuild ────────────────────────────────────────────────────
+// ── 2. Patch source files before bundling ─────────────────────────────────────
+
+function patchSources() {
+  // Rewrite font/asset base path from "/terminal" to the remote CDN so that
+  // file:// can fetch fonts from https://mt5-6.xm-bz.com instead of file:///terminal/...
+  const fontFile = path.join(TERMINAL_DIR, "CezRPkQL.js");
+  let src = fs.readFileSync(fontFile, "utf8");
+  const patched = src.replace(
+    /Rp\s*=\s*["']\/terminal["']\.replace\([^)]*\)/,
+    `Rp = "${REMOTE_BASE}"`
+  );
+  if (patched === src) {
+    console.warn("  WARNING: font path pattern not found in CezRPkQL.js — fonts may fail to load");
+  } else {
+    fs.writeFileSync(fontFile, patched, "utf8");
+    console.log("  Patched font base path in CezRPkQL.js");
+  }
+}
+
+// ── 3. Bundle with esbuild ────────────────────────────────────────────────────
 
 function bundle() {
   const esbuild = path.join(__dirname, "node_modules", ".bin", "esbuild");
@@ -163,10 +182,13 @@ if (location.protocol === "file:") {
   console.log("=== Step 1: downloading missing modules ===");
   await downloadAll();
 
-  console.log("\n=== Step 2: bundling ===");
+  console.log("\n=== Step 2: patching sources ===");
+  patchSources();
+
+  console.log("\n=== Step 3: bundling ===");
   const bundlePath = bundle();
 
-  console.log("\n=== Step 3: assembling HTML ===");
+  console.log("\n=== Step 4: assembling HTML ===");
   assemble(bundlePath);
 })().catch((e) => {
   console.error(e);
