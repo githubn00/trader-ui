@@ -93,38 +93,48 @@ async function downloadAll() {
 
 // ── 2. Patch source files before bundling ─────────────────────────────────────
 
-function makeFontDataUri(fntName, pngName) {
+// Font data embedded as a virtual "fonts://" URL scheme:
+//   fonts://axis.fnt          → .fnt XML text (extname=".fnt" → passes PIXI parser test)
+//   fonts://axis.fnt/axis_0.png → PNG data URI (PIXI constructs this via dirname+join)
+// fetch() polyfill serves .fnt XML; Image.src setter polyfill serves PNG data URIs.
+
+function buildFontRegistry() {
   const fontDir = path.join(TERMINAL_DIR, "font");
-  // Base64-encode the PNG texture
-  const pngData = fs.readFileSync(path.join(fontDir, pngName));
-  const pngUri = `data:image/png;base64,${pngData.toString("base64")}`;
-  // Patch the .fnt XML: replace file="xxx_0.png" with the data URI
-  let fnt = fs.readFileSync(path.join(fontDir, fntName), "utf8");
-  fnt = fnt.replace(/file="[^"]+\.png"/, `file="${pngUri}"`);
-  // Encode the patched .fnt as a data URI
-  return `data:text/xml;base64,${Buffer.from(fnt).toString("base64")}`;
+  const reg = {}; // url → content (string for xml, data-uri string for png)
+
+  const variants = [
+    { fnt: "axis.fnt",     png: "axis_0.png" },
+    { fnt: "axis2x.fnt",   png: "axis2x_0.png" },
+    { fnt: "axisb.fnt",    png: "axisb_0.png" },
+    { fnt: "axisb2x.fnt",  png: "axisb2x_0.png" },
+    { fnt: "values.fnt",   png: "values_0.png" },
+    { fnt: "values2x.fnt", png: "values2x_0.png" },
+  ];
+
+  for (const { fnt, png } of variants) {
+    const fntUrl = `fonts://${fnt}`;
+    const pngUrl = `fonts://${fnt}/${png}`; // PIXI computes: join(dirname(fntUrl), png)
+
+    // .fnt XML as raw text (keep original file="axis_0.png" — PIXI resolves it)
+    reg[fntUrl] = fs.readFileSync(path.join(fontDir, fnt), "utf8");
+
+    // PNG as base64 data URI
+    const pngData = fs.readFileSync(path.join(fontDir, png));
+    reg[pngUrl] = `data:image/png;base64,${pngData.toString("base64")}`;
+  }
+  return reg;
 }
 
 function patchSources() {
   const fontFile = path.join(TERMINAL_DIR, "CezRPkQL.js");
   let src = fs.readFileSync(fontFile, "utf8");
 
-  // Build data URIs for all 6 font variants (1x and 2x each)
-  const fonts = {
-    axis:    { "1x": makeFontDataUri("axis.fnt",    "axis_0.png"),
-                "2x": makeFontDataUri("axis2x.fnt",  "axis2x_0.png") },
-    axisb:   { "1x": makeFontDataUri("axisb.fnt",   "axisb_0.png"),
-                "2x": makeFontDataUri("axisb2x.fnt", "axisb2x_0.png") },
-    values:  { "1x": makeFontDataUri("values.fnt",  "values_0.png"),
-                "2x": makeFontDataUri("values2x.fnt","values2x_0.png") },
-  };
-
-  // Replace the Fp object — keep the Wp HiDPI ternary but use data URIs.
+  // Replace the Fp object with fonts:// virtual URLs (preserve the Wp HiDPI ternary).
   // Include the trailing comma since Fp is part of a multi-variable const chain.
   const fp = `Fp = {
-    axis:   Wp ? "${fonts.axis["2x"]}"   : "${fonts.axis["1x"]}",
-    axisb:  Wp ? "${fonts.axisb["2x"]}"  : "${fonts.axisb["1x"]}",
-    values: Wp ? "${fonts.values["2x"]}" : "${fonts.values["1x"]}",
+    axis:   Wp ? "fonts://axis2x.fnt"   : "fonts://axis.fnt",
+    axisb:  Wp ? "fonts://axisb2x.fnt"  : "fonts://axisb.fnt",
+    values: Wp ? "fonts://values2x.fnt" : "fonts://values.fnt",
   },`;
 
   const patched = src.replace(
@@ -136,7 +146,7 @@ function patchSources() {
     console.warn("  WARNING: Fp pattern not found in CezRPkQL.js — fonts may not load");
   } else {
     fs.writeFileSync(fontFile, patched, "utf8");
-    console.log("  Inlined all font assets as data URIs");
+    console.log("  Patched Fp with fonts:// virtual URLs");
   }
 }
 
@@ -184,32 +194,49 @@ function assemble(bundlePath) {
     "location.host && url.includes(location.host)"
   );
 
-  // Polyfill fetch() for data: URIs — Chrome blocks fetch("data:...") from file://
-  // origin. Intercept those calls and decode them synchronously via atob().
-  const dataFetchPatch = `<script>
+  // Build font registry: fonts:// virtual URLs → raw XML text or PNG data URIs.
+  // fetch() polyfill serves the .fnt XML; Image src setter polyfill serves PNG data URIs.
+  // This bypasses Chrome's block on fetch("data:...") from file:// origin AND the PIXI
+  // parser's extname() test which rejects data: URIs (extname = "").
+  const fontReg = buildFontRegistry();
+  const fontRegJson = JSON.stringify(fontReg);
+
+  const fontPatch = `<script>
 (function() {
+  var FONTS = ${fontRegJson};
+
+  // Polyfill fetch() for fonts:// virtual URLs — PIXI uses fetch to load .fnt XML
   var _fetch = window.fetch;
   window.fetch = function(url, opts) {
-    if (typeof url === "string" && url.startsWith("data:")) {
-      try {
-        var comma = url.indexOf(",");
-        var meta  = url.slice(5, comma);          // e.g. "text/xml;base64"
-        var body  = url.slice(comma + 1);
-        var mime  = meta.replace(";base64", "").split(";")[0] || "text/plain";
-        var isB64 = meta.includes("base64");
-        var bytes = isB64 ? atob(body) : decodeURIComponent(body);
-        var buf   = new Uint8Array(bytes.length);
-        for (var i = 0; i < bytes.length; i++) buf[i] = bytes.charCodeAt(i);
-        var blob  = new Blob([buf], { type: mime });
-        var res   = new Response(blob, { status: 200, headers: { "Content-Type": mime } });
-        return Promise.resolve(res);
-      } catch(e) { return Promise.reject(e); }
+    if (typeof url === "string" && url.startsWith("fonts://")) {
+      var key = url.split("?")[0].split("#")[0];
+      var val = FONTS[key];
+      if (val) {
+        var blob = new Blob([val], { type: "text/xml" });
+        return Promise.resolve(new Response(blob, { status: 200, headers: { "Content-Type": "text/xml" } }));
+      }
     }
     return _fetch.apply(this, arguments);
   };
+
+  // Intercept Image.src for fonts:// PNG URLs — PIXI uses new Image() to load textures.
+  // PIXI constructs the PNG URL as: join(dirname("fonts://axis.fnt"), "axis_0.png")
+  // = "fonts://axis.fnt/axis_0.png". Map that to the actual PNG data URI.
+  var imgDesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "src");
+  Object.defineProperty(HTMLImageElement.prototype, "src", {
+    configurable: true,
+    get: imgDesc.get,
+    set: function(val) {
+      if (typeof val === "string" && val.startsWith("fonts://")) {
+        var key = val.split("?")[0].split("#")[0];
+        val = FONTS[key] || val;
+      }
+      imgDesc.set.call(this, val);
+    }
+  });
 })();
 </script>`;
-  html = html.replace("</head>", dataFetchPatch + "\n</head>");
+  html = html.replace("</head>", fontPatch + "\n</head>");
 
   // Disable history.replaceState/pushState for file:// — the terminal calls
   // replaceState("/terminal") which resolves to file:///C:/terminal and throws
