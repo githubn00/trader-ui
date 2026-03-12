@@ -93,20 +93,50 @@ async function downloadAll() {
 
 // ── 2. Patch source files before bundling ─────────────────────────────────────
 
+function makeFontDataUri(fntName, pngName) {
+  const fontDir = path.join(TERMINAL_DIR, "font");
+  // Base64-encode the PNG texture
+  const pngData = fs.readFileSync(path.join(fontDir, pngName));
+  const pngUri = `data:image/png;base64,${pngData.toString("base64")}`;
+  // Patch the .fnt XML: replace file="xxx_0.png" with the data URI
+  let fnt = fs.readFileSync(path.join(fontDir, fntName), "utf8");
+  fnt = fnt.replace(/file="[^"]+\.png"/, `file="${pngUri}"`);
+  // Encode the patched .fnt as a data URI
+  return `data:text/xml;base64,${Buffer.from(fnt).toString("base64")}`;
+}
+
 function patchSources() {
-  // Rewrite font/asset base path from "/terminal" to the remote CDN so that
-  // file:// can fetch fonts from https://mt5-6.xm-bz.com instead of file:///terminal/...
   const fontFile = path.join(TERMINAL_DIR, "CezRPkQL.js");
   let src = fs.readFileSync(fontFile, "utf8");
+
+  // Build data URIs for all 6 font variants (1x and 2x each)
+  const fonts = {
+    axis:    { "1x": makeFontDataUri("axis.fnt",    "axis_0.png"),
+                "2x": makeFontDataUri("axis2x.fnt",  "axis2x_0.png") },
+    axisb:   { "1x": makeFontDataUri("axisb.fnt",   "axisb_0.png"),
+                "2x": makeFontDataUri("axisb2x.fnt", "axisb2x_0.png") },
+    values:  { "1x": makeFontDataUri("values.fnt",  "values_0.png"),
+                "2x": makeFontDataUri("values2x.fnt","values2x_0.png") },
+  };
+
+  // Replace the Fp object — keep the Wp HiDPI ternary but use data URIs.
+  // Include the trailing comma since Fp is part of a multi-variable const chain.
+  const fp = `Fp = {
+    axis:   Wp ? "${fonts.axis["2x"]}"   : "${fonts.axis["1x"]}",
+    axisb:  Wp ? "${fonts.axisb["2x"]}"  : "${fonts.axisb["1x"]}",
+    values: Wp ? "${fonts.values["2x"]}" : "${fonts.values["1x"]}",
+  },`;
+
   const patched = src.replace(
-    /Rp\s*=\s*["']\/terminal["']\.replace\([^)]*\)/,
-    `Rp = "${REMOTE_BASE}"`
+    /Fp\s*=\s*\{[\s\S]*?axis[\s\S]*?axisb[\s\S]*?values[\s\S]*?\},/,
+    fp
   );
+
   if (patched === src) {
-    console.warn("  WARNING: font path pattern not found in CezRPkQL.js — fonts may fail to load");
+    console.warn("  WARNING: Fp pattern not found in CezRPkQL.js — fonts may not load");
   } else {
     fs.writeFileSync(fontFile, patched, "utf8");
-    console.log("  Patched font base path in CezRPkQL.js");
+    console.log("  Inlined all font assets as data URIs");
   }
 }
 
