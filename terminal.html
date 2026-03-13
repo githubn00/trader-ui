@@ -154,7 +154,9 @@
         var _WS = window.WebSocket;
         function ShimWS(url, protocols) {
           if (typeof url === "string" && (url.includes("localhost") || url.includes("127.0.0.1") || url.includes(location.host))) {
+            var before = url;
             url = url.replace(/^wss?:\/\/[^\/]+/, "wss://" + window.__mt5_host);
+            console.log("[WS]", before, "→", url, "(__mt5_host=" + window.__mt5_host + ")");
           }
           return protocols ? new _WS(url, protocols) : new _WS(url);
         }
