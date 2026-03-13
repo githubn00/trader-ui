@@ -55,6 +55,8 @@ function h(s) {
       return "Force Index";
     case "macd":
       return "MACD";
+    case "macd_":
+      return "MACD_";
     case "mao":
       return "Moving Average of Oscillator";
     case "momentum":
@@ -384,6 +386,24 @@ const K = class s extends f {
 };
 ((K.category = 2), (K.type = "macd"), (K.flags = 4), (K.digits = 6));
 let U = K;
+const K_ = class s extends f {
+  constructor(e) {
+    super(
+      e,
+      { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0 },
+      {
+        line: { visible: !0, color: 16711790, thickness: 1 },
+        signal: { visible: !0, color: 38143, thickness: 1 },
+      },
+      s.type,
+      s.category,
+      s.digits,
+      s.flags,
+    );
+  }
+};
+((K_.category = 2), (K_.type = "macd_"), (K_.flags = 4), (K_.digits = 6));
+let U_ = K_;
 const q = class s extends f {
   constructor(e) {
     super(
@@ -733,6 +753,7 @@ export {
   E as k,
   V as l,
   U as m,
+  U_ as G,
   z as n,
   H as o,
   Q as p,

@@ -168,6 +168,7 @@ import {
   e as Bs,
   x as Ns,
   m as Xs,
+  G as Xs2,
   n as Us,
   y as Ks,
   D as qs,
@@ -299,6 +300,11 @@ class he extends Fs {
         (([h, r] = this.getOptions(o.AnalysisMACDSettings.flags)),
           (l = new o.AnalysisMACDSettings({ ...i, index: r })),
           (n = new o.AnalysisMACD(h, 5e3, l)));
+        break;
+      case "macd_":
+        (([h, r] = this.getOptions(o.AnalysisMACD_Settings.flags)),
+          (l = new o.AnalysisMACD_Settings({ ...i, index: r })),
+          (n = new o.AnalysisMACD_(h, 5e3, l)));
         break;
       case "mao":
         (([h, r] = this.getOptions(o.AnalysisMAOSettings.flags)),
@@ -3725,6 +3731,8 @@ const rn = Object.freeze(
       AnalysisMABase: Aa,
       AnalysisMACD: Wi,
       AnalysisMACDSettings: Xs,
+      AnalysisMACD_: Wi,
+      AnalysisMACD_Settings: Xs2,
       AnalysisMAO: Di,
       AnalysisMAOSettings: Us,
       AnalysisMASettings: Ks,
@@ -3801,6 +3809,8 @@ export {
   Aa as AnalysisMABase,
   Wi as AnalysisMACD,
   Xs as AnalysisMACDSettings,
+  Wi as AnalysisMACD_,
+  Xs2 as AnalysisMACD_Settings,
   Di as AnalysisMAO,
   Us as AnalysisMAOSettings,
   Ks as AnalysisMASettings,
