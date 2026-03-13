@@ -16592,9 +16592,7 @@ import "./CHj1SSsY.js";
       },
       config: hm,
       login: async function (t, e, i, s, r, a, o, n, c) {
-        console.log("[LOGIN] params: t=", typeof t, "e=", e, "i=", i, "s=", typeof s);
         window.__resolveHost && (window.__mt5_host = window.__resolveHost(i));
-        console.log("[LOGIN] resolved __mt5_host=", window.__mt5_host, "from server=", i);
         return (
           await Nc(),
           async function () {
