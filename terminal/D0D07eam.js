@@ -650,7 +650,7 @@ class us extends Se {
     }
   }),
   (m = function (t = null, i, e) {
-    if (!t) return;
+    if (!t || !t.children || t.children.length === 0) return;
     const s = t.getChildAt(0);
     if (
       s &&
