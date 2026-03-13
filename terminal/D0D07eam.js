@@ -549,12 +549,13 @@ class us extends Se {
           (pe(this, g).visible = t.close > t.open),
           (pe(this, p).visible = !pe(this, g).visible),
           this._cdEl && this.chart.showBarCountdown && this._cdEl.children && this._cdEl.children.length > 0 && (() => {
-            const rem = (t.time + this.chart.bars.period * 60) * 1000 - Date.now();
-            const tot = Math.max(0, Math.floor(rem / 1000));
+            const barEndSec = t.time + this.chart.bars.period * 60;
+            const nowSec = Math.floor(Date.now() / 1000);
+            const tot = Math.max(0, barEndSec - nowSec);
             const hh = Math.floor(tot / 3600), mm = Math.floor((tot % 3600) / 60), ss = tot % 60;
             const mmS = String(mm).padStart(2, "0"), ssS = String(ss).padStart(2, "0");
             const cdChild = this._cdEl.getChildAt(0);
-            if (cdChild) cdChild.text = hh > 0 ? `${hh}:${mmS}:${ssS}` : `${mmS}:${ssS}`;
+            if (cdChild) cdChild.text = tot > 0 ? (hh > 0 ? `${hh}:${mmS}:${ssS}` : `${mmS}:${ssS}`) : "00:00";
             this._cdEl.y = e + 18;
           })())),
       this
