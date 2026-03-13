@@ -5463,6 +5463,7 @@ class ah {
         er(100, () => {
           const { uiSettingsStore: t } = Gi(this, Qs);
           (this.chart.setShowAskPrice(t.askPrice),
+            this.chart.setShowBarCountdown(t.barCountdown),
             this.chart.setShowGrid(t.grid),
             this.chart.setShowCrosshair(t.crosshair),
             this.chart.setMode(t.chartMode),

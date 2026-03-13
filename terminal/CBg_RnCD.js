@@ -1031,6 +1031,7 @@ const e = Object.freeze(
               ohlc: "Show OHLC",
               title: "Chart settings",
               askPrice: "Ask Price",
+              barCountdown: "Bar Countdown",
               crosshair: "Crosshair cursor",
             },
             connect: "Connect to account",

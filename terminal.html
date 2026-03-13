@@ -142,6 +142,17 @@
         window.WebSocket = ShimWS;
         window.__mt5_host = MT5_HOST;
       })();
+
+      // Fetch shim: redirect fonts:// URLs to /terminal/font/
+      (function () {
+        var _fetch = window.fetch;
+        window.fetch = function(input, init) {
+          if (typeof input === "string" && input.startsWith("fonts://")) {
+            input = "/terminal/font/" + input.substring(8);
+          }
+          return _fetch.call(window, input, init);
+        };
+      })();
     </script>
     <script type="module" src="/terminal/CQSQNu0h.js"></script>
     <link rel="stylesheet" href="/terminal/CpQrds23.css" />

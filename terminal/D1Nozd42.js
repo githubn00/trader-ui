@@ -2096,7 +2096,7 @@ function ze(t) {
   };
 }
 function Oe(t) {
-  let e, n, o, r, l, c, i, s, a, d, u, g, h, p, v, C, k, x, M, S, L, Z, b;
+  let e, n, o, r, l, c, i, s, a, d, u, g, h, p, v, C, k, x, M, S, L, Z, b, Y, W;
   function T(e) {
     t[42](e);
   }
@@ -2207,6 +2207,17 @@ function Oe(t) {
       },
     })),
     Z.$on("change", t[47]),
+    (Y = new B({
+      props: {
+        icon: wt,
+        toggle: !0,
+        checked: t[21].barCountdown,
+        title: window.tr(window.lang.ui.menu.chartSettings.barCountdown),
+        $$slots: { default: [barCdLabel] },
+        $$scope: { ctx: t },
+      },
+    })),
+    Y.$on("change", t[51]),
     {
       c() {
         (y(e.$$.fragment),
@@ -2225,7 +2236,9 @@ function Oe(t) {
           (x = _()),
           y(M.$$.fragment),
           (L = _()),
-          y(Z.$$.fragment));
+          y(Z.$$.fragment),
+          (W = _()),
+          y(Y.$$.fragment));
       },
       m(t, s) {
         (V(e, t, s),
@@ -2245,6 +2258,8 @@ function Oe(t) {
           V(M, t, s),
           m(t, L, s),
           V(Z, t, s),
+          m(t, W, s),
+          V(Y, t, s),
           (b = !0));
       },
       p(t, n) {
@@ -2294,6 +2309,10 @@ function Oe(t) {
         (2097152 & n[0] && (v.checked = t[21].ohlc),
           8 & n[2] && (v.$$scope = { dirty: n, ctx: t }),
           Z.$set(v));
+        const Yp = {};
+        (2097152 & n[0] && (Yp.checked = t[21].barCountdown),
+          8 & n[2] && (Yp.$$scope = { dirty: n, ctx: t }),
+          Y.$set(Yp));
       },
       i(t) {
         b ||
@@ -2306,6 +2325,7 @@ function Oe(t) {
           f(C.$$.fragment, t),
           f(M.$$.fragment, t),
           f(Z.$$.fragment, t),
+          f(Y.$$.fragment, t),
           (b = !0));
       },
       o(t) {
@@ -2318,10 +2338,11 @@ function Oe(t) {
           w(C.$$.fragment, t),
           w(M.$$.fragment, t),
           w(Z.$$.fragment, t),
+          w(Y.$$.fragment, t),
           (b = !1));
       },
       d(t) {
-        (t && ($(n), $(r), $(c), $(a), $(g), $(v), $(x), $(L)),
+        (t && ($(n), $(r), $(c), $(a), $(g), $(v), $(x), $(L), $(W)),
           H(e, t),
           H(o, t),
           H(l, t),
@@ -2330,7 +2351,8 @@ function Oe(t) {
           H(h, t),
           H(C, t),
           H(M, t),
-          H(Z, t));
+          H(Z, t),
+          H(Y, t));
       },
     }
   );
@@ -2466,6 +2488,22 @@ function Ie(t) {
 function Re(t) {
   let e,
     n = window.tr(window.lang.ui.menu.chartSettings.ohlc) + "";
+  return {
+    c() {
+      e = M(n);
+    },
+    m(t, n) {
+      m(t, e, n);
+    },
+    p: u,
+    d(t) {
+      t && $(e);
+    },
+  };
+}
+function barCdLabel(t) {
+  let e,
+    n = window.tr(window.lang.ui.menu.chartSettings.barCountdown) + "";
   return {
     c() {
       e = M(n);
@@ -3948,6 +3986,9 @@ function Tn(e, n, r) {
       () => c.setLayout({ colors: !c.colors }),
       (t) => I.setTheme(t.id),
       () => P.setLayout({ hotkeys: !0 }),
+      () => {
+        O(E, (d.barCountdown = !d.barCountdown), d);
+      },
     ]
   );
 }

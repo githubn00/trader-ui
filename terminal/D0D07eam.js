@@ -529,6 +529,7 @@ class us extends Se {
       ue(this, p),
       ue(this, u),
       (this.section = t.section),
+      (this._cdEl = null),
       (this.container.interactiveChildren = !1));
   }
   tick(t) {
@@ -546,7 +547,16 @@ class us extends Se {
           ((pe(this, g).y = e),
           (pe(this, p).y = e),
           (pe(this, g).visible = t.close > t.open),
-          (pe(this, p).visible = !pe(this, g).visible))),
+          (pe(this, p).visible = !pe(this, g).visible),
+          this._cdEl && this.chart.showBarCountdown && (() => {
+            const rem = t.time + this.chart.bars.period * 60000 - Date.now();
+            const tot = Math.max(0, Math.floor(rem / 1000));
+            const hh = Math.floor(tot / 3600), mm = Math.floor((tot % 3600) / 60), ss = tot % 60;
+            const mmS = String(mm).padStart(2, "0"), ssS = String(ss).padStart(2, "0");
+            const cdChild = this._cdEl.getChildAt(0);
+            if (cdChild) cdChild.text = hh > 0 ? `${hh}:${mmS}:${ssS}` : `${mmS}:${ssS}`;
+            this._cdEl.y = e + 18;
+          })())),
       this
     );
   }
@@ -617,6 +627,26 @@ class us extends Se {
       s.addChild(pe(this, g), pe(this, p)),
       (pe(this, p).y = r),
       (pe(this, g).y = pe(this, p).y));
+    if (this.chart.showBarCountdown) {
+      const cdState = this.chart.state;
+      const cdColors = this.chart.colors.chart.priceLines;
+      const cdColor = h.close > h.open ? cdColors.bidUp : cdColors.bidDown;
+      const cdTextColor = cdColors.bidText;
+      const cdO = cdState.yAxisIsLeft ? cdState.yAxisWidth - 2 : cdState.yAxisWidth - 1;
+      const cdL = cdState.yAxisIsLeft ? cdState.yAxisWidth - cdO + 1 : cdState.graphX + cdState.graphWidth + 1;
+      const cdG = this._createGraphics("countdown");
+      const cdTxt = this.createText("", "countdown");
+      cdTextColor && (cdTxt.tint = cdTextColor);
+      cdTxt.y = -8;
+      cdTxt.x = cdL + 5;
+      cdG.beginFill(cdColor);
+      cdG.drawRect(cdL, -9, cdO, 18);
+      cdG.endFill();
+      cdG.addChild(cdTxt);
+      cdG.y = r + 18;
+      s.addChild(cdG);
+      this._cdEl = cdG;
+    }
   }),
   (m = function (t = null, i, e) {
     if (!t) return;
@@ -2862,6 +2892,7 @@ class Bs extends Xe {
       (this.redraw = this.redraw.bind(this)),
       (this.move = this.move.bind(this)),
       (this.showAskPrice = t),
+      (this.showBarCountdown = !1),
       (this.showGrid = i),
       (this.showCrosshair = e),
       (this.showRulerCrosshair = !1),
@@ -3022,6 +3053,15 @@ class Bs extends Xe {
       ((this.showAskPrice = t),
       this.refresh(),
       this.trigger("111", this.showAskPrice),
+      this.trigger("124"),
+      !0)
+    );
+  }
+  setShowBarCountdown(t) {
+    return (
+      this.showBarCountdown !== t &&
+      ((this.showBarCountdown = t),
+      this.refresh(),
       this.trigger("124"),
       !0)
     );

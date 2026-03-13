@@ -1885,6 +1885,7 @@ class Vo extends Dt {
       (this.crosshair = !1),
       (this.popupSizes = {}),
       (this.askPrice = !1),
+      (this.barCountdown = !1),
       (this.chartMode = 0),
       (this.showCalendar = !1),
       (this.marketWatchTableView = !1));
@@ -1910,6 +1911,7 @@ class Vo extends Dt {
       "boolean" == typeof e.quickTradePosition &&
         (this.quickTradePosition = e.quickTradePosition),
       "boolean" == typeof e.askPrice && (this.askPrice = e.askPrice),
+      "boolean" == typeof e.barCountdown && (this.barCountdown = e.barCountdown),
       this.timezone !== e.timezone &&
         "string" == typeof e.timezone &&
         (this.timezone = e.timezone),
@@ -2130,6 +2132,7 @@ class Ho {
           quickTrade: e.quickTrade,
           quickTradePosition: e.quickTradePosition,
           askPrice: e.askPrice,
+          barCountdown: e.barCountdown,
           watchlistColumnsWidth: e.watchlistColumnsWidth,
           watchlistColumnsVisible: e.watchlistColumnsVisible,
           watchlistSortBy: e.watchlistSortBy,
