@@ -539,7 +539,7 @@ class us extends Se {
       ? fe(this, w, m).call(this, pe(this, g), t.close, i)
       : fe(this, w, m).call(this, pe(this, p), t.close, i);
     const e = this.valueToY(t.close);
-    if (!window.__cdTicks) window.__cdTicks = 0; window.__cdTicks++; if (window.__cdTicks % 60 === 0) console.log("TICK: _cdEl=" + !!this._cdEl + " showBarCountdown=" + this.chart.showBarCountdown + " hasChildren=" + (this._cdEl?.children?.length > 0));
+    console.log("TICK t.time=" + t.time);
     return (
       e < this.section.y ||
         e >= this.section.y + this.section.height - 1 ||
