@@ -539,7 +539,6 @@ class us extends Se {
       ? fe(this, w, m).call(this, pe(this, g), t.close, i)
       : fe(this, w, m).call(this, pe(this, p), t.close, i);
     const e = this.valueToY(t.close);
-    console.log("TICK t.time=" + t.time);
     return (
       e < this.section.y ||
         e >= this.section.y + this.section.height - 1 ||
@@ -553,7 +552,6 @@ class us extends Se {
             const nowSec = Math.floor(Date.now() / 1000);
             const periodSec = this.chart.bars.period * 60;
             const tot = periodSec - (nowSec % periodSec);
-            console.log("CD: now=" + nowSec + " period=" + this.chart.bars.period + " periodSec=" + periodSec + " tot=" + tot);
             const hh = Math.floor(tot / 3600), mm = Math.floor((tot % 3600) / 60), ss = tot % 60;
             const mmS = String(mm).padStart(2, "0"), ssS = String(ss).padStart(2, "0");
             const cdChild = this._cdEl.getChildAt(0);
