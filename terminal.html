@@ -127,10 +127,15 @@
       // WebSocket shim: redirect wss://localhost/terminal to actual MT5 server
       (function () {
         var MT5_HOST = "mt5-6.xm-bz.com";
+        window.__mt5_host = MT5_HOST;
+        console.log("[Shim] window.__mt5_host set to:", window.__mt5_host);
         var _WS = window.WebSocket;
         function ShimWS(url, protocols) {
-          if (typeof url === "string" && url.includes(location.host)) {
-            url = url.replace(location.host, MT5_HOST);
+          console.log("[WS] new WebSocket:", url);
+          if (typeof url === "string" && (url.includes("localhost") || url.includes("127.0.0.1") || url.includes(location.host))) {
+            var newUrl = url.replace(/^wss?:\/\/[^\/]+/, "wss://" + MT5_HOST);
+            console.log("[WS] Redirected to:", newUrl);
+            url = newUrl;
           }
           return protocols ? new _WS(url, protocols) : new _WS(url);
         }
@@ -140,7 +145,6 @@
         ShimWS.CLOSING = _WS.CLOSING;
         ShimWS.CLOSED = _WS.CLOSED;
         window.WebSocket = ShimWS;
-        window.__mt5_host = MT5_HOST;
       })();
     </script>
     <script type="module" src="/terminal/CQSQNu0h.js"></script>
