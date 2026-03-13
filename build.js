@@ -126,6 +126,7 @@ function buildFontRegistry() {
 }
 
 function patchSources() {
+  // ── Patch CezRPkQL.js: replace font URLs with fonts:// virtual scheme ────
   const fontFile = path.join(TERMINAL_DIR, "CezRPkQL.js");
   let src = fs.readFileSync(fontFile, "utf8");
 
@@ -137,16 +138,39 @@ function patchSources() {
     values: Wp ? "fonts://values2x.fnt" : "fonts://values.fnt",
   },`;
 
-  const patched = src.replace(
-    /Fp\s*=\s*\{[\s\S]*?axis[\s\S]*?axisb[\s\S]*?values[\s\S]*?\},/,
-    fp
+  if (src.includes("fonts://axis.fnt")) {
+    console.log("  Fp already has fonts:// virtual URLs — skipping");
+  } else {
+    const patched = src.replace(
+      /Fp\s*=\s*\{[\s\S]*?axis[\s\S]*?axisb[\s\S]*?values[\s\S]*?\},/,
+      fp
+    );
+    if (patched === src) {
+      console.warn("  WARNING: Fp pattern not found in CezRPkQL.js — fonts may not load");
+    } else {
+      fs.writeFileSync(fontFile, patched, "utf8");
+      console.log("  Patched Fp with fonts:// virtual URLs");
+    }
+  }
+
+  // ── Patch CRNNNCwz.js: disable worker/createImageBitmap for texture loading ─
+  // PIXI's loadTextures uses a Web Worker (Xr) by default to fetch PNGs via
+  // createImageBitmap. Workers use native fetch — bypassing our fonts:// polyfill.
+  // Disabling preferWorkers + preferCreateImageBitmap forces the new Image() path
+  // which IS intercepted by our HTMLImageElement.prototype.src setter polyfill.
+  const pixiFile = path.join(TERMINAL_DIR, "CRNNNCwz.js");
+  let pixiSrc = fs.readFileSync(pixiFile, "utf8");
+
+  const pixiPatched = pixiSrc.replace(
+    /preferWorkers:\s*!0,\s*preferCreateImageBitmap:\s*!0,/,
+    "preferWorkers: !1, preferCreateImageBitmap: !1,"
   );
 
-  if (patched === src) {
-    console.warn("  WARNING: Fp pattern not found in CezRPkQL.js — fonts may not load");
+  if (pixiPatched === pixiSrc) {
+    console.warn("  WARNING: preferWorkers pattern not found in CRNNNCwz.js — font textures may fail");
   } else {
-    fs.writeFileSync(fontFile, patched, "utf8");
-    console.log("  Patched Fp with fonts:// virtual URLs");
+    fs.writeFileSync(pixiFile, pixiPatched, "utf8");
+    console.log("  Patched loadTextures: disabled worker/createImageBitmap (forces new Image() path)");
   }
 }
 
