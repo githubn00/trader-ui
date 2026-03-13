@@ -94,8 +94,9 @@ async function downloadAll() {
 // ── 2. Patch source files before bundling ─────────────────────────────────────
 
 // Font data embedded as a virtual "fonts://" URL scheme:
-//   fonts://axis.fnt          → .fnt XML text (extname=".fnt" → passes PIXI parser test)
-//   fonts://axis.fnt/axis_0.png → PNG data URI (PIXI constructs this via dirname+join)
+//   fonts://axis.fnt   → .fnt XML text (extname=".fnt" → passes PIXI parser test)
+//   fonts://axis_0.png → PNG data URI (PIXI computes: join(dirname("fonts://axis.fnt"), "axis_0.png")
+//                        = join("fonts://", "axis_0.png") = "fonts://axis_0.png")
 // fetch() polyfill serves .fnt XML; Image.src setter polyfill serves PNG data URIs.
 
 function buildFontRegistry() {
@@ -113,7 +114,10 @@ function buildFontRegistry() {
 
   for (const { fnt, png } of variants) {
     const fntUrl = `fonts://${fnt}`;
-    const pngUrl = `fonts://${fnt}/${png}`; // PIXI computes: join(dirname(fntUrl), png)
+    // PIXI computes: R.join(R.dirname("fonts://axis.fnt"), "axis_0.png")
+    //   R.dirname("fonts://axis.fnt") = "fonts://" (protocol only, no path segment)
+    //   R.join("fonts://", "axis_0.png") normalizes to "fonts://axis_0.png"
+    const pngUrl = `fonts://${png}`;
 
     // .fnt XML as raw text (keep original file="axis_0.png" — PIXI resolves it)
     reg[fntUrl] = fs.readFileSync(path.join(fontDir, fnt), "utf8");
@@ -161,16 +165,19 @@ function patchSources() {
   const pixiFile = path.join(TERMINAL_DIR, "CRNNNCwz.js");
   let pixiSrc = fs.readFileSync(pixiFile, "utf8");
 
-  const pixiPatched = pixiSrc.replace(
-    /preferWorkers:\s*!0,\s*preferCreateImageBitmap:\s*!0,/,
-    "preferWorkers: !1, preferCreateImageBitmap: !1,"
-  );
-
-  if (pixiPatched === pixiSrc) {
-    console.warn("  WARNING: preferWorkers pattern not found in CRNNNCwz.js — font textures may fail");
+  if (pixiSrc.includes("preferWorkers: !1")) {
+    console.log("  loadTextures already has preferWorkers: !1 — skipping");
   } else {
-    fs.writeFileSync(pixiFile, pixiPatched, "utf8");
-    console.log("  Patched loadTextures: disabled worker/createImageBitmap (forces new Image() path)");
+    const pixiPatched = pixiSrc.replace(
+      /preferWorkers:\s*!0,\s*preferCreateImageBitmap:\s*!0,/,
+      "preferWorkers: !1, preferCreateImageBitmap: !1,"
+    );
+    if (pixiPatched === pixiSrc) {
+      console.warn("  WARNING: preferWorkers pattern not found in CRNNNCwz.js — font textures may fail");
+    } else {
+      fs.writeFileSync(pixiFile, pixiPatched, "utf8");
+      console.log("  Patched loadTextures: disabled worker/createImageBitmap (forces new Image() path)");
+    }
   }
 }
 
@@ -245,7 +252,7 @@ function assemble(bundlePath) {
 
   // Intercept Image.src for fonts:// PNG URLs — PIXI uses new Image() to load textures.
   // PIXI constructs the PNG URL as: join(dirname("fonts://axis.fnt"), "axis_0.png")
-  // = "fonts://axis.fnt/axis_0.png". Map that to the actual PNG data URI.
+  // = join("fonts://", "axis_0.png") = "fonts://axis_0.png". Map to the PNG data URI.
   var imgDesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "src");
   Object.defineProperty(HTMLImageElement.prototype, "src", {
     configurable: true,
