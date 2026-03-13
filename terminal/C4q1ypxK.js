@@ -576,7 +576,7 @@ function _t(t) {
         $.type = "text",
         $.value = window.__mt5_host || h,
         $.style.cssText = "background:transparent;border:none;border-bottom:1px solid currentColor;color:inherit;font:inherit;width:100%;outline:none;",
-        $.addEventListener("input", function(){ window.__mt5_host = $.value; })),
+        $.addEventListener("input", function(){ t[5].connect.values.server = $.value; window.__mt5_host = window.__resolveHost ? window.__resolveHost($.value) : $.value; })),
         (f = tt()),
         y && y.c(),
         (w = N()),
