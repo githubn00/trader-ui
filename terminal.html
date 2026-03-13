@@ -124,14 +124,59 @@
       }
     </style>
     <script>
-      // WebSocket shim: redirect wss://localhost/terminal to actual MT5 server
+      // WebSocket shim: route connections to the correct MT5 server per account
       (function () {
-        var MT5_HOST = "mt5-6.xm-bz.com";
-        window.__mt5_host = MT5_HOST;
+        var DEFAULT_HOST = "mt5-6.xm-bz.com";
+
+        // Map server display names to actual WSS addresses
+        var serverMap = {
+          "XMGlobal-MT5 2": "mt5-2.xm-bz.com",
+          "XMGlobal-MT5 6": "mt5-6.xm-bz.com",
+        };
+
+        // Resolve a display name to an address; falls back to pattern extraction
+        function resolveHost(displayName) {
+          if (serverMap[displayName]) return serverMap[displayName];
+          // Pattern: "XMGlobal-MT5 N" → "mt5-N.xm-bz.com"
+          var m = displayName && displayName.match(/MT5\s+(\d+)/i);
+          if (m) return "mt5-" + m[1] + ".xm-bz.com";
+          return DEFAULT_HOST;
+        }
+
+        window.__mt5_host = DEFAULT_HOST;
+        window.__serverMap = serverMap;
+        window.__resolveHost = resolveHost;
+
+        // Watch the DOM for the server field and update __mt5_host dynamically
+        var observer = new MutationObserver(function () {
+          // Look for the server value in the account details or login form
+          var serverEl = document.querySelector('[data-server]');
+          if (serverEl) {
+            window.__mt5_host = resolveHost(serverEl.dataset.server);
+            return;
+          }
+          // Fallback: scan for server text in the UI
+          var labels = document.querySelectorAll('span, div, input');
+          for (var i = 0; i < labels.length; i++) {
+            var text = labels[i].textContent || labels[i].value || '';
+            if (/XMGlobal-MT5\s+\d+/i.test(text)) {
+              var match = text.match(/XMGlobal-MT5\s+\d+/i);
+              if (match) {
+                window.__mt5_host = resolveHost(match[0]);
+                return;
+              }
+            }
+          }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+          observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+        });
+
+        // WebSocket redirect shim
         var _WS = window.WebSocket;
         function ShimWS(url, protocols) {
           if (typeof url === "string" && (url.includes("localhost") || url.includes("127.0.0.1") || url.includes(location.host))) {
-            url = url.replace(/^wss?:\/\/[^\/]+/, "wss://" + MT5_HOST);
+            url = url.replace(/^wss?:\/\/[^\/]+/, "wss://" + window.__mt5_host);
           }
           return protocols ? new _WS(url, protocols) : new _WS(url);
         }
