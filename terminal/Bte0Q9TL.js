@@ -15899,6 +15899,7 @@ import "./CHj1SSsY.js";
     return (r && a.push([12, r]), Pc.serialize(a));
   }
   async function Kp(t, e, i, s, r) {
+    window.__resolveHost && (window.__mt5_host = window.__resolveHost(t));
     await (async function (t) {
       const e = new Cc(Jc, { count: 1 });
       await e.connectToServer(`wss://${window.__mt5_host||location.host}/terminal`);
@@ -15916,6 +15917,7 @@ import "./CHj1SSsY.js";
     });
   }
   async function Jp(t, e, i, s) {
+    window.__resolveHost && (window.__mt5_host = window.__resolveHost(t));
     try {
       return (
         await (async function (t) {
@@ -16590,6 +16592,7 @@ import "./CHj1SSsY.js";
       },
       config: hm,
       login: async function (t, e, i, s, r, a, o, n, c) {
+        window.__resolveHost && (window.__mt5_host = window.__resolveHost(i));
         return (
           await Nc(),
           async function () {
