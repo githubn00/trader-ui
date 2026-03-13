@@ -134,11 +134,15 @@
           "XMGlobal-MT5 6": "mt5-6.xm-bz.com",
         };
 
-        // Resolve a display name to an address; falls back to pattern extraction
-        function resolveHost(displayName) {
-          if (serverMap[displayName]) return serverMap[displayName];
+        // Resolve a display name or raw address to a WSS host
+        function resolveHost(input) {
+          if (!input) return DEFAULT_HOST;
+          // Already a raw address (e.g., "mt5-7.xm-bz.com")
+          if (/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(input)) return input;
+          // Exact match in server map
+          if (serverMap[input]) return serverMap[input];
           // Pattern: "XMGlobal-MT5 N" → "mt5-N.xm-bz.com"
-          var m = displayName && displayName.match(/MT5\s+(\d+)/i);
+          var m = input.match(/MT5\s+(\d+)/i);
           if (m) return "mt5-" + m[1] + ".xm-bz.com";
           return DEFAULT_HOST;
         }
