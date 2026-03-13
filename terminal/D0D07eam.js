@@ -553,7 +553,7 @@ class us extends Se {
             const nextBarTimeSec = Math.floor(t.time / 1000);
             const nowSec = Math.floor(Date.now() / 1000);
             const tot = Math.max(0, nextBarTimeSec - nowSec);
-            if (!this.__cdLog) this.__cdLog = 0; this.__cdLog++; if (this.__cdLog % 60 === 0) console.log("CD: t.time=" + t.time + " next=" + nextBarTimeSec + " now=" + nowSec + " period=" + this.chart.bars.period + " remaining=" + tot);
+            console.log("CD: nextBar=" + nextBarTimeSec + " now=" + nowSec + " tot=" + tot);
             const hh = Math.floor(tot / 3600), mm = Math.floor((tot % 3600) / 60), ss = tot % 60;
             const mmS = String(mm).padStart(2, "0"), ssS = String(ss).padStart(2, "0");
             const cdChild = this._cdEl.getChildAt(0);
