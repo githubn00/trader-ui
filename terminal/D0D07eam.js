@@ -553,6 +553,7 @@ class us extends Se {
             const barEndSec = barStartSec + this.chart.bars.period * 60;
             const nowSec = Math.floor(Date.now() / 1000);
             const tot = Math.max(0, barEndSec - nowSec);
+            console.log("M1_DEBUG period=" + this.chart.bars.period + " barStart=" + barStartSec + " barEnd=" + barEndSec + " now=" + nowSec + " remaining=" + tot);
             const hh = Math.floor(tot / 3600), mm = Math.floor((tot % 3600) / 60), ss = tot % 60;
             const mmS = String(mm).padStart(2, "0"), ssS = String(ss).padStart(2, "0");
             const cdChild = this._cdEl.getChildAt(0);
