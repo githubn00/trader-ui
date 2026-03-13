@@ -67,6 +67,7 @@ const e = Object.freeze(
               selectVolumesType: "Select volume type",
               shift: "Shift",
               showTimeframes: "Show on all the timeframes",
+              sameTimeframeSource: "Same timeframe source",
               slowing: "Slowing",
               step: "Step",
               style: {
