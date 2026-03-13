@@ -18922,9 +18922,9 @@ function Up(t) {
 const Wp = At(),
   Rp = "/terminal".replace(/\/+/g, "/"),
   Fp = {
-    axis:   Wp ? "fonts://axis2x.fnt"   : "fonts://axis.fnt",
-    axisb:  Wp ? "fonts://axisb2x.fnt"  : "fonts://axisb.fnt",
-    values: Wp ? "fonts://values2x.fnt" : "fonts://values.fnt",
+    axis:   Wp ? "/terminal/font/axis2x.fnt"   : "/terminal/font/axis.fnt",
+    axisb:  Wp ? "/terminal/font/axisb2x.fnt"  : "/terminal/font/axisb.fnt",
+    values: Wp ? "/terminal/font/values2x.fnt" : "/terminal/font/values.fnt",
   },
   Yp = () => t(() => import("./ief2yL3R.js"), []),
   Kp = () => t(() => import("./C3TG5Sy0.js"), []),
