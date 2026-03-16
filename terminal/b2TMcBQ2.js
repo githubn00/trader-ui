@@ -1129,6 +1129,8 @@ function engulfDrawDn(t, s, e, i) {
     t.endFill());
 }
 class Ee2 extends ce {
+  get yMin() { return this.chart.state.extrema[0] / this.getYDigits(); }
+  get yMax() { return this.chart.state.extrema[1] / this.getYDigits(); }
   _titleArguments() { return []; }
   title() { return this.settings.title || "Engulfing Patterns"; }
   _calc(t) {
@@ -1154,9 +1156,9 @@ class Ee2 extends ce {
     for (let o = r, c = r + i.getCount() + 1; o < c; o++) {
       if (o >= 0) {
         let p = this._epBull && this._epBull[o];
-        p && engulfDrawUp(t, l, this.valueToY(p), a);
+        if (p) engulfDrawUp(t, l, this.valueToY(p), a);
         p = this._epBear && this._epBear[o];
-        p && engulfDrawDn(t, l, this.valueToY(p), n);
+        if (p) engulfDrawDn(t, l, this.valueToY(p), n);
       }
       l += i.getStep();
     }
