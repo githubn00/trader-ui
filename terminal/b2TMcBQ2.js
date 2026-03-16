@@ -993,8 +993,9 @@ class je extends ce {
   get yMax() {
     return this.chart.state.extrema[1] / this.getYDigits();
   }
-  title() {
-    return this.settings.title;
+  _titleArguments() {
+    const { params: t } = this.settings;
+    return [(t && t.left) || 2, (t && t.right) || 2];
   }
   _calc(t) {
     super._calc();
