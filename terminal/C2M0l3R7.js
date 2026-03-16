@@ -1574,8 +1574,24 @@ function fn(t) {
     },
   };
 }
+function Sn(t) {
+  let n,
+    e = window.tr(window.lang.chart.indicators.tabs.signals) + "";
+  return {
+    c() {
+      n = d(e);
+    },
+    m(t, e) {
+      $(t, n, e);
+    },
+    p: s,
+    d(t) {
+      t && a(n);
+    },
+  };
+}
 function pn(t) {
-  let n, e, s, r, i, o, g, l, c, m, f, p, d, w, y;
+  let n, e, s, r, i, o, g, l, c, m, f, p, d, w, y, A2, q, Z2;
   function v(n) {
     t[4](n);
   }
@@ -1633,10 +1649,22 @@ function pn(t) {
     $$slots: { default: [fn] },
     $$scope: { ctx: t },
   };
+  function G(n) {
+    t[9](n);
+  }
+  let _W = {
+    slim: t[2],
+    value: 5,
+    $$slots: { default: [Sn] },
+    $$scope: { ctx: t },
+  };
   return (
     void 0 !== t[0] && (E.group = t[0]),
     (d = new dt({ props: E })),
     T.push(() => I(d, "group", F)),
+    void 0 !== t[0] && (_W.group = t[0]),
+    (A2 = new dt({ props: _W })),
+    T.push(() => I(A2, "group", G)),
     {
       c() {
         (A(n.$$.fragment),
@@ -1647,7 +1675,9 @@ function pn(t) {
           (c = u()),
           A(m.$$.fragment),
           (p = u()),
-          A(d.$$.fragment));
+          A(d.$$.fragment),
+          (Z2 = u()),
+          A(A2.$$.fragment));
       },
       m(t, e) {
         (x(n, t, e),
@@ -1659,6 +1689,8 @@ function pn(t) {
           x(m, t, e),
           $(t, p, e),
           x(d, t, e),
+          $(t, Z2, e),
+          x(A2, t, e),
           (y = !0));
       },
       p(t, s) {
@@ -1687,6 +1719,11 @@ function pn(t) {
           512 & s && (p.$$scope = { dirty: s, ctx: t }),
           !w && 1 & s && ((w = !0), (p.group = t[0]), C(() => (w = !1))),
           d.$set(p));
+        const _hs = {};
+        (4 & s && (_hs.slim = t[2]),
+          512 & s && (_hs.$$scope = { dirty: s, ctx: t }),
+          !q && 1 & s && ((q = !0), (_hs.group = t[0]), C(() => (q = !1))),
+          A2.$set(_hs));
       },
       i(t) {
         y ||
@@ -1695,6 +1732,7 @@ function pn(t) {
           h(g.$$.fragment, t),
           h(m.$$.fragment, t),
           h(d.$$.fragment, t),
+          h(A2.$$.fragment, t),
           (y = !0));
       },
       o(t) {
@@ -1703,15 +1741,17 @@ function pn(t) {
           M(g.$$.fragment, t),
           M(m.$$.fragment, t),
           M(d.$$.fragment, t),
+          M(A2.$$.fragment, t),
           (y = !1));
       },
       d(t) {
-        (t && (a(s), a(o), a(c), a(p)),
+        (t && (a(s), a(o), a(c), a(p), a(Z2)),
           k(n, t),
           k(r, t),
           k(g, t),
           k(m, t),
-          k(d, t));
+          k(d, t),
+          k(A2, t));
       },
     }
   );
@@ -1768,6 +1808,9 @@ function dn(t, n, e) {
       a,
       r,
       $,
+      function (t) {
+        ((s = t), e(0, s));
+      },
       function (t) {
         ((s = t), e(0, s));
       },

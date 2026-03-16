@@ -103,6 +103,7 @@ const e = Object.freeze(
               oscillators: "Oscillators",
               trend: "Trend",
               volumes: "Volumes",
+              signals: "Signals",
             },
             title: "Select indicator",
             up: "Up",
@@ -338,6 +339,11 @@ const e = Object.freeze(
               },
               header: "Commissions",
             },
+          },
+          signals: {
+            close: "Close",
+            empty: "You don't have any signals on the chart",
+            title: "Manage Signals",
           },
           tree: {
             close: "Close",

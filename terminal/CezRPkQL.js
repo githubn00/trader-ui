@@ -12835,6 +12835,43 @@ function _a(t) {
         }
       );
     })(t);
+  let Q_sg = (function (t) {
+    let e, n, o;
+    return (
+      (n = new Xs({
+        props: {
+          icon: Ho,
+          checked: t[4].signals,
+          title: window.tr(window.lang.chart.signals.title),
+        },
+      })),
+      n.$on("click", t[17]),
+      {
+        c() {
+          ((e = L("div")),
+            et(n.$$.fragment),
+            w(e, "class", "group svelte-1xnpsl6"));
+        },
+        m(t, r) {
+          ($(t, e, r), tt(n, e, null), (o = !0));
+        },
+        p(t, e) {
+          const o = {};
+          (16 & e && (o.checked = t[4].signals),
+            n.$set(o));
+        },
+        i(t) {
+          o || (S(n.$$.fragment, t), (o = !0));
+        },
+        o(t) {
+          (y(n.$$.fragment, t), (o = !1));
+        },
+        d(t) {
+          (t && h(e), G(n));
+        },
+      }
+    );
+  })(t);
   return {
     c() {
       ((e = L("div")),
@@ -12849,6 +12886,7 @@ function _a(t) {
         v.c(),
         (C = V()),
         P && P.c(),
+        Q_sg && Q_sg.c(),
         (b = V()),
         N && N.c(),
         (x = U()),
@@ -12868,6 +12906,7 @@ function _a(t) {
         _[1].m(i, null),
         f(e, C),
         P && P.m(e, null),
+        Q_sg && Q_sg.m(e, null),
         $(t, b, r),
         N && N.m(t, r),
         $(t, x, r),
@@ -12902,6 +12941,7 @@ function _a(t) {
         d.$set(i),
         v.p(B(t, 1), e),
         P.p(ja(t), e),
+        Q_sg && Q_sg.p(t, e),
         N.p(t, e));
     },
     i(t) {
@@ -12911,6 +12951,7 @@ function _a(t) {
         S(d.$$.fragment, t),
         S(v),
         S(P),
+        S(Q_sg),
         S(N),
         (k = !0));
     },
@@ -12920,6 +12961,7 @@ function _a(t) {
         y(d.$$.fragment, t),
         y(v),
         y(P),
+        y(Q_sg),
         y(N),
         (k = !1));
     },
@@ -12930,6 +12972,7 @@ function _a(t) {
         G(d),
         _[1].d(),
         P && P.d(),
+        Q_sg && Q_sg.d(),
         N && N.d(t));
     },
   };
@@ -13117,7 +13160,7 @@ function qa(t, e, n) {
               tradeEdit: !1,
               tree: !1,
             })
-          : o.setLayout({ depthOfMarket: !o.depthOfMarket, tree: !1 });
+          : o.setLayout({ depthOfMarket: !o.depthOfMarket, tree: !1, signals: !1 });
       },
       function () {
         null !== o.tradeCreate || o.tradeEdit
@@ -13127,7 +13170,7 @@ function qa(t, e, n) {
               tradeEdit: !1,
               depthOfMarket: !1,
             })
-          : o.setLayout({ tree: !o.tree, depthOfMarket: !1 });
+          : o.setLayout({ tree: !o.tree, depthOfMarket: !1, signals: !1 });
       },
       function (e) {
         t.$$.not_equal(r.chartMode, e) && ((r.chartMode = e), f.set(r));
@@ -13141,6 +13184,9 @@ function qa(t, e, n) {
       () => y(c.Quotes),
       () => y(c.HistoryPositions),
       () => y(c.Journal),
+      function () {
+        o.setLayout({ signals: !o.signals, tree: !1, depthOfMarket: !1 });
+      },
     ]
   );
 }
@@ -17725,6 +17771,9 @@ function vp(t) {
     }
   );
 }
+function mp2(t){const e=t[26].default;t[31]=e;}
+function bp2(t){let e,n;return(mp2(t),(e=new t[31]({props:{symbol:t[8].symbol,analysisManager:t[0].chart.chartController.chart.analysis,objectsManager:t[0].chart.chartController.chart.objects,objectsStore:t[0].objects.objectsStore,indicatorsStore:t[0].indicators.indicatorsStore}})),e.$on("close",t[23]),{c(){et(e.$$.fragment)},m(t,o){(tt(e,t,o),(n=!0))},p(t,n){mp2(t);const o={};(256&n[0]&&(o.symbol=t[8].symbol),1&n[0]&&(o.analysisManager=t[0].chart.chartController.chart.analysis),1&n[0]&&(o.objectsManager=t[0].chart.chartController.chart.objects),1&n[0]&&(o.objectsStore=t[0].objects.objectsStore),1&n[0]&&(o.indicatorsStore=t[0].indicators.indicatorsStore),e.$set(o))},i(t){n||(S(e.$$.fragment,t),(n=!0))},o(t){(y(e.$$.fragment,t),(n=!1))},d(t){G(e,t)}});}
+function Np2p(t){let e,n;return((e=new _t({props:{module:Np2,$$slots:{default:[bp2,({module:t})=>({26:t}),({module:t})=>[t?67108864:0]]},$$scope:{ctx:t}}})),{c(){et(e.$$.fragment)},m(t,o){(tt(e,t,o),(n=!0))},p(t,n){const o={};((257&n[0])|(1&n[1])&&(o.$$scope={dirty:n,ctx:t}),e.$set(o))},i(t){n||(S(e.$$.fragment,t),(n=!0))},o(t){(y(e.$$.fragment,t),(n=!1))},d(t){G(e,t)}});}
 function yp(t) {
   let e, n;
   return (
@@ -18054,7 +18103,7 @@ function Hp(t) {
 }
 function Mp(t) {
   let e, n, o, r;
-  const l = [Cp, Sp, yp],
+  const l = [Cp, Sp, yp, Np2p],
     i = [];
   function s(t, e) {
     var n;
@@ -18066,6 +18115,9 @@ function Mp(t) {
         : t[7].tree &&
             (null == (n = t[0].chart.chartController) ? void 0 : n.chart)
           ? 2
+          : t[7].signals &&
+            (null == (n = t[0].chart.chartController) ? void 0 : n.chart)
+          ? 3
           : -1;
   }
   return (
@@ -18702,6 +18754,7 @@ function Up(t) {
   let E =
     (t[7].depthOfMarket ||
       t[7].tree ||
+      t[7].signals ||
       null !== t[7].tradeCreate ||
       t[7].tradeEdit ||
       t[7].colors) &&
@@ -18790,6 +18843,7 @@ function Up(t) {
         r.$set(c),
         t[7].depthOfMarket ||
         t[7].tree ||
+        t[7].signals ||
         null !== t[7].tradeCreate ||
         t[7].tradeEdit ||
         t[7].colors
@@ -18929,6 +18983,7 @@ const Wp = At(),
   Yp = () => t(() => import("./ief2yL3R.js"), []),
   Kp = () => t(() => import("./C3TG5Sy0.js"), []),
   Xp = () => t(() => import("./cNlpOkCc.js"), []),
+  Np2 = () => t(() => import("./MnSignal.js"), []),
   Qp = () => t(() => import("./CtaDOvB6.js"), []),
   Jp = (t) => {
     t.preventDefault();
@@ -18995,6 +19050,7 @@ function Gp(t, e, n) {
         r.setLayout({
           depthOfMarket: !1,
           tree: !1,
+          signals: !1,
           tradeCreate: null,
           tradeEdit: !1,
         }),
@@ -19012,6 +19068,9 @@ function Gp(t, e, n) {
       () => r.setLayout({ botPanelSize: a.BOT }),
       function (e) {
         t.$$.not_equal(r.contacts, e) && ((r.contacts = e), f.set(r));
+      },
+      function () {
+        q(f, (r.signals = !1), r);
       },
     ]
   );
