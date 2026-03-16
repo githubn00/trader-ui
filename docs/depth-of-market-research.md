@@ -40,11 +40,15 @@ B.sign(e?.id);                         // booksController.sign(numericSymbolId)
 
 ---
 
-## Why DOM is Empty for XM Demo
+## Why DOM is Empty (Demo and Real Accounts)
 
-**Root cause**: The XM demo server does not respond to WS command 22 (book depth subscription). Event 23 never fires. `books[]` stays empty. Empty state shows.
+**Root cause**: XM's MT5 server does not respond to WS command 22 (book depth subscription). Event 23 never fires. `books[]` stays empty. Empty state shows.
 
-This is a deliberate broker restriction: DOM/Level 2 market depth requires real market access (exchange connectivity) that demo accounts don't have for CFD/FX instruments.
+This affects **both demo and real accounts** equally. XM is a market maker broker — they don't have a real order book for their FX/CFD instruments and simply don't provide Level 2/DOM data on their MT5 servers.
+
+**Important technical detail**: `Fu.subscribe` calls `sendCommand(22, data, false)` — the third argument `false` means fire-and-forget (no response awaited, `Bte0Q9TL.js:12897`). If the server ignores the command, no error is raised and books silently stays empty. This is why the empty state appears with no console errors.
+
+Additionally, `Ou.updateDiffs` (`Bte0Q9TL.js:12834`) will silently drop any book update if `getFullSymbolById(symbolId)` returns null (symbol not yet fully loaded as an `nh` instance). In practice this is not the issue since the chart symbol is always fully loaded before the DOM opens.
 
 ---
 
@@ -98,4 +102,4 @@ Note: Command 7 / Event 8 (raw WS) is used for **tick subscriptions**, not books
 
 2. **Gate DOM visibility** — hide the DOM window entirely when `hasBook()` returns false, rather than showing an empty window.
 
-3. **Real fix requires broker support** — XM would need to enable market depth data on their demo server, or on specific account types / symbols.
+3. **Real fix requires broker support** — XM would need to enable market depth data on their MT5 server for their instruments. This applies to both demo and real accounts.
