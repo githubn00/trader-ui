@@ -70,7 +70,8 @@ import {
   G as ft,
   o as pt,
   p as ne2c,
-  q as Fs2c
+  q as Fs2c,
+  r as FrFmc
 } from "./YtNU6idj.js";
 import "./CezRPkQL.js";
 import { T as ut, a as dt, F as wt } from "./u3aYl0h9.js";
@@ -403,7 +404,7 @@ function jt(t) {
 function Ot(t) {
   let n, e, s, r;
   return (
-    (n = new mt({ props: { settings: t[0] } })),
+    (n = new FrFmc({ props: { settings: t[0] } })),
     (s = new L({ props: { analysisManager: t[1], settings: t[0] } })),
     {
       c() {

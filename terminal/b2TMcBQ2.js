@@ -993,20 +993,24 @@ class je extends ce {
   get yMax() {
     return this.chart.state.extrema[1] / this.getYDigits();
   }
-  title() {
-    return this.settings.title;
+  _titleArguments() {
+    const { params: t } = this.settings;
+    return [(t && t.left) || 2, (t && t.right) || 2];
   }
   _calc(t) {
     super._calc();
     const s = this.chart.bars,
-      e = this.baseHash();
+      { params: p2 } = this.settings,
+      left = (p2 && p2.left) || 2,
+      right = (p2 && p2.right) || 2,
+      e = [this.baseHash(), left, right].join("-");
     let i = Te.get(e),
       a = He.get(e);
-    if (i && a) t && Oe(i, a, s, !0);
+    if (i && a) t && Oe(i, a, s, left, right, !0);
     else {
       ((i = new Float64Array(s.length)),
         (a = new Float64Array(s.length)),
-        Oe(i, a, s),
+        Oe(i, a, s, left, right),
         Te.set(e, i),
         He.set(e, a));
       const t = vs(this, v);
@@ -1041,20 +1045,17 @@ class je extends ce {
       : [];
   }
 }
-function Oe(t, s, e, i = !1) {
-  let a = e.length - 5;
-  i || (a = 2);
-  for (let n = a, l = e.length - 2; n < l; n++)
-    (e.high(n) > e.high(n + 1) &&
-      e.high(n) > e.high(n + 2) &&
-      e.high(n) >= e.high(n - 1) &&
-      e.high(n) >= e.high(n - 2) &&
-      (t[n] = e.high(n)),
-      e.low(n) < e.low(n + 1) &&
-        e.low(n) < e.low(n + 2) &&
-        e.low(n) <= e.low(n - 1) &&
-        e.low(n) <= e.low(n - 2) &&
-        (s[n] = e.low(n)));
+function Oe(t, s, e, left, right, i = !1) {
+  const start = i ? Math.max(left, e.length - right - 1) : left;
+  for (let n = start, l = e.length - right; n < l; n++) {
+    let hUp = true, lDn = true;
+    for (let r = 1; r <= right && hUp; r++) { if (e.high(n) <= e.high(n + r)) hUp = false; }
+    for (let r = 1; r <= right && lDn; r++) { if (e.low(n) >= e.low(n + r)) lDn = false; }
+    for (let r = 1; r <= left && hUp; r++) { if (e.high(n) < e.high(n - r)) hUp = false; }
+    for (let r = 1; r <= left && lDn; r++) { if (e.low(n) > e.low(n - r)) lDn = false; }
+    if (hUp) t[n] = e.high(n);
+    if (lDn) s[n] = e.low(n);
+  }
 }
 ((A = new WeakMap()),
   (M = new WeakMap()),

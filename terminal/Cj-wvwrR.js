@@ -210,7 +210,7 @@ const j = class s extends f {
   constructor(e) {
     super(
       e,
-      { apply: 0 },
+      { left: 2, right: 2 },
       { line: { color: 8421504, thickness: 1 } },
       s.type,
       s.category,
