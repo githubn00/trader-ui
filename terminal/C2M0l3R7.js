@@ -112,6 +112,7 @@ const yt = [
     "fractals",
     "go",
     "mf",
+    "engulfing",
   ],
   Mt = {};
 [
@@ -123,6 +124,7 @@ const yt = [
   ["ao", 4, "AC", "Accelerator Oscillator"],
   ["awesome", 4, "AO", "Awesome Oscillator"],
   ["fractals", 4, "Fractals", "Fractals"],
+  ["engulfing", 6, "Engulfing", "Engulfing Patterns"],
   ["go", 4, "Gator", "Gator Oscillator"],
   ["mf", 4, "BW MFI", "Market Facilitation Index"],
   ["atr", 2, "ATR", "Average True Range"],
@@ -1654,7 +1656,7 @@ function pn(t) {
   }
   let _W = {
     slim: t[2],
-    value: 5,
+    value: 6,
     $$slots: { default: [Sn] },
     $$scope: { ctx: t },
   };
