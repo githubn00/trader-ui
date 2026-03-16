@@ -273,7 +273,7 @@ function assemble(bundlePath) {
   // replaceState("/terminal") which resolves to file:///C:/terminal and throws
   // a SecurityError because that path differs from the actual file:// origin.
   const historyPatch = `<script>
-if (location.protocol === "file:") {
+if (location.protocol !== "https:" && location.protocol !== "http:") {
   history.replaceState = history.pushState = function() {};
 }
 </script>`;
