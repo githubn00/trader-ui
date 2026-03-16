@@ -93,6 +93,8 @@ function h(s) {
       return "On Balance Volume";
     case "volumes":
       return "Volumes";
+    case "engulfing":
+      return "Engulfing Patterns";
     default:
       return s;
   }
@@ -733,6 +735,24 @@ const js = class extends f {
 };
 js.flags = 4;
 let Ms = js;
+const Ep2 = class s extends f {
+  constructor(e) {
+    super(
+      e,
+      {},
+      {
+        bullish: { color: 65280, thickness: 1 },
+        bearish: { color: 16711680, thickness: 1 },
+      },
+      s.type,
+      s.category,
+      s.digits,
+      s.flags,
+    );
+  }
+};
+((Ep2.type = "engulfing"), (Ep2.category = 6), (Ep2.digits = 0), (Ep2.flags = 0));
+let ep2 = Ep2;
 export {
   f as A,
   fs as B,
@@ -740,6 +760,7 @@ export {
   ms as D,
   ws as E,
   Ms as F,
+  ep2 as ep,
   v as a,
   m as b,
   w as c,

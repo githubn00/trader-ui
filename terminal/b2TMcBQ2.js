@@ -184,6 +184,7 @@ import {
   s as ae,
   F as ne,
   t as le,
+  ep as EpS,
 } from "./Cj-wvwrR.js";
 class he extends Fs {
   constructor() {
@@ -255,6 +256,11 @@ class he extends Fs {
         (([h, r] = this.getOptions(o.AnalysisFractalsSettings.flags)),
           (l = new o.AnalysisFractalsSettings({ ...i, index: r })),
           (n = new o.AnalysisFractals(h, 5e3, l)));
+        break;
+      case "engulfing":
+        (([h, r] = this.getOptions(o.AnalysisEngulfingPatternsSettings.flags)),
+          (l = new o.AnalysisEngulfingPatternsSettings({ ...i, index: r })),
+          (n = new o.AnalysisEngulfingPatterns(h, 5e3, l)));
         break;
       case "go":
         (([h, r] = this.getOptions(o.AnalysisGOSettings.flags)),
@@ -1089,6 +1095,76 @@ function Oe(t, s, e, left, right, i = !1) {
       t.lineTo(s + a * Math.sin(Math.PI / 3), n - a * Math.cos(Math.PI / 3)),
       t.endFill());
   }));
+const engulfBullMap = new Map(),
+  engulfBearMap = new Map();
+function engulfCalc(bull, bear, bars, update) {
+  const start = update ? Math.max(1, bars.length - 1) : 1;
+  for (let i = start; i < bars.length; i++) {
+    const curOpen = bars.open(i), curClose = bars.close(i);
+    const prevOpen = bars.open(i - 1), prevClose = bars.close(i - 1);
+    if (curClose > curOpen && prevClose < prevOpen && curOpen <= prevClose && curClose >= prevOpen)
+      bull[i] = bars.low(i);
+    if (curClose < curOpen && prevClose > prevOpen && curOpen >= prevClose && curClose <= prevOpen)
+      bear[i] = bars.high(i);
+  }
+}
+function engulfDrawUp(t, s, e, i) {
+  const a = 5 + 2 * i.thickness, n = e - a;
+  (t.lineStyle(1, i.color),
+    t.moveTo(s, n), t.lineTo(s, n - a),
+    t.lineTo(s + a * Math.sin(Math.PI / 3), n + a * Math.cos(Math.PI / 3)),
+    t.lineTo(s, n), t.beginFill(i.color),
+    t.moveTo(s, n), t.lineTo(s, n - a),
+    t.lineTo(s - a * Math.sin(Math.PI / 3), n + a * Math.cos(Math.PI / 3)),
+    t.endFill());
+}
+function engulfDrawDn(t, s, e, i) {
+  const a = 5 + 2 * i.thickness, n = e + a;
+  (t.lineStyle(1, i.color),
+    t.moveTo(s, n), t.lineTo(s, n + a),
+    t.lineTo(s - a * Math.sin(Math.PI / 3), n - a * Math.cos(Math.PI / 3)),
+    t.lineTo(s, n), t.beginFill(i.color),
+    t.moveTo(s, n), t.lineTo(s, n + a),
+    t.lineTo(s + a * Math.sin(Math.PI / 3), n - a * Math.cos(Math.PI / 3)),
+    t.endFill());
+}
+class Ee2 extends ce {
+  get yMin() { return this.chart.state.extrema[0] / this.getYDigits(); }
+  get yMax() { return this.chart.state.extrema[1] / this.getYDigits(); }
+  _titleArguments() { return []; }
+  title() { return this.settings.title || "Engulfing Patterns"; }
+  _calc(t) {
+    super._calc();
+    const s = this.chart.bars, e = this.baseHash();
+    let bull = engulfBullMap.get(e), bear = engulfBearMap.get(e);
+    if (bull && bear) {
+      if (t) engulfCalc(bull, bear, s, true);
+    } else {
+      (bull = new Float64Array(s.length)),
+        (bear = new Float64Array(s.length)),
+        engulfCalc(bull, bear, s, false),
+        engulfBullMap.set(e, bull),
+        engulfBearMap.set(e, bear);
+    }
+    (this._epBull = bull), (this._epBear = bear);
+  }
+  _drawGraph(t) {
+    const { settings: s, chart: e } = this, { state: i } = e;
+    const { bullish: a, bearish: n } = s.style;
+    let l = i.startX();
+    const r = i.getFrom();
+    for (let o = r, c = r + i.getCount() + 1; o < c; o++) {
+      if (o >= 0) {
+        let p = this._epBull && this._epBull[o];
+        if (p) engulfDrawUp(t, l, this.valueToY(p), a);
+        p = this._epBear && this._epBear[o];
+        if (p) engulfDrawDn(t, l, this.valueToY(p), n);
+      }
+      l += i.getStep();
+    }
+  }
+  value(t) { return []; }
+}
 const Pe = new Map(),
   Ie = new Map(),
   De = new Map(),
@@ -3784,6 +3860,8 @@ const rn = Object.freeze(
       AnalysisFISettings: Ys,
       AnalysisFractals: je,
       AnalysisFractalsSettings: Rs,
+      AnalysisEngulfingPatterns: Ee2,
+      AnalysisEngulfingPatternsSettings: EpS,
       AnalysisGO: Ve,
       AnalysisGOSettings: Bs,
       AnalysisIKH: Wa,
@@ -3862,6 +3940,8 @@ export {
   Ys as AnalysisFISettings,
   je as AnalysisFractals,
   Rs as AnalysisFractalsSettings,
+  Ee2 as AnalysisEngulfingPatterns,
+  EpS as AnalysisEngulfingPatternsSettings,
   Ve as AnalysisGO,
   Bs as AnalysisGOSettings,
   Wa as AnalysisIKH,
