@@ -279,9 +279,21 @@ if (location.protocol !== "https:" && location.protocol !== "http:") {
 </script>`;
   html = html.replace("</head>", historyPatch + "\n</head>");
 
-  // Inline the bundle
+  // Inline the bundle — then apply post-inline patches below
   const bundle = fs.readFileSync(bundlePath, "utf8");
   html = html.replace("</body>", `<script>${bundle}</script>\n</body>`);
+
+  // Fix: Link component (gl2) calls getContext(ml2/pl2) expecting a parent Router,
+  // but when opened as a standalone file the Router context is never set.
+  // Guard both calls so that missing context falls back to safe readable stores.
+  html = html.replace(
+    "const { base: h18 } = At(ml2);",
+    "const { base: h18 } = At(ml2) ?? { base: ir({ uri: \"/\" }) };"
+  );
+  html = html.replace(
+    "const $13 = At(pl2);",
+    "const $13 = At(pl2) ?? ir(ul2());"
+  );
 
   fs.writeFileSync(OUT_FILE, html, "utf8");
   const size = fs.statSync(OUT_FILE).size;
