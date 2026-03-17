@@ -253,10 +253,53 @@ The Signals tab value (`6`) and category (`6`) are now aligned — no further ta
 
 ---
 
+## MA Slope Filter
+
+Added in `patch_engulfing_ma_filter.py`. Filters signals against the major trend.
+
+### Params added to `Ep2` settings class (`Cj-wvwrR.js`)
+
+| Param | Default | Meaning |
+|-------|---------|---------|
+| `maPeriod` | `50` | MA period; set to `0` to disable the filter entirely |
+| `maType` | `0` | `0` = EMA (default), `1` = SMA (no UI — settable programmatically) |
+
+### Filter logic (`b2TMcBQ2.js`)
+
+Three helper functions added before `engulfCalc`:
+- `engulfEma(prices, period)` — standard exponential MA
+- `engulfSma(prices, period)` — cumulative-sum SMA
+- `engulfMa(bars, period, maType)` — builds close-price array and dispatches to EMA or SMA
+
+`engulfCalc` signature changed from `(bull, bear, bars, update)` → `(bull, bear, bars, ma, update)`:
+- Each bar now resets `bull[i] = 0; bear[i] = 0` before testing (fixes stale-value bug on update)
+- Bullish signal gated by `!ma || close > ma[i]`
+- Bearish signal gated by `!ma || close < ma[i]`
+
+`Ee2._calc()` updated:
+- Reads `maPeriod` and `maType` from `settings.params` (defaults 50 / 0)
+- Cache key now includes `maPeriod` and `maType` — changing the period invalidates the cache
+- Passes computed MA (or `null` when `maPeriod === 0`) into `engulfCalc`
+
+`Ee2.title()` updated:
+- When filter active: `"Engulfing Patterns (50 EMA)"` / `"Engulfing Patterns (50 SMA)"`
+- When filter off (`maPeriod = 0`): `"Engulfing Patterns"`
+
+### Form update (`YtNU6idj.js`)
+
+`EpFm` replaced with new version. Added:
+- `EpWt` — slot function rendering a `K` (Input) number component for `maPeriod`
+- `EpEs` extended with an `R` (Field) labeled row `"MA Period (0=off)"` containing `EpWt`
+- `EpOs` extended with state index 8: `maPeriod` two-way binding handler
+  - Guards against missing `params` object for backward-compat with existing saved indicators
+
+---
+
 ## Patch Scripts
 
 - `patch_engulfing.py` — applies the four core file changes (analysis, settings, picker, panel)
 - `patch_engulfing_form.py` — wires the style controls into the Edit and Add indicator dialogs
+- `patch_engulfing_ma_filter.py` — adds MA Slope Filter (params, calc, form)
 
 ---
 

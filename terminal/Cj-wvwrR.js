@@ -739,7 +739,7 @@ const Ep2 = class s extends f {
   constructor(e) {
     super(
       e,
-      {},
+      { maPeriod: 50, maType: 0 },
       {
         bullish: { color: 65280, thickness: 1 },
         bearish: { color: 16711680, thickness: 1 },

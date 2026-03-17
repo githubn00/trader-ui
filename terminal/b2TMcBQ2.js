@@ -1097,15 +1097,37 @@ function Oe(t, s, e, left, right, i = !1) {
   }));
 const engulfBullMap = new Map(),
   engulfBearMap = new Map();
-function engulfCalc(bull, bear, bars, update) {
+function engulfEma(prices, period) {
+  const out = new Float64Array(prices.length), k = 2 / (period + 1);
+  for (let i = 0; i < prices.length; i++)
+    out[i] = i === 0 ? prices[i] : prices[i] * k + out[i - 1] * (1 - k);
+  return out;
+}
+function engulfSma(prices, period) {
+  const out = new Float64Array(prices.length);
+  let sum = 0;
+  for (let i = 0; i < prices.length; i++) {
+    sum += prices[i];
+    if (i >= period) sum -= prices[i - period];
+    out[i] = sum / Math.min(i + 1, period);
+  }
+  return out;
+}
+function engulfMa(bars, period, maType) {
+  const prices = new Float64Array(bars.length);
+  for (let i = 0; i < bars.length; i++) prices[i] = bars.close(i);
+  return maType === 1 ? engulfSma(prices, period) : engulfEma(prices, period);
+}
+function engulfCalc(bull, bear, bars, ma, update) {
   const start = update ? Math.max(1, bars.length - 1) : 1;
   for (let i = start; i < bars.length; i++) {
+    bull[i] = 0; bear[i] = 0;
     const curOpen = bars.open(i), curClose = bars.close(i);
     const prevOpen = bars.open(i - 1), prevClose = bars.close(i - 1);
     if (curClose > curOpen && prevClose < prevOpen && curOpen <= prevClose && curClose >= prevOpen)
-      bull[i] = bars.low(i);
+      if (!ma || curClose > ma[i]) bull[i] = bars.low(i);
     if (curClose < curOpen && prevClose > prevOpen && curOpen >= prevClose && curClose <= prevOpen)
-      bear[i] = bars.high(i);
+      if (!ma || curClose < ma[i]) bear[i] = bars.high(i);
   }
 }
 function engulfDrawUp(t, s, e, i) {
@@ -1132,17 +1154,28 @@ class Ee2 extends ce {
   get yMin() { return this.chart.state.extrema[0] / this.getYDigits(); }
   get yMax() { return this.chart.state.extrema[1] / this.getYDigits(); }
   _titleArguments() { return []; }
-  title() { return this.settings.title || "Engulfing Patterns"; }
+  title() {
+    const p2 = this.settings.params;
+    const mp = (p2 && p2.maPeriod != null) ? p2.maPeriod : 50;
+    const mt = (p2 && p2.maType) || 0;
+    const base = this.settings.title || "Engulfing Patterns";
+    return mp > 0 ? base + " (" + mp + (mt === 1 ? " SMA" : " EMA") + ")" : base;
+  }
   _calc(t) {
     super._calc();
-    const s = this.chart.bars, e = this.baseHash();
+    const s = this.chart.bars;
+    const p2 = this.settings.params;
+    const maPeriod = (p2 && p2.maPeriod != null) ? p2.maPeriod : 50;
+    const maType = (p2 && p2.maType) || 0;
+    const e = [this.baseHash(), maPeriod, maType].join("-");
     let bull = engulfBullMap.get(e), bear = engulfBearMap.get(e);
+    const ma = maPeriod > 0 ? engulfMa(s, maPeriod, maType) : null;
     if (bull && bear) {
-      if (t) engulfCalc(bull, bear, s, true);
+      if (t) engulfCalc(bull, bear, s, ma, true);
     } else {
       (bull = new Float64Array(s.length)),
         (bear = new Float64Array(s.length)),
-        engulfCalc(bull, bear, s, false),
+        engulfCalc(bull, bear, s, ma, false),
         engulfBullMap.set(e, bull),
         engulfBearMap.set(e, bear);
     }
