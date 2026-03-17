@@ -6047,3 +6047,59 @@ input.svelte-1mvzp7f::placeholder {
   flex-direction: column;
   display: flex;
 }
+
+/* === Mobile-friendly floating windows === */
+/* Uses @media so it applies regardless of .mobile/.desktop class on body */
+
+@media (max-width: 600px) {
+  /* Allow popup overlay to scroll if dialog is taller than viewport */
+  .popup.svelte-mhpk3v.svelte-mhpk3v {
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: flex-start;
+    padding: var(--indent2) 0;
+  }
+
+  /* Remove 480px min-width; make window fit narrow viewports */
+  .window.svelte-mhpk3v.svelte-mhpk3v {
+    min-width: 0 !important;
+    width: calc(100vw - var(--indent2) * 2) !important;
+    max-width: calc(100vw - var(--indent2) * 2) !important;
+    max-height: calc(100dvh - var(--indent2) * 2);
+    margin: 0 auto;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    overflow-y: auto;
+  }
+
+  /* Override JS-injected inline width; keep height so flex children work */
+  .content.svelte-mhpk3v.svelte-mhpk3v {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  /* Indicator picker: stack list and edit panel vertically, use viewport height */
+  .content.svelte-ppeli.svelte-ppeli {
+    flex-direction: column;
+    width: 100% !important;
+    height: calc(100dvh - var(--indent) * 18) !important;
+    overflow: hidden;
+  }
+
+  .edit.svelte-ppeli.svelte-ppeli {
+    width: 100% !important;
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    min-height: calc(var(--indent) * 20);
+    max-height: 45%;
+    overflow-y: auto;
+  }
+
+  /* Login window: ensure content not clipped on narrow screens */
+  .content.svelte-1qopce8.svelte-1qopce8 {
+    width: 100% !important;
+    min-height: auto;
+  }
+}
