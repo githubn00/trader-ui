@@ -351,3 +351,27 @@ class Wi2 extends ce {
 - Private WeakMap/WeakSet fields must be declared as `let` vars **before** the class constructor runs, then assigned initial values in a `((...))` block **after** the class definition.
 - `baseHash()` returns `[type, symbol, period, apply, length, firstTime, lastTime].join("-")`. Include `sameTimeframeSource` and `sourceTimeframe` in `lt2`'s hash to invalidate the cache whenever those params change.
 - `C4q1ypxK.js` is the file that lazily imports `b2TMcBQ2.js` via `import("./b2TMcBQ2.js")`.
+
+---
+
+## Known pitfall: font paths in `CezRPkQL.js`
+
+`CezRPkQL.js` (~line 18976) defines the bitmap font paths used by the chart canvas renderer:
+
+```javascript
+const Fp = {
+  axis:   Wp ? "/terminal/font/axis2x.fnt"   : "/terminal/font/axis.fnt",
+  axisb:  Wp ? "/terminal/font/axisb2x.fnt"  : "/terminal/font/axisb.fnt",
+  values: Wp ? "/terminal/font/values2x.fnt" : "/terminal/font/values.fnt",
+};
+```
+
+`Wp` is `true` on hi-DPI (retina) screens — it selects the `2x` atlas; otherwise the standard atlas is used.
+
+**The committed source must always use `/terminal/font/` paths.** `fonts://` is a build-time virtual scheme — `build.js` patches the file to `fonts://` during the build (and inlines polyfills for fetch + Image.src), but that only works inside the inlined `index.html` artifact. In the dev server (and git), the file must use `/terminal/font/`.
+
+**Build side-effect:** `build.js` modifies `CezRPkQL.js` and `CRNNNCwz.js` in-place. After a build, restore them with:
+```
+git checkout terminal/CezRPkQL.js terminal/CRNNNCwz.js
+```
+Committing the patched versions causes the "URL scheme fonts is not supported" error on the dev server.

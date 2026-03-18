@@ -6073,18 +6073,21 @@ input.svelte-1mvzp7f::placeholder {
     overflow-y: auto;
   }
 
-  /* Override JS-injected inline width; keep height so flex children work */
+  /* Override JS-injected inline width/height; let content determine height on mobile */
   .content.svelte-mhpk3v.svelte-mhpk3v {
     width: 100% !important;
     max-width: 100% !important;
+    height: auto !important;
     overflow-x: hidden;
   }
 
-  /* Indicator picker: stack list and edit panel vertically, use viewport height */
+  /* Indicator picker: stack list and edit panel vertically, use viewport height.
+     Subtract enough to keep the "Add indicator" button fully visible:
+     indent*24 vs old indent*18 leaves ~6 extra indent-units for the footer. */
   .content.svelte-ppeli.svelte-ppeli {
     flex-direction: column;
     width: 100% !important;
-    height: calc(100dvh - var(--indent) * 18) !important;
+    height: calc(100dvh - var(--indent) * 24) !important;
     overflow: hidden;
   }
 
