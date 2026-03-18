@@ -242,9 +242,9 @@ C2M0l3R7.js is the "Add indicator" picker dialog. It has its **own** form dispat
 
 **Key facts:**
 - `class on` uses `$n`/`rn` with `{ settings: 0, analysisManager: 1 }` props
-- `rn` has a dispatch array `i` (31 entries, indices 0–30) and a `g()` ternary mapping type → index
+- `rn` has a dispatch array `i` and a `g()` ternary mapping type → index (34 entries after `mao_`)
 - To add a new indicator to the picker preview, add its form function to both `i` and `g()`
-- Imports from `YtNU6idj.js` end at `o as pt` — new form components need new import entries
+- Imports from `YtNU6idj.js` grow as new form components are added (see export alias sequence)
 
 **To add MACD_-style picker form:**
 ```javascript
@@ -351,6 +351,109 @@ class Wi2 extends ce {
 - Private WeakMap/WeakSet fields must be declared as `let` vars **before** the class constructor runs, then assigned initial values in a `((...))` block **after** the class definition.
 - `baseHash()` returns `[type, symbol, period, apply, length, firstTime, lastTime].join("-")`. Include `sameTimeframeSource` and `sourceTimeframe` in `lt2`'s hash to invalidate the cache whenever those params change.
 - `C4q1ypxK.js` is the file that lazily imports `b2TMcBQ2.js` via `import("./b2TMcBQ2.js")`.
+
+---
+
+## Additional: Adding an MTF variant for a single-output indicator (`mao_`)
+
+`mao_` (Moving Average of Oscillator_) was added following exactly the same pattern as `macd_`, but the indicator produces **one** output array instead of two (OsMA only — no signal line rendered). This section documents the differences from the `macd_` pattern.
+
+### Key differences from `macd_`
+
+| Aspect | `macd_` (`Wi2`) | `mao_` (`Di2`) |
+|---|---|---|
+| Outputs | `data` (histogram) + `signal` (line) | `data` (histogram) only |
+| Calc function | `Ti(macd, sig, fastEMA, slowEMA, prices, …)` — 4 output arrays | `Ei(osma, fastEMA, slowEMA, macd, sig, prices, …)` — 5 output arrays |
+| MTF expansion | Expand both `macd` and `sig` back to LT | Expand `osma` (index 0) only |
+| Private fields | `it2` (WeakMap sig) + `at2` (WeakMap prevHash) + `nt2` (WeakSet) | `ht2` (WeakMap prevHash) + `rt2` (WeakSet) — 2 fields, no second WeakMap |
+| Style | `line` + `signal` (two `xt` rows, both with `visible`) | `line` only (one `xt` row, **no `visible`** — color + thickness only) |
+| Settings export alias | `G` in `Cj-wvwrR.js` | `H` |
+| Form export alias | `Fs2 as q` in `YtNU6idj.js` | `MOsFm as t2` |
+
+### `Ei` function signature
+
+```javascript
+// Ei(osma, fastEMA, slowEMA, macd, signal, prices, fastPeriod, slowPeriod, macdPeriod, incremental)
+Ei(t, s, e, i, a, n, l, h, r, o = !1)
+// t = OsMA output (the only value rendered)
+// s,e,i,a = intermediates (fastEMA, slowEMA, macdLine, signalLine)
+// n = price series input
+```
+
+In the MTF path, only `t` (OsMA) is expanded to LT resolution. The intermediates (`s,e,i,a`) are computed at HT resolution and discarded after use.
+
+### `Di2` private fields pattern
+
+`Di2` needs only 2 private fields (same as the original `Di`):
+```javascript
+let ht2=new WeakMap(),   // stores previous cache key (for cleanup)
+    rt2=new WeakSet(),   // WeakSet used for private method dispatch
+    ot2;                 // hash function (set after class definition)
+
+class Di2 extends ce {
+  constructor(){(super(...arguments),bs(this,rt2),bs(this,ht2));}
+  // ...
+}
+((ht2=new WeakMap()),(rt2=new WeakSet()),(ot2=function(){
+  const{params:t}=this.settings;
+  return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");
+}));
+```
+
+> The hash must include `sameTimeframeSource` and `sourceTimeframe` or the cache won't invalidate when the user changes the source TF.
+
+### Form component: single line style (no `visible`)
+
+The original `mao` (`Zs`) form uses `xt` with only `color` and `thickness` — there is no `visible` toggle. The `mao_` form (`MOsFm`) is an exact copy. The slot function (`MOsWt`) wires handlers at state indices `[6]` (color) and `[7]` (thickness), matching the original `Gs` slot pattern.
+
+Do **not** add a `visible` prop to the `xt` component here — the original `mao` style object is `{ line: { color, thickness } }` with no `visible` field, so trying to bind it would produce `undefined` and break two-way binding.
+
+### Export alias sequence in `YtNU6idj.js`
+
+After adding `EpFm as s` (engulfing), the next free single-letter alias was `t`. However `t` is the Svelte base class alias at module scope — safe to use as an **export** alias (it's a different namespace), but to avoid confusion, `t2` was chosen instead.
+
+Current tail of the export block:
+```
+...,ne2 as p,Fs2 as q,FrFm as r,EpFm as s,MOsFm as t2
+```
+
+### Dispatch index bookkeeping
+
+After adding `mao_`, the dispatch indices are:
+
+**`BuFyB25p.js` `p` array / ternary:**
+- index 32: `Mt2` → `macd_`
+- index 33: `Ep2t` → `engulfing`
+- index 34: `ut2` → `mao_` ← new
+
+**`C2M0l3R7.js` picker `i` array / `g()` ternary:**
+- index 31: `Gt2` → `macd_`
+- index 32: `Ep2tc` → `engulfing`
+- index 33: `Xt2` → `mao_` ← new
+
+### Critical pitfall: `transition_out` vs `destroy_component` in picker form `o(t)` method
+
+When writing a new picker form function (e.g. `Xt2`), the `o(t)` (outro) method **must** call `M(n.$$.fragment, t)` — where `M` is the alias for `transition_out` (exported as `t` from `CHj1SSsY.js`).
+
+**Wrong (causes runtime crash):**
+```javascript
+o(t){(k(n.$$.fragment,t),k(s.$$.fragment,t),(r=!1))}
+```
+
+**Correct (matches working `Gt2`):**
+```javascript
+o(t){(M(n.$$.fragment,t),M(s.$$.fragment,t),(r=!1))}
+```
+
+**Why it crashes:** In `C2M0l3R7.js`, `k` is imported as `r` from `CHj1SSsY.js` — that alias is `destroy_component`, not `transition_out`. Calling `destroy_component(n.$$.fragment, t)` passes the fragment object where a component is expected; `destroy_component` internally tries to read `argument.$$` which is `undefined` on a fragment, throwing:
+
+```
+TypeError: Cannot read properties of undefined (reading 'fragment')
+    at le (CHj1SSsY.js:896:14)
+    at Object.o (C2M0l3R7.js:826:417)
+```
+
+The `d(t)` (destroy) method uses `v(n,t)` to call `destroy_component` correctly (passing the component, not its fragment). The function aliases `k` and `M` look similar but are entirely different Svelte helpers — always copy `o(t)` verbatim from a working picker function like `Gt2`.
 
 ---
 

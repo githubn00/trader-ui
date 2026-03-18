@@ -72,7 +72,8 @@ import {
   p as ne2c,
   q as Fs2c,
   r as FrFmc,
-  s as EpFmc
+  s as EpFmc,
+  t2 as MOsFmc
 } from "./YtNU6idj.js";
 import "./CezRPkQL.js";
 import { T as ut, a as dt, F as wt } from "./u3aYl0h9.js";
@@ -96,6 +97,7 @@ const yt = [
     "fi",
     "macd",
     "macd_",
+    "mao_",
     "mao",
     "momentum",
     "rsi",
@@ -136,6 +138,7 @@ const yt = [
   ["fi", 2, "Force", "Force Index"],
   ["macd", 2, "MACD"],
   ["macd_", 2, "MACD_"],
+  ["mao_", 2, "OsMA_", "Moving Average of Oscillator_"],
   ["mao", 2, "OsMA", "Moving Average of Oscillator"],
   ["momentum", 2, "Momentum"],
   ["rsi", 2, "RSI", "Relative Strength Index"],
@@ -820,6 +823,7 @@ function Ht(t) {
     }
   );
 }
+function Xt2(t){let n,e,s,r;return(n=new MOsFmc({props:{settings:t[0]}}),s=new ne2c({props:{analysisManager:t[1],settings:t[0]}}),{c(){(A(n.$$.fragment),(e=u()),A(s.$$.fragment))},m(t,a){(x(n,t,a),$(t,e,a),x(s,t,a),(r=!0))},p(t,e){const a={};(1&e&&(a.settings=t[0]),n.$set(a));const r={};(2&e&&(r.analysisManager=t[1]),1&e&&(r.settings=t[0]),s.$set(r))},i(t){r||(h(n.$$.fragment,t),h(s.$$.fragment,t),(r=!0))},o(t){(M(n.$$.fragment,t),M(s.$$.fragment,t),(r=!1))},d(t){(t&&c(e),v(n,t),v(s,t))}})}
 function Xt(t) {
   let n, e, s, r;
   return (
@@ -1370,6 +1374,7 @@ function rn(t) {
       Ct,
       Gt2,
       Ep2tc,
+      Xt2,
     ],
     o = [];
   function g(t, n) {
@@ -1444,6 +1449,8 @@ function rn(t) {
                                                                   ? 31
                                                                   : "engulfing" === t[0].type
                                                                   ? 32
+                                                                  : "mao_" === t[0].type
+                                                                  ? 33
                                                                   : -1;
   }
   return (
