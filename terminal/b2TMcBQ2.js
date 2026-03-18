@@ -169,6 +169,7 @@ import {
   x as Ns,
   m as Xs,
   G as Xs2,
+  H as Xs2b,
   n as Us,
   y as Ks,
   D as qs,
@@ -316,6 +317,11 @@ class he extends Fs {
         (([h, r] = this.getOptions(o.AnalysisMAOSettings.flags)),
           (l = new o.AnalysisMAOSettings({ ...i, index: r })),
           (n = new o.AnalysisMAO(h, 5e3, l)));
+        break;
+      case "mao_":
+        (([h, r] = this.getOptions(o.AnalysisMAO_Settings.flags)),
+          (l = new o.AnalysisMAO_Settings({ ...i, index: r })),
+          (n = new o.AnalysisMAO_(h, 5e3, l)));
         break;
       case "momentum":
         (([h, r] = this.getOptions(o.AnalysisMomentumSettings.flags)),
@@ -2130,6 +2136,61 @@ function Ei(t, s, e, i, a, n, l, h, r, o = !1) {
       t[e] = i[e] - a[e];
   }
 }
+
+// ── AnalysisMAO_ — OsMA with same-timeframe-source / MTF support ─────────
+const Hi2=new Map(),ji2=new Map(),Oi2=new Map(),Pi2=new Map(),Ii2=new Map();
+let ht2=new WeakMap(),rt2=new WeakSet(),ot2;
+class Di2 extends ce{
+  constructor(){(super(...arguments),bs(this,rt2),bs(this,ht2));}
+  value(t){return this.data&&this.data[t]?[{color:this.settings.style.line.color,value:this.data[t].toFixed(this.settings.digits)}]:[];}
+  _titleArguments(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,re(t.apply)];}
+  _calc(t){
+    super._calc();
+    const{params:s}=this.settings,e=ks(this,rt2,ot2).call(this);
+    let i=Hi2.get(e),a=ji2.get(e),n=Oi2.get(e),l=Pi2.get(e),h=Ii2.get(e);
+    if(s.sameTimeframeSource){
+      // Same-TF path: standard OsMA (mirrors Di exactly)
+      const prices=this._getPrices(t||void 0);
+      if(i&&a&&n&&l&&h){t&&Ei(i,a,n,l,h,prices,s.fast,s.slow,s.macd,!0);}
+      else{((i=new Float64Array(prices.length)),(a=new Float64Array(prices.length)),(n=new Float64Array(prices.length)),(l=new Float64Array(prices.length)),(h=new Float64Array(prices.length)),Ei(i,a,n,l,h,prices,s.fast,s.slow,s.macd),Hi2.set(e,i),ji2.set(e,a),Oi2.set(e,n),Pi2.set(e,l),Ii2.set(e,h));const r=vs(this,ht2);(r&&(Hi2.delete(r),ji2.delete(r),Oi2.delete(r),Pi2.delete(r),Ii2.delete(r)),_s(this,ht2,e));}
+    }else{
+      // MTF path: compute OsMA at HT resolution, then expand to current-TF bars
+      const bars=this.chart.bars,len=bars.length,tfMs=Ni2(s.sourceTimeframe)*60000;
+      if(!tfMs){
+        // sourceTimeframe not set — fall back to same-TF
+        const prices=this._getPrices(t||void 0);
+        if(i&&a&&n&&l&&h){t&&Ei(i,a,n,l,h,prices,s.fast,s.slow,s.macd,!0);}
+        else{((i=new Float64Array(prices.length)),(a=new Float64Array(prices.length)),(n=new Float64Array(prices.length)),(l=new Float64Array(prices.length)),(h=new Float64Array(prices.length)),Ei(i,a,n,l,h,prices,s.fast,s.slow,s.macd),Hi2.set(e,i),ji2.set(e,a),Oi2.set(e,n),Pi2.set(e,l),Ii2.set(e,h));const r=vs(this,ht2);(r&&(Hi2.delete(r),ji2.delete(r),Oi2.delete(r),Pi2.delete(r),Ii2.delete(r)),_s(this,ht2,e));}
+      }else{
+        // Step 1: build HT candles
+        const htOp=[],htHi=[],htLo=[],htCl=[],htBarMap=new Int32Array(len);
+        let cs=-1,cO=0,cH=-Infinity,cL=Infinity,htIdx=-1;
+        for(let j=0;j<len;j++){
+          const bc=Math.floor(bars.time(j)/tfMs)*tfMs;
+          if(bc!==cs){cs=bc;cO=bars.open(j);cH=bars.high(j);cL=bars.low(j);htIdx++;htOp.push(cO);htHi.push(cH);htLo.push(cL);htCl.push(bars.close(j));}
+          else{if(bars.high(j)>cH){cH=bars.high(j);htHi[htIdx]=cH;}if(bars.low(j)<cL){cL=bars.low(j);htLo[htIdx]=cL;}htCl[htIdx]=bars.close(j);}
+          htBarMap[j]=htIdx;
+        }
+        const htLen=htOp.length;
+        // Step 2: build HT price series
+        const htPrices=new Float64Array(htLen);
+        for(let j=0;j<htLen;j++)htPrices[j]=Ni2b(htOp[j],htHi[j],htLo[j],htCl[j],s.apply);
+        // Step 3: compute OsMA entirely on HT prices
+        const htOsMA=new Float64Array(htLen),htF=new Float64Array(htLen),htS=new Float64Array(htLen),htMACD=new Float64Array(htLen),htSig=new Float64Array(htLen);
+        Ei(htOsMA,htF,htS,htMACD,htSig,htPrices,s.fast,s.slow,s.macd);
+        // Step 4: expand OsMA back to LT bar positions
+        i=new Float64Array(len);
+        for(let j=0;j<len;j++)i[j]=htOsMA[htBarMap[j]];
+        Hi2.set(e,i);
+        const dummy=new Float64Array(0);ji2.set(e,dummy);Oi2.set(e,dummy);Pi2.set(e,dummy);Ii2.set(e,dummy);
+        const r=vs(this,ht2);(r&&(Hi2.delete(r),ji2.delete(r),Oi2.delete(r),Pi2.delete(r),Ii2.delete(r)),_s(this,ht2,e));
+      }
+    }
+    ((this.data=i),this._calcExtremum());
+  }
+  _drawGraph(t){const{data:s,settings:e}=this,{style:i}=e;s&&this.drawHistogram(t,s,i.line);}
+}
+((ht2=new WeakMap()),(rt2=new WeakSet()),(ot2=function(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");}));
 ((ht = new WeakMap()),
   (rt = new WeakSet()),
   (ot = function () {
@@ -3907,6 +3968,8 @@ const rn = Object.freeze(
       AnalysisMACD_Settings: Xs2,
       AnalysisMAO: Di,
       AnalysisMAOSettings: Us,
+      AnalysisMAO_: Di2,
+      AnalysisMAO_Settings: Xs2b,
       AnalysisMASettings: Ks,
       AnalysisMF: Ke,
       AnalysisMFI: za,
@@ -3987,6 +4050,8 @@ export {
   Xs2 as AnalysisMACD_Settings,
   Di as AnalysisMAO,
   Us as AnalysisMAOSettings,
+  Di2 as AnalysisMAO_,
+  Xs2b as AnalysisMAO_Settings,
   Ks as AnalysisMASettings,
   Ke as AnalysisMF,
   za as AnalysisMFI,

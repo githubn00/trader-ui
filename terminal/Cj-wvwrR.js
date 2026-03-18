@@ -59,6 +59,8 @@ function h(s) {
       return "MACD_";
     case "mao":
       return "Moving Average of Oscillator";
+    case "mao_":
+      return "Moving Average of Oscillator_";
     case "momentum":
       return "Momentum";
     case "rsi":
@@ -421,6 +423,21 @@ const q = class s extends f {
 };
 ((q.type = "mao"), (q.category = 2), (q.digits = 6), (q.flags = 4));
 let z = q;
+const q_ = class s extends f {
+  constructor(e) {
+    super(
+      e,
+      { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0 },
+      { line: { color: 16711790, thickness: 1 } },
+      s.type,
+      s.category,
+      s.digits,
+      s.flags,
+    );
+  }
+};
+((q_.category = 2), (q_.type = "mao_"), (q_.digits = 6), (q_.flags = 4));
+let z_ = q_;
 const G = class s extends f {
   constructor(e) {
     super(
@@ -775,6 +792,7 @@ export {
   V as l,
   U as m,
   U_ as G,
+  z_ as H,
   z as n,
   H as o,
   Q as p,
