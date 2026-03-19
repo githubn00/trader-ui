@@ -1140,6 +1140,7 @@ function alertsSma(prices, period) {
 }
 
 function alertsMa(bars, period, maType) {
+  if (!bars || bars.length === 0) return null;
   const closes = new Float64Array(bars.length);
   for (let i = 0; i < bars.length; i++) {
     closes[i] = bars[i].close;
@@ -1304,6 +1305,7 @@ class Ae2 extends ce {
   _calc(t) {
     super._calc();
     const s = this.chart.bars;
+    if (!s || s.length === 0) return;
     const p2 = this.settings.params;
     const maPeriod = (p2 && p2.maPeriod != null) ? p2.maPeriod : 50;
     const maType = (p2 && p2.maType) || 0;
