@@ -4148,6 +4148,8 @@ const rn = Object.freeze(
       AnalysisFractalsSettings: Rs,
       AnalysisEngulfingPatterns: Ee2,
       AnalysisEngulfingPatternsSettings: EpS,
+      AnalysisAlerts: Ae2,
+      AnalysisAlertsSettings: ApS,
       AnalysisGO: Ve,
       AnalysisGOSettings: Bs,
       AnalysisIKH: Wa,
