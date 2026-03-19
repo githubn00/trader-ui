@@ -1162,14 +1162,18 @@ function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
     bull[i] = 0; bear[i] = 0; slope[i] = 0; breakout[i] = 0;
 
     const bar = bars[i];
+    if (!bar) continue;
     const close = bar.close, high = bar.high, low = bar.low, open = bar.open;
+    if (!close || !high || !low) continue;
 
     // Price Action Pattern (5-bar range breakout)
     if (usePrice && i >= 5) {
       let maxHigh = high, minLow = low;
       for (let j = i - 5; j < i; j++) {
-        maxHigh = Math.max(maxHigh, bars[j].high);
-        minLow = Math.min(minLow, bars[j].low);
+        if (bars[j]) {
+          maxHigh = Math.max(maxHigh, bars[j].high || high);
+          minLow = Math.min(minLow, bars[j].low || low);
+        }
       }
       if (close > maxHigh && high === close) bull[i] = low;
       if (close < minLow && low === close) bear[i] = high;
@@ -1177,10 +1181,13 @@ function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
 
     // MA Crossovers
     if (useMaCross && ma && i > 0) {
-      const prevClose = bars[i - 1].close;
-      const prevMa = ma[i - 1];
-      if (prevClose <= prevMa && close > ma[i]) bull[i] = low;
-      if (prevClose >= prevMa && close < ma[i]) bear[i] = high;
+      const prevBar = bars[i - 1];
+      if (prevBar && prevBar.close) {
+        const prevClose = prevBar.close;
+        const prevMa = ma[i - 1];
+        if (prevClose <= prevMa && close > ma[i]) bull[i] = low;
+        if (prevClose >= prevMa && close < ma[i]) bear[i] = high;
+      }
     }
 
     // MA Slope Changes
@@ -1196,9 +1203,12 @@ function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
 
     // Breakout (rapid price move)
     if (useBreakout && i > 0) {
-      const pctChange = ((close - bars[i - 1].close) / bars[i - 1].close) * 100;
-      if (Math.abs(pctChange) > breakoutPercent) {
-        breakout[i] = (high + low) / 2;
+      const prevBar = bars[i - 1];
+      if (prevBar && prevBar.close) {
+        const pctChange = ((close - prevBar.close) / prevBar.close) * 100;
+        if (Math.abs(pctChange) > breakoutPercent) {
+          breakout[i] = (high + low) / 2;
+        }
       }
     }
   }
