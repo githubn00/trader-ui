@@ -1,1 +1,987 @@
-import{S as n,i as e,s as t,r as o,t as i,g as a,u as l,v as d,n as r,L as s,a5 as w,N as c,a2 as u,d as m,a3 as $,b as p,e as f,m as g,f as v,o as h,a4 as y}from"./CHj1SSsY.js";import{I as x}from"./DyLlTbfr.js";import{F as q,S as I,G as S,B as b,a as D}from"./C8gngcK2.js";import{g as W}from"./BcwISCQu.js";import"./CQSQNu0h.js";function C(n){let e,t,r,s;function w(e){n[15](e)}function m(e){n[16](e)}let p={name:"taxId",width:45,placeholder:window.tr(window.lang.login.form.min5chars),maxlength:64,invalid:n[3].taxId};return void 0!==n[2].taxId&&(p.value=n[2].taxId),void 0!==n[4]&&(p.focus=n[4]),e=new D({props:p}),c.push((()=>u(e,"value",w))),c.push((()=>u(e,"focus",m))),{c(){d(e.$$.fragment)},m(n,t){l(e,n,t),s=!0},p(n,o){const i={};8&o[0]&&(i.invalid=n[3].taxId),!t&&4&o[0]&&(t=!0,i.value=n[2].taxId,$((()=>t=!1))),!r&&16&o[0]&&(r=!0,i.focus=n[4],$((()=>r=!1))),e.$set(i)},i(n){s||(a(e.$$.fragment,n),s=!0)},o(n){i(e.$$.fragment,n),s=!1},d(n){o(e,n)}}}function z(n){let e,t,r,s;function w(e){n[21](e)}function m(e){n[22](e)}let p={name:"education",options:n[5],placeholder:window.tr(window.lang.login.form.pleaseSelect),invalid:n[3].education};return void 0!==n[2].education&&(p.value=n[2].education),void 0!==n[4]&&(p.focus=n[4]),e=new I({props:p}),c.push((()=>u(e,"value",w))),c.push((()=>u(e,"focus",m))),{c(){d(e.$$.fragment)},m(n,t){l(e,n,t),s=!0},p(n,o){const i={};8&o[0]&&(i.invalid=n[3].education),!t&&4&o[0]&&(t=!0,i.value=n[2].education,$((()=>t=!1))),!r&&16&o[0]&&(r=!0,i.focus=n[4],$((()=>r=!1))),e.$set(i)},i(n){s||(a(e.$$.fragment,n),s=!0)},o(n){i(e.$$.fragment,n),s=!1},d(n){o(e,n)}}}function _(n){let e,t,r,s,w,h;function y(e){n[23](e)}function x(e){n[24](e)}let q={name:"annualIncome",options:n[9],width:"100%",placeholder:window.tr(window.lang.login.form.pleaseSelect),invalid:n[3].annualIncome};return void 0!==n[2].annualIncome&&(q.value=n[2].annualIncome),void 0!==n[4]&&(q.focus=n[4]),e=new I({props:q}),c.push((()=>u(e,"value",y))),c.push((()=>u(e,"focus",x))),{c(){d(e.$$.fragment),s=g(),w=f("div"),w.textContent="USD",v(w,"class","field svelte-13pqweq")},m(n,t){l(e,n,t),p(n,s,t),p(n,w,t),h=!0},p(n,o){const i={};8&o[0]&&(i.invalid=n[3].annualIncome),!t&&4&o[0]&&(t=!0,i.value=n[2].annualIncome,$((()=>t=!1))),!r&&16&o[0]&&(r=!0,i.focus=n[4],$((()=>r=!1))),e.$set(i)},i(n){h||(a(e.$$.fragment,n),h=!0)},o(n){i(e.$$.fragment,n),h=!1},d(n){n&&(m(s),m(w)),o(e,n)}}}function L(n){let e,t,r,s,w,h;function y(e){n[25](e)}function x(e){n[26](e)}let q={name:"netWorth",options:n[9],width:"100%",placeholder:window.tr(window.lang.login.form.pleaseSelect),invalid:n[3].netWorth};return void 0!==n[2].netWorth&&(q.value=n[2].netWorth),void 0!==n[4]&&(q.focus=n[4]),e=new I({props:q}),c.push((()=>u(e,"value",y))),c.push((()=>u(e,"focus",x))),{c(){d(e.$$.fragment),s=g(),w=f("div"),w.textContent="USD",v(w,"class","field svelte-13pqweq")},m(n,t){l(e,n,t),p(n,s,t),p(n,w,t),h=!0},p(n,o){const i={};8&o[0]&&(i.invalid=n[3].netWorth),!t&&4&o[0]&&(t=!0,i.value=n[2].netWorth,$((()=>t=!1))),!r&&16&o[0]&&(r=!0,i.focus=n[4],$((()=>r=!1))),e.$set(i)},i(n){h||(a(e.$$.fragment,n),h=!0)},o(n){i(e.$$.fragment,n),h=!1},d(n){n&&(m(s),m(w)),o(e,n)}}}function j(n){let e,t,r,s;function w(e){n[27](e)}function m(e){n[28](e)}let p={name:"wealth",options:n[8],width:"100%",maxWidth:64,placeholder:window.tr(window.lang.login.form.pleaseSelect),invalid:n[3].wealth};return void 0!==n[2].wealth&&(p.value=n[2].wealth),void 0!==n[4]&&(p.focus=n[4]),e=new I({props:p}),c.push((()=>u(e,"value",w))),c.push((()=>u(e,"focus",m))),{c(){d(e.$$.fragment)},m(n,t){l(e,n,t),s=!0},p(n,o){const i={};8&o[0]&&(i.invalid=n[3].wealth),!t&&4&o[0]&&(t=!0,i.value=n[2].wealth,$((()=>t=!1))),!r&&16&o[0]&&(r=!0,i.focus=n[4],$((()=>r=!1))),e.$set(i)},i(n){s||(a(e.$$.fragment,n),s=!0)},o(n){i(e.$$.fragment,n),s=!1},d(n){o(e,n)}}}function k(n){let e,t,r,s,w,h;function y(e){n[29](e)}function x(e){n[30](e)}let q={name:"annualDeposit",options:n[9],width:"100%",placeholder:window.tr(window.lang.login.form.pleaseSelect),invalid:n[3].annualDeposit};return void 0!==n[2].annualDeposit&&(q.value=n[2].annualDeposit),void 0!==n[4]&&(q.focus=n[4]),e=new I({props:q}),c.push((()=>u(e,"value",y))),c.push((()=>u(e,"focus",x))),{c(){d(e.$$.fragment),s=g(),w=f("div"),w.textContent="USD",v(w,"class","field svelte-13pqweq")},m(n,t){l(e,n,t),p(n,s,t),p(n,w,t),h=!0},p(n,o){const i={};8&o[0]&&(i.invalid=n[3].annualDeposit),!t&&4&o[0]&&(t=!0,i.value=n[2].annualDeposit,$((()=>t=!1))),!r&&16&o[0]&&(r=!0,i.focus=n[4],$((()=>r=!1))),e.$set(i)},i(n){h||(a(e.$$.fragment,n),h=!0)},o(n){i(e.$$.fragment,n),h=!1},d(n){n&&(m(s),m(w)),o(e,n)}}}function B(n){let e,t,r,s,w,h,y,q,b,D,W,B,U,N,A,E,O,F,G,J,M,T,H,K,P,Q,R,X,Y,Z,nn,en,tn,on,an,ln,dn,rn,sn,wn,cn,un;function mn(e){n[13](e)}function $n(e){n[14](e)}let pn={name:"citizenship",options:V,width:"100%",maxWidth:64,placeholder:window.tr(window.lang.login.form.pleaseSelect),invalid:n[3].citizenship};function fn(e){n[17](e)}function gn(e){n[18](e)}void 0!==n[2].citizenship&&(pn.value=n[2].citizenship),void 0!==n[4]&&(pn.focus=n[4]),r=new I({props:pn}),c.push((()=>u(r,"value",mn))),c.push((()=>u(r,"focus",$n))),b=new S({props:{marginBottom:2,$$slots:{default:[C]},$$scope:{ctx:n}}});let vn={name:"employment",options:n[6],width:"100%",maxWidth:64,emptyValue:null,placeholder:window.tr(window.lang.login.form.pleaseSelect),invalid:n[3].employment};function hn(e){n[19](e)}function yn(e){n[20](e)}void 0!==n[1]&&(vn.value=n[1]),void 0!==n[4]&&(vn.focus=n[4]),U=new I({props:vn}),c.push((()=>u(U,"value",fn))),c.push((()=>u(U,"focus",gn)));let xn={name:"industry",options:n[7],placeholder:window.tr(window.lang.login.form.pleaseSelect),disabled:[null,...x].includes(n[2].employment),invalid:n[3].industry};return void 0!==n[2].industry&&(xn.value=n[2].industry),void 0!==n[4]&&(xn.focus=n[4]),G=new I({props:xn}),c.push((()=>u(G,"value",hn))),c.push((()=>u(G,"focus",yn))),P=new S({props:{marginBottom:2,$$slots:{default:[z]},$$scope:{ctx:n}}}),Y=new S({props:{cols:"2",mobile:!1,$$slots:{default:[_]},$$scope:{ctx:n}}}),tn=new S({props:{cols:"2",mobile:!1,$$slots:{default:[L]},$$scope:{ctx:n}}}),dn=new S({props:{marginBottom:2,$$slots:{default:[j]},$$scope:{ctx:n}}}),cn=new S({props:{marginBottom:"1",cols:"2",mobile:!1,$$slots:{default:[k]},$$scope:{ctx:n}}}),{c(){e=f("div"),e.textContent=`${window.tr(window.lang.login.form.nationality)}`,t=g(),d(r.$$.fragment),h=g(),y=f("div"),y.textContent=`${window.tr(window.lang.login.form.taxID)}`,q=g(),d(b.$$.fragment),D=g(),W=f("div"),W.textContent=`${window.tr(window.lang.login.form.status)}`,B=g(),d(U.$$.fragment),E=g(),O=f("div"),O.textContent=`${window.tr(window.lang.login.form.employement)}`,F=g(),d(G.$$.fragment),T=g(),H=f("div"),H.textContent=`${window.tr(window.lang.login.form.education)}`,K=g(),d(P.$$.fragment),Q=g(),R=f("div"),R.textContent=`${window.tr(window.lang.login.form.annualIncome)}`,X=g(),d(Y.$$.fragment),Z=g(),nn=f("div"),nn.textContent=`${window.tr(window.lang.login.form.netWorth)}`,en=g(),d(tn.$$.fragment),on=g(),an=f("div"),an.textContent=`${window.tr(window.lang.login.form.sourceWealth)}`,ln=g(),d(dn.$$.fragment),rn=g(),sn=f("div"),sn.textContent=`${window.tr(window.lang.login.form.annualDeposit)}`,wn=g(),d(cn.$$.fragment),v(e,"class","field svelte-13pqweq"),v(y,"class","field svelte-13pqweq"),v(W,"class","field svelte-13pqweq"),v(O,"class","field svelte-13pqweq"),v(H,"class","field svelte-13pqweq"),v(R,"class","field svelte-13pqweq"),v(nn,"class","field svelte-13pqweq"),v(an,"class","field svelte-13pqweq"),v(sn,"class","field svelte-13pqweq")},m(n,o){p(n,e,o),p(n,t,o),l(r,n,o),p(n,h,o),p(n,y,o),p(n,q,o),l(b,n,o),p(n,D,o),p(n,W,o),p(n,B,o),l(U,n,o),p(n,E,o),p(n,O,o),p(n,F,o),l(G,n,o),p(n,T,o),p(n,H,o),p(n,K,o),l(P,n,o),p(n,Q,o),p(n,R,o),p(n,X,o),l(Y,n,o),p(n,Z,o),p(n,nn,o),p(n,en,o),l(tn,n,o),p(n,on,o),p(n,an,o),p(n,ln,o),l(dn,n,o),p(n,rn,o),p(n,sn,o),p(n,wn,o),l(cn,n,o),un=!0},p(n,e){const t={};8&e[0]&&(t.invalid=n[3].citizenship),!s&&4&e[0]&&(s=!0,t.value=n[2].citizenship,$((()=>s=!1))),!w&&16&e[0]&&(w=!0,t.focus=n[4],$((()=>w=!1))),r.$set(t);const o={};28&e[0]|1&e[1]&&(o.$$scope={dirty:e,ctx:n}),b.$set(o);const i={};8&e[0]&&(i.invalid=n[3].employment),!N&&2&e[0]&&(N=!0,i.value=n[1],$((()=>N=!1))),!A&&16&e[0]&&(A=!0,i.focus=n[4],$((()=>A=!1))),U.$set(i);const a={};4&e[0]&&(a.disabled=[null,...x].includes(n[2].employment)),8&e[0]&&(a.invalid=n[3].industry),!J&&4&e[0]&&(J=!0,a.value=n[2].industry,$((()=>J=!1))),!M&&16&e[0]&&(M=!0,a.focus=n[4],$((()=>M=!1))),G.$set(a);const l={};28&e[0]|1&e[1]&&(l.$$scope={dirty:e,ctx:n}),P.$set(l);const d={};28&e[0]|1&e[1]&&(d.$$scope={dirty:e,ctx:n}),Y.$set(d);const c={};28&e[0]|1&e[1]&&(c.$$scope={dirty:e,ctx:n}),tn.$set(c);const u={};28&e[0]|1&e[1]&&(u.$$scope={dirty:e,ctx:n}),dn.$set(u);const m={};28&e[0]|1&e[1]&&(m.$$scope={dirty:e,ctx:n}),cn.$set(m)},i(n){un||(a(r.$$.fragment,n),a(b.$$.fragment,n),a(U.$$.fragment,n),a(G.$$.fragment,n),a(P.$$.fragment,n),a(Y.$$.fragment,n),a(tn.$$.fragment,n),a(dn.$$.fragment,n),a(cn.$$.fragment,n),un=!0)},o(n){i(r.$$.fragment,n),i(b.$$.fragment,n),i(U.$$.fragment,n),i(G.$$.fragment,n),i(P.$$.fragment,n),i(Y.$$.fragment,n),i(tn.$$.fragment,n),i(dn.$$.fragment,n),i(cn.$$.fragment,n),un=!1},d(n){n&&(m(e),m(t),m(h),m(y),m(q),m(D),m(W),m(B),m(E),m(O),m(F),m(T),m(H),m(K),m(Q),m(R),m(X),m(Z),m(nn),m(en),m(on),m(an),m(ln),m(rn),m(sn),m(wn)),o(r,n),o(b,n),o(U,n),o(G,n),o(P,n),o(Y,n),o(tn,n),o(dn,n),o(cn,n)}}}function U(n){let e,t=window.tr(window.lang.login.real.title)+"";return{c(){e=h(t)},m(n,t){p(n,e,t)},p:r,d(n){n&&m(e)}}}function N(n){let e,t=window.tr(window.lang.login.form.btn.back)+"";return{c(){e=h(t)},m(n,t){p(n,e,t)},p:r,d(n){n&&m(e)}}}function A(n){let e,t=window.tr(window.lang.login.form.btn.next)+"";return{c(){e=h(t)},m(n,t){p(n,e,t)},p:r,d(n){n&&m(e)}}}function E(n){let e,t,r,s;return e=new b({props:{type:"button",$$slots:{default:[N]},$$scope:{ctx:n}}}),e.$on("click",n[12]),r=new b({props:{active:!0,type:"submit",style:"padding: 0 36px",$$slots:{default:[A]},$$scope:{ctx:n}}}),r.$on("click",n[11]),{c(){d(e.$$.fragment),t=g(),d(r.$$.fragment)},m(n,o){l(e,n,o),p(n,t,o),l(r,n,o),s=!0},p(n,t){const o={};1&t[1]&&(o.$$scope={dirty:t,ctx:n}),e.$set(o);const i={};1&t[1]&&(i.$$scope={dirty:t,ctx:n}),r.$set(i)},i(n){s||(a(e.$$.fragment,n),a(r.$$.fragment,n),s=!0)},o(n){i(e.$$.fragment,n),i(r.$$.fragment,n),s=!1},d(n){n&&m(t),o(e,n),o(r,n)}}}function O(n){let e,t;return e=new q({props:{$$slots:{footer:[E],title:[U],default:[B]},$$scope:{ctx:n}}}),e.$on("submit",n[11]),{c(){d(e.$$.fragment)},m(n,o){l(e,n,o),t=!0},p(n,t){const o={};30&t[0]|1&t[1]&&(o.$$scope={dirty:t,ctx:n}),e.$set(o)},i(n){t||(a(e.$$.fragment,n),t=!0)},o(n){i(e.$$.fragment,n),t=!1},d(n){o(e,n)}}}const V=W().map((n=>({id:n,name:n})));function F(n,e,t){let o,i=r,a=()=>(i(),i=y($,(n=>t(2,o=n))),$);n.$$.on_destroy.push((()=>i()));const l=[{id:0,name:window.tr(window.lang.login.real.educationLevel.none)},{id:1,name:window.tr(window.lang.login.real.educationLevel.highScholl)},{id:2,name:window.tr(window.lang.login.real.educationLevel.bachelor)},{id:3,name:window.tr(window.lang.login.real.educationLevel.master)},{id:4,name:window.tr(window.lang.login.real.educationLevel.phd)},{id:5,name:window.tr(window.lang.login.real.educationLevel.other)}],d=[{id:0,name:window.tr(window.lang.login.real.employment.unemployed)},{id:1,name:window.tr(window.lang.login.real.employment.employed)},{id:2,name:window.tr(window.lang.login.real.employment.selfEmployed)},{id:3,name:window.tr(window.lang.login.real.employment.retired)},{id:4,name:window.tr(window.lang.login.real.employment.student)},{id:5,name:window.tr(window.lang.login.real.employment.other)}],c=[{id:0,name:window.tr(window.lang.login.real.industry.none)},{id:1,name:window.tr(window.lang.login.real.industry.agriculture)},{id:2,name:window.tr(window.lang.login.real.industry.construction)},{id:3,name:window.tr(window.lang.login.real.industry.communication)},{id:4,name:window.tr(window.lang.login.real.industry.management)},{id:5,name:window.tr(window.lang.login.real.industry.education)},{id:6,name:window.tr(window.lang.login.real.industry.government)},{id:7,name:window.tr(window.lang.login.real.industry.healthcare)},{id:8,name:window.tr(window.lang.login.real.industry.tourism)},{id:9,name:window.tr(window.lang.login.real.industry.it)},{id:10,name:window.tr(window.lang.login.real.industry.security)},{id:11,name:window.tr(window.lang.login.real.industry.manufacturing)},{id:12,name:window.tr(window.lang.login.real.industry.marketing)},{id:13,name:window.tr(window.lang.login.real.industry.science)},{id:14,name:window.tr(window.lang.login.real.industry.engineering)},{id:15,name:window.tr(window.lang.login.real.industry.transport)},{id:16,name:window.tr(window.lang.login.real.industry.other)}],u=[{id:0,name:window.tr(window.lang.login.real.wealthSource.employment)},{id:1,name:window.tr(window.lang.login.real.wealthSource.savings)},{id:2,name:window.tr(window.lang.login.real.wealthSource.inheritance)},{id:3,name:window.tr(window.lang.login.real.wealthSource.other)}];let m={},{realStore:$}=e;a();const p=Object.entries($.ANNUAL_INCOME_VALUES).map((([n,e])=>({id:e,name:n}))),f=s();let g="";o.citizenship||w($,o.citizenship=o.country,o);let{employment:v}=o;return n.$$set=n=>{"realStore"in n&&a(t(0,$=n.realStore))},n.$$.update=()=>{6&n.$$.dirty[0]&&v!==o.employment&&(w($,o.employment=v,o),x.includes(o.employment)&&w($,o.industry=0,o))},[$,v,o,m,g,l,d,c,u,p,f,function(){try{const n={citizenship:o.citizenship,taxId:o.taxId,employment:o.employment,education:o.education,industry:o.industry,annualIncome:o.annualIncome,netWorth:o.netWorth,wealth:o.wealth,annualDeposit:o.annualDeposit};$.schemas.realThirdSchema(n)}catch(n){t(3,m=n);const e=Object.keys(m);return void(e[0]&&t(4,g=e[0]))}f("next")},()=>f("back"),function(e){n.$$.not_equal(o.citizenship,e)&&(o.citizenship=e,$.set(o))},function(n){g=n,t(4,g)},function(e){n.$$.not_equal(o.taxId,e)&&(o.taxId=e,$.set(o))},function(n){g=n,t(4,g)},function(n){v=n,t(1,v)},function(n){g=n,t(4,g)},function(e){n.$$.not_equal(o.industry,e)&&(o.industry=e,$.set(o))},function(n){g=n,t(4,g)},function(e){n.$$.not_equal(o.education,e)&&(o.education=e,$.set(o))},function(n){g=n,t(4,g)},function(e){n.$$.not_equal(o.annualIncome,e)&&(o.annualIncome=e,$.set(o))},function(n){g=n,t(4,g)},function(e){n.$$.not_equal(o.netWorth,e)&&(o.netWorth=e,$.set(o))},function(n){g=n,t(4,g)},function(e){n.$$.not_equal(o.wealth,e)&&(o.wealth=e,$.set(o))},function(n){g=n,t(4,g)},function(e){n.$$.not_equal(o.annualDeposit,e)&&(o.annualDeposit=e,$.set(o))},function(n){g=n,t(4,g)}]}class G extends n{constructor(n){super(),e(this,n,F,O,t,{realStore:0},null,[-1,-1])}}export{G as default};
+import {
+  S as n,
+  i as e,
+  s as t,
+  r as o,
+  t as i,
+  g as a,
+  u as l,
+  v as d,
+  n as r,
+  L as s,
+  a5 as w,
+  N as c,
+  a2 as u,
+  d as m,
+  a3 as $,
+  b as p,
+  e as f,
+  m as g,
+  f as v,
+  o as h,
+  a4 as y,
+} from "./CHj1SSsY.js";
+import { I as x } from "./DyLlTbfr.js";
+import { F as q, S as I, G as S, B as b, a as D } from "./C8gngcK2.js";
+import { g as W } from "./BcwISCQu.js";
+import "./CQSQNu0h.js";
+function C(n) {
+  let e, t, r, s;
+  function w(e) {
+    n[15](e);
+  }
+  function m(e) {
+    n[16](e);
+  }
+  let p = {
+    name: "taxId",
+    width: 45,
+    placeholder: window.tr(window.lang.login.form.min5chars),
+    maxlength: 64,
+    invalid: n[3].taxId,
+  };
+  return (
+    void 0 !== n[2].taxId && (p.value = n[2].taxId),
+    void 0 !== n[4] && (p.focus = n[4]),
+    (e = new D({ props: p })),
+    c.push(() => u(e, "value", w)),
+    c.push(() => u(e, "focus", m)),
+    {
+      c() {
+        d(e.$$.fragment);
+      },
+      m(n, t) {
+        (l(e, n, t), (s = !0));
+      },
+      p(n, o) {
+        const i = {};
+        (8 & o[0] && (i.invalid = n[3].taxId),
+          !t &&
+            4 & o[0] &&
+            ((t = !0), (i.value = n[2].taxId), $(() => (t = !1))),
+          !r && 16 & o[0] && ((r = !0), (i.focus = n[4]), $(() => (r = !1))),
+          e.$set(i));
+      },
+      i(n) {
+        s || (a(e.$$.fragment, n), (s = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), (s = !1));
+      },
+      d(n) {
+        o(e, n);
+      },
+    }
+  );
+}
+function z(n) {
+  let e, t, r, s;
+  function w(e) {
+    n[21](e);
+  }
+  function m(e) {
+    n[22](e);
+  }
+  let p = {
+    name: "education",
+    options: n[5],
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    invalid: n[3].education,
+  };
+  return (
+    void 0 !== n[2].education && (p.value = n[2].education),
+    void 0 !== n[4] && (p.focus = n[4]),
+    (e = new I({ props: p })),
+    c.push(() => u(e, "value", w)),
+    c.push(() => u(e, "focus", m)),
+    {
+      c() {
+        d(e.$$.fragment);
+      },
+      m(n, t) {
+        (l(e, n, t), (s = !0));
+      },
+      p(n, o) {
+        const i = {};
+        (8 & o[0] && (i.invalid = n[3].education),
+          !t &&
+            4 & o[0] &&
+            ((t = !0), (i.value = n[2].education), $(() => (t = !1))),
+          !r && 16 & o[0] && ((r = !0), (i.focus = n[4]), $(() => (r = !1))),
+          e.$set(i));
+      },
+      i(n) {
+        s || (a(e.$$.fragment, n), (s = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), (s = !1));
+      },
+      d(n) {
+        o(e, n);
+      },
+    }
+  );
+}
+function _(n) {
+  let e, t, r, s, w, h;
+  function y(e) {
+    n[23](e);
+  }
+  function x(e) {
+    n[24](e);
+  }
+  let q = {
+    name: "annualIncome",
+    options: n[9],
+    width: "100%",
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    invalid: n[3].annualIncome,
+  };
+  return (
+    void 0 !== n[2].annualIncome && (q.value = n[2].annualIncome),
+    void 0 !== n[4] && (q.focus = n[4]),
+    (e = new I({ props: q })),
+    c.push(() => u(e, "value", y)),
+    c.push(() => u(e, "focus", x)),
+    {
+      c() {
+        (d(e.$$.fragment),
+          (s = g()),
+          (w = f("div")),
+          (w.textContent = "USD"),
+          v(w, "class", "field svelte-13pqweq"));
+      },
+      m(n, t) {
+        (l(e, n, t), p(n, s, t), p(n, w, t), (h = !0));
+      },
+      p(n, o) {
+        const i = {};
+        (8 & o[0] && (i.invalid = n[3].annualIncome),
+          !t &&
+            4 & o[0] &&
+            ((t = !0), (i.value = n[2].annualIncome), $(() => (t = !1))),
+          !r && 16 & o[0] && ((r = !0), (i.focus = n[4]), $(() => (r = !1))),
+          e.$set(i));
+      },
+      i(n) {
+        h || (a(e.$$.fragment, n), (h = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), (h = !1));
+      },
+      d(n) {
+        (n && (m(s), m(w)), o(e, n));
+      },
+    }
+  );
+}
+function L(n) {
+  let e, t, r, s, w, h;
+  function y(e) {
+    n[25](e);
+  }
+  function x(e) {
+    n[26](e);
+  }
+  let q = {
+    name: "netWorth",
+    options: n[9],
+    width: "100%",
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    invalid: n[3].netWorth,
+  };
+  return (
+    void 0 !== n[2].netWorth && (q.value = n[2].netWorth),
+    void 0 !== n[4] && (q.focus = n[4]),
+    (e = new I({ props: q })),
+    c.push(() => u(e, "value", y)),
+    c.push(() => u(e, "focus", x)),
+    {
+      c() {
+        (d(e.$$.fragment),
+          (s = g()),
+          (w = f("div")),
+          (w.textContent = "USD"),
+          v(w, "class", "field svelte-13pqweq"));
+      },
+      m(n, t) {
+        (l(e, n, t), p(n, s, t), p(n, w, t), (h = !0));
+      },
+      p(n, o) {
+        const i = {};
+        (8 & o[0] && (i.invalid = n[3].netWorth),
+          !t &&
+            4 & o[0] &&
+            ((t = !0), (i.value = n[2].netWorth), $(() => (t = !1))),
+          !r && 16 & o[0] && ((r = !0), (i.focus = n[4]), $(() => (r = !1))),
+          e.$set(i));
+      },
+      i(n) {
+        h || (a(e.$$.fragment, n), (h = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), (h = !1));
+      },
+      d(n) {
+        (n && (m(s), m(w)), o(e, n));
+      },
+    }
+  );
+}
+function j(n) {
+  let e, t, r, s;
+  function w(e) {
+    n[27](e);
+  }
+  function m(e) {
+    n[28](e);
+  }
+  let p = {
+    name: "wealth",
+    options: n[8],
+    width: "100%",
+    maxWidth: 64,
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    invalid: n[3].wealth,
+  };
+  return (
+    void 0 !== n[2].wealth && (p.value = n[2].wealth),
+    void 0 !== n[4] && (p.focus = n[4]),
+    (e = new I({ props: p })),
+    c.push(() => u(e, "value", w)),
+    c.push(() => u(e, "focus", m)),
+    {
+      c() {
+        d(e.$$.fragment);
+      },
+      m(n, t) {
+        (l(e, n, t), (s = !0));
+      },
+      p(n, o) {
+        const i = {};
+        (8 & o[0] && (i.invalid = n[3].wealth),
+          !t &&
+            4 & o[0] &&
+            ((t = !0), (i.value = n[2].wealth), $(() => (t = !1))),
+          !r && 16 & o[0] && ((r = !0), (i.focus = n[4]), $(() => (r = !1))),
+          e.$set(i));
+      },
+      i(n) {
+        s || (a(e.$$.fragment, n), (s = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), (s = !1));
+      },
+      d(n) {
+        o(e, n);
+      },
+    }
+  );
+}
+function k(n) {
+  let e, t, r, s, w, h;
+  function y(e) {
+    n[29](e);
+  }
+  function x(e) {
+    n[30](e);
+  }
+  let q = {
+    name: "annualDeposit",
+    options: n[9],
+    width: "100%",
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    invalid: n[3].annualDeposit,
+  };
+  return (
+    void 0 !== n[2].annualDeposit && (q.value = n[2].annualDeposit),
+    void 0 !== n[4] && (q.focus = n[4]),
+    (e = new I({ props: q })),
+    c.push(() => u(e, "value", y)),
+    c.push(() => u(e, "focus", x)),
+    {
+      c() {
+        (d(e.$$.fragment),
+          (s = g()),
+          (w = f("div")),
+          (w.textContent = "USD"),
+          v(w, "class", "field svelte-13pqweq"));
+      },
+      m(n, t) {
+        (l(e, n, t), p(n, s, t), p(n, w, t), (h = !0));
+      },
+      p(n, o) {
+        const i = {};
+        (8 & o[0] && (i.invalid = n[3].annualDeposit),
+          !t &&
+            4 & o[0] &&
+            ((t = !0), (i.value = n[2].annualDeposit), $(() => (t = !1))),
+          !r && 16 & o[0] && ((r = !0), (i.focus = n[4]), $(() => (r = !1))),
+          e.$set(i));
+      },
+      i(n) {
+        h || (a(e.$$.fragment, n), (h = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), (h = !1));
+      },
+      d(n) {
+        (n && (m(s), m(w)), o(e, n));
+      },
+    }
+  );
+}
+function B(n) {
+  let e,
+    t,
+    r,
+    s,
+    w,
+    h,
+    y,
+    q,
+    b,
+    D,
+    W,
+    B,
+    U,
+    N,
+    A,
+    E,
+    O,
+    F,
+    G,
+    J,
+    M,
+    T,
+    H,
+    K,
+    P,
+    Q,
+    R,
+    X,
+    Y,
+    Z,
+    nn,
+    en,
+    tn,
+    on,
+    an,
+    ln,
+    dn,
+    rn,
+    sn,
+    wn,
+    cn,
+    un;
+  function mn(e) {
+    n[13](e);
+  }
+  function $n(e) {
+    n[14](e);
+  }
+  let pn = {
+    name: "citizenship",
+    options: V,
+    width: "100%",
+    maxWidth: 64,
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    invalid: n[3].citizenship,
+  };
+  function fn(e) {
+    n[17](e);
+  }
+  function gn(e) {
+    n[18](e);
+  }
+  (void 0 !== n[2].citizenship && (pn.value = n[2].citizenship),
+    void 0 !== n[4] && (pn.focus = n[4]),
+    (r = new I({ props: pn })),
+    c.push(() => u(r, "value", mn)),
+    c.push(() => u(r, "focus", $n)),
+    (b = new S({
+      props: {
+        marginBottom: 2,
+        $$slots: { default: [C] },
+        $$scope: { ctx: n },
+      },
+    })));
+  let vn = {
+    name: "employment",
+    options: n[6],
+    width: "100%",
+    maxWidth: 64,
+    emptyValue: null,
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    invalid: n[3].employment,
+  };
+  function hn(e) {
+    n[19](e);
+  }
+  function yn(e) {
+    n[20](e);
+  }
+  (void 0 !== n[1] && (vn.value = n[1]),
+    void 0 !== n[4] && (vn.focus = n[4]),
+    (U = new I({ props: vn })),
+    c.push(() => u(U, "value", fn)),
+    c.push(() => u(U, "focus", gn)));
+  let xn = {
+    name: "industry",
+    options: n[7],
+    placeholder: window.tr(window.lang.login.form.pleaseSelect),
+    disabled: [null, ...x].includes(n[2].employment),
+    invalid: n[3].industry,
+  };
+  return (
+    void 0 !== n[2].industry && (xn.value = n[2].industry),
+    void 0 !== n[4] && (xn.focus = n[4]),
+    (G = new I({ props: xn })),
+    c.push(() => u(G, "value", hn)),
+    c.push(() => u(G, "focus", yn)),
+    (P = new S({
+      props: {
+        marginBottom: 2,
+        $$slots: { default: [z] },
+        $$scope: { ctx: n },
+      },
+    })),
+    (Y = new S({
+      props: {
+        cols: "2",
+        mobile: !1,
+        $$slots: { default: [_] },
+        $$scope: { ctx: n },
+      },
+    })),
+    (tn = new S({
+      props: {
+        cols: "2",
+        mobile: !1,
+        $$slots: { default: [L] },
+        $$scope: { ctx: n },
+      },
+    })),
+    (dn = new S({
+      props: {
+        marginBottom: 2,
+        $$slots: { default: [j] },
+        $$scope: { ctx: n },
+      },
+    })),
+    (cn = new S({
+      props: {
+        marginBottom: "1",
+        cols: "2",
+        mobile: !1,
+        $$slots: { default: [k] },
+        $$scope: { ctx: n },
+      },
+    })),
+    {
+      c() {
+        ((e = f("div")),
+          (e.textContent = `${window.tr(window.lang.login.form.nationality)}`),
+          (t = g()),
+          d(r.$$.fragment),
+          (h = g()),
+          (y = f("div")),
+          (y.textContent = `${window.tr(window.lang.login.form.taxID)}`),
+          (q = g()),
+          d(b.$$.fragment),
+          (D = g()),
+          (W = f("div")),
+          (W.textContent = `${window.tr(window.lang.login.form.status)}`),
+          (B = g()),
+          d(U.$$.fragment),
+          (E = g()),
+          (O = f("div")),
+          (O.textContent = `${window.tr(window.lang.login.form.employement)}`),
+          (F = g()),
+          d(G.$$.fragment),
+          (T = g()),
+          (H = f("div")),
+          (H.textContent = `${window.tr(window.lang.login.form.education)}`),
+          (K = g()),
+          d(P.$$.fragment),
+          (Q = g()),
+          (R = f("div")),
+          (R.textContent = `${window.tr(window.lang.login.form.annualIncome)}`),
+          (X = g()),
+          d(Y.$$.fragment),
+          (Z = g()),
+          (nn = f("div")),
+          (nn.textContent = `${window.tr(window.lang.login.form.netWorth)}`),
+          (en = g()),
+          d(tn.$$.fragment),
+          (on = g()),
+          (an = f("div")),
+          (an.textContent = `${window.tr(window.lang.login.form.sourceWealth)}`),
+          (ln = g()),
+          d(dn.$$.fragment),
+          (rn = g()),
+          (sn = f("div")),
+          (sn.textContent = `${window.tr(window.lang.login.form.annualDeposit)}`),
+          (wn = g()),
+          d(cn.$$.fragment),
+          v(e, "class", "field svelte-13pqweq"),
+          v(y, "class", "field svelte-13pqweq"),
+          v(W, "class", "field svelte-13pqweq"),
+          v(O, "class", "field svelte-13pqweq"),
+          v(H, "class", "field svelte-13pqweq"),
+          v(R, "class", "field svelte-13pqweq"),
+          v(nn, "class", "field svelte-13pqweq"),
+          v(an, "class", "field svelte-13pqweq"),
+          v(sn, "class", "field svelte-13pqweq"));
+      },
+      m(n, o) {
+        (p(n, e, o),
+          p(n, t, o),
+          l(r, n, o),
+          p(n, h, o),
+          p(n, y, o),
+          p(n, q, o),
+          l(b, n, o),
+          p(n, D, o),
+          p(n, W, o),
+          p(n, B, o),
+          l(U, n, o),
+          p(n, E, o),
+          p(n, O, o),
+          p(n, F, o),
+          l(G, n, o),
+          p(n, T, o),
+          p(n, H, o),
+          p(n, K, o),
+          l(P, n, o),
+          p(n, Q, o),
+          p(n, R, o),
+          p(n, X, o),
+          l(Y, n, o),
+          p(n, Z, o),
+          p(n, nn, o),
+          p(n, en, o),
+          l(tn, n, o),
+          p(n, on, o),
+          p(n, an, o),
+          p(n, ln, o),
+          l(dn, n, o),
+          p(n, rn, o),
+          p(n, sn, o),
+          p(n, wn, o),
+          l(cn, n, o),
+          (un = !0));
+      },
+      p(n, e) {
+        const t = {};
+        (8 & e[0] && (t.invalid = n[3].citizenship),
+          !s &&
+            4 & e[0] &&
+            ((s = !0), (t.value = n[2].citizenship), $(() => (s = !1))),
+          !w && 16 & e[0] && ((w = !0), (t.focus = n[4]), $(() => (w = !1))),
+          r.$set(t));
+        const o = {};
+        ((28 & e[0]) | (1 & e[1]) && (o.$$scope = { dirty: e, ctx: n }),
+          b.$set(o));
+        const i = {};
+        (8 & e[0] && (i.invalid = n[3].employment),
+          !N && 2 & e[0] && ((N = !0), (i.value = n[1]), $(() => (N = !1))),
+          !A && 16 & e[0] && ((A = !0), (i.focus = n[4]), $(() => (A = !1))),
+          U.$set(i));
+        const a = {};
+        (4 & e[0] && (a.disabled = [null, ...x].includes(n[2].employment)),
+          8 & e[0] && (a.invalid = n[3].industry),
+          !J &&
+            4 & e[0] &&
+            ((J = !0), (a.value = n[2].industry), $(() => (J = !1))),
+          !M && 16 & e[0] && ((M = !0), (a.focus = n[4]), $(() => (M = !1))),
+          G.$set(a));
+        const l = {};
+        ((28 & e[0]) | (1 & e[1]) && (l.$$scope = { dirty: e, ctx: n }),
+          P.$set(l));
+        const d = {};
+        ((28 & e[0]) | (1 & e[1]) && (d.$$scope = { dirty: e, ctx: n }),
+          Y.$set(d));
+        const c = {};
+        ((28 & e[0]) | (1 & e[1]) && (c.$$scope = { dirty: e, ctx: n }),
+          tn.$set(c));
+        const u = {};
+        ((28 & e[0]) | (1 & e[1]) && (u.$$scope = { dirty: e, ctx: n }),
+          dn.$set(u));
+        const m = {};
+        ((28 & e[0]) | (1 & e[1]) && (m.$$scope = { dirty: e, ctx: n }),
+          cn.$set(m));
+      },
+      i(n) {
+        un ||
+          (a(r.$$.fragment, n),
+          a(b.$$.fragment, n),
+          a(U.$$.fragment, n),
+          a(G.$$.fragment, n),
+          a(P.$$.fragment, n),
+          a(Y.$$.fragment, n),
+          a(tn.$$.fragment, n),
+          a(dn.$$.fragment, n),
+          a(cn.$$.fragment, n),
+          (un = !0));
+      },
+      o(n) {
+        (i(r.$$.fragment, n),
+          i(b.$$.fragment, n),
+          i(U.$$.fragment, n),
+          i(G.$$.fragment, n),
+          i(P.$$.fragment, n),
+          i(Y.$$.fragment, n),
+          i(tn.$$.fragment, n),
+          i(dn.$$.fragment, n),
+          i(cn.$$.fragment, n),
+          (un = !1));
+      },
+      d(n) {
+        (n &&
+          (m(e),
+          m(t),
+          m(h),
+          m(y),
+          m(q),
+          m(D),
+          m(W),
+          m(B),
+          m(E),
+          m(O),
+          m(F),
+          m(T),
+          m(H),
+          m(K),
+          m(Q),
+          m(R),
+          m(X),
+          m(Z),
+          m(nn),
+          m(en),
+          m(on),
+          m(an),
+          m(ln),
+          m(rn),
+          m(sn),
+          m(wn)),
+          o(r, n),
+          o(b, n),
+          o(U, n),
+          o(G, n),
+          o(P, n),
+          o(Y, n),
+          o(tn, n),
+          o(dn, n),
+          o(cn, n));
+      },
+    }
+  );
+}
+function U(n) {
+  let e,
+    t = window.tr(window.lang.login.real.title) + "";
+  return {
+    c() {
+      e = h(t);
+    },
+    m(n, t) {
+      p(n, e, t);
+    },
+    p: r,
+    d(n) {
+      n && m(e);
+    },
+  };
+}
+function N(n) {
+  let e,
+    t = window.tr(window.lang.login.form.btn.back) + "";
+  return {
+    c() {
+      e = h(t);
+    },
+    m(n, t) {
+      p(n, e, t);
+    },
+    p: r,
+    d(n) {
+      n && m(e);
+    },
+  };
+}
+function A(n) {
+  let e,
+    t = window.tr(window.lang.login.form.btn.next) + "";
+  return {
+    c() {
+      e = h(t);
+    },
+    m(n, t) {
+      p(n, e, t);
+    },
+    p: r,
+    d(n) {
+      n && m(e);
+    },
+  };
+}
+function E(n) {
+  let e, t, r, s;
+  return (
+    (e = new b({
+      props: { type: "button", $$slots: { default: [N] }, $$scope: { ctx: n } },
+    })),
+    e.$on("click", n[12]),
+    (r = new b({
+      props: {
+        active: !0,
+        type: "submit",
+        style: "padding: 0 36px",
+        $$slots: { default: [A] },
+        $$scope: { ctx: n },
+      },
+    })),
+    r.$on("click", n[11]),
+    {
+      c() {
+        (d(e.$$.fragment), (t = g()), d(r.$$.fragment));
+      },
+      m(n, o) {
+        (l(e, n, o), p(n, t, o), l(r, n, o), (s = !0));
+      },
+      p(n, t) {
+        const o = {};
+        (1 & t[1] && (o.$$scope = { dirty: t, ctx: n }), e.$set(o));
+        const i = {};
+        (1 & t[1] && (i.$$scope = { dirty: t, ctx: n }), r.$set(i));
+      },
+      i(n) {
+        s || (a(e.$$.fragment, n), a(r.$$.fragment, n), (s = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), i(r.$$.fragment, n), (s = !1));
+      },
+      d(n) {
+        (n && m(t), o(e, n), o(r, n));
+      },
+    }
+  );
+}
+function O(n) {
+  let e, t;
+  return (
+    (e = new q({
+      props: {
+        $$slots: { footer: [E], title: [U], default: [B] },
+        $$scope: { ctx: n },
+      },
+    })),
+    e.$on("submit", n[11]),
+    {
+      c() {
+        d(e.$$.fragment);
+      },
+      m(n, o) {
+        (l(e, n, o), (t = !0));
+      },
+      p(n, t) {
+        const o = {};
+        ((30 & t[0]) | (1 & t[1]) && (o.$$scope = { dirty: t, ctx: n }),
+          e.$set(o));
+      },
+      i(n) {
+        t || (a(e.$$.fragment, n), (t = !0));
+      },
+      o(n) {
+        (i(e.$$.fragment, n), (t = !1));
+      },
+      d(n) {
+        o(e, n);
+      },
+    }
+  );
+}
+const V = W().map((n) => ({ id: n, name: n }));
+function F(n, e, t) {
+  let o,
+    i = r,
+    a = () => (i(), (i = y($, (n) => t(2, (o = n)))), $);
+  n.$$.on_destroy.push(() => i());
+  const l = [
+      { id: 0, name: window.tr(window.lang.login.real.educationLevel.none) },
+      {
+        id: 1,
+        name: window.tr(window.lang.login.real.educationLevel.highScholl),
+      },
+      {
+        id: 2,
+        name: window.tr(window.lang.login.real.educationLevel.bachelor),
+      },
+      { id: 3, name: window.tr(window.lang.login.real.educationLevel.master) },
+      { id: 4, name: window.tr(window.lang.login.real.educationLevel.phd) },
+      { id: 5, name: window.tr(window.lang.login.real.educationLevel.other) },
+    ],
+    d = [
+      { id: 0, name: window.tr(window.lang.login.real.employment.unemployed) },
+      { id: 1, name: window.tr(window.lang.login.real.employment.employed) },
+      {
+        id: 2,
+        name: window.tr(window.lang.login.real.employment.selfEmployed),
+      },
+      { id: 3, name: window.tr(window.lang.login.real.employment.retired) },
+      { id: 4, name: window.tr(window.lang.login.real.employment.student) },
+      { id: 5, name: window.tr(window.lang.login.real.employment.other) },
+    ],
+    c = [
+      { id: 0, name: window.tr(window.lang.login.real.industry.none) },
+      { id: 1, name: window.tr(window.lang.login.real.industry.agriculture) },
+      { id: 2, name: window.tr(window.lang.login.real.industry.construction) },
+      { id: 3, name: window.tr(window.lang.login.real.industry.communication) },
+      { id: 4, name: window.tr(window.lang.login.real.industry.management) },
+      { id: 5, name: window.tr(window.lang.login.real.industry.education) },
+      { id: 6, name: window.tr(window.lang.login.real.industry.government) },
+      { id: 7, name: window.tr(window.lang.login.real.industry.healthcare) },
+      { id: 8, name: window.tr(window.lang.login.real.industry.tourism) },
+      { id: 9, name: window.tr(window.lang.login.real.industry.it) },
+      { id: 10, name: window.tr(window.lang.login.real.industry.security) },
+      {
+        id: 11,
+        name: window.tr(window.lang.login.real.industry.manufacturing),
+      },
+      { id: 12, name: window.tr(window.lang.login.real.industry.marketing) },
+      { id: 13, name: window.tr(window.lang.login.real.industry.science) },
+      { id: 14, name: window.tr(window.lang.login.real.industry.engineering) },
+      { id: 15, name: window.tr(window.lang.login.real.industry.transport) },
+      { id: 16, name: window.tr(window.lang.login.real.industry.other) },
+    ],
+    u = [
+      {
+        id: 0,
+        name: window.tr(window.lang.login.real.wealthSource.employment),
+      },
+      { id: 1, name: window.tr(window.lang.login.real.wealthSource.savings) },
+      {
+        id: 2,
+        name: window.tr(window.lang.login.real.wealthSource.inheritance),
+      },
+      { id: 3, name: window.tr(window.lang.login.real.wealthSource.other) },
+    ];
+  let m = {},
+    { realStore: $ } = e;
+  a();
+  const p = Object.entries($.ANNUAL_INCOME_VALUES).map(([n, e]) => ({
+      id: e,
+      name: n,
+    })),
+    f = s();
+  let g = "";
+  o.citizenship || w($, (o.citizenship = o.country), o);
+  let { employment: v } = o;
+  return (
+    (n.$$set = (n) => {
+      "realStore" in n && a(t(0, ($ = n.realStore)));
+    }),
+    (n.$$.update = () => {
+      6 & n.$$.dirty[0] &&
+        v !== o.employment &&
+        (w($, (o.employment = v), o),
+        x.includes(o.employment) && w($, (o.industry = 0), o));
+    }),
+    [
+      $,
+      v,
+      o,
+      m,
+      g,
+      l,
+      d,
+      c,
+      u,
+      p,
+      f,
+      function () {
+        try {
+          const n = {
+            citizenship: o.citizenship,
+            taxId: o.taxId,
+            employment: o.employment,
+            education: o.education,
+            industry: o.industry,
+            annualIncome: o.annualIncome,
+            netWorth: o.netWorth,
+            wealth: o.wealth,
+            annualDeposit: o.annualDeposit,
+          };
+          $.schemas.realThirdSchema(n);
+        } catch (n) {
+          t(3, (m = n));
+          const e = Object.keys(m);
+          return void (e[0] && t(4, (g = e[0])));
+        }
+        f("next");
+      },
+      () => f("back"),
+      function (e) {
+        n.$$.not_equal(o.citizenship, e) && ((o.citizenship = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (e) {
+        n.$$.not_equal(o.taxId, e) && ((o.taxId = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (n) {
+        ((v = n), t(1, v));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (e) {
+        n.$$.not_equal(o.industry, e) && ((o.industry = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (e) {
+        n.$$.not_equal(o.education, e) && ((o.education = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (e) {
+        n.$$.not_equal(o.annualIncome, e) && ((o.annualIncome = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (e) {
+        n.$$.not_equal(o.netWorth, e) && ((o.netWorth = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (e) {
+        n.$$.not_equal(o.wealth, e) && ((o.wealth = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+      function (e) {
+        n.$$.not_equal(o.annualDeposit, e) && ((o.annualDeposit = e), $.set(o));
+      },
+      function (n) {
+        ((g = n), t(4, g));
+      },
+    ]
+  );
+}
+class G extends n {
+  constructor(n) {
+    (super(), e(this, n, F, O, t, { realStore: 0 }, null, [-1, -1]));
+  }
+}
+export { G as default };

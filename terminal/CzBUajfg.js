@@ -1,1 +1,523 @@
-import{S as e,i as r,s as t,d as n,r as o,t as a,g as s,h as l,j as i,u as c,b as u,v as d,m as p,D as g,n as m,I as f,a5 as h,N as v,a2 as $,a3 as b,Y as k,Z as x,a4 as y,o as E,c as I,e as V,f as w,k as j}from"./CHj1SSsY.js";import{G as S,C}from"./C8gngcK2.js";import{g as q}from"./CQSQNu0h.js";class N{constructor(e){this.fields=e,this.errors={}}getValues(e){return Object.entries(e).reduce(((e,[r,t])=>(e[r]=t.value??"",e)),{})}getElements(e){const r={};return Object.entries(e).forEach((([e,t])=>{t.element&&(r[e]=t.element)})),r}validate(e){return this.errors=Object.entries(this.fields).filter((([,{validators:e}])=>e)).reduce(((r,[t,n])=>{const{validators:o,disabled:a,minChars:s}=n;if(a||!o)return r;const l=String(e[t]??"").trim();let i={};return o.some((r=>{const n="string"==typeof r?{type:r}:r,{type:o}=n;switch(n.type){case"required":{const r="boolean"==typeof e[t]?e[t]:l;i=this.requiredValidator(r);break}case"email":i=this.emailValidator(l);break;case"phone":i=this.phoneValidator(l);break;case"number":i=this.numberValidator(l);break;case"regExp":i=this.regExpValidator(n.value,l);break;default:throw i={valid:!0},new Error(`Unexpected type: ${o}`)}return!i.valid})),i.valid?s&&s>l.length&&(r[t]=`Min ${s} chars`):r[t]=i.error,r}),{}),this.errors}removeFieldError(e){return delete this.errors[e],this.errors}regExpValidator(e,r,t){if(!(e instanceof RegExp))return{valid:!1,error:t||"Incorrect value"};const n=e.test(r);return n?{valid:n}:{valid:!1,error:t||"Incorrect value"}}phoneValidator(e){return this.regExpValidator(/^\s*\+?[\s\d]+$/,e,"Incorrect phone")}numberValidator(e){return this.regExpValidator(/^\d+$/,e,"Expected only numbers")}emailValidator(e){return this.regExpValidator(/\S+@\S+\.\S+/,e,"Incorrect email")}requiredValidator(e){const r=Boolean(e);return r?{valid:r}:{valid:!1,error:"Required"}}}function _(e,r,t){const n=e.slice();return n[15]=r[t],n[16]=r,n[17]=t,n}function O(e){let r,t=window.tr(window.lang.login.form.policyCheckbox)+"";return{c(){r=E(t)},m(e,t){u(e,r,t)},p:m,d(e){e&&n(r)}}}function A(e){let r,t,o=q(e[5].url)+"";return{c(){r=V("a"),t=E(o),w(r,"class","link broker-link svelte-pomk7l"),w(r,"href",e[5].url),w(r,"target","_blank"),w(r,"rel","noreferrer")},m(e,n){u(e,r,n),I(r,t)},p:m,d(e){e&&n(r)}}}function B(e){var r;let t,l,i,m,f,h;function k(r){e[9](r)}function x(r){e[10](r)}let y={name:"disclaimer",checkboxPosition:"top",$$slots:{default:[O]},$$scope:{ctx:e}};void 0!==e[2]&&(y.checked=e[2]),void 0!==e[1]&&(y.errors=e[1]),t=new C({props:y}),v.push((()=>$(t,"checked",k))),v.push((()=>$(t,"errors",x)));let E=e[5].url&&0===(null==(r=e[4].groups[e[4].groupId])?void 0:r.agreements.length)&&A(e);return{c(){d(t.$$.fragment),m=p(),E&&E.c(),f=g()},m(e,r){c(t,e,r),u(e,m,r),E&&E.m(e,r),u(e,f,r),h=!0},p(e,r){var n;const o={};262144&r&&(o.$$scope={dirty:r,ctx:e}),!l&&4&r&&(l=!0,o.checked=e[2],b((()=>l=!1))),!i&&2&r&&(i=!0,o.errors=e[1],b((()=>i=!1))),t.$set(o),e[5].url&&0===(null==(n=e[4].groups[e[4].groupId])?void 0:n.agreements.length)?E?E.p(e,r):(E=A(e),E.c(),E.m(f.parentNode,f)):E&&(E.d(1),E=null)},i(e){h||(s(t.$$.fragment,e),h=!0)},o(e){a(t.$$.fragment,e),h=!1},d(e){e&&(n(m),n(f)),o(t,e),E&&E.d(e)}}}function F(e){var r;let t,o,c=k(null==(r=e[4].groups[e[4].groupId])?void 0:r.agreements),d=[];for(let n=0;n<c.length;n+=1)d[n]=T(_(e,c,n));const p=e=>a(d[e],1,1,(()=>{d[e]=null}));return{c(){for(let e=0;e<d.length;e+=1)d[e].c();t=g()},m(e,r){for(let t=0;t<d.length;t+=1)d[t]&&d[t].m(e,r);u(e,t,r),o=!0},p(e,r){var n;if(90&r){let o;for(c=k(null==(n=e[4].groups[e[4].groupId])?void 0:n.agreements),o=0;o<c.length;o+=1){const n=_(e,c,o);d[o]?(d[o].p(n,r),s(d[o],1)):(d[o]=T(n),d[o].c(),s(d[o],1),d[o].m(t.parentNode,t))}for(l(),o=c.length;o<d.length;o+=1)p(o);i()}},i(e){if(!o){for(let e=0;e<c.length;e+=1)s(d[e]);o=!0}},o(e){d=d.filter(Boolean);for(let r=0;r<d.length;r+=1)a(d[r]);o=!1},d(e){e&&n(t),x(d,e)}}}function R(e){let r,t,n,l;function i(r){e[11](r,e[17])}function u(r){e[12](r)}let p={name:e[6](e[15])};return void 0!==e[3][e[17]]&&(p.checked=e[3][e[17]]),void 0!==e[1]&&(p.errors=e[1]),r=new C({props:p}),v.push((()=>$(r,"checked",i))),v.push((()=>$(r,"errors",u))),{c(){d(r.$$.fragment)},m(e,t){c(r,e,t),l=!0},p(o,a){e=o;const s={};16&a&&(s.name=e[6](e[15])),!t&&8&a&&(t=!0,s.checked=e[3][e[17]],b((()=>t=!1))),!n&&2&a&&(n=!0,s.errors=e[1],b((()=>n=!1))),r.$set(s)},i(e){l||(s(r.$$.fragment,e),l=!0)},o(e){a(r.$$.fragment,e),l=!1},d(e){o(r,e)}}}function T(e){let r,t,o,c,d,g,m,f=Number(e[15].flags),h=e[6](e[15])+"",v=f&&R(e);return{c(){r=V("div"),v&&v.c(),t=p(),o=V("a"),c=E(h),g=p(),w(o,"class","link svelte-pomk7l"),w(o,"href",d=e[15].url),w(o,"target","_blank"),w(o,"rel","noreferrer"),w(r,"class","agreement svelte-pomk7l")},m(e,n){u(e,r,n),v&&v.m(r,null),I(r,t),I(r,o),I(o,c),I(r,g),m=!0},p(e,n){16&n&&(f=Number(e[15].flags)),f?v?(v.p(e,n),16&n&&s(v,1)):(v=R(e),v.c(),s(v,1),v.m(r,t)):v&&(l(),a(v,1,1,(()=>{v=null})),i()),(!m||16&n)&&h!==(h=e[6](e[15])+"")&&j(c,h),(!m||16&n&&d!==(d=e[15].url))&&w(o,"href",d)},i(e){m||(s(v),m=!0)},o(e){a(v),m=!1},d(e){e&&n(r),v&&v.d()}}}function D(e){var r;let t,m,f,h;t=new S({props:{marginBottom:2,$$slots:{default:[B]},$$scope:{ctx:e}}});let v=(null==(r=e[4].groups[e[4].groupId])?void 0:r.agreements)&&F(e);return{c(){d(t.$$.fragment),m=p(),v&&v.c(),f=g()},m(e,r){c(t,e,r),u(e,m,r),v&&v.m(e,r),u(e,f,r),h=!0},p(e,[r]){var n;const o={};262166&r&&(o.$$scope={dirty:r,ctx:e}),t.$set(o),(null==(n=e[4].groups[e[4].groupId])?void 0:n.agreements)?v?(v.p(e,r),16&r&&s(v,1)):(v=F(e),v.c(),s(v,1),v.m(f.parentNode,f)):v&&(l(),a(v,1,1,(()=>{v=null})),i())},i(e){h||(s(t.$$.fragment,e),s(v),h=!0)},o(e){a(t.$$.fragment,e),a(v),h=!1},d(e){e&&(n(m),n(f)),o(t,e),v&&v.d(e)}}}function G(e,r,t){var n;let o,a=m,s=()=>(a(),a=y(l,(e=>t(4,o=e))),l);e.$$.on_destroy.push((()=>a()));let{realStore:l}=r;s();let{traderConfig:i}=r;const c={};let u={},d=!1;const p=[],{broker:g}=i;c.disclaimer={validators:["required"],value:!1},null==(n=o.groups[o.groupId])||n.agreements.forEach(((e,r)=>{const n=$(e);c[n]={value:!1},t(3,p[r]=!1,p),Number(e.flags)&&(c[n].validators=["required"])}));const v=new N(c);function $(e){return 0===e.caption_type?e.caption_custom:i.getCaptionTypeTitle(e.caption_type)}return f((()=>{h(l,o.agreements=0,o)})),e.$$set=e=>{"realStore"in e&&s(t(0,l=e.realStore)),"traderConfig"in e&&t(7,i=e.traderConfig)},[l,u,d,p,o,g,$,i,function(){const e={};return h(l,o.agreements=0,o),p.forEach(((r,t)=>{var n;const a=null==(n=o.groups[o.groupId])?void 0:n.agreements[t];let s;a&&(s=$(a),e[s]=r)})),t(1,u=v.validate({disclaimer:d,...e})),!Object.keys(u).length&&(h(l,o.agreements|=1,o),Object.keys(p).forEach(((e,r)=>{p[r]&&h(l,o.agreements|=2**(r+1),o)})),!0)},function(e){d=e,t(2,d)},function(e){u=e,t(1,u)},function(r,n){e.$$.not_equal(p[n],r)&&(p[n]=r,t(3,p))},function(e){u=e,t(1,u)}]}class J extends e{constructor(e){super(),r(this,e,G,D,t,{realStore:0,traderConfig:7,validateAgreements:8})}get validateAgreements(){return this.$$.ctx[8]}}export{J as A,N as F};
+import {
+  S as e,
+  i as r,
+  s as t,
+  d as n,
+  r as o,
+  t as a,
+  g as s,
+  h as l,
+  j as i,
+  u as c,
+  b as u,
+  v as d,
+  m as p,
+  D as g,
+  n as m,
+  I as f,
+  a5 as h,
+  N as v,
+  a2 as $,
+  a3 as b,
+  Y as k,
+  Z as x,
+  a4 as y,
+  o as E,
+  c as I,
+  e as V,
+  f as w,
+  k as j,
+} from "./CHj1SSsY.js";
+import { G as S, C } from "./C8gngcK2.js";
+import { g as q } from "./CQSQNu0h.js";
+class N {
+  constructor(e) {
+    ((this.fields = e), (this.errors = {}));
+  }
+  getValues(e) {
+    return Object.entries(e).reduce(
+      (e, [r, t]) => ((e[r] = t.value ?? ""), e),
+      {},
+    );
+  }
+  getElements(e) {
+    const r = {};
+    return (
+      Object.entries(e).forEach(([e, t]) => {
+        t.element && (r[e] = t.element);
+      }),
+      r
+    );
+  }
+  validate(e) {
+    return (
+      (this.errors = Object.entries(this.fields)
+        .filter(([, { validators: e }]) => e)
+        .reduce((r, [t, n]) => {
+          const { validators: o, disabled: a, minChars: s } = n;
+          if (a || !o) return r;
+          const l = String(e[t] ?? "").trim();
+          let i = {};
+          return (
+            o.some((r) => {
+              const n = "string" == typeof r ? { type: r } : r,
+                { type: o } = n;
+              switch (n.type) {
+                case "required": {
+                  const r = "boolean" == typeof e[t] ? e[t] : l;
+                  i = this.requiredValidator(r);
+                  break;
+                }
+                case "email":
+                  i = this.emailValidator(l);
+                  break;
+                case "phone":
+                  i = this.phoneValidator(l);
+                  break;
+                case "number":
+                  i = this.numberValidator(l);
+                  break;
+                case "regExp":
+                  i = this.regExpValidator(n.value, l);
+                  break;
+                default:
+                  throw (
+                    (i = { valid: !0 }),
+                    new Error(`Unexpected type: ${o}`)
+                  );
+              }
+              return !i.valid;
+            }),
+            i.valid
+              ? s && s > l.length && (r[t] = `Min ${s} chars`)
+              : (r[t] = i.error),
+            r
+          );
+        }, {})),
+      this.errors
+    );
+  }
+  removeFieldError(e) {
+    return (delete this.errors[e], this.errors);
+  }
+  regExpValidator(e, r, t) {
+    if (!(e instanceof RegExp))
+      return { valid: !1, error: t || "Incorrect value" };
+    const n = e.test(r);
+    return n ? { valid: n } : { valid: !1, error: t || "Incorrect value" };
+  }
+  phoneValidator(e) {
+    return this.regExpValidator(/^\s*\+?[\s\d]+$/, e, "Incorrect phone");
+  }
+  numberValidator(e) {
+    return this.regExpValidator(/^\d+$/, e, "Expected only numbers");
+  }
+  emailValidator(e) {
+    return this.regExpValidator(/\S+@\S+\.\S+/, e, "Incorrect email");
+  }
+  requiredValidator(e) {
+    const r = Boolean(e);
+    return r ? { valid: r } : { valid: !1, error: "Required" };
+  }
+}
+function _(e, r, t) {
+  const n = e.slice();
+  return ((n[15] = r[t]), (n[16] = r), (n[17] = t), n);
+}
+function O(e) {
+  let r,
+    t = window.tr(window.lang.login.form.policyCheckbox) + "";
+  return {
+    c() {
+      r = E(t);
+    },
+    m(e, t) {
+      u(e, r, t);
+    },
+    p: m,
+    d(e) {
+      e && n(r);
+    },
+  };
+}
+function A(e) {
+  let r,
+    t,
+    o = q(e[5].url) + "";
+  return {
+    c() {
+      ((r = V("a")),
+        (t = E(o)),
+        w(r, "class", "link broker-link svelte-pomk7l"),
+        w(r, "href", e[5].url),
+        w(r, "target", "_blank"),
+        w(r, "rel", "noreferrer"));
+    },
+    m(e, n) {
+      (u(e, r, n), I(r, t));
+    },
+    p: m,
+    d(e) {
+      e && n(r);
+    },
+  };
+}
+function B(e) {
+  var r;
+  let t, l, i, m, f, h;
+  function k(r) {
+    e[9](r);
+  }
+  function x(r) {
+    e[10](r);
+  }
+  let y = {
+    name: "disclaimer",
+    checkboxPosition: "top",
+    $$slots: { default: [O] },
+    $$scope: { ctx: e },
+  };
+  (void 0 !== e[2] && (y.checked = e[2]),
+    void 0 !== e[1] && (y.errors = e[1]),
+    (t = new C({ props: y })),
+    v.push(() => $(t, "checked", k)),
+    v.push(() => $(t, "errors", x)));
+  let E =
+    e[5].url &&
+    0 ===
+      (null == (r = e[4].groups[e[4].groupId])
+        ? void 0
+        : r.agreements.length) &&
+    A(e);
+  return {
+    c() {
+      (d(t.$$.fragment), (m = p()), E && E.c(), (f = g()));
+    },
+    m(e, r) {
+      (c(t, e, r), u(e, m, r), E && E.m(e, r), u(e, f, r), (h = !0));
+    },
+    p(e, r) {
+      var n;
+      const o = {};
+      (262144 & r && (o.$$scope = { dirty: r, ctx: e }),
+        !l && 4 & r && ((l = !0), (o.checked = e[2]), b(() => (l = !1))),
+        !i && 2 & r && ((i = !0), (o.errors = e[1]), b(() => (i = !1))),
+        t.$set(o),
+        e[5].url &&
+        0 ===
+          (null == (n = e[4].groups[e[4].groupId])
+            ? void 0
+            : n.agreements.length)
+          ? E
+            ? E.p(e, r)
+            : ((E = A(e)), E.c(), E.m(f.parentNode, f))
+          : E && (E.d(1), (E = null)));
+    },
+    i(e) {
+      h || (s(t.$$.fragment, e), (h = !0));
+    },
+    o(e) {
+      (a(t.$$.fragment, e), (h = !1));
+    },
+    d(e) {
+      (e && (n(m), n(f)), o(t, e), E && E.d(e));
+    },
+  };
+}
+function F(e) {
+  var r;
+  let t,
+    o,
+    c = k(null == (r = e[4].groups[e[4].groupId]) ? void 0 : r.agreements),
+    d = [];
+  for (let n = 0; n < c.length; n += 1) d[n] = T(_(e, c, n));
+  const p = (e) =>
+    a(d[e], 1, 1, () => {
+      d[e] = null;
+    });
+  return {
+    c() {
+      for (let e = 0; e < d.length; e += 1) d[e].c();
+      t = g();
+    },
+    m(e, r) {
+      for (let t = 0; t < d.length; t += 1) d[t] && d[t].m(e, r);
+      (u(e, t, r), (o = !0));
+    },
+    p(e, r) {
+      var n;
+      if (90 & r) {
+        let o;
+        for (
+          c = k(
+            null == (n = e[4].groups[e[4].groupId]) ? void 0 : n.agreements,
+          ),
+            o = 0;
+          o < c.length;
+          o += 1
+        ) {
+          const n = _(e, c, o);
+          d[o]
+            ? (d[o].p(n, r), s(d[o], 1))
+            : ((d[o] = T(n)), d[o].c(), s(d[o], 1), d[o].m(t.parentNode, t));
+        }
+        for (l(), o = c.length; o < d.length; o += 1) p(o);
+        i();
+      }
+    },
+    i(e) {
+      if (!o) {
+        for (let e = 0; e < c.length; e += 1) s(d[e]);
+        o = !0;
+      }
+    },
+    o(e) {
+      d = d.filter(Boolean);
+      for (let r = 0; r < d.length; r += 1) a(d[r]);
+      o = !1;
+    },
+    d(e) {
+      (e && n(t), x(d, e));
+    },
+  };
+}
+function R(e) {
+  let r, t, n, l;
+  function i(r) {
+    e[11](r, e[17]);
+  }
+  function u(r) {
+    e[12](r);
+  }
+  let p = { name: e[6](e[15]) };
+  return (
+    void 0 !== e[3][e[17]] && (p.checked = e[3][e[17]]),
+    void 0 !== e[1] && (p.errors = e[1]),
+    (r = new C({ props: p })),
+    v.push(() => $(r, "checked", i)),
+    v.push(() => $(r, "errors", u)),
+    {
+      c() {
+        d(r.$$.fragment);
+      },
+      m(e, t) {
+        (c(r, e, t), (l = !0));
+      },
+      p(o, a) {
+        e = o;
+        const s = {};
+        (16 & a && (s.name = e[6](e[15])),
+          !t &&
+            8 & a &&
+            ((t = !0), (s.checked = e[3][e[17]]), b(() => (t = !1))),
+          !n && 2 & a && ((n = !0), (s.errors = e[1]), b(() => (n = !1))),
+          r.$set(s));
+      },
+      i(e) {
+        l || (s(r.$$.fragment, e), (l = !0));
+      },
+      o(e) {
+        (a(r.$$.fragment, e), (l = !1));
+      },
+      d(e) {
+        o(r, e);
+      },
+    }
+  );
+}
+function T(e) {
+  let r,
+    t,
+    o,
+    c,
+    d,
+    g,
+    m,
+    f = Number(e[15].flags),
+    h = e[6](e[15]) + "",
+    v = f && R(e);
+  return {
+    c() {
+      ((r = V("div")),
+        v && v.c(),
+        (t = p()),
+        (o = V("a")),
+        (c = E(h)),
+        (g = p()),
+        w(o, "class", "link svelte-pomk7l"),
+        w(o, "href", (d = e[15].url)),
+        w(o, "target", "_blank"),
+        w(o, "rel", "noreferrer"),
+        w(r, "class", "agreement svelte-pomk7l"));
+    },
+    m(e, n) {
+      (u(e, r, n),
+        v && v.m(r, null),
+        I(r, t),
+        I(r, o),
+        I(o, c),
+        I(r, g),
+        (m = !0));
+    },
+    p(e, n) {
+      (16 & n && (f = Number(e[15].flags)),
+        f
+          ? v
+            ? (v.p(e, n), 16 & n && s(v, 1))
+            : ((v = R(e)), v.c(), s(v, 1), v.m(r, t))
+          : v &&
+            (l(),
+            a(v, 1, 1, () => {
+              v = null;
+            }),
+            i()),
+        (!m || 16 & n) && h !== (h = e[6](e[15]) + "") && j(c, h),
+        (!m || (16 & n && d !== (d = e[15].url))) && w(o, "href", d));
+    },
+    i(e) {
+      m || (s(v), (m = !0));
+    },
+    o(e) {
+      (a(v), (m = !1));
+    },
+    d(e) {
+      (e && n(r), v && v.d());
+    },
+  };
+}
+function D(e) {
+  var r;
+  let t, m, f, h;
+  t = new S({
+    props: { marginBottom: 2, $$slots: { default: [B] }, $$scope: { ctx: e } },
+  });
+  let v =
+    (null == (r = e[4].groups[e[4].groupId]) ? void 0 : r.agreements) && F(e);
+  return {
+    c() {
+      (d(t.$$.fragment), (m = p()), v && v.c(), (f = g()));
+    },
+    m(e, r) {
+      (c(t, e, r), u(e, m, r), v && v.m(e, r), u(e, f, r), (h = !0));
+    },
+    p(e, [r]) {
+      var n;
+      const o = {};
+      (262166 & r && (o.$$scope = { dirty: r, ctx: e }),
+        t.$set(o),
+        (null == (n = e[4].groups[e[4].groupId]) ? void 0 : n.agreements)
+          ? v
+            ? (v.p(e, r), 16 & r && s(v, 1))
+            : ((v = F(e)), v.c(), s(v, 1), v.m(f.parentNode, f))
+          : v &&
+            (l(),
+            a(v, 1, 1, () => {
+              v = null;
+            }),
+            i()));
+    },
+    i(e) {
+      h || (s(t.$$.fragment, e), s(v), (h = !0));
+    },
+    o(e) {
+      (a(t.$$.fragment, e), a(v), (h = !1));
+    },
+    d(e) {
+      (e && (n(m), n(f)), o(t, e), v && v.d(e));
+    },
+  };
+}
+function G(e, r, t) {
+  var n;
+  let o,
+    a = m,
+    s = () => (a(), (a = y(l, (e) => t(4, (o = e)))), l);
+  e.$$.on_destroy.push(() => a());
+  let { realStore: l } = r;
+  s();
+  let { traderConfig: i } = r;
+  const c = {};
+  let u = {},
+    d = !1;
+  const p = [],
+    { broker: g } = i;
+  ((c.disclaimer = { validators: ["required"], value: !1 }),
+    null == (n = o.groups[o.groupId]) ||
+      n.agreements.forEach((e, r) => {
+        const n = $(e);
+        ((c[n] = { value: !1 }),
+          t(3, (p[r] = !1), p),
+          Number(e.flags) && (c[n].validators = ["required"]));
+      }));
+  const v = new N(c);
+  function $(e) {
+    return 0 === e.caption_type
+      ? e.caption_custom
+      : i.getCaptionTypeTitle(e.caption_type);
+  }
+  return (
+    f(() => {
+      h(l, (o.agreements = 0), o);
+    }),
+    (e.$$set = (e) => {
+      ("realStore" in e && s(t(0, (l = e.realStore))),
+        "traderConfig" in e && t(7, (i = e.traderConfig)));
+    }),
+    [
+      l,
+      u,
+      d,
+      p,
+      o,
+      g,
+      $,
+      i,
+      function () {
+        const e = {};
+        return (
+          h(l, (o.agreements = 0), o),
+          p.forEach((r, t) => {
+            var n;
+            const a =
+              null == (n = o.groups[o.groupId]) ? void 0 : n.agreements[t];
+            let s;
+            a && ((s = $(a)), (e[s] = r));
+          }),
+          t(1, (u = v.validate({ disclaimer: d, ...e }))),
+          !Object.keys(u).length &&
+            (h(l, (o.agreements |= 1), o),
+            Object.keys(p).forEach((e, r) => {
+              p[r] && h(l, (o.agreements |= 2 ** (r + 1)), o);
+            }),
+            !0)
+        );
+      },
+      function (e) {
+        ((d = e), t(2, d));
+      },
+      function (e) {
+        ((u = e), t(1, u));
+      },
+      function (r, n) {
+        e.$$.not_equal(p[n], r) && ((p[n] = r), t(3, p));
+      },
+      function (e) {
+        ((u = e), t(1, u));
+      },
+    ]
+  );
+}
+class J extends e {
+  constructor(e) {
+    (super(),
+      r(this, e, G, D, t, {
+        realStore: 0,
+        traderConfig: 7,
+        validateAgreements: 8,
+      }));
+  }
+  get validateAgreements() {
+    return this.$$.ctx[8];
+  }
+}
+export { J as A, N as F };

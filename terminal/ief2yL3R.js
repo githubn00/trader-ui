@@ -1,1 +1,7715 @@
-import{S as e,i as t,s as i,n,d as l,b as o,c as s,B as r,f as a,N as d,a2 as c,r as u,t as p,g as m,a3 as $,u as f,v as g,w as v,O as b,x as y,y as w,z as S,l as h,C as x,Q as k,e as B,E as V,h as P,j as T,m as C,L as E,k as M,o as _,a4 as z,a as q,D as O,Y as L,Z as D,X as I,F as U,ai as j,G as N,I as F,T as A,a5 as R,aj as H,M as Y}from"./CHj1SSsY.js";import{M as G,D as Z,J as W,n as J,h as K}from"./CQSQNu0h.js";import{B as Q,a as X,d as ee,m as te,o as ie,D as ne}from"./CezRPkQL.js";import{k as le,I as oe,h as se,S as re,a as ae}from"./C8gngcK2.js";import"./CSht1uUK.js";import"./Y63yw9rt.js";import"./CRNNNCwz.js";import"./BmK36PA1.js";import"./BLCxo5ZN.js";function de(e){let t,i;return{c(){t=r("svg"),i=r("path"),a(i,"fill-rule","evenodd"),a(i,"clip-rule","evenodd"),a(i,"d","M7.9987 1.33398C11.6806 1.33398 14.6654 4.31875 14.6654 8.00065C14.6654 11.6825 11.6806 14.6673 7.9987 14.6673C4.3168 14.6673 1.33203 11.6825 1.33203 8.00065C1.33203 4.31875 4.3168 1.33398 7.9987 1.33398ZM7.9987 2.66732C5.05318 2.66732 2.66536 5.05513 2.66536 8.00065C2.66536 10.9462 5.05318 13.334 7.9987 13.334C10.9442 13.334 13.332 10.9462 13.332 8.00065C13.332 5.05513 10.9442 2.66732 7.9987 2.66732ZM8.66536 4.66732V8.12465L10.4366 9.89575L9.49379 10.8386L7.33203 8.66732V4.66732H8.66536Z"),a(t,"width","16"),a(t,"height","16"),a(t,"viewBox","0 0 16 16"),a(t,"xmlns","http://www.w3.org/2000/svg")},m(e,n){o(e,t,n),s(t,i)},p:n,i:n,o:n,d(e){e&&l(t)}}}class ce extends e{constructor(e){super(),t(this,e,null,de,i,{})}}function ue(e){let t,i,n,s;const r=e[10].default,d=v(r,e,e[14],null);return{c(){t=B("button"),d&&d.c(),a(t,"class","trade-button svelte-ailjot"),t.disabled=e[3],a(t,"title",e[6]),h(t,"red",e[7]),h(t,"orange",e[8]),h(t,"checked",e[0]),h(t,"outline",e[9])},m(l,r){o(l,t,r),d&&d.m(t,null),i=!0,n||(s=[x(t,"click",(function(){k(e[15])&&e[15].apply(this,arguments)})),x(t,"click",e[11])],n=!0)},p(n,l){e=n,d&&d.p&&(!i||16384&l)&&y(d,r,e,e[14],i?S(r,e[14],l,null):w(e[14]),null),(!i||8&l)&&(t.disabled=e[3]),(!i||64&l)&&a(t,"title",e[6]),(!i||128&l)&&h(t,"red",e[7]),(!i||256&l)&&h(t,"orange",e[8]),(!i||1&l)&&h(t,"checked",e[0]),(!i||512&l)&&h(t,"outline",e[9])},i(e){i||(m(d,e),i=!0)},o(e){p(d,e),i=!1},d(e){e&&l(t),d&&d.d(e),n=!1,b(s)}}}function pe(e){let t,i,n,l;function o(t){e[12](t)}function s(t){e[13](t)}let r={value:e[2],disabled:e[3],multiple:e[4],toggle:e[5],$$slots:{default:[ue,({click:e})=>({15:e}),({click:e})=>e?32768:0]},$$scope:{ctx:e}};return void 0!==e[0]&&(r.checked=e[0]),void 0!==e[1]&&(r.group=e[1]),t=new Q({props:r}),d.push((()=>c(t,"checked",o))),d.push((()=>c(t,"group",s))),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),l=!0},p(e,[l]){const o={};4&l&&(o.value=e[2]),8&l&&(o.disabled=e[3]),16&l&&(o.multiple=e[4]),32&l&&(o.toggle=e[5]),50121&l&&(o.$$scope={dirty:l,ctx:e}),!i&&1&l&&(i=!0,o.checked=e[0],$((()=>i=!1))),!n&&2&l&&(n=!0,o.group=e[1],$((()=>n=!1))),t.$set(o)},i(e){l||(m(t.$$.fragment,e),l=!0)},o(e){p(t.$$.fragment,e),l=!1},d(e){u(t,e)}}}function me(e,t,i){let{$$slots:n={},$$scope:l}=t,{checked:o=!1}=t,{group:s=null}=t,{value:r=null}=t,{disabled:a=!1}=t,{multiple:d=!1}=t,{toggle:c=!1}=t,{title:u}=t,{red:p=!1}=t,{orange:m=!1}=t,{outline:$=!1}=t;return e.$$set=e=>{"checked"in e&&i(0,o=e.checked),"group"in e&&i(1,s=e.group),"value"in e&&i(2,r=e.value),"disabled"in e&&i(3,a=e.disabled),"multiple"in e&&i(4,d=e.multiple),"toggle"in e&&i(5,c=e.toggle),"title"in e&&i(6,u=e.title),"red"in e&&i(7,p=e.red),"orange"in e&&i(8,m=e.orange),"outline"in e&&i(9,$=e.outline),"$$scope"in e&&i(14,l=e.$$scope)},[o,s,r,a,d,c,u,p,m,$,n,function(t){V.call(this,e,t)},function(e){o=e,i(0,o)},function(e){s=e,i(1,s)},l]}class $e extends e{constructor(e){super(),t(this,e,me,pe,i,{checked:0,group:1,value:2,disabled:3,multiple:4,toggle:5,title:6,red:7,orange:8,outline:9})}}function fe(e){let t,i,n,r,d,c,u,p,m,$,f,g,v,b=(e[3].action.typeName??"")+"",y=(e[3].result.volume||e[3].action.volume)+"",w=e[3].action.symbol+"",S=(e[3].result.price||e[3].action.priceOrder)+"";return{c(){t=B("div"),i=_(e[6]),n=C(),r=B("span"),d=_(b),c=C(),u=_(y),p=C(),m=_(w),$=_(" at "),f=_(S),g=C(),v=B("br"),a(r,"class","svelte-jikwvm"),h(r,"red",e[3].action.isSell),h(r,"blue",e[3].action.isBuy),a(t,"class","message svelte-jikwvm")},m(e,l){o(e,t,l),s(t,i),s(t,n),s(t,r),s(r,d),s(t,c),s(t,u),s(t,p),s(t,m),s(t,$),s(t,f),s(t,g),s(t,v)},p(e,t){64&t&&M(i,e[6]),8&t&&b!==(b=(e[3].action.typeName??"")+"")&&M(d,b),8&t&&h(r,"red",e[3].action.isSell),8&t&&h(r,"blue",e[3].action.isBuy),8&t&&y!==(y=(e[3].result.volume||e[3].action.volume)+"")&&M(u,y),8&t&&w!==(w=e[3].action.symbol+"")&&M(m,w),8&t&&S!==(S=(e[3].result.price||e[3].action.priceOrder)+"")&&M(f,S)},d(e){e&&l(t)}}}function ge(e){let t,i,n,r=e[2].printError(e[3].result.code,G)+"";return{c(){t=B("div"),i=C(),n=_(r),a(t,"class","svelte-jikwvm"),h(t,"green",e[4]),h(t,"red",!e[4])},m(e,l){o(e,t,l),s(t,i),s(t,n)},p(e,i){12&i&&r!==(r=e[2].printError(e[3].result.code,G)+"")&&M(n,r),16&i&&h(t,"green",e[4]),16&i&&h(t,"red",!e[4])},d(e){e&&l(t)}}}function ve(e){let t,i,n=e[3].result.comment+"";return{c(){t=B("div"),i=_(n),a(t,"class","comment svelte-jikwvm")},m(e,n){o(e,t,n),s(t,i)},p(e,t){8&t&&n!==(n=e[3].result.comment+"")&&M(i,n)},d(e){e&&l(t)}}}function be(e){let t,i,n;return i=new $e({props:{orange:!e[4],$$slots:{default:[we]},$$scope:{ctx:e}}}),i.$on("click",e[8]),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","footer svelte-jikwvm")},m(e,l){o(e,t,l),f(i,t,null),n=!0},p(e,t){const n={};16&t&&(n.orange=!e[4]),16384&t&&(n.$$scope={dirty:t,ctx:e}),i.$set(n)},i(e){n||(m(i.$$.fragment,e),n=!0)},o(e){p(i.$$.fragment,e),n=!1},d(e){e&&l(t),u(i)}}}function ye(e){let t,i,s;return i=new le({}),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","loading svelte-jikwvm")},m(e,n){o(e,t,n),f(i,t,null),s=!0},p:n,i(e){s||(m(i.$$.fragment,e),s=!0)},o(e){p(i.$$.fragment,e),s=!1},d(e){e&&l(t),u(i)}}}function we(e){let t,i=window.tr(window.lang.trade.form.buttons.ok)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function Se(e){var t,i,r,d,c,$;let v,b,y,w,S,h,x,k,V=(null==(t=e[3])?void 0:t.result)&&(null==(i=e[3])?void 0:i.action.complete)&&fe(e),E=(null==(d=null==(r=e[3])?void 0:r.result)?void 0:d.code)&&ge(e),M=(null==($=null==(c=e[3])?void 0:c.result)?void 0:$.comment)&&ve(e);const _=[ye,be],z=[];function q(e,t){return e[5]?0:1}S=q(e),h=z[S]=_[S](e);let O=function(e){let t,i,s;return i=new X({props:{color:"var(--color-fill-blue)",stretch:!0,icon:Z,title:window.tr(window.lang.trade.form.close)}}),i.$on("click",e[13]),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","close svelte-jikwvm")},m(e,n){o(e,t,n),f(i,t,null),s=!0},p:n,i(e){s||(m(i.$$.fragment,e),s=!0)},o(e){p(i.$$.fragment,e),s=!1},d(e){e&&l(t),u(i)}}}(e);return{c(){v=B("div"),V&&V.c(),b=C(),E&&E.c(),y=C(),M&&M.c(),w=C(),h.c(),x=C(),O&&O.c(),a(v,"class","status svelte-jikwvm")},m(e,t){o(e,v,t),V&&V.m(v,null),s(v,b),E&&E.m(v,null),s(v,y),M&&M.m(v,null),s(v,w),z[S].m(v,null),s(v,x),O&&O.m(v,null),k=!0},p(e,[t]){var i,n,l,o,s,r;(null==(i=e[3])?void 0:i.result)&&(null==(n=e[3])?void 0:n.action.complete)?V?V.p(e,t):(V=fe(e),V.c(),V.m(v,b)):V&&(V.d(1),V=null),(null==(o=null==(l=e[3])?void 0:l.result)?void 0:o.code)?E?E.p(e,t):(E=ge(e),E.c(),E.m(v,y)):E&&(E.d(1),E=null),(null==(r=null==(s=e[3])?void 0:s.result)?void 0:r.comment)?M?M.p(e,t):(M=ve(e),M.c(),M.m(v,w)):M&&(M.d(1),M=null);let a=S;S=q(e),S===a?z[S].p(e,t):(P(),p(z[a],1,1,(()=>{z[a]=null})),T(),h=z[S],h?h.p(e,t):(h=z[S]=_[S](e),h.c()),m(h,1),h.m(v,x)),O.p(e,t)},i(e){k||(m(h),m(O),k=!0)},o(e){p(h),p(O),k=!1},d(e){e&&l(v),V&&V.d(),E&&E.d(),M&&M.d(),z[S].d(),O&&O.d()}}}function he(e,t,i){let l,o,s=n,r=()=>(s(),s=z(c,(e=>i(11,l=e))),c),a=n,d=()=>(a(),a=z(u,(e=>i(12,o=e))),u);e.$$.on_destroy.push((()=>s())),e.$$.on_destroy.push((()=>a()));let{ordersStore:c}=t;r();let{positionsStore:u}=t;d();let{apiUtilsTrade:p}=t;const m=E();let $,f,{request:g=null}=t,v=!1,b=!1,y="";return e.$$set=e=>{"ordersStore"in e&&r(i(0,c=e.ordersStore)),"positionsStore"in e&&d(i(1,u=e.positionsStore)),"apiUtilsTrade"in e&&i(2,p=e.apiUtilsTrade),"request"in e&&i(3,g=e.request)},e.$$.update=()=>{var t,n,s,r,a,d;if(12&e.$$.dirty&&i(4,v=p.isSuccessCode(null==(t=null==g?void 0:g.result)?void 0:t.code)),6152&e.$$.dirty&&g){const e=((null==(n=g.action)?void 0:n.position)||(null==(s=g.result)?void 0:s.order))??"";(null==(r=g.action)?void 0:r.position)?(i(10,f=o.getPosition(e)),i(9,$=null)):(i(9,$=l.getOrder(e)),i(10,f=null))}if(1544&e.$$.dirty){let e="";$?e=$.order:f&&(e=f.id),g&&(e=g.action.position||g.action.order||(null==(a=g.result)?void 0:a.order)||e),i(6,y=e?`#${e}`:"")}12&e.$$.dirty&&i(5,b=Boolean(g&&"number"==typeof(null==(d=null==g?void 0:g.result)?void 0:d.code)&&p.isLoadingCode(g.result.code)))},[c,u,p,g,v,b,y,m,function(){var e;const t=null==(e=null==g?void 0:g.result)?void 0:e.code;p.isSuccessCode(t)?m("close"):m("back")},$,f,l,o,()=>m("close")]}class xe extends e{constructor(e){super(),t(this,e,he,Se,i,{ordersStore:0,positionsStore:1,apiUtilsTrade:2,request:3})}}function ke(e){let t,i,n,r,d,c=window.tr(window.lang.trade.expiredTimer.seconds,{time:Math.ceil(e[1]/1e3)})+"";return i=new oe({props:{width:4,height:4,name:ce}}),{c(){t=B("div"),g(i.$$.fragment),n=C(),r=_(c),a(t,"class","timer svelte-1kwceg5"),q(t,"padding-top","calc(var(--indent) * "+e[0]+")")},m(e,l){o(e,t,l),f(i,t,null),s(t,n),s(t,r),d=!0},p(e,[i]){(!d||2&i)&&c!==(c=window.tr(window.lang.trade.expiredTimer.seconds,{time:Math.ceil(e[1]/1e3)})+"")&&M(r,c),(!d||1&i)&&q(t,"padding-top","calc(var(--indent) * "+e[0]+")")},i(e){d||(m(i.$$.fragment,e),d=!0)},o(e){p(i.$$.fragment,e),d=!1},d(e){e&&l(t),u(i)}}}function Be(e,t,i){let{time:n=Date.now()}=t,{length:l=0}=t,{paddingTop:o=0}=t,s=l;const r=setInterval((()=>{const e=Date.now()-n;e<=l?i(1,s=l-e):(i(1,s=0),clearInterval(r))}),100);return e.$$set=e=>{"time"in e&&i(2,n=e.time),"length"in e&&i(3,l=e.length),"paddingTop"in e&&i(0,o=e.paddingTop)},[o,s,n,l]}class Ve extends e{constructor(e){super(),t(this,e,Be,ke,i,{time:2,length:3,paddingTop:0})}}function Pe(e){let t,i=window.tr(window.lang.trade.form.buttons.modify)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function Te(e){let t,i,n,s,r=e[7].infoTemplate(String(e[6]))+"";function a(e,t){return e[3]?Me:Ee}let d=a(e),c=d(e);return{c(){t=_("Close "),i=_(r),n=C(),c.c(),s=O()},m(e,l){o(e,t,l),o(e,i,l),o(e,n,l),c.m(e,l),o(e,s,l)},p(e,t){192&t&&r!==(r=e[7].infoTemplate(String(e[6]))+"")&&M(i,r),d===(d=a(e))&&c?c.p(e,t):(c.d(1),c=d(e),c&&(c.c(),c.m(s.parentNode,s)))},d(e){e&&(l(t),l(i),l(n),l(s)),c.d(e)}}}function Ce(e){let t,i=window.tr(window.lang.trade.form.buttons.requestPrice)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function Ee(e){let t,i,n,s,r,a,d=(e[9]??0).toFixed(e[7].digits)+"",c=e[7].profit>=0?"Profit":"Loss",u=(e[7].profit*e[6]/(e[7].volumeValue??0)).toFixed(e[7].digitsCurrency)+"";return{c(){t=_("at "),i=_(d),n=_(" with "),s=_(c),r=C(),a=_(u)},m(e,l){o(e,t,l),o(e,i,l),o(e,n,l),o(e,s,l),o(e,r,l),o(e,a,l)},p(e,t){640&t&&d!==(d=(e[9]??0).toFixed(e[7].digits)+"")&&M(i,d),128&t&&c!==(c=e[7].profit>=0?"Profit":"Loss")&&M(s,c),192&t&&u!==(u=(e[7].profit*e[6]/(e[7].volumeValue??0)).toFixed(e[7].digitsCurrency)+"")&&M(a,u)},d(e){e&&(l(t),l(i),l(n),l(s),l(r),l(a))}}}function Me(e){let t,i,n,s=e[3].info+"";return{c(){t=B("br"),i=_("by "),n=_(s)},m(e,l){o(e,t,l),o(e,i,l),o(e,n,l)},p(e,t){8&t&&s!==(s=e[3].info+"")&&M(n,s)},d(e){e&&(l(t),l(i),l(n))}}}function _e(e){let t;function i(e,t){return e[10]?Ce:e[7]?Te:void 0}let n=i(e),s=n&&n(e);return{c(){s&&s.c(),t=O()},m(e,i){s&&s.m(e,i),o(e,t,i)},p(e,l){n===(n=i(e))&&s?s.p(e,l):(s&&s.d(1),s=n&&n(e),s&&(s.c(),s.m(t.parentNode,t)))},d(e){e&&l(t),s&&s.d(e)}}}function ze(e){let t,i;return t=new Ve({props:{length:1e3*(e[2].requestTimeout??0),time:e[8].prices[e[2].symbol].time??0}}),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};4&i&&(n.length=1e3*(e[2].requestTimeout??0)),260&i&&(n.time=e[8].prices[e[2].symbol].time??0),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function qe(e){var t;let i,n,s,r,a,d;i=new $e({props:{disabled:e[4],$$slots:{default:[Pe]},$$scope:{ctx:e}}}),i.$on("click",e[11]),s=new $e({props:{disabled:e[5],orange:!e[10],outline:e[10],$$slots:{default:[_e]},$$scope:{ctx:e}}}),s.$on("click",e[12]);let c=(e[2].isRequestExecution||e[7]&&e[2].isInstantExecution&&e[2].maxInstantVolume&&e[6]>e[2].maxInstantVolume)&&!e[10]&&(null==(t=e[8].prices[e[2].symbol])?void 0:t.time)&&ze(e);return{c(){g(i.$$.fragment),n=C(),g(s.$$.fragment),r=C(),c&&c.c(),a=O()},m(e,t){f(i,e,t),o(e,n,t),f(s,e,t),o(e,r,t),c&&c.m(e,t),o(e,a,t),d=!0},p(e,[t]){var n;const l={};16&t&&(l.disabled=e[4]),131072&t&&(l.$$scope={dirty:t,ctx:e}),i.$set(l);const o={};32&t&&(o.disabled=e[5]),1024&t&&(o.orange=!e[10]),1024&t&&(o.outline=e[10]),132808&t&&(o.$$scope={dirty:t,ctx:e}),s.$set(o),(e[2].isRequestExecution||e[7]&&e[2].isInstantExecution&&e[2].maxInstantVolume&&e[6]>e[2].maxInstantVolume)&&!e[10]&&(null==(n=e[8].prices[e[2].symbol])?void 0:n.time)?c?(c.p(e,t),1476&t&&m(c,1)):(c=ze(e),c.c(),m(c,1),c.m(a.parentNode,a)):c&&(P(),p(c,1,1,(()=>{c=null})),T())},i(e){d||(m(i.$$.fragment,e),m(s.$$.fragment,e),m(c),d=!0)},o(e){p(i.$$.fragment,e),p(s.$$.fragment,e),p(c),d=!1},d(e){e&&(l(n),l(r),l(a)),u(i,e),u(s,e),c&&c.d(e)}}}function Oe(e,t,i){let l,o,s=n,r=()=>(s(),s=z(c,(e=>i(8,l=e))),c),a=n,d=()=>(a(),a=z(u,(e=>i(15,o=e))),u);e.$$.on_destroy.push((()=>s())),e.$$.on_destroy.push((()=>a()));let{tradeStore:c}=t;r();let{positionsStore:u}=t;d();let p,{config:m}=t,{positionId:$}=t,{closeByPosition:f=null}=t,{disabledModify:g=!1}=t,{disabledClose:v=!1}=t,{marketPrice:b=0}=t,{volume:y}=t,w=0;const S=E();let h=!1;return e.$$set=e=>{"tradeStore"in e&&r(i(0,c=e.tradeStore)),"positionsStore"in e&&d(i(1,u=e.positionsStore)),"config"in e&&i(2,m=e.config),"positionId"in e&&i(13,$=e.positionId),"closeByPosition"in e&&i(3,f=e.closeByPosition),"disabledModify"in e&&i(4,g=e.disabledModify),"disabledClose"in e&&i(5,v=e.disabledClose),"marketPrice"in e&&i(14,b=e.marketPrice),"volume"in e&&i(6,y=e.volume)},e.$$.update=()=>{40960&e.$$.dirty&&i(7,p=o.getPosition($)),460&e.$$.dirty&&i(10,h=Boolean(!f&&(m.isRequestExecution||p&&m.isInstantExecution&&m.maxInstantVolume&&y>m.maxInstantVolume)&&(!l.prices[m.symbol]||l.prices[m.symbol]&&l.prices[m.symbol].time+1e3*((null==m?void 0:m.requestTimeout)??0)<Date.now()))),16836&e.$$.dirty&&((m.isRequestExecution||p&&m.isInstantExecution&&m.maxInstantVolume&&y>m.maxInstantVolume)&&l.prices[m.symbol]?(null==p?void 0:p.isBuy)?i(9,w=l.prices[m.symbol].bid):(null==p?void 0:p.isSell)&&i(9,w=l.prices[m.symbol].ask):i(9,w=b))},[c,u,m,f,g,v,y,p,l,w,h,function(){S("modify")},function(){S("close")},$,b,o]}class Le extends e{constructor(e){super(),t(this,e,Oe,qe,i,{tradeStore:0,positionsStore:1,config:2,positionId:13,closeByPosition:3,disabledModify:4,disabledClose:5,marketPrice:14,volume:6})}}function De(e){let t,i,r,d,c,u,p,m,$,f,g=(e[1]?W(e[1],e[0]):"")+"",v=(e[2]?W(e[2],e[0]):"")+"";return{c(){t=B("div"),i=B("div"),r=C(),d=_(g),c=C(),u=B("div"),p=C(),m=B("div"),$=C(),f=_(v),a(i,"class","price-column svelte-ndg0el"),h(i,"red",-1===e[3]),h(i,"blue",1===e[3]),a(u,"class","split svelte-ndg0el"),a(m,"class","price-column svelte-ndg0el"),h(m,"red",-1===e[4]),h(m,"blue",1===e[4]),a(t,"class","price svelte-ndg0el")},m(e,n){o(e,t,n),s(t,i),s(i,r),s(i,d),s(t,c),s(t,u),s(t,p),s(t,m),s(m,$),s(m,f)},p(e,[t]){3&t&&g!==(g=(e[1]?W(e[1],e[0]):"")+"")&&M(d,g),8&t&&h(i,"red",-1===e[3]),8&t&&h(i,"blue",1===e[3]),5&t&&v!==(v=(e[2]?W(e[2],e[0]):"")+"")&&M(f,v),16&t&&h(m,"red",-1===e[4]),16&t&&h(m,"blue",1===e[4])},i:n,o:n,d(e){e&&l(t)}}}function Ie(e,t,i){let{digits:n}=t,{bid:l}=t,{ask:o}=t,{bidTrend:s=0}=t,{askTrend:r=0}=t;return e.$$set=e=>{"digits"in e&&i(0,n=e.digits),"bid"in e&&i(1,l=e.bid),"ask"in e&&i(2,o=e.ask),"bidTrend"in e&&i(3,s=e.bidTrend),"askTrend"in e&&i(4,r=e.askTrend)},[n,l,o,s,r]}let Ue=class extends e{constructor(e){super(),t(this,e,Ie,De,i,{digits:0,bid:1,ask:2,bidTrend:3,askTrend:4})}};function je(e){let t,i,n;return i=new $e({props:{outline:!0,$$slots:{default:[Fe]},$$scope:{ctx:e}}}),i.$on("click",e[8]),{c(){t=B("div"),g(i.$$.fragment)},m(e,l){o(e,t,l),f(i,t,null),n=!0},p(e,t){const n={};1024&t&&(n.$$scope={dirty:t,ctx:e}),i.$set(n)},i(e){n||(m(i.$$.fragment,e),n=!0)},o(e){p(i.$$.fragment,e),n=!1},d(e){e&&l(t),u(i)}}}function Ne(e){let t,i,n,r,d,c,$,v,b;return t=new Ue({props:{digits:e[1].digits,bid:e[4].prices[e[1].symbol].bid,ask:e[4].prices[e[1].symbol].ask,bidTrend:0,askTrend:0}}),r=new $e({props:{disabled:e[2],red:!0,$$slots:{default:[Ae]},$$scope:{ctx:e}}}),r.$on("click",e[6]),c=new $e({props:{disabled:e[3],$$slots:{default:[Re]},$$scope:{ctx:e}}}),c.$on("click",e[7]),v=new Ve({props:{length:1e3*(e[1].requestTimeout??0),time:e[4].prices[e[1].symbol].time??0,paddingTop:1.5}}),{c(){g(t.$$.fragment),i=C(),n=B("div"),g(r.$$.fragment),d=C(),g(c.$$.fragment),$=C(),g(v.$$.fragment),a(n,"class","footer-row svelte-1325j3e")},m(e,l){f(t,e,l),o(e,i,l),o(e,n,l),f(r,n,null),s(n,d),f(c,n,null),o(e,$,l),f(v,e,l),b=!0},p(e,i){const n={};2&i&&(n.digits=e[1].digits),18&i&&(n.bid=e[4].prices[e[1].symbol].bid),18&i&&(n.ask=e[4].prices[e[1].symbol].ask),t.$set(n);const l={};4&i&&(l.disabled=e[2]),1024&i&&(l.$$scope={dirty:i,ctx:e}),r.$set(l);const o={};8&i&&(o.disabled=e[3]),1024&i&&(o.$$scope={dirty:i,ctx:e}),c.$set(o);const s={};2&i&&(s.length=1e3*(e[1].requestTimeout??0)),18&i&&(s.time=e[4].prices[e[1].symbol].time??0),v.$set(s)},i(e){b||(m(t.$$.fragment,e),m(r.$$.fragment,e),m(c.$$.fragment,e),m(v.$$.fragment,e),b=!0)},o(e){p(t.$$.fragment,e),p(r.$$.fragment,e),p(c.$$.fragment,e),p(v.$$.fragment,e),b=!1},d(e){e&&(l(i),l(n),l($)),u(t,e),u(r),u(c),u(v,e)}}}function Fe(e){let t,i=window.tr(window.lang.trade.form.buttons.request)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function Ae(e){let t;return{c(){t=_("Sell")},m(e,i){o(e,t,i)},d(e){e&&l(t)}}}function Re(e){let t;return{c(){t=_("Buy")},m(e,i){o(e,t,i)},d(e){e&&l(t)}}}function He(e){let t,i,n,s;const r=[Ne,je],d=[];function c(e,t){return e[4].prices[e[1].symbol]?0:1}return i=c(e),n=d[i]=r[i](e),{c(){t=B("div"),n.c(),a(t,"class","footer-request")},m(e,n){o(e,t,n),d[i].m(t,null),s=!0},p(e,[l]){let o=i;i=c(e),i===o?d[i].p(e,l):(P(),p(d[o],1,1,(()=>{d[o]=null})),T(),n=d[i],n?n.p(e,l):(n=d[i]=r[i](e),n.c()),m(n,1),n.m(t,null))},i(e){s||(m(n),s=!0)},o(e){p(n),s=!1},d(e){e&&l(t),d[i].d()}}}function Ye(e,t,i){let l,o=n,s=()=>(o(),o=z(r,(e=>i(4,l=e))),r);e.$$.on_destroy.push((()=>o()));let{tradeStore:r}=t;s();const a=E();let{config:d}=t,{disabledSell:c=!1}=t,{disabledBuy:u=!1}=t;function p(e){a("open",e)}return e.$$set=e=>{"tradeStore"in e&&s(i(0,r=e.tradeStore)),"config"in e&&i(1,d=e.config),"disabledSell"in e&&i(2,c=e.disabledSell),"disabledBuy"in e&&i(3,u=e.disabledBuy)},[r,d,c,u,l,p,()=>p(1),()=>p(0),()=>p(0)]}class Ge extends e{constructor(e){super(),t(this,e,Ye,He,i,{tradeStore:0,config:1,disabledSell:2,disabledBuy:3})}}function Ze(e){let t;return{c(){t=_(e[5])},m(e,i){o(e,t,i)},p(e,i){32&i&&M(t,e[5])},d(e){e&&l(t)}}}function We(e){let t;return{c(){t=_(e[6])},m(e,i){o(e,t,i)},p(e,i){64&i&&M(t,e[6])},d(e){e&&l(t)}}}function Je(e){var t,i,n,r;let d,c,$,v,b,y,w;return d=new Ue({props:{digits:e[1].digits,bid:null==(t=e[7])?void 0:t.bid,ask:null==(i=e[7])?void 0:i.ask,bidTrend:null==(n=e[7])?void 0:n.bidTrend,askTrend:null==(r=e[7])?void 0:r.askTrend}}),v=new $e({props:{disabled:e[2],red:!0,$$slots:{default:[Ze]},$$scope:{ctx:e}}}),v.$on("click",e[11]),y=new $e({props:{disabled:e[3],$$slots:{default:[We]},$$scope:{ctx:e}}}),y.$on("click",e[12]),{c(){g(d.$$.fragment),c=C(),$=B("div"),g(v.$$.fragment),b=C(),g(y.$$.fragment),a($,"class","footer-row svelte-1325j3e")},m(e,t){f(d,e,t),o(e,c,t),o(e,$,t),f(v,$,null),s($,b),f(y,$,null),w=!0},p(e,[t]){var i,n,l,o;const s={};2&t&&(s.digits=e[1].digits),128&t&&(s.bid=null==(i=e[7])?void 0:i.bid),128&t&&(s.ask=null==(n=e[7])?void 0:n.ask),128&t&&(s.bidTrend=null==(l=e[7])?void 0:l.bidTrend),128&t&&(s.askTrend=null==(o=e[7])?void 0:o.askTrend),d.$set(s);const r={};4&t&&(r.disabled=e[2]),16416&t&&(r.$$scope={dirty:t,ctx:e}),v.$set(r);const a={};8&t&&(a.disabled=e[3]),16448&t&&(a.$$scope={dirty:t,ctx:e}),y.$set(a)},i(e){w||(m(d.$$.fragment,e),m(v.$$.fragment,e),m(y.$$.fragment,e),w=!0)},o(e){p(d.$$.fragment,e),p(v.$$.fragment,e),p(y.$$.fragment,e),w=!1},d(e){e&&(l(c),l($)),u(d,e),u(v),u(y)}}}function Ke(e,t,i){let l,o,s=n,r=()=>(s(),s=z(u,(e=>i(10,l=e))),u),a=n,d=()=>(a(),a=z(b,(e=>i(7,o=e))),b);e.$$.on_destroy.push((()=>s())),e.$$.on_destroy.push((()=>a()));let{ticksController:c}=t,{ticksStore:u}=t;r();const p=E();let m,$,{config:f}=t,{disabledSell:g=!1}=t,{disabledBuy:v=!1}=t,b=l.getTick(f.symbol);function y(e){p("open",e)}return d(),e.$$set=e=>{"ticksController"in e&&i(9,c=e.ticksController),"ticksStore"in e&&r(i(0,u=e.ticksStore)),"config"in e&&i(1,f=e.config),"disabledSell"in e&&i(2,g=e.disabledSell),"disabledBuy"in e&&i(3,v=e.disabledBuy)},e.$$.update=()=>{2&e.$$.dirty&&(f.isMarketExecution?(i(5,m="Sell by Market"),i(6,$="Buy by Market")):(i(5,m="Sell"),i(6,$="Buy"))),1538&e.$$.dirty&&f.symbol&&(c.on(f.symbol),d(i(4,b=l.getTick(f.symbol))))},[u,f,g,v,b,m,$,o,y,c,l,()=>y(1),()=>y(0)]}class Qe extends e{constructor(e){super(),t(this,e,Ke,Je,i,{ticksController:9,ticksStore:0,config:1,disabledSell:2,disabledBuy:3})}}function Xe(e){let t,i;return t=new oe({props:{name:te}}),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p:n,i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function et(e){let t,i;return t=new oe({props:{name:ie}}),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p:n,i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function tt(e){let t,i,n;function l(t){e[10](t)}let o={initialValue:e[8],nullable:e[7],digits:e[2],disabled:e[6],disabledDecBtn:null!==e[0]&&void 0!==e[4]&&e[0]<=e[4],disabledIncBtn:null!==e[0]&&void 0!==e[5]&&e[0]>=e[5],min:e[4],max:e[5],step:e[3],roundByStep:e[9],placeholder:e[1],$$slots:{inc:[et],desc:[Xe]},$$scope:{ctx:e}};return void 0!==e[0]&&(o.value=e[0]),t=new ee({props:o}),d.push((()=>c(t,"value",l))),t.$on("input",e[11]),t.$on("step",e[12]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),n=!0},p(e,[n]){const l={};256&n&&(l.initialValue=e[8]),128&n&&(l.nullable=e[7]),4&n&&(l.digits=e[2]),64&n&&(l.disabled=e[6]),17&n&&(l.disabledDecBtn=null!==e[0]&&void 0!==e[4]&&e[0]<=e[4]),33&n&&(l.disabledIncBtn=null!==e[0]&&void 0!==e[5]&&e[0]>=e[5]),16&n&&(l.min=e[4]),32&n&&(l.max=e[5]),8&n&&(l.step=e[3]),512&n&&(l.roundByStep=e[9]),2&n&&(l.placeholder=e[1]),8192&n&&(l.$$scope={dirty:n,ctx:e}),!i&&1&n&&(i=!0,l.value=e[0],$((()=>i=!1))),t.$set(l)},i(e){n||(m(t.$$.fragment,e),n=!0)},o(e){p(t.$$.fragment,e),n=!1},d(e){u(t,e)}}}function it(e,t,i){let{value:n}=t,{placeholder:l=""}=t,{digits:o}=t,{step:s}=t,{min:r}=t,{max:a}=t,{disabled:d=!1}=t,{nullable:c=!1}=t,{initialValue:u=null}=t,{roundByStep:p=!1}=t;return e.$$set=e=>{"value"in e&&i(0,n=e.value),"placeholder"in e&&i(1,l=e.placeholder),"digits"in e&&i(2,o=e.digits),"step"in e&&i(3,s=e.step),"min"in e&&i(4,r=e.min),"max"in e&&i(5,a=e.max),"disabled"in e&&i(6,d=e.disabled),"nullable"in e&&i(7,c=e.nullable),"initialValue"in e&&i(8,u=e.initialValue),"roundByStep"in e&&i(9,p=e.roundByStep)},[n,l,o,s,r,a,d,c,u,p,function(e){n=e,i(0,n)},function(t){V.call(this,e,t)},function(t){V.call(this,e,t)}]}class nt extends e{constructor(e){super(),t(this,e,it,tt,i,{value:0,placeholder:1,digits:2,step:3,min:4,max:5,disabled:6,nullable:7,initialValue:8,roundByStep:9})}}const lt=e=>({}),ot=e=>({});function st(e){let t,i,s,r,d;return i=new oe({props:{name:J,width:4,height:4}}),{c(){t=B("button"),g(i.$$.fragment),a(t,"type","button"),a(t,"class","svelte-mj4yoy")},m(n,l){o(n,t,l),f(i,t,null),s=!0,r||(d=x(t,"click",e[10]),r=!0)},p:n,i(e){s||(m(i.$$.fragment,e),s=!0)},o(e){p(i.$$.fragment,e),s=!1},d(e){e&&l(t),u(i),r=!1,d()}}}function rt(e){let t,i,n,r,d;const c=e[9].label,u=v(c,e,e[8],ot),$=u||function(e){let t;return{c(){t=_(e[0])},m(e,i){o(e,t,i)},p(e,i){1&i&&M(t,e[0])},d(e){e&&l(t)}}}(e);let f=e[6]&&st(e);const g=e[9].default,b=v(g,e,e[8],null);return{c(){t=B("div"),i=B("div"),$&&$.c(),n=C(),f&&f.c(),r=C(),b&&b.c(),a(i,"class","label svelte-mj4yoy"),h(i,"clear",e[6]),a(t,"class","trade-input svelte-mj4yoy"),h(t,"red",e[1]),h(t,"blue",e[2]),h(t,"green",e[3]),h(t,"orange",e[4]),h(t,"invalid",e[5])},m(e,l){o(e,t,l),s(t,i),$&&$.m(i,null),s(i,n),f&&f.m(i,null),s(t,r),b&&b.m(t,null),d=!0},p(e,[n]){u?u.p&&(!d||256&n)&&y(u,c,e,e[8],d?S(c,e[8],n,lt):w(e[8]),ot):$&&$.p&&(!d||1&n)&&$.p(e,d?n:-1),e[6]?f?(f.p(e,n),64&n&&m(f,1)):(f=st(e),f.c(),m(f,1),f.m(i,null)):f&&(P(),p(f,1,1,(()=>{f=null})),T()),(!d||64&n)&&h(i,"clear",e[6]),b&&b.p&&(!d||256&n)&&y(b,g,e,e[8],d?S(g,e[8],n,null):w(e[8]),null),(!d||2&n)&&h(t,"red",e[1]),(!d||4&n)&&h(t,"blue",e[2]),(!d||8&n)&&h(t,"green",e[3]),(!d||16&n)&&h(t,"orange",e[4]),(!d||32&n)&&h(t,"invalid",e[5])},i(e){d||(m($,e),m(f),m(b,e),d=!0)},o(e){p($,e),p(f),p(b,e),d=!1},d(e){e&&l(t),$&&$.d(e),f&&f.d(),b&&b.d(e)}}}function at(e,t,i){let{$$slots:n={},$$scope:l}=t;const o=E();let{label:s=""}=t,{red:r=!1}=t,{blue:a=!1}=t,{green:d=!1}=t,{orange:c=!1}=t,{invalid:u=!1}=t,{clear:p=!1}=t;return e.$$set=e=>{"label"in e&&i(0,s=e.label),"red"in e&&i(1,r=e.red),"blue"in e&&i(2,a=e.blue),"green"in e&&i(3,d=e.green),"orange"in e&&i(4,c=e.orange),"invalid"in e&&i(5,u=e.invalid),"clear"in e&&i(6,p=e.clear),"$$scope"in e&&i(8,l=e.$$scope)},[s,r,a,d,c,u,p,o,l,n,()=>o("clear")]}class dt extends e{constructor(e){super(),t(this,e,at,rt,i,{label:0,red:1,blue:2,green:3,orange:4,invalid:5,clear:6})}}function ct(e){let t,i,n;function l(t){e[14](t)}let o={nullable:e[10],initialValue:e[9],disabled:e[8],step:e[12],digits:e[6],roundByStep:void 0!==e[7],min:0};return void 0!==e[0]&&(o.value=e[0]),t=new nt({props:o}),d.push((()=>c(t,"value",l))),t.$on("input",e[15]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),n=!0},p(e,n){const l={};1024&n&&(l.nullable=e[10]),512&n&&(l.initialValue=e[9]),256&n&&(l.disabled=e[8]),4096&n&&(l.step=e[12]),64&n&&(l.digits=e[6]),128&n&&(l.roundByStep=void 0!==e[7]),!i&&1&n&&(i=!0,l.value=e[0],$((()=>i=!1))),t.$set(l)},i(e){n||(m(t.$$.fragment,e),n=!0)},o(e){p(t.$$.fragment,e),n=!1},d(e){u(t,e)}}}function ut(e){let t,i;return t=new dt({props:{label:e[1],red:e[2],blue:e[3],green:e[4],orange:e[5],clear:e[11],$$slots:{default:[ct]},$$scope:{ctx:e}}}),t.$on("clear",e[13]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,[i]){const n={};2&i&&(n.label=e[1]),4&i&&(n.red=e[2]),8&i&&(n.blue=e[3]),16&i&&(n.green=e[4]),32&i&&(n.orange=e[5]),2048&i&&(n.clear=e[11]),71617&i&&(n.$$scope={dirty:i,ctx:e}),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function pt(e,t,i){let{label:n}=t,{red:l=!1}=t,{blue:o=!1}=t,{green:s=!1}=t,{orange:r=!1}=t,{value:a}=t,{digits:d}=t,{tickSize:c}=t,{disabled:u=!1}=t,{initialValue:p=null}=t,{nullable:m=!1}=t,{clear:$=!1}=t,f=1;return e.$$set=e=>{"label"in e&&i(1,n=e.label),"red"in e&&i(2,l=e.red),"blue"in e&&i(3,o=e.blue),"green"in e&&i(4,s=e.green),"orange"in e&&i(5,r=e.orange),"value"in e&&i(0,a=e.value),"digits"in e&&i(6,d=e.digits),"tickSize"in e&&i(7,c=e.tickSize),"disabled"in e&&i(8,u=e.disabled),"initialValue"in e&&i(9,p=e.initialValue),"nullable"in e&&i(10,m=e.nullable),"clear"in e&&i(11,$=e.clear)},e.$$.update=()=>{192&e.$$.dirty&&i(12,f=c||1/10**d)},[a,n,l,o,s,r,d,c,u,p,m,$,f,function(){i(0,a=null)},function(e){a=e,i(0,a)},function(t){V.call(this,e,t)}]}class mt extends e{constructor(e){super(),t(this,e,pt,ut,i,{label:1,red:2,blue:3,green:4,orange:5,value:0,digits:6,tickSize:7,disabled:8,initialValue:9,nullable:10,clear:11})}}function $t(e){let t,i,n;function l(t){e[12](t)}let o={initialValue:e[4],disabled:e[3],min:e[1],max:e[2],step:e[7],digits:e[5],roundByStep:!0};return void 0!==e[0]&&(o.value=e[0]),t=new nt({props:o}),d.push((()=>c(t,"value",l))),t.$on("input",e[13]),t.$on("step",e[14]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),n=!0},p(e,n){const l={};16&n&&(l.initialValue=e[4]),8&n&&(l.disabled=e[3]),2&n&&(l.min=e[1]),4&n&&(l.max=e[2]),128&n&&(l.step=e[7]),32&n&&(l.digits=e[5]),!i&&1&n&&(i=!0,l.value=e[0],$((()=>i=!1))),t.$set(l)},i(e){n||(m(t.$$.fragment,e),n=!0)},o(e){p(t.$$.fragment,e),n=!1},d(e){u(t,e)}}}function ft(e){let t,i,n,r,d;return{c(){t=B("div"),i=B("span"),i.textContent=`${window.tr(window.lang.trade.form.fields.volume)}`,n=C(),r=B("span"),d=_(e[6]),a(i,"class","svelte-e1mb38"),a(r,"title",e[6]),a(r,"class","svelte-e1mb38"),a(t,"slot","label"),a(t,"class","label svelte-e1mb38")},m(e,l){o(e,t,l),s(t,i),s(t,n),s(t,r),s(r,d)},p(e,t){64&t&&M(d,e[6]),64&t&&a(r,"title",e[6])},d(e){e&&l(t)}}}function gt(e){let t,i;return t=new dt({props:{invalid:e[8],$$slots:{label:[ft],default:[$t]},$$scope:{ctx:e}}}),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,[i]){const n={};256&i&&(n.invalid=e[8]),33023&i&&(n.$$scope={dirty:i,ctx:e}),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function vt(e){const t=String(e);return t.includes("e")||t.includes("E")?e.toLocaleString("en-US",{useGrouping:!1,maximumFractionDigits:20}):t}function bt(e,t,i){let n,l,{disabled:o=!1}=t,{symbol:s}=t,{value:r}=t,{min:a}=t,{max:d}=t,{initialValue:c=null}=t,{tooltipErr:u=""}=t,p=!1,m=s.lotsStep??1,$=0;return e.$$set=e=>{"disabled"in e&&i(3,o=e.disabled),"symbol"in e&&i(10,s=e.symbol),"value"in e&&i(0,r=e.value),"min"in e&&i(1,a=e.min),"max"in e&&i(2,d=e.max),"initialValue"in e&&i(4,c=e.initialValue),"tooltipErr"in e&&i(9,u=e.tooltipErr)},e.$$.update=()=>{var t,o;3207&e.$$.dirty&&(i(1,a=void 0!==a?Math.min(a,Math.max(s.lotsMin,s.lotsStep)):Math.max(s.lotsMin,s.lotsStep)),r?(i(2,d=d??s.lotsMax??1/0),i(7,m=s.lotsStep??1),i(11,$=r?10**Math.max((null==(t=vt(r).split(".")[1])?void 0:t.length)||0,(null==(o=vt(m).split(".")[1])?void 0:o.length)||0):0),a&&a>r?(i(9,u=window.tr(window.lang.trade.form.fields.errors.volume.min,{min:a})),i(8,p=!0)):d&&d<r?(i(9,u=window.tr(window.lang.trade.form.fields.errors.volume.max,{max:d})),i(8,p=!0)):Math.round(r*$)%Math.round(m*$)!=0?(i(9,u=window.tr(window.lang.trade.form.fields.errors.volume.step,{step:vt(m)})),i(8,p=!0)):(i(9,u=""),i(8,p=!1))):(i(9,u=window.tr(window.lang.trade.form.fields.errors.volume.required)),i(8,p=!0))),1024&e.$$.dirty&&i(5,n=Math.max(se(s.lotsStep),se(s.lotsMin))),1121&e.$$.dirty&&(i(6,l=W(r*s.contractSize,n)),s.isForex?i(6,l=`${l} ${s.currencyBase}`):i(6,l=`${l} ${s.symbol}`))},[r,a,d,o,c,n,l,m,p,u,s,$,function(e){r=e,i(0,r)},function(t){V.call(this,e,t)},function(t){V.call(this,e,t)}]}class yt extends e{constructor(e){super(),t(this,e,bt,gt,i,{disabled:3,symbol:10,value:0,min:1,max:2,initialValue:4,tooltipErr:9})}}function wt(e,t,i){const n=e.slice();return n[28]=t[i],n}function St(e){let t,i,n,r,v,b;function y(t){e[27](t)}let w={type:"large",$$slots:{default:[xt]},$$scope:{ctx:e}};return void 0!==e[4]&&(w.value=e[4]),r=new re({props:w}),d.push((()=>c(r,"value",y))),{c(){t=B("div"),i=B("div"),i.textContent=`${window.tr(window.lang.trade.form.fields.closeBy)}`,n=C(),g(r.$$.fragment),a(i,"class","label svelte-101s49e"),a(t,"class","close-by svelte-101s49e")},m(e,l){o(e,t,l),s(t,i),s(t,n),f(r,t,null),b=!0},p(e,t){const i={};16384&t[0]|1&t[1]&&(i.$$scope={dirty:t,ctx:e}),!v&&16&t[0]&&(v=!0,i.value=e[4],$((()=>v=!1))),r.$set(i)},i(e){b||(m(r.$$.fragment,e),b=!0)},o(e){p(r.$$.fragment,e),b=!1},d(e){e&&l(t),u(r)}}}function ht(e){let t,i,n,r=e[28].value.info+"";return{c(){t=B("option"),i=_(r),t.__value=n=e[28].value.id,I(t,t.__value)},m(e,n){o(e,t,n),s(t,i)},p(e,l){16384&l[0]&&r!==(r=e[28].value.info+"")&&M(i,r),16384&l[0]&&n!==(n=e[28].value.id)&&(t.__value=n,I(t,t.__value))},d(e){e&&l(t)}}}function xt(e){let t,i,n,s=L(e[14]),r=[];for(let l=0;l<s.length;l+=1)r[l]=ht(wt(e,s,l));return{c(){t=B("option"),i=C();for(let e=0;e<r.length;e+=1)r[e].c();n=O(),t.__value=null,I(t,t.__value)},m(e,l){o(e,t,l),o(e,i,l);for(let t=0;t<r.length;t+=1)r[t]&&r[t].m(e,l);o(e,n,l)},p(e,t){if(16384&t[0]){let i;for(s=L(e[14]),i=0;i<s.length;i+=1){const l=wt(e,s,i);r[i]?r[i].p(l,t):(r[i]=ht(l),r[i].c(),r[i].m(n.parentNode,n))}for(;i<r.length;i+=1)r[i].d(1);r.length=s.length}},d(e){e&&(l(t),l(i),l(n)),D(r,e)}}}function kt(e){let t,i,n,r,v,b,y,w,S,h,x,k,V,E,M,_,z,q,L;function D(t){e[19](t)}let I={disabled:e[11]||e[12].sl!==Number(e[1])||e[12].tp!==Number(e[2])||e[5]!==e[12].comment||e[12].volumeValue<e[10].lotsMin,symbol:e[10],min:e[12].volumeValue,max:e[12].volumeValue,initialValue:e[18]};function U(t){e[22](t)}void 0!==e[3]&&(I.value=e[3]),n=new yt({props:I}),d.push((()=>c(n,"value",D))),n.$on("input",e[20]),n.$on("step",e[21]);let j={disabled:!0,label:window.tr(window.lang.trade.form.fields.price),digits:e[10].digits??0,tickSize:e[10].tickSize};function N(t){e[24](t)}void 0!==e[0]&&(j.value=e[0]),y=new mt({props:j}),d.push((()=>c(y,"value",U)));let F={nullable:!0,disabled:e[11]||!e[10].isOrderSlAllowed||e[12].volumeValue!==e[3]||e[5]!==e[12].comment,label:window.tr(window.lang.trade.form.fields.stopLoss),initialValue:e[23],digits:e[10].digits??0,tickSize:e[10].tickSize,orange:!0,clear:null!==e[1]};function A(t){e[26](t)}void 0!==e[1]&&(F.value=e[1]),x=new mt({props:F}),d.push((()=>c(x,"value",N)));let R={nullable:!0,disabled:e[11]||!e[10].isOrderTpAllowed||e[12].volumeValue!==e[3],label:window.tr(window.lang.trade.form.fields.takeProfit),initialValue:e[25],digits:e[10].digits??0,tickSize:e[10].tickSize,green:!0,clear:null!==e[2]};void 0!==e[2]&&(R.value=e[2]),M=new mt({props:R}),d.push((()=>c(M,"value",A)));let H=e[15]&&St(e);return{c(){t=B("div"),i=B("div"),g(n.$$.fragment),v=C(),b=B("div"),g(y.$$.fragment),S=C(),h=B("div"),g(x.$$.fragment),V=C(),E=B("div"),g(M.$$.fragment),z=C(),H&&H.c(),q=O(),a(i,"class","volume svelte-101s49e"),a(b,"class","price svelte-101s49e"),a(h,"class","sl svelte-101s49e"),a(E,"class","tp svelte-101s49e"),a(t,"class","limit svelte-101s49e")},m(e,l){o(e,t,l),s(t,i),f(n,i,null),s(t,v),s(t,b),f(y,b,null),s(t,S),s(t,h),f(x,h,null),s(t,V),s(t,E),f(M,E,null),o(e,z,l),H&&H.m(e,l),o(e,q,l),L=!0},p(e,t){const i={};7206&t[0]&&(i.disabled=e[11]||e[12].sl!==Number(e[1])||e[12].tp!==Number(e[2])||e[5]!==e[12].comment||e[12].volumeValue<e[10].lotsMin),1024&t[0]&&(i.symbol=e[10]),4096&t[0]&&(i.min=e[12].volumeValue),4096&t[0]&&(i.max=e[12].volumeValue),4096&t[0]&&(i.initialValue=e[18]),!r&&8&t[0]&&(r=!0,i.value=e[3],$((()=>r=!1))),n.$set(i);const l={};1024&t[0]&&(l.digits=e[10].digits??0),1024&t[0]&&(l.tickSize=e[10].tickSize),!w&&1&t[0]&&(w=!0,l.value=e[0],$((()=>w=!1))),y.$set(l);const o={};7208&t[0]&&(o.disabled=e[11]||!e[10].isOrderSlAllowed||e[12].volumeValue!==e[3]||e[5]!==e[12].comment),9152&t[0]&&(o.initialValue=e[23]),1024&t[0]&&(o.digits=e[10].digits??0),1024&t[0]&&(o.tickSize=e[10].tickSize),2&t[0]&&(o.clear=null!==e[1]),!k&&2&t[0]&&(k=!0,o.value=e[1],$((()=>k=!1))),x.$set(o);const s={};7176&t[0]&&(s.disabled=e[11]||!e[10].isOrderTpAllowed||e[12].volumeValue!==e[3]),9152&t[0]&&(s.initialValue=e[25]),1024&t[0]&&(s.digits=e[10].digits??0),1024&t[0]&&(s.tickSize=e[10].tickSize),4&t[0]&&(s.clear=null!==e[2]),!_&&4&t[0]&&(_=!0,s.value=e[2],$((()=>_=!1))),M.$set(s),e[15]?H?(H.p(e,t),32768&t[0]&&m(H,1)):(H=St(e),H.c(),m(H,1),H.m(q.parentNode,q)):H&&(P(),p(H,1,1,(()=>{H=null})),T())},i(e){L||(m(n.$$.fragment,e),m(y.$$.fragment,e),m(x.$$.fragment,e),m(M.$$.fragment,e),m(H),L=!0)},o(e){p(n.$$.fragment,e),p(y.$$.fragment,e),p(x.$$.fragment,e),p(M.$$.fragment,e),p(H),L=!1},d(e){e&&(l(t),l(z),l(q)),u(n),u(y),u(x),u(M),H&&H.d(e)}}}function Bt(e,t,i){let{accountStore:n}=t,{positionsStore:l}=t,{price:o}=t,{sl:s}=t,{tp:r}=t,{volume:a}=t,{comment:d}=t,{section:c}=t,{isBuy:u}=t,{isSell:p}=t,{marketPrice:m}=t,{symbol:$}=t,{disabled:f=!1}=t,{closeByPositionId:g=null}=t,{position:v}=t,{utils:b}=t,y=[],w=!1;return e.$$set=e=>{"accountStore"in e&&i(16,n=e.accountStore),"positionsStore"in e&&i(17,l=e.positionsStore),"price"in e&&i(0,o=e.price),"sl"in e&&i(1,s=e.sl),"tp"in e&&i(2,r=e.tp),"volume"in e&&i(3,a=e.volume),"comment"in e&&i(5,d=e.comment),"section"in e&&i(6,c=e.section),"isBuy"in e&&i(7,u=e.isBuy),"isSell"in e&&i(8,p=e.isSell),"marketPrice"in e&&i(9,m=e.marketPrice),"symbol"in e&&i(10,$=e.symbol),"disabled"in e&&i(11,f=e.disabled),"closeByPositionId"in e&&i(4,g=e.closeByPositionId),"position"in e&&i(12,v=e.position),"utils"in e&&i(13,b=e.utils)},e.$$.update=()=>{132480&e.$$.dirty[0]&&i(14,y=l.getPositionsBySymbol(null==$?void 0:$.symbol).filter((({value:e})=>u?e.isSell:!!p&&e.isBuy))),82944&e.$$.dirty[0]&&i(15,w=Boolean(n.isHedgedMargin&&$.isCloseByOrderEnabled&&y.length))},[o,s,r,a,g,d,c,u,p,m,$,f,v,b,y,w,n,l,()=>v.volumeValue,function(e){a=e,i(3,a)},function(t){V.call(this,e,t)},function(t){V.call(this,e,t)},function(e){o=e,i(0,o)},()=>b.calcPositionSL(c,u,p,m),function(e){s=e,i(1,s)},()=>b.calcPositionTP(c,u,p,m),function(e){r=e,i(2,r)},function(e){g=e,i(4,g)}]}class Vt extends e{constructor(e){super(),t(this,e,Bt,kt,i,{accountStore:16,positionsStore:17,price:0,sl:1,tp:2,volume:3,comment:5,section:6,isBuy:7,isSell:8,marketPrice:9,symbol:10,disabled:11,closeByPositionId:4,position:12,utils:13},null,[-1,-1])}}const Pt=e=>({}),Tt=e=>({});function Ct(e){let t,i,n,l;function o(t){e[9](t)}function s(t){e[10](t)}let r={target:e[6],$$slots:{default:[Et]},$$scope:{ctx:e}};return void 0!==e[0]&&(r.position=e[0]),void 0!==e[1]&&(r.align=e[1]),t=new ne({props:r}),d.push((()=>c(t,"position",o))),d.push((()=>c(t,"align",s))),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),l=!0},p(e,l){const o={};64&l&&(o.target=e[6]),2168&l&&(o.$$scope={dirty:l,ctx:e}),!i&&1&l&&(i=!0,o.position=e[0],$((()=>i=!1))),!n&&2&l&&(n=!0,o.align=e[1],$((()=>n=!1))),t.$set(o)},i(e){l||(m(t.$$.fragment,e),l=!0)},o(e){p(t.$$.fragment,e),l=!1},d(e){u(t,e)}}}function Et(e){let t,i,n=`${e[4]}px ${e[5]}px`,r=`${Math.max(e[6].offsetWidth,150)}px`;return{c(){t=B("div"),i=_(e[3]),a(t,"class","tooltip svelte-155jeg4"),q(t,"margin",n),q(t,"max-width",r)},m(e,n){o(e,t,n),s(t,i)},p(e,l){8&l&&M(i,e[3]),48&l&&n!==(n=`${e[4]}px ${e[5]}px`)&&q(t,"margin",n),64&l&&r!==(r=`${Math.max(e[6].offsetWidth,150)}px`)&&q(t,"max-width",r)},d(e){e&&l(t)}}}function Mt(e){let t,i,n=e[2]&&e[3]&&Ct(e);return{c(){n&&n.c(),t=O()},m(e,l){n&&n.m(e,l),o(e,t,l),i=!0},p(e,i){e[2]&&e[3]?n?(n.p(e,i),12&i&&m(n,1)):(n=Ct(e),n.c(),m(n,1),n.m(t.parentNode,t)):n&&(P(),p(n,1,1,(()=>{n=null})),T())},i(e){i||(m(n),i=!0)},o(e){p(n),i=!1},d(e){e&&l(t),n&&n.d(e)}}}function _t(e){let t,s,r,d,c=e[3];const u=e[7].target,$=v(u,e,e[11],Tt);let f=Mt(e);return{c(){t=B("div"),$&&$.c(),s=C(),f.c(),r=O(),a(t,"class","target"),h(t,"visible",e[2])},m(i,n){o(i,t,n),$&&$.m(t,null),e[8](t),o(i,s,n),f.m(i,n),o(i,r,n),d=!0},p(e,[l]){$&&$.p&&(!d||2048&l)&&y($,u,e,e[11],d?S(u,e[11],l,Pt):w(e[11]),Tt),(!d||4&l)&&h(t,"visible",e[2]),8&l&&i(c,c=e[3])?(P(),p(f,1,1,n),T(),f=Mt(e),f.c(),m(f,1),f.m(r.parentNode,r)):f.p(e,l)},i(e){d||(m($,e),m(f),d=!0)},o(e){p($,e),p(f),d=!1},d(i){i&&(l(t),l(s),l(r)),$&&$.d(i),e[8](null),f.d(i)}}}function zt(e,t,i){let n,{$$slots:l={},$$scope:o}=t,{visible:s=!1}=t,{position:r=1}=t,{align:a=2}=t,{text:c=""}=t,{offsetVertical:u=0}=t,{offsetHorizontal:p=0}=t;return e.$$set=e=>{"visible"in e&&i(2,s=e.visible),"position"in e&&i(0,r=e.position),"align"in e&&i(1,a=e.align),"text"in e&&i(3,c=e.text),"offsetVertical"in e&&i(4,u=e.offsetVertical),"offsetHorizontal"in e&&i(5,p=e.offsetHorizontal),"$$scope"in e&&i(11,o=e.$$scope)},[r,a,s,c,u,p,n,l,function(e){d[e?"unshift":"push"]((()=>{n=e,i(6,n)}))},function(e){r=e,i(0,r)},function(e){a=e,i(1,a)},o]}class qt extends e{constructor(e){super(),t(this,e,zt,_t,i,{visible:2,position:0,align:1,text:3,offsetVertical:4,offsetHorizontal:5})}}function Ot(e,t,i){const n=e.slice();return n[5]=t[i],n}function Lt(e){let t,i,n,r=e[5].name+"";return{c(){t=B("option"),i=_(r),t.__value=n=e[5].id,I(t,t.__value)},m(e,n){o(e,t,n),s(t,i)},p(e,l){10&l&&r!==(r=e[5].name+"")&&M(i,r),10&l&&n!==(n=e[5].id)&&(t.__value=n,I(t,t.__value))},d(e){e&&l(t)}}}function Dt(e){let t,i=L(Ut(e[1],e[3])),n=[];for(let l=0;l<i.length;l+=1)n[l]=Lt(Ot(e,i,l));return{c(){for(let e=0;e<n.length;e+=1)n[e].c();t=O()},m(e,i){for(let t=0;t<n.length;t+=1)n[t]&&n[t].m(e,i);o(e,t,i)},p(e,l){if(10&l){let o;for(i=L(Ut(e[1],e[3])),o=0;o<i.length;o+=1){const s=Ot(e,i,o);n[o]?n[o].p(s,l):(n[o]=Lt(s),n[o].c(),n[o].m(t.parentNode,t))}for(;o<n.length;o+=1)n[o].d(1);n.length=i.length}},d(e){e&&l(t),D(n,e)}}}function It(e){let t,i,n,r,v,b;function y(t){e[4](t)}let w={type:"large",disabled:e[2],$$slots:{default:[Dt]},$$scope:{ctx:e}};return void 0!==e[0]&&(w.value=e[0]),r=new re({props:w}),d.push((()=>c(r,"value",y))),{c(){t=B("div"),i=B("div"),i.textContent=`${window.tr(window.lang.trade.form.execution.label)}`,n=C(),g(r.$$.fragment),a(i,"class","label svelte-1sekjrn"),a(t,"class","execution")},m(e,l){o(e,t,l),s(t,i),s(t,n),f(r,t,null),b=!0},p(e,[t]){const i={};4&t&&(i.disabled=e[2]),266&t&&(i.$$scope={dirty:t,ctx:e}),!v&&1&t&&(v=!0,i.value=e[0],$((()=>v=!1))),r.$set(i)},i(e){b||(m(r.$$.fragment,e),b=!0)},o(e){p(r.$$.fragment,e),b=!1},d(e){e&&l(t),u(r)}}}function Ut(e,t){const i=[{id:2,name:window.tr(window.lang.trade.form.execution.return)}];return e.isFillingFOK&&i.push({id:0,name:window.tr(window.lang.trade.form.execution.fillOrKill)}),e.isFillingIOC&&i.push({id:1,name:window.tr(window.lang.trade.form.execution.immediateOrCancel)}),t&&e.isFillingBOC&&i.push({id:3,name:window.tr(window.lang.trade.form.execution.bookOrCancel)}),i}function jt(e,t,i){let{config:n}=t,{value:l}=t,{disabled:o=!1}=t,{pending:s=!1}=t;return e.$$set=e=>{"config"in e&&i(1,n=e.config),"value"in e&&i(0,l=e.value),"disabled"in e&&i(2,o=e.disabled),"pending"in e&&i(3,s=e.pending)},[l,n,o,s,function(e){l=e,i(0,l)}]}class Nt extends e{constructor(e){super(),t(this,e,jt,It,i,{config:1,value:0,disabled:2,pending:3})}}function Ft(e){let t,i,n,l;function o(t){e[12](t)}function s(t){e[13](t)}let r={disabled:e[8],symbol:e[7]};return void 0!==e[11]&&(r.tooltipErr=e[11]),void 0!==e[2]&&(r.value=e[2]),t=new yt({props:r}),d.push((()=>c(t,"tooltipErr",o))),d.push((()=>c(t,"value",s))),t.$on("input",e[14]),t.$on("step",e[15]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),l=!0},p(e,l){const o={};256&l&&(o.disabled=e[8]),128&l&&(o.symbol=e[7]),!i&&2048&l&&(i=!0,o.tooltipErr=e[11],$((()=>i=!1))),!n&&4&l&&(n=!0,o.value=e[2],$((()=>n=!1))),t.$set(o)},i(e){l||(m(t.$$.fragment,e),l=!0)},o(e){p(t.$$.fragment,e),l=!1},d(e){u(t,e)}}}function At(e){let t,i,n,s;function r(t){e[20](t)}let v={config:e[7]};return void 0!==e[3]&&(v.value=e[3]),i=new Nt({props:v}),d.push((()=>c(i,"value",r))),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","filling svelte-h613k0")},m(e,n){o(e,t,n),f(i,t,null),s=!0},p(e,t){const l={};128&t&&(l.config=e[7]),!n&&8&t&&(n=!0,l.value=e[3],$((()=>n=!1))),i.$set(l)},i(e){s||(m(i.$$.fragment,e),s=!0)},o(e){p(i.$$.fragment,e),s=!1},d(e){e&&l(t),u(i)}}}function Rt(e){let t,i,n,r,v,b,y,w,S,x,k,V,E;function M(t){e[17](t)}n=new qt({props:{visible:!!e[11],text:e[11],position:3,offsetVertical:5,$$slots:{target:[Ft]},$$scope:{ctx:e}}});let _={nullable:!0,disabled:e[8]||!e[7].isOrderSlAllowed,label:window.tr(window.lang.trade.form.fields.stopLoss),orange:!0,initialValue:e[16],digits:e[7].digits,tickSize:e[7].tickSize,clear:null!==e[0]};function z(t){e[19](t)}void 0!==e[0]&&(_.value=e[0]),b=new mt({props:_}),d.push((()=>c(b,"value",M)));let q={nullable:!0,disabled:e[8]||!e[7].isOrderTpAllowed,label:window.tr(window.lang.trade.form.fields.takeProfit),initialValue:e[18],digits:e[7].digits,tickSize:e[7].tickSize,green:!0,clear:null!==e[1]};void 0!==e[1]&&(q.value=e[1]),x=new mt({props:q}),d.push((()=>c(x,"value",z)));let O=e[7].isExchangeExecution&&At(e);return{c(){t=B("div"),i=B("div"),g(n.$$.fragment),r=C(),v=B("div"),g(b.$$.fragment),w=C(),S=B("div"),g(x.$$.fragment),V=C(),O&&O.c(),a(i,"class","volume svelte-h613k0"),a(v,"class","sl svelte-h613k0"),a(S,"class","tp svelte-h613k0"),a(t,"class","market svelte-h613k0"),h(t,"filling",e[7].isExchangeExecution)},m(e,l){o(e,t,l),s(t,i),f(n,i,null),s(t,r),s(t,v),f(b,v,null),s(t,w),s(t,S),f(x,S,null),s(t,V),O&&O.m(t,null),E=!0},p(e,[i]){const l={};2048&i&&(l.visible=!!e[11]),2048&i&&(l.text=e[11]),2099588&i&&(l.$$scope={dirty:i,ctx:e}),n.$set(l);const o={};384&i&&(o.disabled=e[8]||!e[7].isOrderSlAllowed),1648&i&&(o.initialValue=e[16]),128&i&&(o.digits=e[7].digits),128&i&&(o.tickSize=e[7].tickSize),1&i&&(o.clear=null!==e[0]),!y&&1&i&&(y=!0,o.value=e[0],$((()=>y=!1))),b.$set(o);const s={};384&i&&(s.disabled=e[8]||!e[7].isOrderTpAllowed),1648&i&&(s.initialValue=e[18]),128&i&&(s.digits=e[7].digits),128&i&&(s.tickSize=e[7].tickSize),2&i&&(s.clear=null!==e[1]),!k&&2&i&&(k=!0,s.value=e[1],$((()=>k=!1))),x.$set(s),e[7].isExchangeExecution?O?(O.p(e,i),128&i&&m(O,1)):(O=At(e),O.c(),m(O,1),O.m(t,null)):O&&(P(),p(O,1,1,(()=>{O=null})),T()),(!E||128&i)&&h(t,"filling",e[7].isExchangeExecution)},i(e){E||(m(n.$$.fragment,e),m(b.$$.fragment,e),m(x.$$.fragment,e),m(O),E=!0)},o(e){p(n.$$.fragment,e),p(b.$$.fragment,e),p(x.$$.fragment,e),p(O),E=!1},d(e){e&&l(t),u(n),u(b),u(x),O&&O.d()}}}function Ht(e,t,i){let{sl:n}=t,{tp:l}=t,{volume:o}=t,{section:s}=t,{type:r}=t,{marketPrice:a}=t,{symbol:d}=t,{disabled:c=!1}=t,{fillingType:u}=t,{orderUtils:p}=t,{utils:m}=t,$="";return e.$$set=e=>{"sl"in e&&i(0,n=e.sl),"tp"in e&&i(1,l=e.tp),"volume"in e&&i(2,o=e.volume),"section"in e&&i(4,s=e.section),"type"in e&&i(5,r=e.type),"marketPrice"in e&&i(6,a=e.marketPrice),"symbol"in e&&i(7,d=e.symbol),"disabled"in e&&i(8,c=e.disabled),"fillingType"in e&&i(3,u=e.fillingType),"orderUtils"in e&&i(9,p=e.orderUtils),"utils"in e&&i(10,m=e.utils)},[n,l,o,u,s,r,a,d,c,p,m,$,function(e){$=e,i(11,$)},function(e){o=e,i(2,o)},function(t){V.call(this,e,t)},function(t){V.call(this,e,t)},()=>m.calcMarketSL(p,s,r,a),function(e){n=e,i(0,n)},()=>m.calcMarketTP(p,s,r,a),function(e){l=e,i(1,l)},function(e){u=e,i(3,u)}]}class Yt extends e{constructor(e){super(),t(this,e,Ht,Rt,i,{sl:0,tp:1,volume:2,section:4,type:5,marketPrice:6,symbol:7,disabled:8,fillingType:3,orderUtils:9,utils:10})}}function Gt(e){let t,i,n;function l(t){e[17](t)}let o={disabled:e[8],type:e[2],large:!0,placeholder:e[3],min:e[6],max:e[7]};return void 0!==e[0]&&(o.value=e[0]),t=new ae({props:o}),e[16](t),d.push((()=>c(t,"value",l))),t.$on("input",e[18]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),n=!0},p(e,n){const l={};256&n&&(l.disabled=e[8]),4&n&&(l.type=e[2]),8&n&&(l.placeholder=e[3]),64&n&&(l.min=e[6]),128&n&&(l.max=e[7]),!i&&1&n&&(i=!0,l.value=e[0],$((()=>i=!1))),t.$set(l)},i(e){n||(m(t.$$.fragment,e),n=!0)},o(e){p(t.$$.fragment,e),n=!1},d(i){e[16](null),u(t,i)}}}function Zt(e){let t,i,n;function l(t){e[14](t)}let o={disabled:e[8],type:e[2],step:e[5],min:e[6],max:e[7],large:!0,placeholder:e[3],style:"text-align: center; "+(e[4]&&`color: ${e[4]}`),$$slots:{right:[Jt],left:[Wt]},$$scope:{ctx:e}};return void 0!==e[0]&&(o.value=e[0]),t=new ae({props:o}),e[13](t),d.push((()=>c(t,"value",l))),t.$on("input",e[15]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),n=!0},p(e,n){const l={};256&n&&(l.disabled=e[8]),4&n&&(l.type=e[2]),32&n&&(l.step=e[5]),64&n&&(l.min=e[6]),128&n&&(l.max=e[7]),8&n&&(l.placeholder=e[3]),16&n&&(l.style="text-align: center; "+(e[4]&&`color: ${e[4]}`)),526081&n&&(l.$$scope={dirty:n,ctx:e}),!i&&1&n&&(i=!0,l.value=e[0],$((()=>i=!1))),t.$set(l)},i(e){n||(m(t.$$.fragment,e),n=!0)},o(e){p(t.$$.fragment,e),n=!1},d(i){e[13](null),u(t,i)}}}function Wt(e){let t,i,n,s,r;return i=new oe({props:{name:te}}),{c(){t=B("div"),g(i.$$.fragment),a(t,"slot","left"),a(t,"class","button svelte-1964yx3"),a(t,"title","Decrease"),h(t,"disabled",e[8])},m(l,a){o(l,t,a),f(i,t,null),n=!0,s||(r=x(t,"mousedown",e[12]),s=!0)},p(e,i){(!n||256&i)&&h(t,"disabled",e[8])},i(e){n||(m(i.$$.fragment,e),n=!0)},o(e){p(i.$$.fragment,e),n=!1},d(e){e&&l(t),u(i),s=!1,r()}}}function Jt(e){let t,i,n,s,r;return i=new oe({props:{name:ie}}),{c(){t=B("div"),g(i.$$.fragment),a(t,"slot","right"),a(t,"class","button svelte-1964yx3"),a(t,"title","Increase"),h(t,"disabled",e[8])},m(l,a){o(l,t,a),f(i,t,null),n=!0,s||(r=x(t,"mousedown",e[11]),s=!0)},p(e,i){(!n||256&i)&&h(t,"disabled",e[8])},i(e){n||(m(i.$$.fragment,e),n=!0)},o(e){p(i.$$.fragment,e),n=!1},d(e){e&&l(t),u(i),s=!1,r()}}}function Kt(e){let t,i,n,r,d,c,u,$;const f=[Zt,Gt],g=[];function v(e,t){return"number"===e[2]?0:1}return c=v(e),u=g[c]=f[c](e),{c(){t=B("div"),i=B("div"),n=_(e[1]),r=C(),d=B("div"),u.c(),a(i,"class","label svelte-1964yx3"),a(d,"class","value svelte-1964yx3")},m(e,l){o(e,t,l),s(t,i),s(i,n),s(t,r),s(t,d),g[c].m(d,null),$=!0},p(e,[t]){(!$||2&t)&&M(n,e[1]);let i=c;c=v(e),c===i?g[c].p(e,t):(P(),p(g[i],1,1,(()=>{g[i]=null})),T(),u=g[c],u?u.p(e,t):(u=g[c]=f[c](e),u.c()),m(u,1),u.m(d,null))},i(e){$||(m(u),$=!0)},o(e){p(u),$=!1},d(e){e&&l(t),g[c].d()}}}function Qt(e,t,i){let n,{label:l}=t,{type:o="number"}=t,{value:s=("number"===o?null:"")}=t,{placeholder:r=""}=t,{color:a=""}=t,{step:c}=t,{min:u}=t,{max:p}=t,{disabled:m=!1}=t,{calcValue:$=()=>0}=t;return e.$$set=e=>{"label"in e&&i(1,l=e.label),"type"in e&&i(2,o=e.type),"value"in e&&i(0,s=e.value),"placeholder"in e&&i(3,r=e.placeholder),"color"in e&&i(4,a=e.color),"step"in e&&i(5,c=e.step),"min"in e&&i(6,u=e.min),"max"in e&&i(7,p=e.max),"disabled"in e&&i(8,m=e.disabled),"calcValue"in e&&i(9,$=e.calcValue)},[s,l,o,r,a,c,u,p,m,$,n,()=>{m||(""===s||isNaN(Number(s))||null===s?i(0,s=$()):(null==n?void 0:n.stepUp)&&n.stepUp())},()=>{m||(""===s||isNaN(Number(s))||null===s?i(0,s=$()):(null==n?void 0:n.stepDown)&&n.stepDown())},function(e){d[e?"unshift":"push"]((()=>{n=e,i(10,n)}))},function(e){s=e,i(0,s)},function(t){V.call(this,e,t)},function(e){d[e?"unshift":"push"]((()=>{n=e,i(10,n)}))},function(e){s=e,i(0,s)},function(t){V.call(this,e,t)}]}class Xt extends e{constructor(e){super(),t(this,e,Qt,Kt,i,{label:1,type:2,value:0,placeholder:3,color:4,step:5,min:6,max:7,disabled:8,calcValue:9})}}function ei(e,t,i){const n=e.slice();return n[8]=t[i].id,n[9]=t[i].name,n}function ti(e){let t,i,n,r=e[9]+"";return{c(){t=B("option"),i=_(r),t.__value=n=e[8],I(t,t.__value)},m(e,n){o(e,t,n),s(t,i)},p(e,l){8&l&&r!==(r=e[9]+"")&&M(i,r),8&l&&n!==(n=e[8])&&(t.__value=n,I(t,t.__value))},d(e){e&&l(t)}}}function ii(e){let t,i=L(e[3]),n=[];for(let l=0;l<i.length;l+=1)n[l]=ti(ei(e,i,l));return{c(){for(let e=0;e<n.length;e+=1)n[e].c();t=O()},m(e,i){for(let t=0;t<n.length;t+=1)n[t]&&n[t].m(e,i);o(e,t,i)},p(e,l){if(8&l){let o;for(i=L(e[3]),o=0;o<i.length;o+=1){const s=ei(e,i,o);n[o]?n[o].p(s,l):(n[o]=ti(s),n[o].c(),n[o].m(t.parentNode,t))}for(;o<n.length;o+=1)n[o].d(1);n.length=i.length}},d(e){e&&l(t),D(n,e)}}}function ni(e){let t,i,n,s,r;function v(t){e[7](t)}let b={disabled:e[2],type:"date",label:window.tr(window.lang.trade.form.expiration.date),min:K(Date.now(),"YY-MM-DD",!1),max:"2038-01-18"};return void 0!==e[1]&&(b.value=e[1]),i=new Xt({props:b}),d.push((()=>c(i,"value",v))),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","date svelte-1j98lmd")},m(e,n){o(e,t,n),f(i,t,null),r=!0},p(e,t){const l={};4&t&&(l.disabled=e[2]),!n&&2&t&&(n=!0,l.value=e[1],$((()=>n=!1))),i.$set(l)},i(e){r||(m(i.$$.fragment,e),e&&N((()=>{r&&(s||(s=U(t,j,{duration:150},!0)),s.run(1))})),r=!0)},o(e){p(i.$$.fragment,e),e&&(s||(s=U(t,j,{duration:150},!1)),s.run(0)),r=!1},d(e){e&&l(t),u(i),e&&s&&s.end()}}}function li(e){let t,i,n,s,r;function v(t){e[6](t)}let b={disabled:e[2],type:"datetime-local",label:window.tr(window.lang.trade.form.expiration.date),min:K(Date.now(),"YY-MM-DDThhhh:mm",!1),max:"2038-01-18T00:00"};return void 0!==e[1]&&(b.value=e[1]),i=new Xt({props:b}),d.push((()=>c(i,"value",v))),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","date svelte-1j98lmd")},m(e,n){o(e,t,n),f(i,t,null),r=!0},p(e,t){const l={};4&t&&(l.disabled=e[2]),!n&&2&t&&(n=!0,l.value=e[1],$((()=>n=!1))),i.$set(l)},i(e){r||(m(i.$$.fragment,e),e&&N((()=>{r&&(s||(s=U(t,j,{duration:150},!0)),s.run(1))})),r=!0)},o(e){p(i.$$.fragment,e),e&&(s||(s=U(t,j,{duration:150},!1)),s.run(0)),r=!1},d(e){e&&l(t),u(i),e&&s&&s.end()}}}function oi(e){let t,i,n,r,v,b,y,w,S,h;function x(t){e[5](t)}let k={disabled:e[2],type:"large",$$slots:{default:[ii]},$$scope:{ctx:e}};void 0!==e[0]&&(k.value=e[0]),r=new re({props:k}),d.push((()=>c(r,"value",x)));const V=[li,ni],E=[];function M(e,t){return 2===e[0]?0:3===e[0]?1:-1}return~(y=M(e))&&(w=E[y]=V[y](e)),{c(){t=B("div"),i=B("div"),i.textContent=`${window.tr(window.lang.trade.form.expiration.label)}`,n=C(),g(r.$$.fragment),b=C(),w&&w.c(),S=O(),a(i,"class","label svelte-1j98lmd"),a(t,"class","expiration")},m(e,l){o(e,t,l),s(t,i),s(t,n),f(r,t,null),o(e,b,l),~y&&E[y].m(e,l),o(e,S,l),h=!0},p(e,[t]){const i={};4&t&&(i.disabled=e[2]),4104&t&&(i.$$scope={dirty:t,ctx:e}),!v&&1&t&&(v=!0,i.value=e[0],$((()=>v=!1))),r.$set(i);let n=y;y=M(e),y===n?~y&&E[y].p(e,t):(w&&(P(),p(E[n],1,1,(()=>{E[n]=null})),T()),~y?(w=E[y],w?w.p(e,t):(w=E[y]=V[y](e),w.c()),m(w,1),w.m(S.parentNode,S)):w=null)},i(e){h||(m(r.$$.fragment,e),m(w),h=!0)},o(e){p(r.$$.fragment,e),p(w),h=!1},d(e){e&&(l(t),l(b),l(S)),u(r),~y&&E[y].d(e)}}}function si(e,t,i){let{config:n}=t,{value:l=0}=t,{date:o}=t,{disabled:s=!1}=t,r=[];return e.$$set=e=>{"config"in e&&i(4,n=e.config),"value"in e&&i(0,l=e.value),"date"in e&&i(1,o=e.date),"disabled"in e&&i(2,s=e.disabled)},e.$$.update=()=>{25&e.$$.dirty&&(i(3,r=function(e){const t=[];return e.isGTCExpiration&&t.push({id:0,name:"GTC"}),e.isDayExpiration&&t.push({id:1,name:window.tr(window.lang.trade.form.expiration.types.today)}),e.isSpecifiedExpiration&&t.push({id:2,name:window.tr(window.lang.trade.form.expiration.types.specified)}),e.isSpecifiedDayExpiration&&t.push({id:3,name:window.tr(window.lang.trade.form.expiration.types.specifiedDay)}),t}(n)),-1===r.findIndex((e=>e.id===l))&&i(0,l=r[0].id))},[l,o,s,r,n,function(e){l=e,i(0,l),i(4,n),i(3,r)},function(e){o=e,i(1,o)},function(e){o=e,i(1,o)}]}class ri extends e{constructor(e){super(),t(this,e,si,oi,i,{config:4,value:0,date:1,disabled:2})}}function ai(e){let t,i,n,s;function r(t){e[27](t)}let v={pending:!0,config:e[12]};return void 0!==e[7]&&(v.value=e[7]),i=new Nt({props:v}),d.push((()=>c(i,"value",r))),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","filling svelte-ubxnem")},m(e,n){o(e,t,n),f(i,t,null),s=!0},p(e,t){const l={};4096&t&&(l.config=e[12]),!n&&128&t&&(n=!0,l.value=e[7],$((()=>n=!1))),i.$set(l)},i(e){s||(m(i.$$.fragment,e),s=!0)},o(e){p(i.$$.fragment,e),s=!1},d(e){e&&l(t),u(i)}}}function di(e){let t,i,n,r,v,b,y,w,S,x,k,V,E,M,_,z,q,O,L,D,I,U,j,N,F,A,R;function H(t){e[16](t)}let Y={disabled:e[13]||e[8],symbol:e[12]};function G(t){e[20](t)}void 0!==e[4]&&(Y.value=e[4]),n=new yt({props:Y}),d.push((()=>c(n,"value",H))),n.$on("input",e[17]),n.$on("step",e[18]);let Z={disabled:e[13],label:window.tr(window.lang.trade.form.fields.price),initialValue:e[19],digits:e[12].digits??0,tickSize:e[12].tickSize};function W(t){e[22](t)}void 0!==e[0]&&(Z.value=e[0]),y=new mt({props:Z}),d.push((()=>c(y,"value",G)));let J={nullable:!0,disabled:e[13],label:"Stop Limit "+window.tr(window.lang.trade.form.fields.price),initialValue:e[21],digits:e[12].digits??0,tickSize:e[12].tickSize};function K(t){e[24](t)}void 0!==e[1]&&(J.value=e[1]),k=new mt({props:J}),d.push((()=>c(k,"value",W)));let Q={nullable:!0,disabled:e[13]||!e[12].isOrderSlAllowed,label:window.tr(window.lang.trade.form.fields.stopLoss),initialValue:e[23],digits:e[12].digits??0,tickSize:e[12].tickSize,orange:!0,clear:null!==e[2]};function X(t){e[26](t)}void 0!==e[2]&&(Q.value=e[2]),_=new mt({props:Q}),d.push((()=>c(_,"value",K)));let ee={nullable:!0,disabled:e[13]||!e[12].isOrderTpAllowed,label:window.tr(window.lang.trade.form.fields.takeProfit),initialValue:e[25],digits:e[12].digits??0,tickSize:e[12].tickSize,green:!0,clear:null!==e[3]};void 0!==e[3]&&(ee.value=e[3]),L=new mt({props:ee}),d.push((()=>c(L,"value",X)));let te=e[12].isExchangeExecution&&ai(e);function ie(t){e[28](t)}function ne(t){e[29](t)}let le={disabled:e[13],config:e[12]};return void 0!==e[5]&&(le.value=e[5]),void 0!==e[6]&&(le.date=e[6]),N=new ri({props:le}),d.push((()=>c(N,"value",ie))),d.push((()=>c(N,"date",ne))),{c(){t=B("div"),i=B("div"),g(n.$$.fragment),v=C(),b=B("div"),g(y.$$.fragment),S=C(),x=B("div"),g(k.$$.fragment),E=C(),M=B("div"),g(_.$$.fragment),q=C(),O=B("div"),g(L.$$.fragment),I=C(),te&&te.c(),U=C(),j=B("div"),g(N.$$.fragment),a(i,"class","volume svelte-ubxnem"),a(b,"class","price svelte-ubxnem"),a(x,"class","trigger svelte-ubxnem"),a(M,"class","sl svelte-ubxnem"),a(O,"class","tp svelte-ubxnem"),a(j,"class","expiration svelte-ubxnem"),a(t,"class","stop-limit svelte-ubxnem"),h(t,"filling",e[12].isExchangeExecution)},m(e,l){o(e,t,l),s(t,i),f(n,i,null),s(t,v),s(t,b),f(y,b,null),s(t,S),s(t,x),f(k,x,null),s(t,E),s(t,M),f(_,M,null),s(t,q),s(t,O),f(L,O,null),s(t,I),te&&te.m(t,null),s(t,U),s(t,j),f(N,j,null),R=!0},p(e,[i]){const l={};8448&i&&(l.disabled=e[13]||e[8]),4096&i&&(l.symbol=e[12]),!r&&16&i&&(r=!0,l.value=e[4],$((()=>r=!1))),n.$set(l);const o={};8192&i&&(o.disabled=e[13]),52736&i&&(o.initialValue=e[19]),4096&i&&(o.digits=e[12].digits??0),4096&i&&(o.tickSize=e[12].tickSize),!w&&1&i&&(w=!0,o.value=e[0],$((()=>w=!1))),y.$set(o);const s={};8192&i&&(s.disabled=e[13]),52736&i&&(s.initialValue=e[21]),4096&i&&(s.digits=e[12].digits??0),4096&i&&(s.tickSize=e[12].tickSize),!V&&2&i&&(V=!0,s.value=e[1],$((()=>V=!1))),k.$set(s);const a={};12288&i&&(a.disabled=e[13]||!e[12].isOrderSlAllowed),52737&i&&(a.initialValue=e[23]),4096&i&&(a.digits=e[12].digits??0),4096&i&&(a.tickSize=e[12].tickSize),4&i&&(a.clear=null!==e[2]),!z&&4&i&&(z=!0,a.value=e[2],$((()=>z=!1))),_.$set(a);const d={};12288&i&&(d.disabled=e[13]||!e[12].isOrderTpAllowed),52737&i&&(d.initialValue=e[25]),4096&i&&(d.digits=e[12].digits??0),4096&i&&(d.tickSize=e[12].tickSize),8&i&&(d.clear=null!==e[3]),!D&&8&i&&(D=!0,d.value=e[3],$((()=>D=!1))),L.$set(d),e[12].isExchangeExecution?te?(te.p(e,i),4096&i&&m(te,1)):(te=ai(e),te.c(),m(te,1),te.m(t,U)):te&&(P(),p(te,1,1,(()=>{te=null})),T());const c={};8192&i&&(c.disabled=e[13]),4096&i&&(c.config=e[12]),!F&&32&i&&(F=!0,c.value=e[5],$((()=>F=!1))),!A&&64&i&&(A=!0,c.date=e[6],$((()=>A=!1))),N.$set(c),(!R||4096&i)&&h(t,"filling",e[12].isExchangeExecution)},i(e){R||(m(n.$$.fragment,e),m(y.$$.fragment,e),m(k.$$.fragment,e),m(_.$$.fragment,e),m(L.$$.fragment,e),m(te),m(N.$$.fragment,e),R=!0)},o(e){p(n.$$.fragment,e),p(y.$$.fragment,e),p(k.$$.fragment,e),p(_.$$.fragment,e),p(L.$$.fragment,e),p(te),p(N.$$.fragment,e),R=!1},d(e){e&&l(t),u(n),u(y),u(k),u(_),u(L),te&&te.d(),u(N)}}}function ci(e,t,i){let{price:n}=t,{trigger:l}=t,{sl:o}=t,{tp:s}=t,{volume:r}=t,{expiration:a}=t,{date:d}=t,{modify:c=!1}=t,{section:u}=t,{type:p}=t,{marketPrice:m}=t,{symbol:$}=t,{disabled:f=!1}=t,{fillingType:g}=t,{orderUtils:v}=t,{utils:b}=t;return e.$$set=e=>{"price"in e&&i(0,n=e.price),"trigger"in e&&i(1,l=e.trigger),"sl"in e&&i(2,o=e.sl),"tp"in e&&i(3,s=e.tp),"volume"in e&&i(4,r=e.volume),"expiration"in e&&i(5,a=e.expiration),"date"in e&&i(6,d=e.date),"modify"in e&&i(8,c=e.modify),"section"in e&&i(9,u=e.section),"type"in e&&i(10,p=e.type),"marketPrice"in e&&i(11,m=e.marketPrice),"symbol"in e&&i(12,$=e.symbol),"disabled"in e&&i(13,f=e.disabled),"fillingType"in e&&i(7,g=e.fillingType),"orderUtils"in e&&i(14,v=e.orderUtils),"utils"in e&&i(15,b=e.utils)},[n,l,o,s,r,a,d,g,c,u,p,m,$,f,v,b,function(e){r=e,i(4,r)},function(t){V.call(this,e,t)},function(t){V.call(this,e,t)},()=>b.calcPendingPrice(v,u,p,m),function(e){n=e,i(0,n)},()=>b.calcPendingTriggerPrice(v,u,p,m),function(e){l=e,i(1,l)},()=>b.calcPendingSL(v,u,p,m,n),function(e){o=e,i(2,o)},()=>b.calcPendingTP(v,u,p,m,n),function(e){s=e,i(3,s)},function(e){g=e,i(7,g)},function(e){a=e,i(5,a)},function(e){d=e,i(6,d)}]}class ui extends e{constructor(e){super(),t(this,e,ci,di,i,{price:0,trigger:1,sl:2,tp:3,volume:4,expiration:5,date:6,modify:8,section:9,type:10,marketPrice:11,symbol:12,disabled:13,fillingType:7,orderUtils:14,utils:15})}}function pi(e){let t,i,n,s;function r(t){e[24](t)}let v={pending:!0,config:e[11],disabled:e[7]};return void 0!==e[6]&&(v.value=e[6]),i=new Nt({props:v}),d.push((()=>c(i,"value",r))),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","filling svelte-fxm6z1")},m(e,n){o(e,t,n),f(i,t,null),s=!0},p(e,t){const l={};2048&t&&(l.config=e[11]),128&t&&(l.disabled=e[7]),!n&&64&t&&(n=!0,l.value=e[6],$((()=>n=!1))),i.$set(l)},i(e){s||(m(i.$$.fragment,e),s=!0)},o(e){p(i.$$.fragment,e),s=!1},d(e){e&&l(t),u(i)}}}function mi(e){let t,i,n,r,v,b,y,w,S,x,k,V,E,M,_,z,q,O,L,D,I,U,j;function N(t){e[15](t)}let F={disabled:e[12]||e[7],symbol:e[11]};function A(t){e[19](t)}void 0!==e[2]&&(F.value=e[2]),n=new yt({props:F}),d.push((()=>c(n,"value",N))),n.$on("input",e[16]),n.$on("step",e[17]);let R={disabled:e[12],label:window.tr(window.lang.trade.form.fields.price),initialValue:e[18],digits:e[11].digits??0,tickSize:e[11].tickSize};function H(t){e[21](t)}void 0!==e[5]&&(R.value=e[5]),y=new mt({props:R}),d.push((()=>c(y,"value",A)));let Y={nullable:!0,disabled:e[12]||!e[11].isOrderSlAllowed,label:window.tr(window.lang.trade.form.fields.stopLoss)+" ",initialValue:e[20],digits:e[11].digits??0,tickSize:e[11].tickSize,orange:!0,clear:null!==e[0]};function G(t){e[23](t)}void 0!==e[0]&&(Y.value=e[0]),k=new mt({props:Y}),d.push((()=>c(k,"value",H)));let Z={nullable:!0,disabled:e[12]||!e[11].isOrderTpAllowed,label:window.tr(window.lang.trade.form.fields.takeProfit)+" ",initialValue:e[22],digits:e[11].digits??0,tickSize:e[11].tickSize,green:!0,clear:null!==e[1]};void 0!==e[1]&&(Z.value=e[1]),_=new mt({props:Z}),d.push((()=>c(_,"value",G)));let W=e[11].isExchangeExecution&&pi(e);function J(t){e[25](t)}function K(t){e[26](t)}let Q={disabled:e[12],config:e[11]};return void 0!==e[3]&&(Q.value=e[3]),void 0!==e[4]&&(Q.date=e[4]),D=new ri({props:Q}),d.push((()=>c(D,"value",J))),d.push((()=>c(D,"date",K))),{c(){t=B("div"),i=B("div"),g(n.$$.fragment),v=C(),b=B("div"),g(y.$$.fragment),S=C(),x=B("div"),g(k.$$.fragment),E=C(),M=B("div"),g(_.$$.fragment),q=C(),W&&W.c(),O=C(),L=B("div"),g(D.$$.fragment),a(i,"class","volume svelte-fxm6z1"),a(b,"class","price svelte-fxm6z1"),a(x,"class","sl svelte-fxm6z1"),a(M,"class","tp svelte-fxm6z1"),a(L,"class","expiration svelte-fxm6z1"),a(t,"class","limit svelte-fxm6z1"),h(t,"filling",e[11].isExchangeExecution)},m(e,l){o(e,t,l),s(t,i),f(n,i,null),s(t,v),s(t,b),f(y,b,null),s(t,S),s(t,x),f(k,x,null),s(t,E),s(t,M),f(_,M,null),s(t,q),W&&W.m(t,null),s(t,O),s(t,L),f(D,L,null),j=!0},p(e,[i]){const l={};4224&i&&(l.disabled=e[12]||e[7]),2048&i&&(l.symbol=e[11]),!r&&4&i&&(r=!0,l.value=e[2],$((()=>r=!1))),n.$set(l);const o={};4096&i&&(o.disabled=e[12]),26368&i&&(o.initialValue=e[18]),2048&i&&(o.digits=e[11].digits??0),2048&i&&(o.tickSize=e[11].tickSize),!w&&32&i&&(w=!0,o.value=e[5],$((()=>w=!1))),y.$set(o);const s={};6144&i&&(s.disabled=e[12]||!e[11].isOrderSlAllowed),1&i&&(s.label=window.tr(window.lang.trade.form.fields.stopLoss)+" "),26400&i&&(s.initialValue=e[20]),2048&i&&(s.digits=e[11].digits??0),2048&i&&(s.tickSize=e[11].tickSize),1&i&&(s.clear=null!==e[0]),!V&&1&i&&(V=!0,s.value=e[0],$((()=>V=!1))),k.$set(s);const a={};6144&i&&(a.disabled=e[12]||!e[11].isOrderTpAllowed),2&i&&(a.label=window.tr(window.lang.trade.form.fields.takeProfit)+" "),26400&i&&(a.initialValue=e[22]),2048&i&&(a.digits=e[11].digits??0),2048&i&&(a.tickSize=e[11].tickSize),2&i&&(a.clear=null!==e[1]),!z&&2&i&&(z=!0,a.value=e[1],$((()=>z=!1))),_.$set(a),e[11].isExchangeExecution?W?(W.p(e,i),2048&i&&m(W,1)):(W=pi(e),W.c(),m(W,1),W.m(t,O)):W&&(P(),p(W,1,1,(()=>{W=null})),T());const d={};4096&i&&(d.disabled=e[12]),2048&i&&(d.config=e[11]),!I&&8&i&&(I=!0,d.value=e[3],$((()=>I=!1))),!U&&16&i&&(U=!0,d.date=e[4],$((()=>U=!1))),D.$set(d),(!j||2048&i)&&h(t,"filling",e[11].isExchangeExecution)},i(e){j||(m(n.$$.fragment,e),m(y.$$.fragment,e),m(k.$$.fragment,e),m(_.$$.fragment,e),m(W),m(D.$$.fragment,e),j=!0)},o(e){p(n.$$.fragment,e),p(y.$$.fragment,e),p(k.$$.fragment,e),p(_.$$.fragment,e),p(W),p(D.$$.fragment,e),j=!1},d(e){e&&l(t),u(n),u(y),u(k),u(_),W&&W.d(),u(D)}}}function $i(e,t,i){let{sl:n=null}=t,{tp:l=null}=t,{volume:o}=t,{expiration:s}=t,{date:r}=t,{modify:a=!1}=t,{section:d}=t,{type:c}=t,{marketPrice:u}=t,{price:p}=t,{symbol:m}=t,{disabled:$=!1}=t,{fillingType:f}=t,{orderUtils:g}=t,{utils:v}=t;return F((()=>{null==p&&u>0&&i(5,p=v.calcPendingPrice(g,d,c,u))})),e.$$set=e=>{"sl"in e&&i(0,n=e.sl),"tp"in e&&i(1,l=e.tp),"volume"in e&&i(2,o=e.volume),"expiration"in e&&i(3,s=e.expiration),"date"in e&&i(4,r=e.date),"modify"in e&&i(7,a=e.modify),"section"in e&&i(8,d=e.section),"type"in e&&i(9,c=e.type),"marketPrice"in e&&i(10,u=e.marketPrice),"price"in e&&i(5,p=e.price),"symbol"in e&&i(11,m=e.symbol),"disabled"in e&&i(12,$=e.disabled),"fillingType"in e&&i(6,f=e.fillingType),"orderUtils"in e&&i(13,g=e.orderUtils),"utils"in e&&i(14,v=e.utils)},[n,l,o,s,r,p,f,a,d,c,u,m,$,g,v,function(e){o=e,i(2,o)},function(t){V.call(this,e,t)},function(t){V.call(this,e,t)},()=>v.calcPendingPrice(g,d,c,u),function(e){p=e,i(5,p)},()=>v.calcPendingSL(g,d,c,u,p),function(e){n=e,i(0,n)},()=>v.calcPendingTP(g,d,c,u,p),function(e){l=e,i(1,l)},function(e){f=e,i(6,f)},function(e){s=e,i(3,s)},function(e){r=e,i(4,r)}]}class fi extends e{constructor(e){super(),t(this,e,$i,mi,i,{sl:0,tp:1,volume:2,expiration:3,date:4,modify:7,section:8,type:9,marketPrice:10,price:5,symbol:11,disabled:12,fillingType:6,orderUtils:13,utils:14})}}function gi(e){let t,i=window.tr(window.lang.trade.form.buttons.accept)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function vi(e){let t,i=window.tr(window.lang.trade.form.buttons.reject)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function bi(e){let t,i,n,r,d,c,$,v,b;return n=new Ue({props:{digits:e[2].digits,bid:e[1].bid,ask:e[1].ask}}),c=new $e({props:{outline:!0,disabled:e[0].isBuy?e[4]:e[3],$$slots:{default:[gi]},$$scope:{ctx:e}}}),c.$on("click",e[5]),v=new $e({props:{outline:!0,red:!0,$$slots:{default:[vi]},$$scope:{ctx:e}}}),v.$on("click",e[6]),{c(){t=B("div"),t.textContent=`${window.tr(window.lang.trade.form.acceptNewQuotes)}`,i=C(),g(n.$$.fragment),r=C(),d=B("div"),g(c.$$.fragment),$=C(),g(v.$$.fragment),a(t,"class","message svelte-15nj9h3"),a(d,"class","footer-row svelte-15nj9h3")},m(e,l){o(e,t,l),o(e,i,l),f(n,e,l),o(e,r,l),o(e,d,l),f(c,d,null),s(d,$),f(v,d,null),b=!0},p(e,[t]){const i={};4&t&&(i.digits=e[2].digits),2&t&&(i.bid=e[1].bid),2&t&&(i.ask=e[1].ask),n.$set(i);const l={};25&t&&(l.disabled=e[0].isBuy?e[4]:e[3]),256&t&&(l.$$scope={dirty:t,ctx:e}),c.$set(l);const o={};256&t&&(o.$$scope={dirty:t,ctx:e}),v.$set(o)},i(e){b||(m(n.$$.fragment,e),m(c.$$.fragment,e),m(v.$$.fragment,e),b=!0)},o(e){p(n.$$.fragment,e),p(c.$$.fragment,e),p(v.$$.fragment,e),b=!1},d(e){e&&(l(t),l(i),l(r),l(d)),u(n,e),u(c),u(v)}}}function yi(e,t,i){const n=E();let{action:l}=t,{result:o}=t,{config:s}=t,{disabledSell:r=!1}=t,{disabledBuy:a=!1}=t;return e.$$set=e=>{"action"in e&&i(0,l=e.action),"result"in e&&i(1,o=e.result),"config"in e&&i(2,s=e.config),"disabledSell"in e&&i(3,r=e.disabledSell),"disabledBuy"in e&&i(4,a=e.disabledBuy)},[l,o,s,r,a,function(){l.isBuy?n("accept",0):l.isSell&&n("accept",1)},function(){n("reject")}]}class wi extends e{constructor(e){super(),t(this,e,yi,bi,i,{action:0,result:1,config:2,disabledSell:3,disabledBuy:4})}}function Si(e){let t,i;return t=new re({props:{type:"header",value:e[0],$$slots:{default:[Ti]},$$scope:{ctx:e}}}),t.$on("input",e[38]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};1&i[0]&&(n.value=e[0]),524288&i[0]|4096&i[2]&&(n.$$scope={dirty:i,ctx:e}),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function hi(e){let t,i,r,d=e[23].info+"";return{c(){t=B("div"),i=_(d),a(t,"class","edit-order svelte-1mnv5a8"),a(t,"title",r=e[23].info)},m(e,n){o(e,t,n),s(t,i)},p(e,n){8388608&n[0]&&d!==(d=e[23].info+"")&&M(i,d),8388608&n[0]&&r!==(r=e[23].info)&&a(t,"title",r)},i:n,o:n,d(e){e&&l(t)}}}function xi(e){let t,i,r,d=e[22].info+"";return{c(){t=B("div"),i=_(d),a(t,"class","edit-order svelte-1mnv5a8"),a(t,"title",r=e[22].info)},m(e,n){o(e,t,n),s(t,i)},p(e,n){4194304&n[0]&&d!==(d=e[22].info+"")&&M(i,d),4194304&n[0]&&r!==(r=e[22].info)&&a(t,"title",r)},i:n,o:n,d(e){e&&l(t)}}}function ki(e){let t,i,n=Zi(e[19])+"";return{c(){t=B("option"),i=_(n),t.__value=0,I(t,t.__value),a(t,"class","svelte-1mnv5a8")},m(e,n){o(e,t,n),s(t,i)},p(e,t){524288&t[0]&&n!==(n=Zi(e[19])+"")&&M(i,n)},d(e){e&&l(t)}}}function Bi(e){let t,i,r,d,c;return{c(){t=B("option"),i=_("Buy Limit"),r=C(),d=B("option"),c=_("Sell Limit"),t.__value=2,I(t,t.__value),a(t,"class","svelte-1mnv5a8"),d.__value=3,I(d,d.__value),a(d,"class","svelte-1mnv5a8")},m(e,n){o(e,t,n),s(t,i),o(e,r,n),o(e,d,n),s(d,c)},p:n,d(e){e&&(l(t),l(r),l(d))}}}function Vi(e){let t,i,r,d,c;return{c(){t=B("option"),i=_("Buy Stop"),r=C(),d=B("option"),c=_("Sell Stop"),t.__value=4,I(t,t.__value),a(t,"class","svelte-1mnv5a8"),d.__value=5,I(d,d.__value),a(d,"class","svelte-1mnv5a8")},m(e,n){o(e,t,n),s(t,i),o(e,r,n),o(e,d,n),s(d,c)},p:n,d(e){e&&(l(t),l(r),l(d))}}}function Pi(e){let t,i,r,d,c;return{c(){t=B("option"),i=_("Buy Stop Limit"),r=C(),d=B("option"),c=_("Sell Stop Limit"),t.__value=6,I(t,t.__value),a(t,"class","svelte-1mnv5a8"),d.__value=7,I(d,d.__value),a(d,"class","svelte-1mnv5a8")},m(e,n){o(e,t,n),s(t,i),o(e,r,n),o(e,d,n),s(d,c)},p:n,d(e){e&&(l(t),l(r),l(d))}}}function Ti(e){let t,i,n,s,r=e[19].isOrderMarketAllowed&&ki(e),a=e[19].isOrderLimitAllowed&&Bi(),d=e[19].isOrderStopAllowed&&Vi(),c=e[19].isOrderStopLimitAllowed&&Pi();return{c(){r&&r.c(),t=C(),a&&a.c(),i=C(),d&&d.c(),n=C(),c&&c.c(),s=O()},m(e,l){r&&r.m(e,l),o(e,t,l),a&&a.m(e,l),o(e,i,l),d&&d.m(e,l),o(e,n,l),c&&c.m(e,l),o(e,s,l)},p(e,l){e[19].isOrderMarketAllowed?r?r.p(e,l):(r=ki(e),r.c(),r.m(t.parentNode,t)):r&&(r.d(1),r=null),e[19].isOrderLimitAllowed?a?a.p(e,l):(a=Bi(),a.c(),a.m(i.parentNode,i)):a&&(a.d(1),a=null),e[19].isOrderStopAllowed?d?d.p(e,l):(d=Vi(),d.c(),d.m(n.parentNode,n)):d&&(d.d(1),d=null),e[19].isOrderStopLimitAllowed?c?c.p(e,l):(c=Pi(),c.c(),c.m(s.parentNode,s)):c&&(c.d(1),c=null)},d(e){e&&(l(t),l(i),l(n),l(s)),r&&r.d(e),a&&a.d(e),d&&d.d(e),c&&c.d(e)}}}function Ci(e){let t,i,n,l,o,s,r,a,v,b;function y(t){e[62](t)}function w(t){e[63](t)}function S(t){e[64](t)}function h(t){e[65](t)}function x(t){e[66](t)}function k(t){e[67](t)}function B(t){e[68](t)}function V(t){e[69](t)}let P={modify:Boolean(e[22]),utils:e[18].utils,section:e[21],type:e[0],marketPrice:e[20],symbol:e[19],orderUtils:e[17],disabled:!e[29]};return void 0!==e[1]&&(P.price=e[1]),void 0!==e[5]&&(P.trigger=e[5]),void 0!==e[2]&&(P.sl=e[2]),void 0!==e[3]&&(P.tp=e[3]),void 0!==e[10]&&(P.volume=e[10]),void 0!==e[6]&&(P.expiration=e[6]),void 0!==e[7]&&(P.date=e[7]),void 0!==e[4]&&(P.fillingType=e[4]),t=new ui({props:P}),d.push((()=>c(t,"price",y))),d.push((()=>c(t,"trigger",w))),d.push((()=>c(t,"sl",S))),d.push((()=>c(t,"tp",h))),d.push((()=>c(t,"volume",x))),d.push((()=>c(t,"expiration",k))),d.push((()=>c(t,"date",B))),d.push((()=>c(t,"fillingType",V))),t.$on("input",e[43]),t.$on("step",e[43]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),b=!0},p(e,d){const c={};4194304&d[0]&&(c.modify=Boolean(e[22])),262144&d[0]&&(c.utils=e[18].utils),2097152&d[0]&&(c.section=e[21]),1&d[0]&&(c.type=e[0]),1048576&d[0]&&(c.marketPrice=e[20]),524288&d[0]&&(c.symbol=e[19]),131072&d[0]&&(c.orderUtils=e[17]),536870912&d[0]&&(c.disabled=!e[29]),!i&&2&d[0]&&(i=!0,c.price=e[1],$((()=>i=!1))),!n&&32&d[0]&&(n=!0,c.trigger=e[5],$((()=>n=!1))),!l&&4&d[0]&&(l=!0,c.sl=e[2],$((()=>l=!1))),!o&&8&d[0]&&(o=!0,c.tp=e[3],$((()=>o=!1))),!s&&1024&d[0]&&(s=!0,c.volume=e[10],$((()=>s=!1))),!r&&64&d[0]&&(r=!0,c.expiration=e[6],$((()=>r=!1))),!a&&128&d[0]&&(a=!0,c.date=e[7],$((()=>a=!1))),!v&&16&d[0]&&(v=!0,c.fillingType=e[4],$((()=>v=!1))),t.$set(c)},i(e){b||(m(t.$$.fragment,e),b=!0)},o(e){p(t.$$.fragment,e),b=!1},d(e){u(t,e)}}}function Ei(e){let t,i,n,l,o,s,r,a,v;function b(t){e[55](t)}function y(t){e[56](t)}function w(t){e[57](t)}function S(t){e[58](t)}function h(t){e[59](t)}function x(t){e[60](t)}function k(t){e[61](t)}let B={modify:Boolean(e[22]),section:e[21],type:e[0],marketPrice:e[20],symbol:e[19],orderUtils:e[17],disabled:!e[29],utils:e[18].utils};return void 0!==e[1]&&(B.price=e[1]),void 0!==e[2]&&(B.sl=e[2]),void 0!==e[3]&&(B.tp=e[3]),void 0!==e[10]&&(B.volume=e[10]),void 0!==e[6]&&(B.expiration=e[6]),void 0!==e[7]&&(B.date=e[7]),void 0!==e[4]&&(B.fillingType=e[4]),t=new fi({props:B}),d.push((()=>c(t,"price",b))),d.push((()=>c(t,"sl",y))),d.push((()=>c(t,"tp",w))),d.push((()=>c(t,"volume",S))),d.push((()=>c(t,"expiration",h))),d.push((()=>c(t,"date",x))),d.push((()=>c(t,"fillingType",k))),t.$on("input",e[43]),t.$on("step",e[43]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),v=!0},p(e,d){const c={};4194304&d[0]&&(c.modify=Boolean(e[22])),2097152&d[0]&&(c.section=e[21]),1&d[0]&&(c.type=e[0]),1048576&d[0]&&(c.marketPrice=e[20]),524288&d[0]&&(c.symbol=e[19]),131072&d[0]&&(c.orderUtils=e[17]),536870912&d[0]&&(c.disabled=!e[29]),262144&d[0]&&(c.utils=e[18].utils),!i&&2&d[0]&&(i=!0,c.price=e[1],$((()=>i=!1))),!n&&4&d[0]&&(n=!0,c.sl=e[2],$((()=>n=!1))),!l&&8&d[0]&&(l=!0,c.tp=e[3],$((()=>l=!1))),!o&&1024&d[0]&&(o=!0,c.volume=e[10],$((()=>o=!1))),!s&&64&d[0]&&(s=!0,c.expiration=e[6],$((()=>s=!1))),!r&&128&d[0]&&(r=!0,c.date=e[7],$((()=>r=!1))),!a&&16&d[0]&&(a=!0,c.fillingType=e[4],$((()=>a=!1))),t.$set(c)},i(e){v||(m(t.$$.fragment,e),v=!0)},o(e){p(t.$$.fragment,e),v=!1},d(e){u(t,e)}}}function Mi(e){let t,i,n,l,o,s;function r(t){e[51](t)}function a(t){e[52](t)}function v(t){e[53](t)}function b(t){e[54](t)}let y={section:e[21],type:e[0],marketPrice:e[20],symbol:e[19],orderUtils:e[17],disabled:!e[29]||e[31],utils:e[18].utils};return void 0!==e[2]&&(y.sl=e[2]),void 0!==e[3]&&(y.tp=e[3]),void 0!==e[10]&&(y.volume=e[10]),void 0!==e[4]&&(y.fillingType=e[4]),t=new Yt({props:y}),d.push((()=>c(t,"sl",r))),d.push((()=>c(t,"tp",a))),d.push((()=>c(t,"volume",v))),d.push((()=>c(t,"fillingType",b))),t.$on("input",e[43]),t.$on("step",e[43]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),s=!0},p(e,s){const r={};2097152&s[0]&&(r.section=e[21]),1&s[0]&&(r.type=e[0]),1048576&s[0]&&(r.marketPrice=e[20]),524288&s[0]&&(r.symbol=e[19]),131072&s[0]&&(r.orderUtils=e[17]),536870912&s[0]|1&s[1]&&(r.disabled=!e[29]||e[31]),262144&s[0]&&(r.utils=e[18].utils),!i&&4&s[0]&&(i=!0,r.sl=e[2],$((()=>i=!1))),!n&&8&s[0]&&(n=!0,r.tp=e[3],$((()=>n=!1))),!l&&1024&s[0]&&(l=!0,r.volume=e[10],$((()=>l=!1))),!o&&16&s[0]&&(o=!0,r.fillingType=e[4],$((()=>o=!1))),t.$set(r)},i(e){s||(m(t.$$.fragment,e),s=!0)},o(e){p(t.$$.fragment,e),s=!1},d(e){u(t,e)}}}function _i(e){let t,i,n,l,o,s,r;function a(t){e[46](t)}function v(t){e[47](t)}function b(t){e[48](t)}function y(t){e[49](t)}function w(t){e[50](t)}let S={accountStore:e[12],positionsStore:e[14],price:e[1],position:e[23],section:e[21],isBuy:e[23].isBuy,isSell:e[23].isSell,marketPrice:e[20],symbol:e[19],disabled:!e[29]||e[31],utils:e[18].utils};return void 0!==e[2]&&(S.sl=e[2]),void 0!==e[3]&&(S.tp=e[3]),void 0!==e[8]&&(S.comment=e[8]),void 0!==e[24]&&(S.closeByPositionId=e[24]),void 0!==e[10]&&(S.volume=e[10]),t=new Vt({props:S}),d.push((()=>c(t,"sl",a))),d.push((()=>c(t,"tp",v))),d.push((()=>c(t,"comment",b))),d.push((()=>c(t,"closeByPositionId",y))),d.push((()=>c(t,"volume",w))),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),r=!0},p(e,r){const a={};4096&r[0]&&(a.accountStore=e[12]),16384&r[0]&&(a.positionsStore=e[14]),2&r[0]&&(a.price=e[1]),8388608&r[0]&&(a.position=e[23]),2097152&r[0]&&(a.section=e[21]),8388608&r[0]&&(a.isBuy=e[23].isBuy),8388608&r[0]&&(a.isSell=e[23].isSell),1048576&r[0]&&(a.marketPrice=e[20]),524288&r[0]&&(a.symbol=e[19]),536870912&r[0]|1&r[1]&&(a.disabled=!e[29]||e[31]),262144&r[0]&&(a.utils=e[18].utils),!i&&4&r[0]&&(i=!0,a.sl=e[2],$((()=>i=!1))),!n&&8&r[0]&&(n=!0,a.tp=e[3],$((()=>n=!1))),!l&&256&r[0]&&(l=!0,a.comment=e[8],$((()=>l=!1))),!o&&16777216&r[0]&&(o=!0,a.closeByPositionId=e[24],$((()=>o=!1))),!s&&1024&r[0]&&(s=!0,a.volume=e[10],$((()=>s=!1))),t.$set(a)},i(e){r||(m(t.$$.fragment,e),r=!0)},o(e){p(t.$$.fragment,e),r=!1},d(e){u(t,e)}}}function zi(e){let t,i,n;return i=new $e({props:{red:e[17].isSell(e[0]),disabled:!e[29]||!e[19].isExchangeExecution&&e[32].calcPendingDisable(e[17],e[19],e[0],e[10],e[1],e[20],e[2],e[3],e[5],e[30]),$$slots:{default:[Li]},$$scope:{ctx:e}}}),i.$on("click",e[35]),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","buttons svelte-1mnv5a8")},m(e,l){o(e,t,l),f(i,t,null),n=!0},p(e,t){const n={};131073&t[0]&&(n.red=e[17].isSell(e[0])),1612317743&t[0]&&(n.disabled=!e[29]||!e[19].isExchangeExecution&&e[32].calcPendingDisable(e[17],e[19],e[0],e[10],e[1],e[20],e[2],e[3],e[5],e[30])),4096&t[2]&&(n.$$scope={dirty:t,ctx:e}),i.$set(n)},i(e){n||(m(i.$$.fragment,e),n=!0)},o(e){p(i.$$.fragment,e),n=!1},d(e){e&&l(t),u(i)}}}function qi(e){let t,i,n,s;const r=[Ui,Ii,Di],a=[];function d(e,t){var i,n;return e[19].isRequestExecution||e[19].isInstantExecution&&e[19].maxInstantVolume&&e[10]>e[19].maxInstantVolume?0:e[19].isInstantExecution&&10004===(null==(n=null==(i=e[25].request)?void 0:i.result)?void 0:n.code)?1:2}return t=d(e),i=a[t]=r[t](e),{c(){i.c(),n=O()},m(e,i){a[t].m(e,i),o(e,n,i),s=!0},p(e,l){let o=t;t=d(e),t===o?a[t].p(e,l):(P(),p(a[o],1,1,(()=>{a[o]=null})),T(),i=a[t],i?i.p(e,l):(i=a[t]=r[t](e),i.c()),m(i,1),i.m(n.parentNode,n))},i(e){s||(m(i),s=!0)},o(e){p(i),s=!1},d(e){e&&l(n),a[t].d(e)}}}function Oi(e){let t,i,n,s;const r=[Ni,ji],d=[];function c(e,t){return e[22]?0:e[23]?1:-1}return~(i=c(e))&&(n=d[i]=r[i](e)),{c(){t=B("div"),n&&n.c(),a(t,"class","buttons svelte-1mnv5a8")},m(e,n){o(e,t,n),~i&&d[i].m(t,null),s=!0},p(e,l){let o=i;i=c(e),i===o?~i&&d[i].p(e,l):(n&&(P(),p(d[o],1,1,(()=>{d[o]=null})),T()),~i?(n=d[i],n?n.p(e,l):(n=d[i]=r[i](e),n.c()),m(n,1),n.m(t,null)):n=null)},i(e){s||(m(n),s=!0)},o(e){p(n),s=!1},d(e){e&&l(t),~i&&d[i].d()}}}function Li(e){let t,i=window.tr(window.lang.trade.form.buttons.placeOrder)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function Di(e){let t,i;return t=new Qe({props:{ticksStore:e[16],ticksController:e[15],config:e[19],disabledSell:!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30]),disabledBuy:!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])}}),t.$on("open",e[36]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};65536&i[0]&&(n.ticksStore=e[16]),32768&i[0]&&(n.ticksController=e[15]),524288&i[0]&&(n.config=e[19]),1611661324&i[0]&&(n.disabledSell=!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30])),1611661324&i[0]&&(n.disabledBuy=!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function Ii(e){let t,i;return t=new wi({props:{result:e[25].request.result,action:e[25].request.action,config:e[19],disabledSell:!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30]),disabledBuy:!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])}}),t.$on("accept",e[41]),t.$on("reject",e[42]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};33554432&i[0]&&(n.result=e[25].request.result),33554432&i[0]&&(n.action=e[25].request.action),524288&i[0]&&(n.config=e[19]),1611661324&i[0]&&(n.disabledSell=!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30])),1611661324&i[0]&&(n.disabledBuy=!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function Ui(e){let t,i;return t=new Ge({props:{tradeStore:e[13],config:e[19],disabledSell:!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30]),disabledBuy:!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])}}),t.$on("open",e[36]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};8192&i[0]&&(n.tradeStore=e[13]),524288&i[0]&&(n.config=e[19]),1611661324&i[0]&&(n.disabledSell=!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30])),1611661324&i[0]&&(n.disabledBuy=!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function ji(e){let t,i,n,s;const r=[Ai,Fi],a=[];function d(e,t){var i,n;return e[19].isInstantExecution&&10004===(null==(n=null==(i=e[25].request)?void 0:i.result)?void 0:n.code)?0:1}return t=d(e),i=a[t]=r[t](e),{c(){i.c(),n=O()},m(e,i){a[t].m(e,i),o(e,n,i),s=!0},p(e,l){let o=t;t=d(e),t===o?a[t].p(e,l):(P(),p(a[o],1,1,(()=>{a[o]=null})),T(),i=a[t],i?i.p(e,l):(i=a[t]=r[t](e),i.c()),m(i,1),i.m(n.parentNode,n))},i(e){s||(m(i),s=!0)},o(e){p(i),s=!1},d(e){e&&l(n),a[t].d(e)}}}function Ni(e){let t,i,n,s;return t=new $e({props:{disabled:!e[29]||e[32].calcOrderDisable(e[19],e[22],e[1],e[2],e[3],e[5],e[6],e[7],e[8],e[20],e[30]),$$slots:{default:[Ri]},$$scope:{ctx:e}}}),t.$on("click",e[33]),n=new $e({props:{disabled:!e[29],orange:!0,$$slots:{default:[Hi]},$$scope:{ctx:e}}}),n.$on("click",e[37]),{c(){g(t.$$.fragment),i=C(),g(n.$$.fragment)},m(e,l){f(t,e,l),o(e,i,l),f(n,e,l),s=!0},p(e,i){const l={};1616380398&i[0]&&(l.disabled=!e[29]||e[32].calcOrderDisable(e[19],e[22],e[1],e[2],e[3],e[5],e[6],e[7],e[8],e[20],e[30])),4096&i[2]&&(l.$$scope={dirty:i,ctx:e}),t.$set(l);const o={};536870912&i[0]&&(o.disabled=!e[29]),4096&i[2]&&(o.$$scope={dirty:i,ctx:e}),n.$set(o)},i(e){s||(m(t.$$.fragment,e),m(n.$$.fragment,e),s=!0)},o(e){p(t.$$.fragment,e),p(n.$$.fragment,e),s=!1},d(e){e&&l(i),u(t,e),u(n,e)}}}function Fi(e){let t,i;return t=new Le({props:{tradeStore:e[13],positionsStore:e[14],volume:e[10],marketPrice:e[20],config:e[19],positionId:e[23].id,closeByPosition:e[9],disabledModify:!e[29]||e[32].calcPositionDisable(e[23],e[2],e[3],e[10],e[8],e[20],e[30]),disabledClose:!e[29]||Number(e[2])!==e[23].sl||Number(e[3])!==e[23].tp||e[8]!==e[23].comment}}),t.$on("close",e[40]),t.$on("modify",e[34]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};8192&i[0]&&(n.tradeStore=e[13]),16384&i[0]&&(n.positionsStore=e[14]),1024&i[0]&&(n.volume=e[10]),1048576&i[0]&&(n.marketPrice=e[20]),524288&i[0]&&(n.config=e[19]),8388608&i[0]&&(n.positionId=e[23].id),512&i[0]&&(n.closeByPosition=e[9]),1620051212&i[0]&&(n.disabledModify=!e[29]||e[32].calcPositionDisable(e[23],e[2],e[3],e[10],e[8],e[20],e[30])),545259788&i[0]&&(n.disabledClose=!e[29]||Number(e[2])!==e[23].sl||Number(e[3])!==e[23].tp||e[8]!==e[23].comment),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function Ai(e){let t,i;return t=new wi({props:{result:e[25].request.result,action:e[25].request.action,config:e[19],disabledSell:!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30]),disabledBuy:!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])}}),t.$on("accept",e[41]),t.$on("reject",e[42]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};33554432&i[0]&&(n.result=e[25].request.result),33554432&i[0]&&(n.action=e[25].request.action),524288&i[0]&&(n.config=e[19]),1611661324&i[0]&&(n.disabledSell=!e[29]||e[32].calcMarketDisable(!1,e[20],e[2],e[3],e[30])),1611661324&i[0]&&(n.disabledBuy=!e[29]||e[32].calcMarketDisable(!0,e[20],e[2],e[3],e[30])),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function Ri(e){let t,i=window.tr(window.lang.trade.form.buttons.modify)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function Hi(e){let t,i=window.tr(window.lang.trade.form.buttons.delete)+"";return{c(){t=_(i)},m(e,i){o(e,t,i)},p:n,d(e){e&&l(t)}}}function Yi(e){let t,i,n=e[18].utils.whyTradeIsDisabled(e[12],e[19])+"";return{c(){t=B("div"),i=_(n),a(t,"class","message svelte-1mnv5a8")},m(e,n){o(e,t,n),s(t,i)},p(e,t){790528&t[0]&&n!==(n=e[18].utils.whyTradeIsDisabled(e[12],e[19])+"")&&M(i,n)},d(e){e&&l(t)}}}function Gi(e){let t,i,r,v,b,y,w,S,x,k,V,E,M,_,z,q,O,L,D,I;const U=[xi,hi,Si],j=[];function N(e,t){return e[22]?0:e[23]?1:2}v=N(e),b=j[v]=U[v](e);let F=function(e){let t,i,s;return i=new X({props:{color:"var(--color-fill-blue)",stretch:!0,icon:Z,title:window.tr(window.lang.trade.form.close)}}),i.$on("click",e[39]),{c(){t=B("div"),g(i.$$.fragment),a(t,"class","close svelte-1mnv5a8")},m(e,n){o(e,t,n),f(i,t,null),s=!0},p:n,i(e){s||(m(i.$$.fragment,e),s=!0)},o(e){p(i.$$.fragment,e),s=!1},d(e){e&&l(t),u(i)}}}(e);const A=[_i,Mi,Ei,Ci],R=[];function H(e,t){return e[23]?0:e[27]?1:e[26]?2:e[28]?3:-1}function Y(t){e[70](t)}~(k=H(e))&&(V=R[k]=A[k](e));let G={disabled:!e[29]||e[31]||Boolean(e[22]||e[23]),type:"text",label:window.tr(window.lang.trade.form.fields.comment)};void 0!==e[8]&&(G.value=e[8]),_=new Xt({props:G}),d.push((()=>c(_,"value",Y)));const W=[Oi,qi,zi],J=[];function K(e,t){return e[22]||e[23]?0:e[27]?1:e[26]||e[28]?2:-1}~(O=K(e))&&(L=J[O]=W[O](e));let Q=!e[29]&&Yi(e);return{c(){var n,l,o,s;t=B("div"),i=B("div"),r=B("div"),b.c(),y=C(),F&&F.c(),w=C(),S=B("div"),x=B("div"),V&&V.c(),E=C(),M=B("div"),g(_.$$.fragment),q=C(),L&&L.c(),D=C(),Q&&Q.c(),a(r,"class","main-select svelte-1mnv5a8"),h(r,"red",(null==(n=e[22])?void 0:n.isSell)||(null==(l=e[23])?void 0:l.isSell)||!e[17].isMarket(e[0])&&e[17].isSell(e[0])),h(r,"blue",(null==(o=e[22])?void 0:o.isBuy)||(null==(s=e[23])?void 0:s.isBuy)||!e[17].isMarket(e[0])&&e[17].isBuy(e[0])),a(i,"class","header svelte-1mnv5a8"),a(M,"class","comment"),a(x,"class","form svelte-1mnv5a8"),h(x,"modify-form",e[23]),a(S,"class","content svelte-1mnv5a8"),a(t,"class","wrapper svelte-1mnv5a8")},m(e,n){o(e,t,n),s(t,i),s(i,r),j[v].m(r,null),s(i,y),F&&F.m(i,null),s(t,w),s(t,S),s(S,x),~k&&R[k].m(x,null),s(x,E),s(x,M),f(_,M,null),s(S,q),~O&&J[O].m(S,null),s(S,D),Q&&Q.m(S,null),I=!0},p(e,t){var i,n,l,o;let s=v;v=N(e),v===s?j[v].p(e,t):(P(),p(j[s],1,1,(()=>{j[s]=null})),T(),b=j[v],b?b.p(e,t):(b=j[v]=U[v](e),b.c()),m(b,1),b.m(r,null)),(!I||12713985&t[0])&&h(r,"red",(null==(i=e[22])?void 0:i.isSell)||(null==(n=e[23])?void 0:n.isSell)||!e[17].isMarket(e[0])&&e[17].isSell(e[0])),(!I||12713985&t[0])&&h(r,"blue",(null==(l=e[22])?void 0:l.isBuy)||(null==(o=e[23])?void 0:o.isBuy)||!e[17].isMarket(e[0])&&e[17].isBuy(e[0])),F.p(e,t);let a=k;k=H(e),k===a?~k&&R[k].p(e,t):(V&&(P(),p(R[a],1,1,(()=>{R[a]=null})),T()),~k?(V=R[k],V?V.p(e,t):(V=R[k]=A[k](e),V.c()),m(V,1),V.m(x,E)):V=null);const d={};549453824&t[0]|1&t[1]&&(d.disabled=!e[29]||e[31]||Boolean(e[22]||e[23])),!z&&256&t[0]&&(z=!0,d.value=e[8],$((()=>z=!1))),_.$set(d),(!I||8388608&t[0])&&h(x,"modify-form",e[23]);let c=O;O=K(e),O===c?~O&&J[O].p(e,t):(L&&(P(),p(J[c],1,1,(()=>{J[c]=null})),T()),~O?(L=J[O],L?L.p(e,t):(L=J[O]=W[O](e),L.c()),m(L,1),L.m(S,D)):L=null),e[29]?Q&&(Q.d(1),Q=null):Q?Q.p(e,t):(Q=Yi(e),Q.c(),Q.m(S,null))},i(e){I||(m(b),m(F),m(V),m(_.$$.fragment,e),m(L),I=!0)},o(e){p(b),p(F),p(V),p(_.$$.fragment,e),p(L),I=!1},d(e){e&&l(t),j[v].d(),F&&F.d(),~k&&R[k].d(),u(_),~O&&J[O].d(),Q&&Q.d()}}}function Zi(e){return(null==e?void 0:e.isExchangeExecution)?window.tr(window.lang.trade.form.executionMode.exchange):(null==e?void 0:e.isMarketExecution)?window.tr(window.lang.trade.form.executionMode.market):(null==e?void 0:e.isRequestExecution)?window.tr(window.lang.trade.form.executionMode.request):window.tr(window.lang.trade.form.executionMode.instant)}function Wi(e,t,i){let l,o,s,r=n,a=()=>(r(),r=z(u,(e=>i(71,o=e))),u),d=n,c=()=>(d(),d=z($,(e=>i(25,s=e))),$);e.$$.on_destroy.push((()=>r())),e.$$.on_destroy.push((()=>d()));let{configStore:u}=t;a();let{accountStore:p}=t,{symbolsController:m}=t,{tradeStore:$}=t;c();let{positionsStore:f}=t,{ticksController:g}=t,{ticksStore:v}=t,{orderUtils:b}=t,{interactionStore:y}=t,{tradeController:w}=t;const S=w.utils,h=E();let x,k,{symbol:B}=t,{price:V}=t,{sl:P}=t,{tp:T}=t,{fillingType:C}=t,{type:M=0}=t,{marketPrice:_=0}=t,{section:q}=t,{trigger:O}=t,{expiration:L=0}=t,{date:D=null}=t,{comment:I}=t,{order:U=null}=t,{position:j=null}=t,{closeByPosition:N=null}=t,{volume:F}=t,H=null,Y=!1,G=!1,Z=!1;return e.$$set=e=>{"configStore"in e&&a(i(11,u=e.configStore)),"accountStore"in e&&i(12,p=e.accountStore),"symbolsController"in e&&i(44,m=e.symbolsController),"tradeStore"in e&&c(i(13,$=e.tradeStore)),"positionsStore"in e&&i(14,f=e.positionsStore),"ticksController"in e&&i(15,g=e.ticksController),"ticksStore"in e&&i(16,v=e.ticksStore),"orderUtils"in e&&i(17,b=e.orderUtils),"interactionStore"in e&&i(45,y=e.interactionStore),"tradeController"in e&&i(18,w=e.tradeController),"symbol"in e&&i(19,B=e.symbol),"price"in e&&i(1,V=e.price),"sl"in e&&i(2,P=e.sl),"tp"in e&&i(3,T=e.tp),"fillingType"in e&&i(4,C=e.fillingType),"type"in e&&i(0,M=e.type),"marketPrice"in e&&i(20,_=e.marketPrice),"section"in e&&i(21,q=e.section),"trigger"in e&&i(5,O=e.trigger),"expiration"in e&&i(6,L=e.expiration),"date"in e&&i(7,D=e.date),"comment"in e&&i(8,I=e.comment),"order"in e&&i(22,U=e.order),"position"in e&&i(23,j=e.position),"closeByPosition"in e&&i(9,N=e.closeByPosition),"volume"in e&&i(10,F=e.volume)},e.$$.update=()=>{var t,n;16793600&e.$$.dirty[0]&&i(9,N=H?f.getPosition(H):null),12582912&e.$$.dirty[0]&&async function(e,t){await A(),e?(i(0,M=e.type),i(2,P=y.quickEdit.sl??e.sl??null),i(3,T=y.quickEdit.tp??e.tp??null),i(1,V=y.quickEdit.price??e.price??null),i(5,O=y.quickEdit.trigger??e.priceTrigger??null),i(10,F=e.volumeValue),i(6,L=e.expiration),i(7,D=e.date),i(4,C=e.filling),i(8,I=e.comment)):t&&(i(0,M=t.isBuy?0:1),i(2,P=y.quickEdit.sl??t.sl??null),i(3,T=y.quickEdit.tp??t.tp??null),i(1,V=t.priceOpen??null),i(10,F=t.volumeValue),i(8,I=t.comment),i(9,N=null),i(24,H=null))}(U,j),4325377&e.$$.dirty[0]&&i(26,Y=((null==U?void 0:U.isLimit)??b.isLimit(M))||((null==U?void 0:U.isStop)??b.isStop(M))),8519681&e.$$.dirty[0]&&i(27,G=Boolean(j??b.isMarket(M))),4325377&e.$$.dirty[0]&&i(28,Z=(null==U?void 0:U.isStopLimit)??b.isStopLimit(M)),524288&e.$$.dirty[0]|8192&e.$$.dirty[1]&&i(29,x=m.allowedTradeBySymbol(B)),33554432&e.$$.dirty[0]&&i(31,l=10004===(null==(n=null==(t=s.request)?void 0:t.result)?void 0:n.code)),524288&e.$$.dirty[0]&&i(30,k=B.stopsLevel?B.stopsLevel/10**B.digits:0)},[M,V,P,T,C,O,L,D,I,N,F,u,p,$,f,g,v,b,w,B,_,q,U,j,H,s,Y,G,Z,x,k,l,S,function(){h("modifyOrder")},function(){h("modifyPosition")},function(){2!==M&&3!==M&&4!==M&&5!==M&&6!==M&&7!==M||h("placeOrder",M)},function(e){h("openPosition",e.detail)},function(){h("deleteOrder")},function(e){if(!(e.target instanceof HTMLSelectElement))return;const t=Number(e.target.value);-1===t?U?(i(0,M=U.type),i(2,P=U.sl||null),i(3,T=U.tp||null),i(1,V=U.price||null),i(5,O=U.priceTrigger||null),i(10,F=U.volumeValue),i(8,I=U.comment)):j&&(i(2,P=j.sl||null),i(3,T=j.tp||null),i(1,V=j.priceOpen||null),i(10,F=j.volumeValue),i(8,I=j.comment)):(i(0,M=t),i(1,V=null),i(2,P=null),i(3,T=null),i(5,O=null),i(7,D=null),i(6,L=0))},function(){h("cancel")},function(){h("closePosition")},function(){h("acceptRequote")},function(){h("rejectRequote")},async function(){await A(),R(u,o.tradeVolume=F,o)},m,y,function(e){P=e,i(2,P)},function(e){T=e,i(3,T)},function(e){I=e,i(8,I)},function(e){H=e,i(24,H)},function(e){F=e,i(10,F)},function(e){P=e,i(2,P)},function(e){T=e,i(3,T)},function(e){F=e,i(10,F)},function(e){C=e,i(4,C)},function(e){V=e,i(1,V)},function(e){P=e,i(2,P)},function(e){T=e,i(3,T)},function(e){F=e,i(10,F)},function(e){L=e,i(6,L)},function(e){D=e,i(7,D)},function(e){C=e,i(4,C)},function(e){V=e,i(1,V)},function(e){O=e,i(5,O)},function(e){P=e,i(2,P)},function(e){T=e,i(3,T)},function(e){F=e,i(10,F)},function(e){L=e,i(6,L)},function(e){D=e,i(7,D)},function(e){C=e,i(4,C)},function(e){I=e,i(8,I)}]}class Ji extends e{constructor(e){super(),t(this,e,Wi,Gi,i,{configStore:11,accountStore:12,symbolsController:44,tradeStore:13,positionsStore:14,ticksController:15,ticksStore:16,orderUtils:17,interactionStore:45,tradeController:18,symbol:19,price:1,sl:2,tp:3,fillingType:4,type:0,marketPrice:20,section:21,trigger:5,expiration:6,date:7,comment:8,order:22,position:23,closeByPosition:9,volume:10},null,[-1,-1,-1])}}function Ki(e){let t,s,r=e[20],a=Xi(e);return{c(){a.c(),t=O()},m(e,i){a.m(e,i),o(e,t,i),s=!0},p(e,l){1048576&l[0]&&i(r,r=e[20])?(P(),p(a,1,1,n),T(),a=Xi(e),a.c(),m(a,1),a.m(t.parentNode,t)):a.p(e,l)},i(e){s||(m(a),s=!0)},o(e){p(a),s=!1},d(e){e&&l(t),a.d(e)}}}function Qi(e){let t,i;return t=new xe({props:{ordersStore:e[5],apiUtilsTrade:e[3].apiUtilsTrade,positionsStore:e[6],request:e[30].request}}),t.$on("close",e[42]),t.$on("back",e[57]),{c(){g(t.$$.fragment)},m(e,n){f(t,e,n),i=!0},p(e,i){const n={};32&i[0]&&(n.ordersStore=e[5]),8&i[0]&&(n.apiUtilsTrade=e[3].apiUtilsTrade),64&i[0]&&(n.positionsStore=e[6]),1073741824&i[0]&&(n.request=e[30].request),t.$set(n)},i(e){i||(m(t.$$.fragment,e),i=!0)},o(e){p(t.$$.fragment,e),i=!1},d(e){u(t,e)}}}function Xi(e){let t,i,n,l,o,s,r,a,v,b,y,w,S;function h(t){e[58](t)}function x(t){e[59](t)}function k(t){e[60](t)}function B(t){e[61](t)}function V(t){e[62](t)}function P(t){e[63](t)}function T(t){e[64](t)}function C(t){e[65](t)}function E(t){e[66](t)}function M(t){e[67](t)}function _(t){e[68](t)}let z={configStore:e[8],accountStore:e[9],symbolsController:e[0],tradeStore:e[4],tradeController:e[3],positionsStore:e[6],ticksController:e[1],ticksStore:e[2],order:e[23],position:e[24],section:e[31],marketPrice:e[22],symbol:e[20],orderUtils:e[10],interactionStore:e[7]};return void 0!==e[15]&&(z.volume=e[15]),void 0!==e[16]&&(z.price=e[16]),void 0!==e[18]&&(z.sl=e[18]),void 0!==e[19]&&(z.tp=e[19]),void 0!==e[14]&&(z.type=e[14]),void 0!==e[17]&&(z.trigger=e[17]),void 0!==e[28]&&(z.comment=e[28]),void 0!==e[29]&&(z.closeByPosition=e[29]),void 0!==e[25]&&(z.fillingType=e[25]),void 0!==e[26]&&(z.expiration=e[26]),void 0!==e[27]&&(z.date=e[27]),t=new Ji({props:z}),d.push((()=>c(t,"volume",h))),d.push((()=>c(t,"price",x))),d.push((()=>c(t,"sl",k))),d.push((()=>c(t,"tp",B))),d.push((()=>c(t,"type",V))),d.push((()=>c(t,"trigger",P))),d.push((()=>c(t,"comment",T))),d.push((()=>c(t,"closeByPosition",C))),d.push((()=>c(t,"fillingType",E))),d.push((()=>c(t,"expiration",M))),d.push((()=>c(t,"date",_))),t.$on("placeOrder",e[34]),t.$on("modifyOrder",e[36]),t.$on("deleteOrder",e[41]),t.$on("openPosition",e[35]),t.$on("modifyPosition",e[37]),t.$on("closePosition",e[38]),t.$on("acceptRequote",e[39]),t.$on("rejectRequote",e[40]),t.$on("cancel",e[43]),{c(){g(t.$$.fragment)},m(e,i){f(t,e,i),S=!0},p(e,d){const c={};256&d[0]&&(c.configStore=e[8]),512&d[0]&&(c.accountStore=e[9]),1&d[0]&&(c.symbolsController=e[0]),16&d[0]&&(c.tradeStore=e[4]),8&d[0]&&(c.tradeController=e[3]),64&d[0]&&(c.positionsStore=e[6]),2&d[0]&&(c.ticksController=e[1]),4&d[0]&&(c.ticksStore=e[2]),8388608&d[0]&&(c.order=e[23]),16777216&d[0]&&(c.position=e[24]),4194304&d[0]&&(c.marketPrice=e[22]),1048576&d[0]&&(c.symbol=e[20]),1024&d[0]&&(c.orderUtils=e[10]),128&d[0]&&(c.interactionStore=e[7]),!i&&32768&d[0]&&(i=!0,c.volume=e[15],$((()=>i=!1))),!n&&65536&d[0]&&(n=!0,c.price=e[16],$((()=>n=!1))),!l&&262144&d[0]&&(l=!0,c.sl=e[18],$((()=>l=!1))),!o&&524288&d[0]&&(o=!0,c.tp=e[19],$((()=>o=!1))),!s&&16384&d[0]&&(s=!0,c.type=e[14],$((()=>s=!1))),!r&&131072&d[0]&&(r=!0,c.trigger=e[17],$((()=>r=!1))),!a&&268435456&d[0]&&(a=!0,c.comment=e[28],$((()=>a=!1))),!v&&536870912&d[0]&&(v=!0,c.closeByPosition=e[29],$((()=>v=!1))),!b&&33554432&d[0]&&(b=!0,c.fillingType=e[25],$((()=>b=!1))),!y&&67108864&d[0]&&(y=!0,c.expiration=e[26],$((()=>y=!1))),!w&&134217728&d[0]&&(w=!0,c.date=e[27],$((()=>w=!1))),t.$set(c)},i(e){S||(m(t.$$.fragment,e),S=!0)},o(e){p(t.$$.fragment,e),S=!1},d(e){u(t,e)}}}function en(e){let t,i,n,s;const r=[Qi,Ki],a=[];function d(e,t){var i,n;return e[30].request&&!e[30].request.quickTrade&&0!==(null==(i=e[30].request.action)?void 0:i.tradeAction)&&10004!==(null==(n=e[30].request.result)?void 0:n.code)?0:e[20]?1:-1}return~(t=d(e))&&(i=a[t]=r[t](e)),{c(){i&&i.c(),n=O()},m(e,i){~t&&a[t].m(e,i),o(e,n,i),s=!0},p(e,l){let o=t;t=d(e),t===o?~t&&a[t].p(e,l):(i&&(P(),p(a[o],1,1,(()=>{a[o]=null})),T()),~t?(i=a[t],i?i.p(e,l):(i=a[t]=r[t](e),i.c()),m(i,1),i.m(n.parentNode,n)):i=null)},i(e){s||(m(i),s=!0)},o(e){p(i),s=!1},d(e){e&&l(n),~t&&a[t].d(e)}}}function tn(e,t,i){let l,o,s,r,a,d,c,u,p,m,$,f,g=n,v=()=>(g(),g=z(D,(e=>i(30,l=e))),D),b=n,y=()=>(b(),b=z(K,(e=>i(69,o=e))),K),w=n,S=()=>(w(),w=z(U,(e=>i(70,s=e))),U),h=n,x=()=>(h(),h=z(I,(e=>i(71,r=e))),I),k=n,B=()=>(k(),k=z(A,(e=>i(53,p=e))),A),V=n,P=()=>(V(),V=z(O,(e=>i(54,m=e))),O),T=n,C=n,E=()=>(C(),C=z(N,(e=>i(56,f=e))),N);e.$$.on_destroy.push((()=>g())),e.$$.on_destroy.push((()=>b())),e.$$.on_destroy.push((()=>w())),e.$$.on_destroy.push((()=>h())),e.$$.on_destroy.push((()=>k())),e.$$.on_destroy.push((()=>V())),e.$$.on_destroy.push((()=>T())),e.$$.on_destroy.push((()=>C()));let{symbolsStore:M}=t,{symbolsController:_}=t,{ticksController:q}=t,{ticksStore:O}=t;P();let{tradeController:L}=t,{tradeStore:D}=t;v();let{ordersStore:I}=t;x();let{positionsStore:U}=t;S();let{interactionController:j}=t,{interactionStore:N}=t;E();let{configStore:A}=t;B();let{chartController:G}=t,{tradeLinesController:Z}=t,{accountStore:W}=t,{orderUtils:J}=t,{layoutStore:K}=t;y();const Q=G.chart.sections.getByIndex(0),X=Z.tradeLinesManager.getPrice();H(e,X,(e=>i(52,u=e)));const ee=Z.tradeLinesManager.getSL();H(e,ee,(e=>i(51,c=e)));const te=Z.tradeLinesManager.getTP();H(e,te,(e=>i(50,d=e)));const ie=Z.tradeLinesManager.getTriggerPrice();let ne;H(e,ie,(e=>i(49,a=e)));let le,oe,se,re=p.tradeVolume,ae=null,de=null,ce=null,ue=null,pe=2,me=0,$e="",fe=0,ge=null,ve=null,be=null,ye="";function we(e){if(!(null==oe?void 0:oe.tickSize))return(null==oe?void 0:oe.digits)?Number(e.toFixed(null==oe?void 0:oe.digits)):e;const t=10**oe.digits,i=Math.round(e*t),n=Math.round(oe.tickSize*t),l=Math.trunc(i/n);return i%n>=n/2?(l*n+n)/t:l*n/t}function Se(){o.setLayout({tradeCreate:null,tradeEdit:!1}),j.setSelectedForEdit(),l.resetRequest()}return F((()=>{l.resetRequest(),function(){null!==o.tradeCreate&&i(14,ne=o.tradeCreate);const e=p.symbol===(null==oe?void 0:oe.symbol);R(X,u.visible=e,u),R(ee,c.visible=e,c),R(te,d.visible=e,d),R(ie,a.visible=e&&[6,7].includes(ne),a)}()})),Y((()=>{o.setLayout({tradeCreate:null,tradeEdit:!1}),u.clear(),c.clear(),d.clear(),a.clear(),i(16,ae=null),i(18,ce=null),i(19,ue=null),i(25,pe=2),""!==N.selectedForEdit&&j.setSelectedForEdit(),(N.selectedPosition||N.selectedOrder||N.selectedHistoryPosition)&&N.resetSelected(),l.resetRequest()})),e.$$set=e=>{"symbolsStore"in e&&i(44,M=e.symbolsStore),"symbolsController"in e&&i(0,_=e.symbolsController),"ticksController"in e&&i(1,q=e.ticksController),"ticksStore"in e&&P(i(2,O=e.ticksStore)),"tradeController"in e&&i(3,L=e.tradeController),"tradeStore"in e&&v(i(4,D=e.tradeStore)),"ordersStore"in e&&x(i(5,I=e.ordersStore)),"positionsStore"in e&&S(i(6,U=e.positionsStore)),"interactionController"in e&&i(45,j=e.interactionController),"interactionStore"in e&&E(i(7,N=e.interactionStore)),"configStore"in e&&B(i(8,A=e.configStore)),"chartController"in e&&i(46,G=e.chartController),"tradeLinesController"in e&&i(47,Z=e.tradeLinesController),"accountStore"in e&&i(9,W=e.accountStore),"orderUtils"in e&&i(10,J=e.orderUtils),"layoutStore"in e&&y(i(11,K=e.layoutStore))},e.$$.update=()=>{var t;if(33685504&e.$$.dirty[1]&&f.selectedForEdit!==ye&&i(48,ye=f.selectedForEdit),131072&e.$$.dirty[1]&&(t=ye,r.orderHas(t)?(i(23,ve=r.getOrder(t)),ve&&(i(24,be=null),G.select(ve.symbol))):s.positionHas(t)?(i(24,be=s.getPosition(t)),be&&(i(23,ve=null),G.select(be.symbol))):(i(23,ve=null),i(24,be=null))),9437187&e.$$.dirty[0]|12591104&e.$$.dirty[1]){const e=(null==ve?void 0:ve.symbol)||p.symbol;oe&&e===oe.symbol||_.loadFullSymbols([e]).then((()=>{i(20,oe=M.getBySymbol(e)),q.on(e),i(21,se=m.getTick(e)),T(),T=z(se,(e=>i(55,$=e)))}))}2900992&e.$$.dirty[0]|16777216&e.$$.dirty[1]&&se&&(0!==ne&&1!==ne||!ce&&!ue?J.isBuy(ne)?i(22,fe=$.ask):J.isSell(ne)&&i(22,fe=$.bid):ce&&ue&&ce>ue||null!==ce&&ce>$.ask||null!==ue&&ue<$.bid?(i(22,fe=$.bid),i(12,ee.valueFrom=$.bid,ee),i(13,te.valueFrom=$.bid,te)):(ce&&ue&&ce<ue||null!==ce&&ce<$.bid||null!==ue&&ue>$.ask)&&(i(22,fe=$.ask),i(12,ee.valueFrom=$.ask,ee),i(13,te.valueFrom=$.ask,te))),17760256&e.$$.dirty[0]&&(R(X,u.coordinates.price1=ae??0,u),R(X,u.lock=Boolean(be),u),R(ee,c.coordinates.price1=ce??0,c),R(te,d.coordinates.price1=ue??0,d),R(ie,a.coordinates.price1=de??0,a)),1163264&e.$$.dirty[0]|2129920&e.$$.dirty[1]&&(u.moving||(X.setValue({value:ae,type:ne,digits:null==oe?void 0:oe.digits,volume:re}),G.chart.redraw())),5591040&e.$$.dirty[0]|1081344&e.$$.dirty[1]&&(c.moving||(ee.setValue({value:ce,valueFrom:0===ne||1===ne?fe:ae,type:ne,digits:null==oe?void 0:oe.digits,multiply:null==oe?void 0:oe.multiply}),G.chart.redraw())),5857280&e.$$.dirty[0]|557056&e.$$.dirty[1]&&(d.moving||(te.setValue({value:ue,valueFrom:0===ne||1===ne?fe:ae,type:ne,digits:null==oe?void 0:oe.digits,multiply:null==oe?void 0:oe.multiply}),G.chart.redraw())),1212416&e.$$.dirty[0]|294912&e.$$.dirty[1]&&(a.moving||(ie.setValue({value:de,digits:null==oe?void 0:oe.digits,volume:re}),G.chart.redraw())),2097152&e.$$.dirty[1]&&function(e){const t=0===ne||1===ne?fe:e;ee.visible&&ee.setValue({value:ce,valueFrom:t,type:ne,digits:null==oe?void 0:oe.digits,multiply:null==oe?void 0:oe.multiply}),te.visible&&te.setValue({value:ue,valueFrom:t,type:ne,digits:null==oe?void 0:oe.digits,multiply:null==oe?void 0:oe.multiply}),(ee.visible||te.visible)&&G.chart.redraw()}(u.coordinates.price1),25165824&e.$$.dirty[0]|3932160&e.$$.dirty[1]&&function(e,t,n,l,o,s){const r=Boolean(!o&&s);t&&i(18,ce=we(t)),n&&i(19,ue=we(n)),l&&i(17,de=we(l)),e&&!r&&(i(16,ae=we(e)),ve||be||(null==oe?void 0:oe.isExchangeExecution)||(J.isLimit(ne)?J.isBuy(ne)&&fe&&ae>fe?(i(14,ne=3),X.setValue({type:ne,value:ae}),ce&&ue&&ce<ue&&(i(18,[ce,ue]=[ue,ce],ce,i(19,ue)),ee.setValue({value:ce}),te.setValue({value:ue}))):J.isSell(ne)&&fe&&ae<fe&&(i(14,ne=2),X.setValue({type:ne,value:ae}),ce&&ue&&ce>ue&&(i(18,[ce,ue]=[ue,ce],ce,i(19,ue)),ee.setValue({value:ce}),te.setValue({value:ue}))):J.isStop(ne)?J.isBuy(ne)&&fe&&ae<fe?(i(14,ne=5),X.setValue({type:ne,value:ae}),ce&&ue&&ce<ue&&(i(18,[ce,ue]=[ue,ce],ce,i(19,ue)),ee.setValue({value:ce}),te.setValue({value:ue}))):J.isSell(ne)&&fe&&ae>fe&&(i(14,ne=4),X.setValue({type:ne,value:ae}),ce&&ue&&ce>ue&&(i(18,[ce,ue]=[ue,ce],ce,i(19,ue)),ee.setValue({value:ce}),te.setValue({value:ue}))):J.isStopLimit(ne)&&(J.isBuy(ne)&&fe&&de&&ae<fe&&ae<de?(i(14,ne=7),X.setValue({type:ne,value:ae}),ce&&ue&&ce<ue&&(i(18,[ce,ue]=[ue,ce],ce,i(19,ue)),ee.setValue({value:ce}),te.setValue({value:ue}),ie.setValue({value:de}))):J.isSell(ne)&&fe&&de&&ae>fe&&ae>de&&(i(14,ne=6),X.setValue({type:ne,value:ae}),ce&&ue&&ce>ue&&(i(18,[ce,ue]=[ue,ce],ce,i(19,ue)),ee.setValue({value:ce}),te.setValue({value:ue}),ie.setValue({value:de}))))))}(u.coordinates.price1,c.coordinates.price1,d.coordinates.price1,a.coordinates.price1,ve,be)},[_,q,O,L,D,I,U,N,A,W,J,K,ee,te,ne,re,ae,de,ce,ue,oe,se,fe,ve,be,pe,me,le,$e,ge,l,Q,X,ie,function(){oe&&(2===ne||3===ne?ae&&L.openLimitOrder({type:ne,symbol:oe.symbol,volume:re,price:ae,sl:ce??0,tp:ue??0,fillingType:pe,expiration:me,date:le,comment:$e}):4===ne||5===ne?ae&&L.openStopOrder({type:ne,symbol:oe.symbol,volume:re,price:ae,sl:ce??0,tp:ue??0,fillingType:pe,expiration:me,date:le,comment:$e}):6!==ne&&7!==ne||ae&&de&&L.openStopLimitOrder({type:ne,symbol:oe.symbol,volume:re,price:ae,trigger:de,sl:ce??0,tp:ue??0,fillingType:pe,expiration:me,date:le??0,comment:$e??""}))},function(e){oe&&L.openPosition({type:e.detail,symbol:oe.symbol,volume:re,sl:ce??0,tp:ue??0,fillingType:pe??0,comment:$e??""})},function(){ve&&(2===ne||3===ne||4===ne||5===ne?L.modifyLimitOrder({type:ne,id:ve.order,price:ae??0,sl:ce??0,tp:ue??0,expiration:me??0,date:le??0,comment:$e??""}):7!==ne&&6!==ne||L.modifyStopLimitOrder({type:ne,id:ve.order,price:ae??0,trigger:de??0,sl:ce??0,tp:ue??0,expiration:me??0,date:le??0,comment:$e??""}))},function(){be&&L.modifyPosition({id:be.id,sl:ce??0,tp:ue??0,comment:$e})},function(){be&&(ge?L.closePositionByPosition(be.id,ge.id):L.closePosition(be.id,!1,re))},function(){L.acceptRequote()},function(){l.resetRequest()},function(){(null==ve?void 0:ve.order)&&L.deleteOrder(null==ve?void 0:ve.order)},Se,function(){Se()},M,j,G,Z,ye,a,d,c,u,p,m,$,f,()=>{R(D,l.request=void 0,l)},function(e){re=e,i(15,re)},function(e){ae=e,i(16,ae)},function(e){ce=e,i(18,ce)},function(e){ue=e,i(19,ue)},function(e){ne=e,i(14,ne)},function(e){de=e,i(17,de)},function(e){$e=e,i(28,$e)},function(e){ge=e,i(29,ge)},function(e){pe=e,i(25,pe)},function(e){me=e,i(26,me)},function(e){le=e,i(27,le)}]}class nn extends e{constructor(e){super(),t(this,e,tn,en,i,{symbolsStore:44,symbolsController:0,ticksController:1,ticksStore:2,tradeController:3,tradeStore:4,ordersStore:5,positionsStore:6,interactionController:45,interactionStore:7,configStore:8,chartController:46,tradeLinesController:47,accountStore:9,orderUtils:10,layoutStore:11},null,[-1,-1,-1])}}export{nn as default};
+import {
+  S as e,
+  i as t,
+  s as i,
+  n,
+  d as l,
+  b as o,
+  c as s,
+  B as r,
+  f as a,
+  N as d,
+  a2 as c,
+  r as u,
+  t as p,
+  g as m,
+  a3 as $,
+  u as f,
+  v as g,
+  w as v,
+  O as b,
+  x as y,
+  y as w,
+  z as S,
+  l as h,
+  C as x,
+  Q as k,
+  e as B,
+  E as V,
+  h as P,
+  j as T,
+  m as C,
+  L as E,
+  k as M,
+  o as _,
+  a4 as z,
+  a as q,
+  D as O,
+  Y as L,
+  Z as D,
+  X as I,
+  F as U,
+  ai as j,
+  G as N,
+  I as F,
+  T as A,
+  a5 as R,
+  aj as H,
+  M as Y,
+} from "./CHj1SSsY.js";
+import { M as G, D as Z, J as W, n as J, h as K } from "./CQSQNu0h.js";
+import {
+  B as Q,
+  a as X,
+  d as ee,
+  m as te,
+  o as ie,
+  D as ne,
+} from "./CezRPkQL.js";
+import { k as le, I as oe, h as se, S as re, a as ae } from "./C8gngcK2.js";
+import "./CSht1uUK.js";
+import "./Y63yw9rt.js";
+import "./CRNNNCwz.js";
+import "./BmK36PA1.js";
+import "./BLCxo5ZN.js";
+function de(e) {
+  let t, i;
+  return {
+    c() {
+      ((t = r("svg")),
+        (i = r("path")),
+        a(i, "fill-rule", "evenodd"),
+        a(i, "clip-rule", "evenodd"),
+        a(
+          i,
+          "d",
+          "M7.9987 1.33398C11.6806 1.33398 14.6654 4.31875 14.6654 8.00065C14.6654 11.6825 11.6806 14.6673 7.9987 14.6673C4.3168 14.6673 1.33203 11.6825 1.33203 8.00065C1.33203 4.31875 4.3168 1.33398 7.9987 1.33398ZM7.9987 2.66732C5.05318 2.66732 2.66536 5.05513 2.66536 8.00065C2.66536 10.9462 5.05318 13.334 7.9987 13.334C10.9442 13.334 13.332 10.9462 13.332 8.00065C13.332 5.05513 10.9442 2.66732 7.9987 2.66732ZM8.66536 4.66732V8.12465L10.4366 9.89575L9.49379 10.8386L7.33203 8.66732V4.66732H8.66536Z",
+        ),
+        a(t, "width", "16"),
+        a(t, "height", "16"),
+        a(t, "viewBox", "0 0 16 16"),
+        a(t, "xmlns", "http://www.w3.org/2000/svg"));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p: n,
+    i: n,
+    o: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+class ce extends e {
+  constructor(e) {
+    (super(), t(this, e, null, de, i, {}));
+  }
+}
+function ue(e) {
+  let t, i, n, s;
+  const r = e[10].default,
+    d = v(r, e, e[14], null);
+  return {
+    c() {
+      ((t = B("button")),
+        d && d.c(),
+        a(t, "class", "trade-button svelte-ailjot"),
+        (t.disabled = e[3]),
+        a(t, "title", e[6]),
+        h(t, "red", e[7]),
+        h(t, "orange", e[8]),
+        h(t, "checked", e[0]),
+        h(t, "outline", e[9]));
+    },
+    m(l, r) {
+      (o(l, t, r),
+        d && d.m(t, null),
+        (i = !0),
+        n ||
+          ((s = [
+            x(t, "click", function () {
+              k(e[15]) && e[15].apply(this, arguments);
+            }),
+            x(t, "click", e[11]),
+          ]),
+          (n = !0)));
+    },
+    p(n, l) {
+      ((e = n),
+        d &&
+          d.p &&
+          (!i || 16384 & l) &&
+          y(d, r, e, e[14], i ? S(r, e[14], l, null) : w(e[14]), null),
+        (!i || 8 & l) && (t.disabled = e[3]),
+        (!i || 64 & l) && a(t, "title", e[6]),
+        (!i || 128 & l) && h(t, "red", e[7]),
+        (!i || 256 & l) && h(t, "orange", e[8]),
+        (!i || 1 & l) && h(t, "checked", e[0]),
+        (!i || 512 & l) && h(t, "outline", e[9]));
+    },
+    i(e) {
+      i || (m(d, e), (i = !0));
+    },
+    o(e) {
+      (p(d, e), (i = !1));
+    },
+    d(e) {
+      (e && l(t), d && d.d(e), (n = !1), b(s));
+    },
+  };
+}
+function pe(e) {
+  let t, i, n, l;
+  function o(t) {
+    e[12](t);
+  }
+  function s(t) {
+    e[13](t);
+  }
+  let r = {
+    value: e[2],
+    disabled: e[3],
+    multiple: e[4],
+    toggle: e[5],
+    $$slots: {
+      default: [
+        ue,
+        ({ click: e }) => ({ 15: e }),
+        ({ click: e }) => (e ? 32768 : 0),
+      ],
+    },
+    $$scope: { ctx: e },
+  };
+  return (
+    void 0 !== e[0] && (r.checked = e[0]),
+    void 0 !== e[1] && (r.group = e[1]),
+    (t = new Q({ props: r })),
+    d.push(() => c(t, "checked", o)),
+    d.push(() => c(t, "group", s)),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (l = !0));
+      },
+      p(e, [l]) {
+        const o = {};
+        (4 & l && (o.value = e[2]),
+          8 & l && (o.disabled = e[3]),
+          16 & l && (o.multiple = e[4]),
+          32 & l && (o.toggle = e[5]),
+          50121 & l && (o.$$scope = { dirty: l, ctx: e }),
+          !i && 1 & l && ((i = !0), (o.checked = e[0]), $(() => (i = !1))),
+          !n && 2 & l && ((n = !0), (o.group = e[1]), $(() => (n = !1))),
+          t.$set(o));
+      },
+      i(e) {
+        l || (m(t.$$.fragment, e), (l = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (l = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function me(e, t, i) {
+  let { $$slots: n = {}, $$scope: l } = t,
+    { checked: o = !1 } = t,
+    { group: s = null } = t,
+    { value: r = null } = t,
+    { disabled: a = !1 } = t,
+    { multiple: d = !1 } = t,
+    { toggle: c = !1 } = t,
+    { title: u } = t,
+    { red: p = !1 } = t,
+    { orange: m = !1 } = t,
+    { outline: $ = !1 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("checked" in e && i(0, (o = e.checked)),
+        "group" in e && i(1, (s = e.group)),
+        "value" in e && i(2, (r = e.value)),
+        "disabled" in e && i(3, (a = e.disabled)),
+        "multiple" in e && i(4, (d = e.multiple)),
+        "toggle" in e && i(5, (c = e.toggle)),
+        "title" in e && i(6, (u = e.title)),
+        "red" in e && i(7, (p = e.red)),
+        "orange" in e && i(8, (m = e.orange)),
+        "outline" in e && i(9, ($ = e.outline)),
+        "$$scope" in e && i(14, (l = e.$$scope)));
+    }),
+    [
+      o,
+      s,
+      r,
+      a,
+      d,
+      c,
+      u,
+      p,
+      m,
+      $,
+      n,
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (e) {
+        ((o = e), i(0, o));
+      },
+      function (e) {
+        ((s = e), i(1, s));
+      },
+      l,
+    ]
+  );
+}
+class $e extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, me, pe, i, {
+        checked: 0,
+        group: 1,
+        value: 2,
+        disabled: 3,
+        multiple: 4,
+        toggle: 5,
+        title: 6,
+        red: 7,
+        orange: 8,
+        outline: 9,
+      }));
+  }
+}
+function fe(e) {
+  let t,
+    i,
+    n,
+    r,
+    d,
+    c,
+    u,
+    p,
+    m,
+    $,
+    f,
+    g,
+    v,
+    b = (e[3].action.typeName ?? "") + "",
+    y = (e[3].result.volume || e[3].action.volume) + "",
+    w = e[3].action.symbol + "",
+    S = (e[3].result.price || e[3].action.priceOrder) + "";
+  return {
+    c() {
+      ((t = B("div")),
+        (i = _(e[6])),
+        (n = C()),
+        (r = B("span")),
+        (d = _(b)),
+        (c = C()),
+        (u = _(y)),
+        (p = C()),
+        (m = _(w)),
+        ($ = _(" at ")),
+        (f = _(S)),
+        (g = C()),
+        (v = B("br")),
+        a(r, "class", "svelte-jikwvm"),
+        h(r, "red", e[3].action.isSell),
+        h(r, "blue", e[3].action.isBuy),
+        a(t, "class", "message svelte-jikwvm"));
+    },
+    m(e, l) {
+      (o(e, t, l),
+        s(t, i),
+        s(t, n),
+        s(t, r),
+        s(r, d),
+        s(t, c),
+        s(t, u),
+        s(t, p),
+        s(t, m),
+        s(t, $),
+        s(t, f),
+        s(t, g),
+        s(t, v));
+    },
+    p(e, t) {
+      (64 & t && M(i, e[6]),
+        8 & t && b !== (b = (e[3].action.typeName ?? "") + "") && M(d, b),
+        8 & t && h(r, "red", e[3].action.isSell),
+        8 & t && h(r, "blue", e[3].action.isBuy),
+        8 & t &&
+          y !== (y = (e[3].result.volume || e[3].action.volume) + "") &&
+          M(u, y),
+        8 & t && w !== (w = e[3].action.symbol + "") && M(m, w),
+        8 & t &&
+          S !== (S = (e[3].result.price || e[3].action.priceOrder) + "") &&
+          M(f, S));
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function ge(e) {
+  let t,
+    i,
+    n,
+    r = e[2].printError(e[3].result.code, G) + "";
+  return {
+    c() {
+      ((t = B("div")),
+        (i = C()),
+        (n = _(r)),
+        a(t, "class", "svelte-jikwvm"),
+        h(t, "green", e[4]),
+        h(t, "red", !e[4]));
+    },
+    m(e, l) {
+      (o(e, t, l), s(t, i), s(t, n));
+    },
+    p(e, i) {
+      (12 & i &&
+        r !== (r = e[2].printError(e[3].result.code, G) + "") &&
+        M(n, r),
+        16 & i && h(t, "green", e[4]),
+        16 & i && h(t, "red", !e[4]));
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function ve(e) {
+  let t,
+    i,
+    n = e[3].result.comment + "";
+  return {
+    c() {
+      ((t = B("div")), (i = _(n)), a(t, "class", "comment svelte-jikwvm"));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, t) {
+      8 & t && n !== (n = e[3].result.comment + "") && M(i, n);
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function be(e) {
+  let t, i, n;
+  return (
+    (i = new $e({
+      props: { orange: !e[4], $$slots: { default: [we] }, $$scope: { ctx: e } },
+    })),
+    i.$on("click", e[8]),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "footer svelte-jikwvm"));
+      },
+      m(e, l) {
+        (o(e, t, l), f(i, t, null), (n = !0));
+      },
+      p(e, t) {
+        const n = {};
+        (16 & t && (n.orange = !e[4]),
+          16384 & t && (n.$$scope = { dirty: t, ctx: e }),
+          i.$set(n));
+      },
+      i(e) {
+        n || (m(i.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function ye(e) {
+  let t, i, s;
+  return (
+    (i = new le({})),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "loading svelte-jikwvm"));
+      },
+      m(e, n) {
+        (o(e, t, n), f(i, t, null), (s = !0));
+      },
+      p: n,
+      i(e) {
+        s || (m(i.$$.fragment, e), (s = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (s = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function we(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.ok) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Se(e) {
+  var t, i, r, d, c, $;
+  let v,
+    b,
+    y,
+    w,
+    S,
+    h,
+    x,
+    k,
+    V =
+      (null == (t = e[3]) ? void 0 : t.result) &&
+      (null == (i = e[3]) ? void 0 : i.action.complete) &&
+      fe(e),
+    E =
+      (null == (d = null == (r = e[3]) ? void 0 : r.result)
+        ? void 0
+        : d.code) && ge(e),
+    M =
+      (null == ($ = null == (c = e[3]) ? void 0 : c.result)
+        ? void 0
+        : $.comment) && ve(e);
+  const _ = [ye, be],
+    z = [];
+  function q(e, t) {
+    return e[5] ? 0 : 1;
+  }
+  ((S = q(e)), (h = z[S] = _[S](e)));
+  let O = (function (e) {
+    let t, i, s;
+    return (
+      (i = new X({
+        props: {
+          color: "var(--color-fill-blue)",
+          stretch: !0,
+          icon: Z,
+          title: window.tr(window.lang.trade.form.close),
+        },
+      })),
+      i.$on("click", e[13]),
+      {
+        c() {
+          ((t = B("div")),
+            g(i.$$.fragment),
+            a(t, "class", "close svelte-jikwvm"));
+        },
+        m(e, n) {
+          (o(e, t, n), f(i, t, null), (s = !0));
+        },
+        p: n,
+        i(e) {
+          s || (m(i.$$.fragment, e), (s = !0));
+        },
+        o(e) {
+          (p(i.$$.fragment, e), (s = !1));
+        },
+        d(e) {
+          (e && l(t), u(i));
+        },
+      }
+    );
+  })(e);
+  return {
+    c() {
+      ((v = B("div")),
+        V && V.c(),
+        (b = C()),
+        E && E.c(),
+        (y = C()),
+        M && M.c(),
+        (w = C()),
+        h.c(),
+        (x = C()),
+        O && O.c(),
+        a(v, "class", "status svelte-jikwvm"));
+    },
+    m(e, t) {
+      (o(e, v, t),
+        V && V.m(v, null),
+        s(v, b),
+        E && E.m(v, null),
+        s(v, y),
+        M && M.m(v, null),
+        s(v, w),
+        z[S].m(v, null),
+        s(v, x),
+        O && O.m(v, null),
+        (k = !0));
+    },
+    p(e, [t]) {
+      var i, n, l, o, s, r;
+      ((null == (i = e[3]) ? void 0 : i.result) &&
+      (null == (n = e[3]) ? void 0 : n.action.complete)
+        ? V
+          ? V.p(e, t)
+          : ((V = fe(e)), V.c(), V.m(v, b))
+        : V && (V.d(1), (V = null)),
+        (null == (o = null == (l = e[3]) ? void 0 : l.result) ? void 0 : o.code)
+          ? E
+            ? E.p(e, t)
+            : ((E = ge(e)), E.c(), E.m(v, y))
+          : E && (E.d(1), (E = null)),
+        (
+          null == (r = null == (s = e[3]) ? void 0 : s.result)
+            ? void 0
+            : r.comment
+        )
+          ? M
+            ? M.p(e, t)
+            : ((M = ve(e)), M.c(), M.m(v, w))
+          : M && (M.d(1), (M = null)));
+      let a = S;
+      ((S = q(e)),
+        S === a
+          ? z[S].p(e, t)
+          : (P(),
+            p(z[a], 1, 1, () => {
+              z[a] = null;
+            }),
+            T(),
+            (h = z[S]),
+            h ? h.p(e, t) : ((h = z[S] = _[S](e)), h.c()),
+            m(h, 1),
+            h.m(v, x)),
+        O.p(e, t));
+    },
+    i(e) {
+      k || (m(h), m(O), (k = !0));
+    },
+    o(e) {
+      (p(h), p(O), (k = !1));
+    },
+    d(e) {
+      (e && l(v), V && V.d(), E && E.d(), M && M.d(), z[S].d(), O && O.d());
+    },
+  };
+}
+function he(e, t, i) {
+  let l,
+    o,
+    s = n,
+    r = () => (s(), (s = z(c, (e) => i(11, (l = e)))), c),
+    a = n,
+    d = () => (a(), (a = z(u, (e) => i(12, (o = e)))), u);
+  (e.$$.on_destroy.push(() => s()), e.$$.on_destroy.push(() => a()));
+  let { ordersStore: c } = t;
+  r();
+  let { positionsStore: u } = t;
+  d();
+  let { apiUtilsTrade: p } = t;
+  const m = E();
+  let $,
+    f,
+    { request: g = null } = t,
+    v = !1,
+    b = !1,
+    y = "";
+  return (
+    (e.$$set = (e) => {
+      ("ordersStore" in e && r(i(0, (c = e.ordersStore))),
+        "positionsStore" in e && d(i(1, (u = e.positionsStore))),
+        "apiUtilsTrade" in e && i(2, (p = e.apiUtilsTrade)),
+        "request" in e && i(3, (g = e.request)));
+    }),
+    (e.$$.update = () => {
+      var t, n, s, r, a, d;
+      if (
+        (12 & e.$$.dirty &&
+          i(
+            4,
+            (v = p.isSuccessCode(
+              null == (t = null == g ? void 0 : g.result) ? void 0 : t.code,
+            )),
+          ),
+        6152 & e.$$.dirty && g)
+      ) {
+        const e =
+          ((null == (n = g.action) ? void 0 : n.position) ||
+            (null == (s = g.result) ? void 0 : s.order)) ??
+          "";
+        (null == (r = g.action) ? void 0 : r.position)
+          ? (i(10, (f = o.getPosition(e))), i(9, ($ = null)))
+          : (i(9, ($ = l.getOrder(e))), i(10, (f = null)));
+      }
+      if (1544 & e.$$.dirty) {
+        let e = "";
+        ($ ? (e = $.order) : f && (e = f.id),
+          g &&
+            (e =
+              g.action.position ||
+              g.action.order ||
+              (null == (a = g.result) ? void 0 : a.order) ||
+              e),
+          i(6, (y = e ? `#${e}` : "")));
+      }
+      12 & e.$$.dirty &&
+        i(
+          5,
+          (b = Boolean(
+            g &&
+            "number" ==
+              typeof (null == (d = null == g ? void 0 : g.result)
+                ? void 0
+                : d.code) &&
+            p.isLoadingCode(g.result.code),
+          )),
+        );
+    }),
+    [
+      c,
+      u,
+      p,
+      g,
+      v,
+      b,
+      y,
+      m,
+      function () {
+        var e;
+        const t = null == (e = null == g ? void 0 : g.result) ? void 0 : e.code;
+        p.isSuccessCode(t) ? m("close") : m("back");
+      },
+      $,
+      f,
+      l,
+      o,
+      () => m("close"),
+    ]
+  );
+}
+class xe extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, he, Se, i, {
+        ordersStore: 0,
+        positionsStore: 1,
+        apiUtilsTrade: 2,
+        request: 3,
+      }));
+  }
+}
+function ke(e) {
+  let t,
+    i,
+    n,
+    r,
+    d,
+    c =
+      window.tr(window.lang.trade.expiredTimer.seconds, {
+        time: Math.ceil(e[1] / 1e3),
+      }) + "";
+  return (
+    (i = new oe({ props: { width: 4, height: 4, name: ce } })),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          (n = C()),
+          (r = _(c)),
+          a(t, "class", "timer svelte-1kwceg5"),
+          q(t, "padding-top", "calc(var(--indent) * " + e[0] + ")"));
+      },
+      m(e, l) {
+        (o(e, t, l), f(i, t, null), s(t, n), s(t, r), (d = !0));
+      },
+      p(e, [i]) {
+        ((!d || 2 & i) &&
+          c !==
+            (c =
+              window.tr(window.lang.trade.expiredTimer.seconds, {
+                time: Math.ceil(e[1] / 1e3),
+              }) + "") &&
+          M(r, c),
+          (!d || 1 & i) &&
+            q(t, "padding-top", "calc(var(--indent) * " + e[0] + ")"));
+      },
+      i(e) {
+        d || (m(i.$$.fragment, e), (d = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (d = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function Be(e, t, i) {
+  let { time: n = Date.now() } = t,
+    { length: l = 0 } = t,
+    { paddingTop: o = 0 } = t,
+    s = l;
+  const r = setInterval(() => {
+    const e = Date.now() - n;
+    e <= l ? i(1, (s = l - e)) : (i(1, (s = 0)), clearInterval(r));
+  }, 100);
+  return (
+    (e.$$set = (e) => {
+      ("time" in e && i(2, (n = e.time)),
+        "length" in e && i(3, (l = e.length)),
+        "paddingTop" in e && i(0, (o = e.paddingTop)));
+    }),
+    [o, s, n, l]
+  );
+}
+class Ve extends e {
+  constructor(e) {
+    (super(), t(this, e, Be, ke, i, { time: 2, length: 3, paddingTop: 0 }));
+  }
+}
+function Pe(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.modify) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Te(e) {
+  let t,
+    i,
+    n,
+    s,
+    r = e[7].infoTemplate(String(e[6])) + "";
+  function a(e, t) {
+    return e[3] ? Me : Ee;
+  }
+  let d = a(e),
+    c = d(e);
+  return {
+    c() {
+      ((t = _("Close ")), (i = _(r)), (n = C()), c.c(), (s = O()));
+    },
+    m(e, l) {
+      (o(e, t, l), o(e, i, l), o(e, n, l), c.m(e, l), o(e, s, l));
+    },
+    p(e, t) {
+      (192 & t && r !== (r = e[7].infoTemplate(String(e[6])) + "") && M(i, r),
+        d === (d = a(e)) && c
+          ? c.p(e, t)
+          : (c.d(1), (c = d(e)), c && (c.c(), c.m(s.parentNode, s))));
+    },
+    d(e) {
+      (e && (l(t), l(i), l(n), l(s)), c.d(e));
+    },
+  };
+}
+function Ce(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.requestPrice) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Ee(e) {
+  let t,
+    i,
+    n,
+    s,
+    r,
+    a,
+    d = (e[9] ?? 0).toFixed(e[7].digits) + "",
+    c = e[7].profit >= 0 ? "Profit" : "Loss",
+    u =
+      ((e[7].profit * e[6]) / (e[7].volumeValue ?? 0)).toFixed(
+        e[7].digitsCurrency,
+      ) + "";
+  return {
+    c() {
+      ((t = _("at ")),
+        (i = _(d)),
+        (n = _(" with ")),
+        (s = _(c)),
+        (r = C()),
+        (a = _(u)));
+    },
+    m(e, l) {
+      (o(e, t, l), o(e, i, l), o(e, n, l), o(e, s, l), o(e, r, l), o(e, a, l));
+    },
+    p(e, t) {
+      (640 & t && d !== (d = (e[9] ?? 0).toFixed(e[7].digits) + "") && M(i, d),
+        128 & t && c !== (c = e[7].profit >= 0 ? "Profit" : "Loss") && M(s, c),
+        192 & t &&
+          u !==
+            (u =
+              ((e[7].profit * e[6]) / (e[7].volumeValue ?? 0)).toFixed(
+                e[7].digitsCurrency,
+              ) + "") &&
+          M(a, u));
+    },
+    d(e) {
+      e && (l(t), l(i), l(n), l(s), l(r), l(a));
+    },
+  };
+}
+function Me(e) {
+  let t,
+    i,
+    n,
+    s = e[3].info + "";
+  return {
+    c() {
+      ((t = B("br")), (i = _("by ")), (n = _(s)));
+    },
+    m(e, l) {
+      (o(e, t, l), o(e, i, l), o(e, n, l));
+    },
+    p(e, t) {
+      8 & t && s !== (s = e[3].info + "") && M(n, s);
+    },
+    d(e) {
+      e && (l(t), l(i), l(n));
+    },
+  };
+}
+function _e(e) {
+  let t;
+  function i(e, t) {
+    return e[10] ? Ce : e[7] ? Te : void 0;
+  }
+  let n = i(e),
+    s = n && n(e);
+  return {
+    c() {
+      (s && s.c(), (t = O()));
+    },
+    m(e, i) {
+      (s && s.m(e, i), o(e, t, i));
+    },
+    p(e, l) {
+      n === (n = i(e)) && s
+        ? s.p(e, l)
+        : (s && s.d(1), (s = n && n(e)), s && (s.c(), s.m(t.parentNode, t)));
+    },
+    d(e) {
+      (e && l(t), s && s.d(e));
+    },
+  };
+}
+function ze(e) {
+  let t, i;
+  return (
+    (t = new Ve({
+      props: {
+        length: 1e3 * (e[2].requestTimeout ?? 0),
+        time: e[8].prices[e[2].symbol].time ?? 0,
+      },
+    })),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (4 & i && (n.length = 1e3 * (e[2].requestTimeout ?? 0)),
+          260 & i && (n.time = e[8].prices[e[2].symbol].time ?? 0),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function qe(e) {
+  var t;
+  let i, n, s, r, a, d;
+  ((i = new $e({
+    props: { disabled: e[4], $$slots: { default: [Pe] }, $$scope: { ctx: e } },
+  })),
+    i.$on("click", e[11]),
+    (s = new $e({
+      props: {
+        disabled: e[5],
+        orange: !e[10],
+        outline: e[10],
+        $$slots: { default: [_e] },
+        $$scope: { ctx: e },
+      },
+    })),
+    s.$on("click", e[12]));
+  let c =
+    (e[2].isRequestExecution ||
+      (e[7] &&
+        e[2].isInstantExecution &&
+        e[2].maxInstantVolume &&
+        e[6] > e[2].maxInstantVolume)) &&
+    !e[10] &&
+    (null == (t = e[8].prices[e[2].symbol]) ? void 0 : t.time) &&
+    ze(e);
+  return {
+    c() {
+      (g(i.$$.fragment),
+        (n = C()),
+        g(s.$$.fragment),
+        (r = C()),
+        c && c.c(),
+        (a = O()));
+    },
+    m(e, t) {
+      (f(i, e, t),
+        o(e, n, t),
+        f(s, e, t),
+        o(e, r, t),
+        c && c.m(e, t),
+        o(e, a, t),
+        (d = !0));
+    },
+    p(e, [t]) {
+      var n;
+      const l = {};
+      (16 & t && (l.disabled = e[4]),
+        131072 & t && (l.$$scope = { dirty: t, ctx: e }),
+        i.$set(l));
+      const o = {};
+      (32 & t && (o.disabled = e[5]),
+        1024 & t && (o.orange = !e[10]),
+        1024 & t && (o.outline = e[10]),
+        132808 & t && (o.$$scope = { dirty: t, ctx: e }),
+        s.$set(o),
+        (e[2].isRequestExecution ||
+          (e[7] &&
+            e[2].isInstantExecution &&
+            e[2].maxInstantVolume &&
+            e[6] > e[2].maxInstantVolume)) &&
+        !e[10] &&
+        (null == (n = e[8].prices[e[2].symbol]) ? void 0 : n.time)
+          ? c
+            ? (c.p(e, t), 1476 & t && m(c, 1))
+            : ((c = ze(e)), c.c(), m(c, 1), c.m(a.parentNode, a))
+          : c &&
+            (P(),
+            p(c, 1, 1, () => {
+              c = null;
+            }),
+            T()));
+    },
+    i(e) {
+      d || (m(i.$$.fragment, e), m(s.$$.fragment, e), m(c), (d = !0));
+    },
+    o(e) {
+      (p(i.$$.fragment, e), p(s.$$.fragment, e), p(c), (d = !1));
+    },
+    d(e) {
+      (e && (l(n), l(r), l(a)), u(i, e), u(s, e), c && c.d(e));
+    },
+  };
+}
+function Oe(e, t, i) {
+  let l,
+    o,
+    s = n,
+    r = () => (s(), (s = z(c, (e) => i(8, (l = e)))), c),
+    a = n,
+    d = () => (a(), (a = z(u, (e) => i(15, (o = e)))), u);
+  (e.$$.on_destroy.push(() => s()), e.$$.on_destroy.push(() => a()));
+  let { tradeStore: c } = t;
+  r();
+  let { positionsStore: u } = t;
+  d();
+  let p,
+    { config: m } = t,
+    { positionId: $ } = t,
+    { closeByPosition: f = null } = t,
+    { disabledModify: g = !1 } = t,
+    { disabledClose: v = !1 } = t,
+    { marketPrice: b = 0 } = t,
+    { volume: y } = t,
+    w = 0;
+  const S = E();
+  let h = !1;
+  return (
+    (e.$$set = (e) => {
+      ("tradeStore" in e && r(i(0, (c = e.tradeStore))),
+        "positionsStore" in e && d(i(1, (u = e.positionsStore))),
+        "config" in e && i(2, (m = e.config)),
+        "positionId" in e && i(13, ($ = e.positionId)),
+        "closeByPosition" in e && i(3, (f = e.closeByPosition)),
+        "disabledModify" in e && i(4, (g = e.disabledModify)),
+        "disabledClose" in e && i(5, (v = e.disabledClose)),
+        "marketPrice" in e && i(14, (b = e.marketPrice)),
+        "volume" in e && i(6, (y = e.volume)));
+    }),
+    (e.$$.update = () => {
+      (40960 & e.$$.dirty && i(7, (p = o.getPosition($))),
+        460 & e.$$.dirty &&
+          i(
+            10,
+            (h = Boolean(
+              !f &&
+              (m.isRequestExecution ||
+                (p &&
+                  m.isInstantExecution &&
+                  m.maxInstantVolume &&
+                  y > m.maxInstantVolume)) &&
+              (!l.prices[m.symbol] ||
+                (l.prices[m.symbol] &&
+                  l.prices[m.symbol].time +
+                    1e3 * ((null == m ? void 0 : m.requestTimeout) ?? 0) <
+                    Date.now())),
+            )),
+          ),
+        16836 & e.$$.dirty &&
+          ((m.isRequestExecution ||
+            (p &&
+              m.isInstantExecution &&
+              m.maxInstantVolume &&
+              y > m.maxInstantVolume)) &&
+          l.prices[m.symbol]
+            ? (null == p ? void 0 : p.isBuy)
+              ? i(9, (w = l.prices[m.symbol].bid))
+              : (null == p ? void 0 : p.isSell) &&
+                i(9, (w = l.prices[m.symbol].ask))
+            : i(9, (w = b))));
+    }),
+    [
+      c,
+      u,
+      m,
+      f,
+      g,
+      v,
+      y,
+      p,
+      l,
+      w,
+      h,
+      function () {
+        S("modify");
+      },
+      function () {
+        S("close");
+      },
+      $,
+      b,
+      o,
+    ]
+  );
+}
+class Le extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, Oe, qe, i, {
+        tradeStore: 0,
+        positionsStore: 1,
+        config: 2,
+        positionId: 13,
+        closeByPosition: 3,
+        disabledModify: 4,
+        disabledClose: 5,
+        marketPrice: 14,
+        volume: 6,
+      }));
+  }
+}
+function De(e) {
+  let t,
+    i,
+    r,
+    d,
+    c,
+    u,
+    p,
+    m,
+    $,
+    f,
+    g = (e[1] ? W(e[1], e[0]) : "") + "",
+    v = (e[2] ? W(e[2], e[0]) : "") + "";
+  return {
+    c() {
+      ((t = B("div")),
+        (i = B("div")),
+        (r = C()),
+        (d = _(g)),
+        (c = C()),
+        (u = B("div")),
+        (p = C()),
+        (m = B("div")),
+        ($ = C()),
+        (f = _(v)),
+        a(i, "class", "price-column svelte-ndg0el"),
+        h(i, "red", -1 === e[3]),
+        h(i, "blue", 1 === e[3]),
+        a(u, "class", "split svelte-ndg0el"),
+        a(m, "class", "price-column svelte-ndg0el"),
+        h(m, "red", -1 === e[4]),
+        h(m, "blue", 1 === e[4]),
+        a(t, "class", "price svelte-ndg0el"));
+    },
+    m(e, n) {
+      (o(e, t, n),
+        s(t, i),
+        s(i, r),
+        s(i, d),
+        s(t, c),
+        s(t, u),
+        s(t, p),
+        s(t, m),
+        s(m, $),
+        s(m, f));
+    },
+    p(e, [t]) {
+      (3 & t && g !== (g = (e[1] ? W(e[1], e[0]) : "") + "") && M(d, g),
+        8 & t && h(i, "red", -1 === e[3]),
+        8 & t && h(i, "blue", 1 === e[3]),
+        5 & t && v !== (v = (e[2] ? W(e[2], e[0]) : "") + "") && M(f, v),
+        16 & t && h(m, "red", -1 === e[4]),
+        16 & t && h(m, "blue", 1 === e[4]));
+    },
+    i: n,
+    o: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Ie(e, t, i) {
+  let { digits: n } = t,
+    { bid: l } = t,
+    { ask: o } = t,
+    { bidTrend: s = 0 } = t,
+    { askTrend: r = 0 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("digits" in e && i(0, (n = e.digits)),
+        "bid" in e && i(1, (l = e.bid)),
+        "ask" in e && i(2, (o = e.ask)),
+        "bidTrend" in e && i(3, (s = e.bidTrend)),
+        "askTrend" in e && i(4, (r = e.askTrend)));
+    }),
+    [n, l, o, s, r]
+  );
+}
+let Ue = class extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, Ie, De, i, {
+        digits: 0,
+        bid: 1,
+        ask: 2,
+        bidTrend: 3,
+        askTrend: 4,
+      }));
+  }
+};
+function je(e) {
+  let t, i, n;
+  return (
+    (i = new $e({
+      props: { outline: !0, $$slots: { default: [Fe] }, $$scope: { ctx: e } },
+    })),
+    i.$on("click", e[8]),
+    {
+      c() {
+        ((t = B("div")), g(i.$$.fragment));
+      },
+      m(e, l) {
+        (o(e, t, l), f(i, t, null), (n = !0));
+      },
+      p(e, t) {
+        const n = {};
+        (1024 & t && (n.$$scope = { dirty: t, ctx: e }), i.$set(n));
+      },
+      i(e) {
+        n || (m(i.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function Ne(e) {
+  let t, i, n, r, d, c, $, v, b;
+  return (
+    (t = new Ue({
+      props: {
+        digits: e[1].digits,
+        bid: e[4].prices[e[1].symbol].bid,
+        ask: e[4].prices[e[1].symbol].ask,
+        bidTrend: 0,
+        askTrend: 0,
+      },
+    })),
+    (r = new $e({
+      props: {
+        disabled: e[2],
+        red: !0,
+        $$slots: { default: [Ae] },
+        $$scope: { ctx: e },
+      },
+    })),
+    r.$on("click", e[6]),
+    (c = new $e({
+      props: {
+        disabled: e[3],
+        $$slots: { default: [Re] },
+        $$scope: { ctx: e },
+      },
+    })),
+    c.$on("click", e[7]),
+    (v = new Ve({
+      props: {
+        length: 1e3 * (e[1].requestTimeout ?? 0),
+        time: e[4].prices[e[1].symbol].time ?? 0,
+        paddingTop: 1.5,
+      },
+    })),
+    {
+      c() {
+        (g(t.$$.fragment),
+          (i = C()),
+          (n = B("div")),
+          g(r.$$.fragment),
+          (d = C()),
+          g(c.$$.fragment),
+          ($ = C()),
+          g(v.$$.fragment),
+          a(n, "class", "footer-row svelte-1325j3e"));
+      },
+      m(e, l) {
+        (f(t, e, l),
+          o(e, i, l),
+          o(e, n, l),
+          f(r, n, null),
+          s(n, d),
+          f(c, n, null),
+          o(e, $, l),
+          f(v, e, l),
+          (b = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (2 & i && (n.digits = e[1].digits),
+          18 & i && (n.bid = e[4].prices[e[1].symbol].bid),
+          18 & i && (n.ask = e[4].prices[e[1].symbol].ask),
+          t.$set(n));
+        const l = {};
+        (4 & i && (l.disabled = e[2]),
+          1024 & i && (l.$$scope = { dirty: i, ctx: e }),
+          r.$set(l));
+        const o = {};
+        (8 & i && (o.disabled = e[3]),
+          1024 & i && (o.$$scope = { dirty: i, ctx: e }),
+          c.$set(o));
+        const s = {};
+        (2 & i && (s.length = 1e3 * (e[1].requestTimeout ?? 0)),
+          18 & i && (s.time = e[4].prices[e[1].symbol].time ?? 0),
+          v.$set(s));
+      },
+      i(e) {
+        b ||
+          (m(t.$$.fragment, e),
+          m(r.$$.fragment, e),
+          m(c.$$.fragment, e),
+          m(v.$$.fragment, e),
+          (b = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e),
+          p(r.$$.fragment, e),
+          p(c.$$.fragment, e),
+          p(v.$$.fragment, e),
+          (b = !1));
+      },
+      d(e) {
+        (e && (l(i), l(n), l($)), u(t, e), u(r), u(c), u(v, e));
+      },
+    }
+  );
+}
+function Fe(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.request) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Ae(e) {
+  let t;
+  return {
+    c() {
+      t = _("Sell");
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Re(e) {
+  let t;
+  return {
+    c() {
+      t = _("Buy");
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function He(e) {
+  let t, i, n, s;
+  const r = [Ne, je],
+    d = [];
+  function c(e, t) {
+    return e[4].prices[e[1].symbol] ? 0 : 1;
+  }
+  return (
+    (i = c(e)),
+    (n = d[i] = r[i](e)),
+    {
+      c() {
+        ((t = B("div")), n.c(), a(t, "class", "footer-request"));
+      },
+      m(e, n) {
+        (o(e, t, n), d[i].m(t, null), (s = !0));
+      },
+      p(e, [l]) {
+        let o = i;
+        ((i = c(e)),
+          i === o
+            ? d[i].p(e, l)
+            : (P(),
+              p(d[o], 1, 1, () => {
+                d[o] = null;
+              }),
+              T(),
+              (n = d[i]),
+              n ? n.p(e, l) : ((n = d[i] = r[i](e)), n.c()),
+              m(n, 1),
+              n.m(t, null)));
+      },
+      i(e) {
+        s || (m(n), (s = !0));
+      },
+      o(e) {
+        (p(n), (s = !1));
+      },
+      d(e) {
+        (e && l(t), d[i].d());
+      },
+    }
+  );
+}
+function Ye(e, t, i) {
+  let l,
+    o = n,
+    s = () => (o(), (o = z(r, (e) => i(4, (l = e)))), r);
+  e.$$.on_destroy.push(() => o());
+  let { tradeStore: r } = t;
+  s();
+  const a = E();
+  let { config: d } = t,
+    { disabledSell: c = !1 } = t,
+    { disabledBuy: u = !1 } = t;
+  function p(e) {
+    a("open", e);
+  }
+  return (
+    (e.$$set = (e) => {
+      ("tradeStore" in e && s(i(0, (r = e.tradeStore))),
+        "config" in e && i(1, (d = e.config)),
+        "disabledSell" in e && i(2, (c = e.disabledSell)),
+        "disabledBuy" in e && i(3, (u = e.disabledBuy)));
+    }),
+    [r, d, c, u, l, p, () => p(1), () => p(0), () => p(0)]
+  );
+}
+class Ge extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, Ye, He, i, {
+        tradeStore: 0,
+        config: 1,
+        disabledSell: 2,
+        disabledBuy: 3,
+      }));
+  }
+}
+function Ze(e) {
+  let t;
+  return {
+    c() {
+      t = _(e[5]);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p(e, i) {
+      32 & i && M(t, e[5]);
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function We(e) {
+  let t;
+  return {
+    c() {
+      t = _(e[6]);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p(e, i) {
+      64 & i && M(t, e[6]);
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Je(e) {
+  var t, i, n, r;
+  let d, c, $, v, b, y, w;
+  return (
+    (d = new Ue({
+      props: {
+        digits: e[1].digits,
+        bid: null == (t = e[7]) ? void 0 : t.bid,
+        ask: null == (i = e[7]) ? void 0 : i.ask,
+        bidTrend: null == (n = e[7]) ? void 0 : n.bidTrend,
+        askTrend: null == (r = e[7]) ? void 0 : r.askTrend,
+      },
+    })),
+    (v = new $e({
+      props: {
+        disabled: e[2],
+        red: !0,
+        $$slots: { default: [Ze] },
+        $$scope: { ctx: e },
+      },
+    })),
+    v.$on("click", e[11]),
+    (y = new $e({
+      props: {
+        disabled: e[3],
+        $$slots: { default: [We] },
+        $$scope: { ctx: e },
+      },
+    })),
+    y.$on("click", e[12]),
+    {
+      c() {
+        (g(d.$$.fragment),
+          (c = C()),
+          ($ = B("div")),
+          g(v.$$.fragment),
+          (b = C()),
+          g(y.$$.fragment),
+          a($, "class", "footer-row svelte-1325j3e"));
+      },
+      m(e, t) {
+        (f(d, e, t),
+          o(e, c, t),
+          o(e, $, t),
+          f(v, $, null),
+          s($, b),
+          f(y, $, null),
+          (w = !0));
+      },
+      p(e, [t]) {
+        var i, n, l, o;
+        const s = {};
+        (2 & t && (s.digits = e[1].digits),
+          128 & t && (s.bid = null == (i = e[7]) ? void 0 : i.bid),
+          128 & t && (s.ask = null == (n = e[7]) ? void 0 : n.ask),
+          128 & t && (s.bidTrend = null == (l = e[7]) ? void 0 : l.bidTrend),
+          128 & t && (s.askTrend = null == (o = e[7]) ? void 0 : o.askTrend),
+          d.$set(s));
+        const r = {};
+        (4 & t && (r.disabled = e[2]),
+          16416 & t && (r.$$scope = { dirty: t, ctx: e }),
+          v.$set(r));
+        const a = {};
+        (8 & t && (a.disabled = e[3]),
+          16448 & t && (a.$$scope = { dirty: t, ctx: e }),
+          y.$set(a));
+      },
+      i(e) {
+        w ||
+          (m(d.$$.fragment, e),
+          m(v.$$.fragment, e),
+          m(y.$$.fragment, e),
+          (w = !0));
+      },
+      o(e) {
+        (p(d.$$.fragment, e),
+          p(v.$$.fragment, e),
+          p(y.$$.fragment, e),
+          (w = !1));
+      },
+      d(e) {
+        (e && (l(c), l($)), u(d, e), u(v), u(y));
+      },
+    }
+  );
+}
+function Ke(e, t, i) {
+  let l,
+    o,
+    s = n,
+    r = () => (s(), (s = z(u, (e) => i(10, (l = e)))), u),
+    a = n,
+    d = () => (a(), (a = z(b, (e) => i(7, (o = e)))), b);
+  (e.$$.on_destroy.push(() => s()), e.$$.on_destroy.push(() => a()));
+  let { ticksController: c } = t,
+    { ticksStore: u } = t;
+  r();
+  const p = E();
+  let m,
+    $,
+    { config: f } = t,
+    { disabledSell: g = !1 } = t,
+    { disabledBuy: v = !1 } = t,
+    b = l.getTick(f.symbol);
+  function y(e) {
+    p("open", e);
+  }
+  return (
+    d(),
+    (e.$$set = (e) => {
+      ("ticksController" in e && i(9, (c = e.ticksController)),
+        "ticksStore" in e && r(i(0, (u = e.ticksStore))),
+        "config" in e && i(1, (f = e.config)),
+        "disabledSell" in e && i(2, (g = e.disabledSell)),
+        "disabledBuy" in e && i(3, (v = e.disabledBuy)));
+    }),
+    (e.$$.update = () => {
+      (2 & e.$$.dirty &&
+        (f.isMarketExecution
+          ? (i(5, (m = "Sell by Market")), i(6, ($ = "Buy by Market")))
+          : (i(5, (m = "Sell")), i(6, ($ = "Buy")))),
+        1538 & e.$$.dirty &&
+          f.symbol &&
+          (c.on(f.symbol), d(i(4, (b = l.getTick(f.symbol))))));
+    }),
+    [u, f, g, v, b, m, $, o, y, c, l, () => y(1), () => y(0)]
+  );
+}
+class Qe extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, Ke, Je, i, {
+        ticksController: 9,
+        ticksStore: 0,
+        config: 1,
+        disabledSell: 2,
+        disabledBuy: 3,
+      }));
+  }
+}
+function Xe(e) {
+  let t, i;
+  return (
+    (t = new oe({ props: { name: te } })),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p: n,
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function et(e) {
+  let t, i;
+  return (
+    (t = new oe({ props: { name: ie } })),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p: n,
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function tt(e) {
+  let t, i, n;
+  function l(t) {
+    e[10](t);
+  }
+  let o = {
+    initialValue: e[8],
+    nullable: e[7],
+    digits: e[2],
+    disabled: e[6],
+    disabledDecBtn: null !== e[0] && void 0 !== e[4] && e[0] <= e[4],
+    disabledIncBtn: null !== e[0] && void 0 !== e[5] && e[0] >= e[5],
+    min: e[4],
+    max: e[5],
+    step: e[3],
+    roundByStep: e[9],
+    placeholder: e[1],
+    $$slots: { inc: [et], desc: [Xe] },
+    $$scope: { ctx: e },
+  };
+  return (
+    void 0 !== e[0] && (o.value = e[0]),
+    (t = new ee({ props: o })),
+    d.push(() => c(t, "value", l)),
+    t.$on("input", e[11]),
+    t.$on("step", e[12]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (n = !0));
+      },
+      p(e, [n]) {
+        const l = {};
+        (256 & n && (l.initialValue = e[8]),
+          128 & n && (l.nullable = e[7]),
+          4 & n && (l.digits = e[2]),
+          64 & n && (l.disabled = e[6]),
+          17 & n &&
+            (l.disabledDecBtn =
+              null !== e[0] && void 0 !== e[4] && e[0] <= e[4]),
+          33 & n &&
+            (l.disabledIncBtn =
+              null !== e[0] && void 0 !== e[5] && e[0] >= e[5]),
+          16 & n && (l.min = e[4]),
+          32 & n && (l.max = e[5]),
+          8 & n && (l.step = e[3]),
+          512 & n && (l.roundByStep = e[9]),
+          2 & n && (l.placeholder = e[1]),
+          8192 & n && (l.$$scope = { dirty: n, ctx: e }),
+          !i && 1 & n && ((i = !0), (l.value = e[0]), $(() => (i = !1))),
+          t.$set(l));
+      },
+      i(e) {
+        n || (m(t.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function it(e, t, i) {
+  let { value: n } = t,
+    { placeholder: l = "" } = t,
+    { digits: o } = t,
+    { step: s } = t,
+    { min: r } = t,
+    { max: a } = t,
+    { disabled: d = !1 } = t,
+    { nullable: c = !1 } = t,
+    { initialValue: u = null } = t,
+    { roundByStep: p = !1 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("value" in e && i(0, (n = e.value)),
+        "placeholder" in e && i(1, (l = e.placeholder)),
+        "digits" in e && i(2, (o = e.digits)),
+        "step" in e && i(3, (s = e.step)),
+        "min" in e && i(4, (r = e.min)),
+        "max" in e && i(5, (a = e.max)),
+        "disabled" in e && i(6, (d = e.disabled)),
+        "nullable" in e && i(7, (c = e.nullable)),
+        "initialValue" in e && i(8, (u = e.initialValue)),
+        "roundByStep" in e && i(9, (p = e.roundByStep)));
+    }),
+    [
+      n,
+      l,
+      o,
+      s,
+      r,
+      a,
+      d,
+      c,
+      u,
+      p,
+      function (e) {
+        ((n = e), i(0, n));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+    ]
+  );
+}
+class nt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, it, tt, i, {
+        value: 0,
+        placeholder: 1,
+        digits: 2,
+        step: 3,
+        min: 4,
+        max: 5,
+        disabled: 6,
+        nullable: 7,
+        initialValue: 8,
+        roundByStep: 9,
+      }));
+  }
+}
+const lt = (e) => ({}),
+  ot = (e) => ({});
+function st(e) {
+  let t, i, s, r, d;
+  return (
+    (i = new oe({ props: { name: J, width: 4, height: 4 } })),
+    {
+      c() {
+        ((t = B("button")),
+          g(i.$$.fragment),
+          a(t, "type", "button"),
+          a(t, "class", "svelte-mj4yoy"));
+      },
+      m(n, l) {
+        (o(n, t, l),
+          f(i, t, null),
+          (s = !0),
+          r || ((d = x(t, "click", e[10])), (r = !0)));
+      },
+      p: n,
+      i(e) {
+        s || (m(i.$$.fragment, e), (s = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (s = !1));
+      },
+      d(e) {
+        (e && l(t), u(i), (r = !1), d());
+      },
+    }
+  );
+}
+function rt(e) {
+  let t, i, n, r, d;
+  const c = e[9].label,
+    u = v(c, e, e[8], ot),
+    $ =
+      u ||
+      (function (e) {
+        let t;
+        return {
+          c() {
+            t = _(e[0]);
+          },
+          m(e, i) {
+            o(e, t, i);
+          },
+          p(e, i) {
+            1 & i && M(t, e[0]);
+          },
+          d(e) {
+            e && l(t);
+          },
+        };
+      })(e);
+  let f = e[6] && st(e);
+  const g = e[9].default,
+    b = v(g, e, e[8], null);
+  return {
+    c() {
+      ((t = B("div")),
+        (i = B("div")),
+        $ && $.c(),
+        (n = C()),
+        f && f.c(),
+        (r = C()),
+        b && b.c(),
+        a(i, "class", "label svelte-mj4yoy"),
+        h(i, "clear", e[6]),
+        a(t, "class", "trade-input svelte-mj4yoy"),
+        h(t, "red", e[1]),
+        h(t, "blue", e[2]),
+        h(t, "green", e[3]),
+        h(t, "orange", e[4]),
+        h(t, "invalid", e[5]));
+    },
+    m(e, l) {
+      (o(e, t, l),
+        s(t, i),
+        $ && $.m(i, null),
+        s(i, n),
+        f && f.m(i, null),
+        s(t, r),
+        b && b.m(t, null),
+        (d = !0));
+    },
+    p(e, [n]) {
+      (u
+        ? u.p &&
+          (!d || 256 & n) &&
+          y(u, c, e, e[8], d ? S(c, e[8], n, lt) : w(e[8]), ot)
+        : $ && $.p && (!d || 1 & n) && $.p(e, d ? n : -1),
+        e[6]
+          ? f
+            ? (f.p(e, n), 64 & n && m(f, 1))
+            : ((f = st(e)), f.c(), m(f, 1), f.m(i, null))
+          : f &&
+            (P(),
+            p(f, 1, 1, () => {
+              f = null;
+            }),
+            T()),
+        (!d || 64 & n) && h(i, "clear", e[6]),
+        b &&
+          b.p &&
+          (!d || 256 & n) &&
+          y(b, g, e, e[8], d ? S(g, e[8], n, null) : w(e[8]), null),
+        (!d || 2 & n) && h(t, "red", e[1]),
+        (!d || 4 & n) && h(t, "blue", e[2]),
+        (!d || 8 & n) && h(t, "green", e[3]),
+        (!d || 16 & n) && h(t, "orange", e[4]),
+        (!d || 32 & n) && h(t, "invalid", e[5]));
+    },
+    i(e) {
+      d || (m($, e), m(f), m(b, e), (d = !0));
+    },
+    o(e) {
+      (p($, e), p(f), p(b, e), (d = !1));
+    },
+    d(e) {
+      (e && l(t), $ && $.d(e), f && f.d(), b && b.d(e));
+    },
+  };
+}
+function at(e, t, i) {
+  let { $$slots: n = {}, $$scope: l } = t;
+  const o = E();
+  let { label: s = "" } = t,
+    { red: r = !1 } = t,
+    { blue: a = !1 } = t,
+    { green: d = !1 } = t,
+    { orange: c = !1 } = t,
+    { invalid: u = !1 } = t,
+    { clear: p = !1 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("label" in e && i(0, (s = e.label)),
+        "red" in e && i(1, (r = e.red)),
+        "blue" in e && i(2, (a = e.blue)),
+        "green" in e && i(3, (d = e.green)),
+        "orange" in e && i(4, (c = e.orange)),
+        "invalid" in e && i(5, (u = e.invalid)),
+        "clear" in e && i(6, (p = e.clear)),
+        "$$scope" in e && i(8, (l = e.$$scope)));
+    }),
+    [s, r, a, d, c, u, p, o, l, n, () => o("clear")]
+  );
+}
+class dt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, at, rt, i, {
+        label: 0,
+        red: 1,
+        blue: 2,
+        green: 3,
+        orange: 4,
+        invalid: 5,
+        clear: 6,
+      }));
+  }
+}
+function ct(e) {
+  let t, i, n;
+  function l(t) {
+    e[14](t);
+  }
+  let o = {
+    nullable: e[10],
+    initialValue: e[9],
+    disabled: e[8],
+    step: e[12],
+    digits: e[6],
+    roundByStep: void 0 !== e[7],
+    min: 0,
+  };
+  return (
+    void 0 !== e[0] && (o.value = e[0]),
+    (t = new nt({ props: o })),
+    d.push(() => c(t, "value", l)),
+    t.$on("input", e[15]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (n = !0));
+      },
+      p(e, n) {
+        const l = {};
+        (1024 & n && (l.nullable = e[10]),
+          512 & n && (l.initialValue = e[9]),
+          256 & n && (l.disabled = e[8]),
+          4096 & n && (l.step = e[12]),
+          64 & n && (l.digits = e[6]),
+          128 & n && (l.roundByStep = void 0 !== e[7]),
+          !i && 1 & n && ((i = !0), (l.value = e[0]), $(() => (i = !1))),
+          t.$set(l));
+      },
+      i(e) {
+        n || (m(t.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function ut(e) {
+  let t, i;
+  return (
+    (t = new dt({
+      props: {
+        label: e[1],
+        red: e[2],
+        blue: e[3],
+        green: e[4],
+        orange: e[5],
+        clear: e[11],
+        $$slots: { default: [ct] },
+        $$scope: { ctx: e },
+      },
+    })),
+    t.$on("clear", e[13]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, [i]) {
+        const n = {};
+        (2 & i && (n.label = e[1]),
+          4 & i && (n.red = e[2]),
+          8 & i && (n.blue = e[3]),
+          16 & i && (n.green = e[4]),
+          32 & i && (n.orange = e[5]),
+          2048 & i && (n.clear = e[11]),
+          71617 & i && (n.$$scope = { dirty: i, ctx: e }),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function pt(e, t, i) {
+  let { label: n } = t,
+    { red: l = !1 } = t,
+    { blue: o = !1 } = t,
+    { green: s = !1 } = t,
+    { orange: r = !1 } = t,
+    { value: a } = t,
+    { digits: d } = t,
+    { tickSize: c } = t,
+    { disabled: u = !1 } = t,
+    { initialValue: p = null } = t,
+    { nullable: m = !1 } = t,
+    { clear: $ = !1 } = t,
+    f = 1;
+  return (
+    (e.$$set = (e) => {
+      ("label" in e && i(1, (n = e.label)),
+        "red" in e && i(2, (l = e.red)),
+        "blue" in e && i(3, (o = e.blue)),
+        "green" in e && i(4, (s = e.green)),
+        "orange" in e && i(5, (r = e.orange)),
+        "value" in e && i(0, (a = e.value)),
+        "digits" in e && i(6, (d = e.digits)),
+        "tickSize" in e && i(7, (c = e.tickSize)),
+        "disabled" in e && i(8, (u = e.disabled)),
+        "initialValue" in e && i(9, (p = e.initialValue)),
+        "nullable" in e && i(10, (m = e.nullable)),
+        "clear" in e && i(11, ($ = e.clear)));
+    }),
+    (e.$$.update = () => {
+      192 & e.$$.dirty && i(12, (f = c || 1 / 10 ** d));
+    }),
+    [
+      a,
+      n,
+      l,
+      o,
+      s,
+      r,
+      d,
+      c,
+      u,
+      p,
+      m,
+      $,
+      f,
+      function () {
+        i(0, (a = null));
+      },
+      function (e) {
+        ((a = e), i(0, a));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+    ]
+  );
+}
+class mt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, pt, ut, i, {
+        label: 1,
+        red: 2,
+        blue: 3,
+        green: 4,
+        orange: 5,
+        value: 0,
+        digits: 6,
+        tickSize: 7,
+        disabled: 8,
+        initialValue: 9,
+        nullable: 10,
+        clear: 11,
+      }));
+  }
+}
+function $t(e) {
+  let t, i, n;
+  function l(t) {
+    e[12](t);
+  }
+  let o = {
+    initialValue: e[4],
+    disabled: e[3],
+    min: e[1],
+    max: e[2],
+    step: e[7],
+    digits: e[5],
+    roundByStep: !0,
+  };
+  return (
+    void 0 !== e[0] && (o.value = e[0]),
+    (t = new nt({ props: o })),
+    d.push(() => c(t, "value", l)),
+    t.$on("input", e[13]),
+    t.$on("step", e[14]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (n = !0));
+      },
+      p(e, n) {
+        const l = {};
+        (16 & n && (l.initialValue = e[4]),
+          8 & n && (l.disabled = e[3]),
+          2 & n && (l.min = e[1]),
+          4 & n && (l.max = e[2]),
+          128 & n && (l.step = e[7]),
+          32 & n && (l.digits = e[5]),
+          !i && 1 & n && ((i = !0), (l.value = e[0]), $(() => (i = !1))),
+          t.$set(l));
+      },
+      i(e) {
+        n || (m(t.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function ft(e) {
+  let t, i, n, r, d;
+  return {
+    c() {
+      ((t = B("div")),
+        (i = B("span")),
+        (i.textContent = `${window.tr(window.lang.trade.form.fields.volume)}`),
+        (n = C()),
+        (r = B("span")),
+        (d = _(e[6])),
+        a(i, "class", "svelte-e1mb38"),
+        a(r, "title", e[6]),
+        a(r, "class", "svelte-e1mb38"),
+        a(t, "slot", "label"),
+        a(t, "class", "label svelte-e1mb38"));
+    },
+    m(e, l) {
+      (o(e, t, l), s(t, i), s(t, n), s(t, r), s(r, d));
+    },
+    p(e, t) {
+      (64 & t && M(d, e[6]), 64 & t && a(r, "title", e[6]));
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function gt(e) {
+  let t, i;
+  return (
+    (t = new dt({
+      props: {
+        invalid: e[8],
+        $$slots: { label: [ft], default: [$t] },
+        $$scope: { ctx: e },
+      },
+    })),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, [i]) {
+        const n = {};
+        (256 & i && (n.invalid = e[8]),
+          33023 & i && (n.$$scope = { dirty: i, ctx: e }),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function vt(e) {
+  const t = String(e);
+  return t.includes("e") || t.includes("E")
+    ? e.toLocaleString("en-US", { useGrouping: !1, maximumFractionDigits: 20 })
+    : t;
+}
+function bt(e, t, i) {
+  let n,
+    l,
+    { disabled: o = !1 } = t,
+    { symbol: s } = t,
+    { value: r } = t,
+    { min: a } = t,
+    { max: d } = t,
+    { initialValue: c = null } = t,
+    { tooltipErr: u = "" } = t,
+    p = !1,
+    m = s.lotsStep ?? 1,
+    $ = 0;
+  return (
+    (e.$$set = (e) => {
+      ("disabled" in e && i(3, (o = e.disabled)),
+        "symbol" in e && i(10, (s = e.symbol)),
+        "value" in e && i(0, (r = e.value)),
+        "min" in e && i(1, (a = e.min)),
+        "max" in e && i(2, (d = e.max)),
+        "initialValue" in e && i(4, (c = e.initialValue)),
+        "tooltipErr" in e && i(9, (u = e.tooltipErr)));
+    }),
+    (e.$$.update = () => {
+      var t, o;
+      (3207 & e.$$.dirty &&
+        (i(
+          1,
+          (a =
+            void 0 !== a
+              ? Math.min(a, Math.max(s.lotsMin, s.lotsStep))
+              : Math.max(s.lotsMin, s.lotsStep)),
+        ),
+        r
+          ? (i(2, (d = d ?? s.lotsMax ?? 1 / 0)),
+            i(7, (m = s.lotsStep ?? 1)),
+            i(
+              11,
+              ($ = r
+                ? 10 **
+                  Math.max(
+                    (null == (t = vt(r).split(".")[1]) ? void 0 : t.length) ||
+                      0,
+                    (null == (o = vt(m).split(".")[1]) ? void 0 : o.length) ||
+                      0,
+                  )
+                : 0),
+            ),
+            a && a > r
+              ? (i(
+                  9,
+                  (u = window.tr(
+                    window.lang.trade.form.fields.errors.volume.min,
+                    { min: a },
+                  )),
+                ),
+                i(8, (p = !0)))
+              : d && d < r
+                ? (i(
+                    9,
+                    (u = window.tr(
+                      window.lang.trade.form.fields.errors.volume.max,
+                      { max: d },
+                    )),
+                  ),
+                  i(8, (p = !0)))
+                : Math.round(r * $) % Math.round(m * $) != 0
+                  ? (i(
+                      9,
+                      (u = window.tr(
+                        window.lang.trade.form.fields.errors.volume.step,
+                        { step: vt(m) },
+                      )),
+                    ),
+                    i(8, (p = !0)))
+                  : (i(9, (u = "")), i(8, (p = !1))))
+          : (i(
+              9,
+              (u = window.tr(
+                window.lang.trade.form.fields.errors.volume.required,
+              )),
+            ),
+            i(8, (p = !0)))),
+        1024 & e.$$.dirty &&
+          i(5, (n = Math.max(se(s.lotsStep), se(s.lotsMin)))),
+        1121 & e.$$.dirty &&
+          (i(6, (l = W(r * s.contractSize, n))),
+          s.isForex
+            ? i(6, (l = `${l} ${s.currencyBase}`))
+            : i(6, (l = `${l} ${s.symbol}`))));
+    }),
+    [
+      r,
+      a,
+      d,
+      o,
+      c,
+      n,
+      l,
+      m,
+      p,
+      u,
+      s,
+      $,
+      function (e) {
+        ((r = e), i(0, r));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+    ]
+  );
+}
+class yt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, bt, gt, i, {
+        disabled: 3,
+        symbol: 10,
+        value: 0,
+        min: 1,
+        max: 2,
+        initialValue: 4,
+        tooltipErr: 9,
+      }));
+  }
+}
+function wt(e, t, i) {
+  const n = e.slice();
+  return ((n[28] = t[i]), n);
+}
+function St(e) {
+  let t, i, n, r, v, b;
+  function y(t) {
+    e[27](t);
+  }
+  let w = { type: "large", $$slots: { default: [xt] }, $$scope: { ctx: e } };
+  return (
+    void 0 !== e[4] && (w.value = e[4]),
+    (r = new re({ props: w })),
+    d.push(() => c(r, "value", y)),
+    {
+      c() {
+        ((t = B("div")),
+          (i = B("div")),
+          (i.textContent = `${window.tr(window.lang.trade.form.fields.closeBy)}`),
+          (n = C()),
+          g(r.$$.fragment),
+          a(i, "class", "label svelte-101s49e"),
+          a(t, "class", "close-by svelte-101s49e"));
+      },
+      m(e, l) {
+        (o(e, t, l), s(t, i), s(t, n), f(r, t, null), (b = !0));
+      },
+      p(e, t) {
+        const i = {};
+        ((16384 & t[0]) | (1 & t[1]) && (i.$$scope = { dirty: t, ctx: e }),
+          !v && 16 & t[0] && ((v = !0), (i.value = e[4]), $(() => (v = !1))),
+          r.$set(i));
+      },
+      i(e) {
+        b || (m(r.$$.fragment, e), (b = !0));
+      },
+      o(e) {
+        (p(r.$$.fragment, e), (b = !1));
+      },
+      d(e) {
+        (e && l(t), u(r));
+      },
+    }
+  );
+}
+function ht(e) {
+  let t,
+    i,
+    n,
+    r = e[28].value.info + "";
+  return {
+    c() {
+      ((t = B("option")),
+        (i = _(r)),
+        (t.__value = n = e[28].value.id),
+        I(t, t.__value));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, l) {
+      (16384 & l[0] && r !== (r = e[28].value.info + "") && M(i, r),
+        16384 & l[0] &&
+          n !== (n = e[28].value.id) &&
+          ((t.__value = n), I(t, t.__value)));
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function xt(e) {
+  let t,
+    i,
+    n,
+    s = L(e[14]),
+    r = [];
+  for (let l = 0; l < s.length; l += 1) r[l] = ht(wt(e, s, l));
+  return {
+    c() {
+      ((t = B("option")), (i = C()));
+      for (let e = 0; e < r.length; e += 1) r[e].c();
+      ((n = O()), (t.__value = null), I(t, t.__value));
+    },
+    m(e, l) {
+      (o(e, t, l), o(e, i, l));
+      for (let t = 0; t < r.length; t += 1) r[t] && r[t].m(e, l);
+      o(e, n, l);
+    },
+    p(e, t) {
+      if (16384 & t[0]) {
+        let i;
+        for (s = L(e[14]), i = 0; i < s.length; i += 1) {
+          const l = wt(e, s, i);
+          r[i]
+            ? r[i].p(l, t)
+            : ((r[i] = ht(l)), r[i].c(), r[i].m(n.parentNode, n));
+        }
+        for (; i < r.length; i += 1) r[i].d(1);
+        r.length = s.length;
+      }
+    },
+    d(e) {
+      (e && (l(t), l(i), l(n)), D(r, e));
+    },
+  };
+}
+function kt(e) {
+  let t, i, n, r, v, b, y, w, S, h, x, k, V, E, M, _, z, q, L;
+  function D(t) {
+    e[19](t);
+  }
+  let I = {
+    disabled:
+      e[11] ||
+      e[12].sl !== Number(e[1]) ||
+      e[12].tp !== Number(e[2]) ||
+      e[5] !== e[12].comment ||
+      e[12].volumeValue < e[10].lotsMin,
+    symbol: e[10],
+    min: e[12].volumeValue,
+    max: e[12].volumeValue,
+    initialValue: e[18],
+  };
+  function U(t) {
+    e[22](t);
+  }
+  (void 0 !== e[3] && (I.value = e[3]),
+    (n = new yt({ props: I })),
+    d.push(() => c(n, "value", D)),
+    n.$on("input", e[20]),
+    n.$on("step", e[21]));
+  let j = {
+    disabled: !0,
+    label: window.tr(window.lang.trade.form.fields.price),
+    digits: e[10].digits ?? 0,
+    tickSize: e[10].tickSize,
+  };
+  function N(t) {
+    e[24](t);
+  }
+  (void 0 !== e[0] && (j.value = e[0]),
+    (y = new mt({ props: j })),
+    d.push(() => c(y, "value", U)));
+  let F = {
+    nullable: !0,
+    disabled:
+      e[11] ||
+      !e[10].isOrderSlAllowed ||
+      e[12].volumeValue !== e[3] ||
+      e[5] !== e[12].comment,
+    label: window.tr(window.lang.trade.form.fields.stopLoss),
+    initialValue: e[23],
+    digits: e[10].digits ?? 0,
+    tickSize: e[10].tickSize,
+    orange: !0,
+    clear: null !== e[1],
+  };
+  function A(t) {
+    e[26](t);
+  }
+  (void 0 !== e[1] && (F.value = e[1]),
+    (x = new mt({ props: F })),
+    d.push(() => c(x, "value", N)));
+  let R = {
+    nullable: !0,
+    disabled: e[11] || !e[10].isOrderTpAllowed || e[12].volumeValue !== e[3],
+    label: window.tr(window.lang.trade.form.fields.takeProfit),
+    initialValue: e[25],
+    digits: e[10].digits ?? 0,
+    tickSize: e[10].tickSize,
+    green: !0,
+    clear: null !== e[2],
+  };
+  (void 0 !== e[2] && (R.value = e[2]),
+    (M = new mt({ props: R })),
+    d.push(() => c(M, "value", A)));
+  let H = e[15] && St(e);
+  return {
+    c() {
+      ((t = B("div")),
+        (i = B("div")),
+        g(n.$$.fragment),
+        (v = C()),
+        (b = B("div")),
+        g(y.$$.fragment),
+        (S = C()),
+        (h = B("div")),
+        g(x.$$.fragment),
+        (V = C()),
+        (E = B("div")),
+        g(M.$$.fragment),
+        (z = C()),
+        H && H.c(),
+        (q = O()),
+        a(i, "class", "volume svelte-101s49e"),
+        a(b, "class", "price svelte-101s49e"),
+        a(h, "class", "sl svelte-101s49e"),
+        a(E, "class", "tp svelte-101s49e"),
+        a(t, "class", "limit svelte-101s49e"));
+    },
+    m(e, l) {
+      (o(e, t, l),
+        s(t, i),
+        f(n, i, null),
+        s(t, v),
+        s(t, b),
+        f(y, b, null),
+        s(t, S),
+        s(t, h),
+        f(x, h, null),
+        s(t, V),
+        s(t, E),
+        f(M, E, null),
+        o(e, z, l),
+        H && H.m(e, l),
+        o(e, q, l),
+        (L = !0));
+    },
+    p(e, t) {
+      const i = {};
+      (7206 & t[0] &&
+        (i.disabled =
+          e[11] ||
+          e[12].sl !== Number(e[1]) ||
+          e[12].tp !== Number(e[2]) ||
+          e[5] !== e[12].comment ||
+          e[12].volumeValue < e[10].lotsMin),
+        1024 & t[0] && (i.symbol = e[10]),
+        4096 & t[0] && (i.min = e[12].volumeValue),
+        4096 & t[0] && (i.max = e[12].volumeValue),
+        4096 & t[0] && (i.initialValue = e[18]),
+        !r && 8 & t[0] && ((r = !0), (i.value = e[3]), $(() => (r = !1))),
+        n.$set(i));
+      const l = {};
+      (1024 & t[0] && (l.digits = e[10].digits ?? 0),
+        1024 & t[0] && (l.tickSize = e[10].tickSize),
+        !w && 1 & t[0] && ((w = !0), (l.value = e[0]), $(() => (w = !1))),
+        y.$set(l));
+      const o = {};
+      (7208 & t[0] &&
+        (o.disabled =
+          e[11] ||
+          !e[10].isOrderSlAllowed ||
+          e[12].volumeValue !== e[3] ||
+          e[5] !== e[12].comment),
+        9152 & t[0] && (o.initialValue = e[23]),
+        1024 & t[0] && (o.digits = e[10].digits ?? 0),
+        1024 & t[0] && (o.tickSize = e[10].tickSize),
+        2 & t[0] && (o.clear = null !== e[1]),
+        !k && 2 & t[0] && ((k = !0), (o.value = e[1]), $(() => (k = !1))),
+        x.$set(o));
+      const s = {};
+      (7176 & t[0] &&
+        (s.disabled =
+          e[11] || !e[10].isOrderTpAllowed || e[12].volumeValue !== e[3]),
+        9152 & t[0] && (s.initialValue = e[25]),
+        1024 & t[0] && (s.digits = e[10].digits ?? 0),
+        1024 & t[0] && (s.tickSize = e[10].tickSize),
+        4 & t[0] && (s.clear = null !== e[2]),
+        !_ && 4 & t[0] && ((_ = !0), (s.value = e[2]), $(() => (_ = !1))),
+        M.$set(s),
+        e[15]
+          ? H
+            ? (H.p(e, t), 32768 & t[0] && m(H, 1))
+            : ((H = St(e)), H.c(), m(H, 1), H.m(q.parentNode, q))
+          : H &&
+            (P(),
+            p(H, 1, 1, () => {
+              H = null;
+            }),
+            T()));
+    },
+    i(e) {
+      L ||
+        (m(n.$$.fragment, e),
+        m(y.$$.fragment, e),
+        m(x.$$.fragment, e),
+        m(M.$$.fragment, e),
+        m(H),
+        (L = !0));
+    },
+    o(e) {
+      (p(n.$$.fragment, e),
+        p(y.$$.fragment, e),
+        p(x.$$.fragment, e),
+        p(M.$$.fragment, e),
+        p(H),
+        (L = !1));
+    },
+    d(e) {
+      (e && (l(t), l(z), l(q)), u(n), u(y), u(x), u(M), H && H.d(e));
+    },
+  };
+}
+function Bt(e, t, i) {
+  let { accountStore: n } = t,
+    { positionsStore: l } = t,
+    { price: o } = t,
+    { sl: s } = t,
+    { tp: r } = t,
+    { volume: a } = t,
+    { comment: d } = t,
+    { section: c } = t,
+    { isBuy: u } = t,
+    { isSell: p } = t,
+    { marketPrice: m } = t,
+    { symbol: $ } = t,
+    { disabled: f = !1 } = t,
+    { closeByPositionId: g = null } = t,
+    { position: v } = t,
+    { utils: b } = t,
+    y = [],
+    w = !1;
+  return (
+    (e.$$set = (e) => {
+      ("accountStore" in e && i(16, (n = e.accountStore)),
+        "positionsStore" in e && i(17, (l = e.positionsStore)),
+        "price" in e && i(0, (o = e.price)),
+        "sl" in e && i(1, (s = e.sl)),
+        "tp" in e && i(2, (r = e.tp)),
+        "volume" in e && i(3, (a = e.volume)),
+        "comment" in e && i(5, (d = e.comment)),
+        "section" in e && i(6, (c = e.section)),
+        "isBuy" in e && i(7, (u = e.isBuy)),
+        "isSell" in e && i(8, (p = e.isSell)),
+        "marketPrice" in e && i(9, (m = e.marketPrice)),
+        "symbol" in e && i(10, ($ = e.symbol)),
+        "disabled" in e && i(11, (f = e.disabled)),
+        "closeByPositionId" in e && i(4, (g = e.closeByPositionId)),
+        "position" in e && i(12, (v = e.position)),
+        "utils" in e && i(13, (b = e.utils)));
+    }),
+    (e.$$.update = () => {
+      (132480 & e.$$.dirty[0] &&
+        i(
+          14,
+          (y = l
+            .getPositionsBySymbol(null == $ ? void 0 : $.symbol)
+            .filter(({ value: e }) => (u ? e.isSell : !!p && e.isBuy))),
+        ),
+        82944 & e.$$.dirty[0] &&
+          i(
+            15,
+            (w = Boolean(
+              n.isHedgedMargin && $.isCloseByOrderEnabled && y.length,
+            )),
+          ));
+    }),
+    [
+      o,
+      s,
+      r,
+      a,
+      g,
+      d,
+      c,
+      u,
+      p,
+      m,
+      $,
+      f,
+      v,
+      b,
+      y,
+      w,
+      n,
+      l,
+      () => v.volumeValue,
+      function (e) {
+        ((a = e), i(3, a));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (e) {
+        ((o = e), i(0, o));
+      },
+      () => b.calcPositionSL(c, u, p, m),
+      function (e) {
+        ((s = e), i(1, s));
+      },
+      () => b.calcPositionTP(c, u, p, m),
+      function (e) {
+        ((r = e), i(2, r));
+      },
+      function (e) {
+        ((g = e), i(4, g));
+      },
+    ]
+  );
+}
+class Vt extends e {
+  constructor(e) {
+    (super(),
+      t(
+        this,
+        e,
+        Bt,
+        kt,
+        i,
+        {
+          accountStore: 16,
+          positionsStore: 17,
+          price: 0,
+          sl: 1,
+          tp: 2,
+          volume: 3,
+          comment: 5,
+          section: 6,
+          isBuy: 7,
+          isSell: 8,
+          marketPrice: 9,
+          symbol: 10,
+          disabled: 11,
+          closeByPositionId: 4,
+          position: 12,
+          utils: 13,
+        },
+        null,
+        [-1, -1],
+      ));
+  }
+}
+const Pt = (e) => ({}),
+  Tt = (e) => ({});
+function Ct(e) {
+  let t, i, n, l;
+  function o(t) {
+    e[9](t);
+  }
+  function s(t) {
+    e[10](t);
+  }
+  let r = { target: e[6], $$slots: { default: [Et] }, $$scope: { ctx: e } };
+  return (
+    void 0 !== e[0] && (r.position = e[0]),
+    void 0 !== e[1] && (r.align = e[1]),
+    (t = new ne({ props: r })),
+    d.push(() => c(t, "position", o)),
+    d.push(() => c(t, "align", s)),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (l = !0));
+      },
+      p(e, l) {
+        const o = {};
+        (64 & l && (o.target = e[6]),
+          2168 & l && (o.$$scope = { dirty: l, ctx: e }),
+          !i && 1 & l && ((i = !0), (o.position = e[0]), $(() => (i = !1))),
+          !n && 2 & l && ((n = !0), (o.align = e[1]), $(() => (n = !1))),
+          t.$set(o));
+      },
+      i(e) {
+        l || (m(t.$$.fragment, e), (l = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (l = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Et(e) {
+  let t,
+    i,
+    n = `${e[4]}px ${e[5]}px`,
+    r = `${Math.max(e[6].offsetWidth, 150)}px`;
+  return {
+    c() {
+      ((t = B("div")),
+        (i = _(e[3])),
+        a(t, "class", "tooltip svelte-155jeg4"),
+        q(t, "margin", n),
+        q(t, "max-width", r));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, l) {
+      (8 & l && M(i, e[3]),
+        48 & l && n !== (n = `${e[4]}px ${e[5]}px`) && q(t, "margin", n),
+        64 & l &&
+          r !== (r = `${Math.max(e[6].offsetWidth, 150)}px`) &&
+          q(t, "max-width", r));
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Mt(e) {
+  let t,
+    i,
+    n = e[2] && e[3] && Ct(e);
+  return {
+    c() {
+      (n && n.c(), (t = O()));
+    },
+    m(e, l) {
+      (n && n.m(e, l), o(e, t, l), (i = !0));
+    },
+    p(e, i) {
+      e[2] && e[3]
+        ? n
+          ? (n.p(e, i), 12 & i && m(n, 1))
+          : ((n = Ct(e)), n.c(), m(n, 1), n.m(t.parentNode, t))
+        : n &&
+          (P(),
+          p(n, 1, 1, () => {
+            n = null;
+          }),
+          T());
+    },
+    i(e) {
+      i || (m(n), (i = !0));
+    },
+    o(e) {
+      (p(n), (i = !1));
+    },
+    d(e) {
+      (e && l(t), n && n.d(e));
+    },
+  };
+}
+function _t(e) {
+  let t,
+    s,
+    r,
+    d,
+    c = e[3];
+  const u = e[7].target,
+    $ = v(u, e, e[11], Tt);
+  let f = Mt(e);
+  return {
+    c() {
+      ((t = B("div")),
+        $ && $.c(),
+        (s = C()),
+        f.c(),
+        (r = O()),
+        a(t, "class", "target"),
+        h(t, "visible", e[2]));
+    },
+    m(i, n) {
+      (o(i, t, n),
+        $ && $.m(t, null),
+        e[8](t),
+        o(i, s, n),
+        f.m(i, n),
+        o(i, r, n),
+        (d = !0));
+    },
+    p(e, [l]) {
+      ($ &&
+        $.p &&
+        (!d || 2048 & l) &&
+        y($, u, e, e[11], d ? S(u, e[11], l, Pt) : w(e[11]), Tt),
+        (!d || 4 & l) && h(t, "visible", e[2]),
+        8 & l && i(c, (c = e[3]))
+          ? (P(),
+            p(f, 1, 1, n),
+            T(),
+            (f = Mt(e)),
+            f.c(),
+            m(f, 1),
+            f.m(r.parentNode, r))
+          : f.p(e, l));
+    },
+    i(e) {
+      d || (m($, e), m(f), (d = !0));
+    },
+    o(e) {
+      (p($, e), p(f), (d = !1));
+    },
+    d(i) {
+      (i && (l(t), l(s), l(r)), $ && $.d(i), e[8](null), f.d(i));
+    },
+  };
+}
+function zt(e, t, i) {
+  let n,
+    { $$slots: l = {}, $$scope: o } = t,
+    { visible: s = !1 } = t,
+    { position: r = 1 } = t,
+    { align: a = 2 } = t,
+    { text: c = "" } = t,
+    { offsetVertical: u = 0 } = t,
+    { offsetHorizontal: p = 0 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("visible" in e && i(2, (s = e.visible)),
+        "position" in e && i(0, (r = e.position)),
+        "align" in e && i(1, (a = e.align)),
+        "text" in e && i(3, (c = e.text)),
+        "offsetVertical" in e && i(4, (u = e.offsetVertical)),
+        "offsetHorizontal" in e && i(5, (p = e.offsetHorizontal)),
+        "$$scope" in e && i(11, (o = e.$$scope)));
+    }),
+    [
+      r,
+      a,
+      s,
+      c,
+      u,
+      p,
+      n,
+      l,
+      function (e) {
+        d[e ? "unshift" : "push"](() => {
+          ((n = e), i(6, n));
+        });
+      },
+      function (e) {
+        ((r = e), i(0, r));
+      },
+      function (e) {
+        ((a = e), i(1, a));
+      },
+      o,
+    ]
+  );
+}
+class qt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, zt, _t, i, {
+        visible: 2,
+        position: 0,
+        align: 1,
+        text: 3,
+        offsetVertical: 4,
+        offsetHorizontal: 5,
+      }));
+  }
+}
+function Ot(e, t, i) {
+  const n = e.slice();
+  return ((n[5] = t[i]), n);
+}
+function Lt(e) {
+  let t,
+    i,
+    n,
+    r = e[5].name + "";
+  return {
+    c() {
+      ((t = B("option")),
+        (i = _(r)),
+        (t.__value = n = e[5].id),
+        I(t, t.__value));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, l) {
+      (10 & l && r !== (r = e[5].name + "") && M(i, r),
+        10 & l && n !== (n = e[5].id) && ((t.__value = n), I(t, t.__value)));
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Dt(e) {
+  let t,
+    i = L(Ut(e[1], e[3])),
+    n = [];
+  for (let l = 0; l < i.length; l += 1) n[l] = Lt(Ot(e, i, l));
+  return {
+    c() {
+      for (let e = 0; e < n.length; e += 1) n[e].c();
+      t = O();
+    },
+    m(e, i) {
+      for (let t = 0; t < n.length; t += 1) n[t] && n[t].m(e, i);
+      o(e, t, i);
+    },
+    p(e, l) {
+      if (10 & l) {
+        let o;
+        for (i = L(Ut(e[1], e[3])), o = 0; o < i.length; o += 1) {
+          const s = Ot(e, i, o);
+          n[o]
+            ? n[o].p(s, l)
+            : ((n[o] = Lt(s)), n[o].c(), n[o].m(t.parentNode, t));
+        }
+        for (; o < n.length; o += 1) n[o].d(1);
+        n.length = i.length;
+      }
+    },
+    d(e) {
+      (e && l(t), D(n, e));
+    },
+  };
+}
+function It(e) {
+  let t, i, n, r, v, b;
+  function y(t) {
+    e[4](t);
+  }
+  let w = {
+    type: "large",
+    disabled: e[2],
+    $$slots: { default: [Dt] },
+    $$scope: { ctx: e },
+  };
+  return (
+    void 0 !== e[0] && (w.value = e[0]),
+    (r = new re({ props: w })),
+    d.push(() => c(r, "value", y)),
+    {
+      c() {
+        ((t = B("div")),
+          (i = B("div")),
+          (i.textContent = `${window.tr(window.lang.trade.form.execution.label)}`),
+          (n = C()),
+          g(r.$$.fragment),
+          a(i, "class", "label svelte-1sekjrn"),
+          a(t, "class", "execution"));
+      },
+      m(e, l) {
+        (o(e, t, l), s(t, i), s(t, n), f(r, t, null), (b = !0));
+      },
+      p(e, [t]) {
+        const i = {};
+        (4 & t && (i.disabled = e[2]),
+          266 & t && (i.$$scope = { dirty: t, ctx: e }),
+          !v && 1 & t && ((v = !0), (i.value = e[0]), $(() => (v = !1))),
+          r.$set(i));
+      },
+      i(e) {
+        b || (m(r.$$.fragment, e), (b = !0));
+      },
+      o(e) {
+        (p(r.$$.fragment, e), (b = !1));
+      },
+      d(e) {
+        (e && l(t), u(r));
+      },
+    }
+  );
+}
+function Ut(e, t) {
+  const i = [
+    { id: 2, name: window.tr(window.lang.trade.form.execution.return) },
+  ];
+  return (
+    e.isFillingFOK &&
+      i.push({
+        id: 0,
+        name: window.tr(window.lang.trade.form.execution.fillOrKill),
+      }),
+    e.isFillingIOC &&
+      i.push({
+        id: 1,
+        name: window.tr(window.lang.trade.form.execution.immediateOrCancel),
+      }),
+    t &&
+      e.isFillingBOC &&
+      i.push({
+        id: 3,
+        name: window.tr(window.lang.trade.form.execution.bookOrCancel),
+      }),
+    i
+  );
+}
+function jt(e, t, i) {
+  let { config: n } = t,
+    { value: l } = t,
+    { disabled: o = !1 } = t,
+    { pending: s = !1 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("config" in e && i(1, (n = e.config)),
+        "value" in e && i(0, (l = e.value)),
+        "disabled" in e && i(2, (o = e.disabled)),
+        "pending" in e && i(3, (s = e.pending)));
+    }),
+    [
+      l,
+      n,
+      o,
+      s,
+      function (e) {
+        ((l = e), i(0, l));
+      },
+    ]
+  );
+}
+class Nt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, jt, It, i, { config: 1, value: 0, disabled: 2, pending: 3 }));
+  }
+}
+function Ft(e) {
+  let t, i, n, l;
+  function o(t) {
+    e[12](t);
+  }
+  function s(t) {
+    e[13](t);
+  }
+  let r = { disabled: e[8], symbol: e[7] };
+  return (
+    void 0 !== e[11] && (r.tooltipErr = e[11]),
+    void 0 !== e[2] && (r.value = e[2]),
+    (t = new yt({ props: r })),
+    d.push(() => c(t, "tooltipErr", o)),
+    d.push(() => c(t, "value", s)),
+    t.$on("input", e[14]),
+    t.$on("step", e[15]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (l = !0));
+      },
+      p(e, l) {
+        const o = {};
+        (256 & l && (o.disabled = e[8]),
+          128 & l && (o.symbol = e[7]),
+          !i &&
+            2048 & l &&
+            ((i = !0), (o.tooltipErr = e[11]), $(() => (i = !1))),
+          !n && 4 & l && ((n = !0), (o.value = e[2]), $(() => (n = !1))),
+          t.$set(o));
+      },
+      i(e) {
+        l || (m(t.$$.fragment, e), (l = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (l = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function At(e) {
+  let t, i, n, s;
+  function r(t) {
+    e[20](t);
+  }
+  let v = { config: e[7] };
+  return (
+    void 0 !== e[3] && (v.value = e[3]),
+    (i = new Nt({ props: v })),
+    d.push(() => c(i, "value", r)),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "filling svelte-h613k0"));
+      },
+      m(e, n) {
+        (o(e, t, n), f(i, t, null), (s = !0));
+      },
+      p(e, t) {
+        const l = {};
+        (128 & t && (l.config = e[7]),
+          !n && 8 & t && ((n = !0), (l.value = e[3]), $(() => (n = !1))),
+          i.$set(l));
+      },
+      i(e) {
+        s || (m(i.$$.fragment, e), (s = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (s = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function Rt(e) {
+  let t, i, n, r, v, b, y, w, S, x, k, V, E;
+  function M(t) {
+    e[17](t);
+  }
+  n = new qt({
+    props: {
+      visible: !!e[11],
+      text: e[11],
+      position: 3,
+      offsetVertical: 5,
+      $$slots: { target: [Ft] },
+      $$scope: { ctx: e },
+    },
+  });
+  let _ = {
+    nullable: !0,
+    disabled: e[8] || !e[7].isOrderSlAllowed,
+    label: window.tr(window.lang.trade.form.fields.stopLoss),
+    orange: !0,
+    initialValue: e[16],
+    digits: e[7].digits,
+    tickSize: e[7].tickSize,
+    clear: null !== e[0],
+  };
+  function z(t) {
+    e[19](t);
+  }
+  (void 0 !== e[0] && (_.value = e[0]),
+    (b = new mt({ props: _ })),
+    d.push(() => c(b, "value", M)));
+  let q = {
+    nullable: !0,
+    disabled: e[8] || !e[7].isOrderTpAllowed,
+    label: window.tr(window.lang.trade.form.fields.takeProfit),
+    initialValue: e[18],
+    digits: e[7].digits,
+    tickSize: e[7].tickSize,
+    green: !0,
+    clear: null !== e[1],
+  };
+  (void 0 !== e[1] && (q.value = e[1]),
+    (x = new mt({ props: q })),
+    d.push(() => c(x, "value", z)));
+  let O = e[7].isExchangeExecution && At(e);
+  return {
+    c() {
+      ((t = B("div")),
+        (i = B("div")),
+        g(n.$$.fragment),
+        (r = C()),
+        (v = B("div")),
+        g(b.$$.fragment),
+        (w = C()),
+        (S = B("div")),
+        g(x.$$.fragment),
+        (V = C()),
+        O && O.c(),
+        a(i, "class", "volume svelte-h613k0"),
+        a(v, "class", "sl svelte-h613k0"),
+        a(S, "class", "tp svelte-h613k0"),
+        a(t, "class", "market svelte-h613k0"),
+        h(t, "filling", e[7].isExchangeExecution));
+    },
+    m(e, l) {
+      (o(e, t, l),
+        s(t, i),
+        f(n, i, null),
+        s(t, r),
+        s(t, v),
+        f(b, v, null),
+        s(t, w),
+        s(t, S),
+        f(x, S, null),
+        s(t, V),
+        O && O.m(t, null),
+        (E = !0));
+    },
+    p(e, [i]) {
+      const l = {};
+      (2048 & i && (l.visible = !!e[11]),
+        2048 & i && (l.text = e[11]),
+        2099588 & i && (l.$$scope = { dirty: i, ctx: e }),
+        n.$set(l));
+      const o = {};
+      (384 & i && (o.disabled = e[8] || !e[7].isOrderSlAllowed),
+        1648 & i && (o.initialValue = e[16]),
+        128 & i && (o.digits = e[7].digits),
+        128 & i && (o.tickSize = e[7].tickSize),
+        1 & i && (o.clear = null !== e[0]),
+        !y && 1 & i && ((y = !0), (o.value = e[0]), $(() => (y = !1))),
+        b.$set(o));
+      const s = {};
+      (384 & i && (s.disabled = e[8] || !e[7].isOrderTpAllowed),
+        1648 & i && (s.initialValue = e[18]),
+        128 & i && (s.digits = e[7].digits),
+        128 & i && (s.tickSize = e[7].tickSize),
+        2 & i && (s.clear = null !== e[1]),
+        !k && 2 & i && ((k = !0), (s.value = e[1]), $(() => (k = !1))),
+        x.$set(s),
+        e[7].isExchangeExecution
+          ? O
+            ? (O.p(e, i), 128 & i && m(O, 1))
+            : ((O = At(e)), O.c(), m(O, 1), O.m(t, null))
+          : O &&
+            (P(),
+            p(O, 1, 1, () => {
+              O = null;
+            }),
+            T()),
+        (!E || 128 & i) && h(t, "filling", e[7].isExchangeExecution));
+    },
+    i(e) {
+      E ||
+        (m(n.$$.fragment, e),
+        m(b.$$.fragment, e),
+        m(x.$$.fragment, e),
+        m(O),
+        (E = !0));
+    },
+    o(e) {
+      (p(n.$$.fragment, e),
+        p(b.$$.fragment, e),
+        p(x.$$.fragment, e),
+        p(O),
+        (E = !1));
+    },
+    d(e) {
+      (e && l(t), u(n), u(b), u(x), O && O.d());
+    },
+  };
+}
+function Ht(e, t, i) {
+  let { sl: n } = t,
+    { tp: l } = t,
+    { volume: o } = t,
+    { section: s } = t,
+    { type: r } = t,
+    { marketPrice: a } = t,
+    { symbol: d } = t,
+    { disabled: c = !1 } = t,
+    { fillingType: u } = t,
+    { orderUtils: p } = t,
+    { utils: m } = t,
+    $ = "";
+  return (
+    (e.$$set = (e) => {
+      ("sl" in e && i(0, (n = e.sl)),
+        "tp" in e && i(1, (l = e.tp)),
+        "volume" in e && i(2, (o = e.volume)),
+        "section" in e && i(4, (s = e.section)),
+        "type" in e && i(5, (r = e.type)),
+        "marketPrice" in e && i(6, (a = e.marketPrice)),
+        "symbol" in e && i(7, (d = e.symbol)),
+        "disabled" in e && i(8, (c = e.disabled)),
+        "fillingType" in e && i(3, (u = e.fillingType)),
+        "orderUtils" in e && i(9, (p = e.orderUtils)),
+        "utils" in e && i(10, (m = e.utils)));
+    }),
+    [
+      n,
+      l,
+      o,
+      u,
+      s,
+      r,
+      a,
+      d,
+      c,
+      p,
+      m,
+      $,
+      function (e) {
+        (($ = e), i(11, $));
+      },
+      function (e) {
+        ((o = e), i(2, o));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      () => m.calcMarketSL(p, s, r, a),
+      function (e) {
+        ((n = e), i(0, n));
+      },
+      () => m.calcMarketTP(p, s, r, a),
+      function (e) {
+        ((l = e), i(1, l));
+      },
+      function (e) {
+        ((u = e), i(3, u));
+      },
+    ]
+  );
+}
+class Yt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, Ht, Rt, i, {
+        sl: 0,
+        tp: 1,
+        volume: 2,
+        section: 4,
+        type: 5,
+        marketPrice: 6,
+        symbol: 7,
+        disabled: 8,
+        fillingType: 3,
+        orderUtils: 9,
+        utils: 10,
+      }));
+  }
+}
+function Gt(e) {
+  let t, i, n;
+  function l(t) {
+    e[17](t);
+  }
+  let o = {
+    disabled: e[8],
+    type: e[2],
+    large: !0,
+    placeholder: e[3],
+    min: e[6],
+    max: e[7],
+  };
+  return (
+    void 0 !== e[0] && (o.value = e[0]),
+    (t = new ae({ props: o })),
+    e[16](t),
+    d.push(() => c(t, "value", l)),
+    t.$on("input", e[18]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (n = !0));
+      },
+      p(e, n) {
+        const l = {};
+        (256 & n && (l.disabled = e[8]),
+          4 & n && (l.type = e[2]),
+          8 & n && (l.placeholder = e[3]),
+          64 & n && (l.min = e[6]),
+          128 & n && (l.max = e[7]),
+          !i && 1 & n && ((i = !0), (l.value = e[0]), $(() => (i = !1))),
+          t.$set(l));
+      },
+      i(e) {
+        n || (m(t.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (n = !1));
+      },
+      d(i) {
+        (e[16](null), u(t, i));
+      },
+    }
+  );
+}
+function Zt(e) {
+  let t, i, n;
+  function l(t) {
+    e[14](t);
+  }
+  let o = {
+    disabled: e[8],
+    type: e[2],
+    step: e[5],
+    min: e[6],
+    max: e[7],
+    large: !0,
+    placeholder: e[3],
+    style: "text-align: center; " + (e[4] && `color: ${e[4]}`),
+    $$slots: { right: [Jt], left: [Wt] },
+    $$scope: { ctx: e },
+  };
+  return (
+    void 0 !== e[0] && (o.value = e[0]),
+    (t = new ae({ props: o })),
+    e[13](t),
+    d.push(() => c(t, "value", l)),
+    t.$on("input", e[15]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (n = !0));
+      },
+      p(e, n) {
+        const l = {};
+        (256 & n && (l.disabled = e[8]),
+          4 & n && (l.type = e[2]),
+          32 & n && (l.step = e[5]),
+          64 & n && (l.min = e[6]),
+          128 & n && (l.max = e[7]),
+          8 & n && (l.placeholder = e[3]),
+          16 & n &&
+            (l.style = "text-align: center; " + (e[4] && `color: ${e[4]}`)),
+          526081 & n && (l.$$scope = { dirty: n, ctx: e }),
+          !i && 1 & n && ((i = !0), (l.value = e[0]), $(() => (i = !1))),
+          t.$set(l));
+      },
+      i(e) {
+        n || (m(t.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (n = !1));
+      },
+      d(i) {
+        (e[13](null), u(t, i));
+      },
+    }
+  );
+}
+function Wt(e) {
+  let t, i, n, s, r;
+  return (
+    (i = new oe({ props: { name: te } })),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "slot", "left"),
+          a(t, "class", "button svelte-1964yx3"),
+          a(t, "title", "Decrease"),
+          h(t, "disabled", e[8]));
+      },
+      m(l, a) {
+        (o(l, t, a),
+          f(i, t, null),
+          (n = !0),
+          s || ((r = x(t, "mousedown", e[12])), (s = !0)));
+      },
+      p(e, i) {
+        (!n || 256 & i) && h(t, "disabled", e[8]);
+      },
+      i(e) {
+        n || (m(i.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        (e && l(t), u(i), (s = !1), r());
+      },
+    }
+  );
+}
+function Jt(e) {
+  let t, i, n, s, r;
+  return (
+    (i = new oe({ props: { name: ie } })),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "slot", "right"),
+          a(t, "class", "button svelte-1964yx3"),
+          a(t, "title", "Increase"),
+          h(t, "disabled", e[8]));
+      },
+      m(l, a) {
+        (o(l, t, a),
+          f(i, t, null),
+          (n = !0),
+          s || ((r = x(t, "mousedown", e[11])), (s = !0)));
+      },
+      p(e, i) {
+        (!n || 256 & i) && h(t, "disabled", e[8]);
+      },
+      i(e) {
+        n || (m(i.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        (e && l(t), u(i), (s = !1), r());
+      },
+    }
+  );
+}
+function Kt(e) {
+  let t, i, n, r, d, c, u, $;
+  const f = [Zt, Gt],
+    g = [];
+  function v(e, t) {
+    return "number" === e[2] ? 0 : 1;
+  }
+  return (
+    (c = v(e)),
+    (u = g[c] = f[c](e)),
+    {
+      c() {
+        ((t = B("div")),
+          (i = B("div")),
+          (n = _(e[1])),
+          (r = C()),
+          (d = B("div")),
+          u.c(),
+          a(i, "class", "label svelte-1964yx3"),
+          a(d, "class", "value svelte-1964yx3"));
+      },
+      m(e, l) {
+        (o(e, t, l),
+          s(t, i),
+          s(i, n),
+          s(t, r),
+          s(t, d),
+          g[c].m(d, null),
+          ($ = !0));
+      },
+      p(e, [t]) {
+        (!$ || 2 & t) && M(n, e[1]);
+        let i = c;
+        ((c = v(e)),
+          c === i
+            ? g[c].p(e, t)
+            : (P(),
+              p(g[i], 1, 1, () => {
+                g[i] = null;
+              }),
+              T(),
+              (u = g[c]),
+              u ? u.p(e, t) : ((u = g[c] = f[c](e)), u.c()),
+              m(u, 1),
+              u.m(d, null)));
+      },
+      i(e) {
+        $ || (m(u), ($ = !0));
+      },
+      o(e) {
+        (p(u), ($ = !1));
+      },
+      d(e) {
+        (e && l(t), g[c].d());
+      },
+    }
+  );
+}
+function Qt(e, t, i) {
+  let n,
+    { label: l } = t,
+    { type: o = "number" } = t,
+    { value: s = "number" === o ? null : "" } = t,
+    { placeholder: r = "" } = t,
+    { color: a = "" } = t,
+    { step: c } = t,
+    { min: u } = t,
+    { max: p } = t,
+    { disabled: m = !1 } = t,
+    { calcValue: $ = () => 0 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("label" in e && i(1, (l = e.label)),
+        "type" in e && i(2, (o = e.type)),
+        "value" in e && i(0, (s = e.value)),
+        "placeholder" in e && i(3, (r = e.placeholder)),
+        "color" in e && i(4, (a = e.color)),
+        "step" in e && i(5, (c = e.step)),
+        "min" in e && i(6, (u = e.min)),
+        "max" in e && i(7, (p = e.max)),
+        "disabled" in e && i(8, (m = e.disabled)),
+        "calcValue" in e && i(9, ($ = e.calcValue)));
+    }),
+    [
+      s,
+      l,
+      o,
+      r,
+      a,
+      c,
+      u,
+      p,
+      m,
+      $,
+      n,
+      () => {
+        m ||
+          ("" === s || isNaN(Number(s)) || null === s
+            ? i(0, (s = $()))
+            : (null == n ? void 0 : n.stepUp) && n.stepUp());
+      },
+      () => {
+        m ||
+          ("" === s || isNaN(Number(s)) || null === s
+            ? i(0, (s = $()))
+            : (null == n ? void 0 : n.stepDown) && n.stepDown());
+      },
+      function (e) {
+        d[e ? "unshift" : "push"](() => {
+          ((n = e), i(10, n));
+        });
+      },
+      function (e) {
+        ((s = e), i(0, s));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (e) {
+        d[e ? "unshift" : "push"](() => {
+          ((n = e), i(10, n));
+        });
+      },
+      function (e) {
+        ((s = e), i(0, s));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+    ]
+  );
+}
+class Xt extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, Qt, Kt, i, {
+        label: 1,
+        type: 2,
+        value: 0,
+        placeholder: 3,
+        color: 4,
+        step: 5,
+        min: 6,
+        max: 7,
+        disabled: 8,
+        calcValue: 9,
+      }));
+  }
+}
+function ei(e, t, i) {
+  const n = e.slice();
+  return ((n[8] = t[i].id), (n[9] = t[i].name), n);
+}
+function ti(e) {
+  let t,
+    i,
+    n,
+    r = e[9] + "";
+  return {
+    c() {
+      ((t = B("option")), (i = _(r)), (t.__value = n = e[8]), I(t, t.__value));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, l) {
+      (8 & l && r !== (r = e[9] + "") && M(i, r),
+        8 & l && n !== (n = e[8]) && ((t.__value = n), I(t, t.__value)));
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function ii(e) {
+  let t,
+    i = L(e[3]),
+    n = [];
+  for (let l = 0; l < i.length; l += 1) n[l] = ti(ei(e, i, l));
+  return {
+    c() {
+      for (let e = 0; e < n.length; e += 1) n[e].c();
+      t = O();
+    },
+    m(e, i) {
+      for (let t = 0; t < n.length; t += 1) n[t] && n[t].m(e, i);
+      o(e, t, i);
+    },
+    p(e, l) {
+      if (8 & l) {
+        let o;
+        for (i = L(e[3]), o = 0; o < i.length; o += 1) {
+          const s = ei(e, i, o);
+          n[o]
+            ? n[o].p(s, l)
+            : ((n[o] = ti(s)), n[o].c(), n[o].m(t.parentNode, t));
+        }
+        for (; o < n.length; o += 1) n[o].d(1);
+        n.length = i.length;
+      }
+    },
+    d(e) {
+      (e && l(t), D(n, e));
+    },
+  };
+}
+function ni(e) {
+  let t, i, n, s, r;
+  function v(t) {
+    e[7](t);
+  }
+  let b = {
+    disabled: e[2],
+    type: "date",
+    label: window.tr(window.lang.trade.form.expiration.date),
+    min: K(Date.now(), "YY-MM-DD", !1),
+    max: "2038-01-18",
+  };
+  return (
+    void 0 !== e[1] && (b.value = e[1]),
+    (i = new Xt({ props: b })),
+    d.push(() => c(i, "value", v)),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "date svelte-1j98lmd"));
+      },
+      m(e, n) {
+        (o(e, t, n), f(i, t, null), (r = !0));
+      },
+      p(e, t) {
+        const l = {};
+        (4 & t && (l.disabled = e[2]),
+          !n && 2 & t && ((n = !0), (l.value = e[1]), $(() => (n = !1))),
+          i.$set(l));
+      },
+      i(e) {
+        r ||
+          (m(i.$$.fragment, e),
+          e &&
+            N(() => {
+              r && (s || (s = U(t, j, { duration: 150 }, !0)), s.run(1));
+            }),
+          (r = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e),
+          e && (s || (s = U(t, j, { duration: 150 }, !1)), s.run(0)),
+          (r = !1));
+      },
+      d(e) {
+        (e && l(t), u(i), e && s && s.end());
+      },
+    }
+  );
+}
+function li(e) {
+  let t, i, n, s, r;
+  function v(t) {
+    e[6](t);
+  }
+  let b = {
+    disabled: e[2],
+    type: "datetime-local",
+    label: window.tr(window.lang.trade.form.expiration.date),
+    min: K(Date.now(), "YY-MM-DDThhhh:mm", !1),
+    max: "2038-01-18T00:00",
+  };
+  return (
+    void 0 !== e[1] && (b.value = e[1]),
+    (i = new Xt({ props: b })),
+    d.push(() => c(i, "value", v)),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "date svelte-1j98lmd"));
+      },
+      m(e, n) {
+        (o(e, t, n), f(i, t, null), (r = !0));
+      },
+      p(e, t) {
+        const l = {};
+        (4 & t && (l.disabled = e[2]),
+          !n && 2 & t && ((n = !0), (l.value = e[1]), $(() => (n = !1))),
+          i.$set(l));
+      },
+      i(e) {
+        r ||
+          (m(i.$$.fragment, e),
+          e &&
+            N(() => {
+              r && (s || (s = U(t, j, { duration: 150 }, !0)), s.run(1));
+            }),
+          (r = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e),
+          e && (s || (s = U(t, j, { duration: 150 }, !1)), s.run(0)),
+          (r = !1));
+      },
+      d(e) {
+        (e && l(t), u(i), e && s && s.end());
+      },
+    }
+  );
+}
+function oi(e) {
+  let t, i, n, r, v, b, y, w, S, h;
+  function x(t) {
+    e[5](t);
+  }
+  let k = {
+    disabled: e[2],
+    type: "large",
+    $$slots: { default: [ii] },
+    $$scope: { ctx: e },
+  };
+  (void 0 !== e[0] && (k.value = e[0]),
+    (r = new re({ props: k })),
+    d.push(() => c(r, "value", x)));
+  const V = [li, ni],
+    E = [];
+  function M(e, t) {
+    return 2 === e[0] ? 0 : 3 === e[0] ? 1 : -1;
+  }
+  return (
+    ~(y = M(e)) && (w = E[y] = V[y](e)),
+    {
+      c() {
+        ((t = B("div")),
+          (i = B("div")),
+          (i.textContent = `${window.tr(window.lang.trade.form.expiration.label)}`),
+          (n = C()),
+          g(r.$$.fragment),
+          (b = C()),
+          w && w.c(),
+          (S = O()),
+          a(i, "class", "label svelte-1j98lmd"),
+          a(t, "class", "expiration"));
+      },
+      m(e, l) {
+        (o(e, t, l),
+          s(t, i),
+          s(t, n),
+          f(r, t, null),
+          o(e, b, l),
+          ~y && E[y].m(e, l),
+          o(e, S, l),
+          (h = !0));
+      },
+      p(e, [t]) {
+        const i = {};
+        (4 & t && (i.disabled = e[2]),
+          4104 & t && (i.$$scope = { dirty: t, ctx: e }),
+          !v && 1 & t && ((v = !0), (i.value = e[0]), $(() => (v = !1))),
+          r.$set(i));
+        let n = y;
+        ((y = M(e)),
+          y === n
+            ? ~y && E[y].p(e, t)
+            : (w &&
+                (P(),
+                p(E[n], 1, 1, () => {
+                  E[n] = null;
+                }),
+                T()),
+              ~y
+                ? ((w = E[y]),
+                  w ? w.p(e, t) : ((w = E[y] = V[y](e)), w.c()),
+                  m(w, 1),
+                  w.m(S.parentNode, S))
+                : (w = null)));
+      },
+      i(e) {
+        h || (m(r.$$.fragment, e), m(w), (h = !0));
+      },
+      o(e) {
+        (p(r.$$.fragment, e), p(w), (h = !1));
+      },
+      d(e) {
+        (e && (l(t), l(b), l(S)), u(r), ~y && E[y].d(e));
+      },
+    }
+  );
+}
+function si(e, t, i) {
+  let { config: n } = t,
+    { value: l = 0 } = t,
+    { date: o } = t,
+    { disabled: s = !1 } = t,
+    r = [];
+  return (
+    (e.$$set = (e) => {
+      ("config" in e && i(4, (n = e.config)),
+        "value" in e && i(0, (l = e.value)),
+        "date" in e && i(1, (o = e.date)),
+        "disabled" in e && i(2, (s = e.disabled)));
+    }),
+    (e.$$.update = () => {
+      25 & e.$$.dirty &&
+        (i(
+          3,
+          (r = (function (e) {
+            const t = [];
+            return (
+              e.isGTCExpiration && t.push({ id: 0, name: "GTC" }),
+              e.isDayExpiration &&
+                t.push({
+                  id: 1,
+                  name: window.tr(
+                    window.lang.trade.form.expiration.types.today,
+                  ),
+                }),
+              e.isSpecifiedExpiration &&
+                t.push({
+                  id: 2,
+                  name: window.tr(
+                    window.lang.trade.form.expiration.types.specified,
+                  ),
+                }),
+              e.isSpecifiedDayExpiration &&
+                t.push({
+                  id: 3,
+                  name: window.tr(
+                    window.lang.trade.form.expiration.types.specifiedDay,
+                  ),
+                }),
+              t
+            );
+          })(n)),
+        ),
+        -1 === r.findIndex((e) => e.id === l) && i(0, (l = r[0].id)));
+    }),
+    [
+      l,
+      o,
+      s,
+      r,
+      n,
+      function (e) {
+        ((l = e), i(0, l), i(4, n), i(3, r));
+      },
+      function (e) {
+        ((o = e), i(1, o));
+      },
+      function (e) {
+        ((o = e), i(1, o));
+      },
+    ]
+  );
+}
+class ri extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, si, oi, i, { config: 4, value: 0, date: 1, disabled: 2 }));
+  }
+}
+function ai(e) {
+  let t, i, n, s;
+  function r(t) {
+    e[27](t);
+  }
+  let v = { pending: !0, config: e[12] };
+  return (
+    void 0 !== e[7] && (v.value = e[7]),
+    (i = new Nt({ props: v })),
+    d.push(() => c(i, "value", r)),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "filling svelte-ubxnem"));
+      },
+      m(e, n) {
+        (o(e, t, n), f(i, t, null), (s = !0));
+      },
+      p(e, t) {
+        const l = {};
+        (4096 & t && (l.config = e[12]),
+          !n && 128 & t && ((n = !0), (l.value = e[7]), $(() => (n = !1))),
+          i.$set(l));
+      },
+      i(e) {
+        s || (m(i.$$.fragment, e), (s = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (s = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function di(e) {
+  let t,
+    i,
+    n,
+    r,
+    v,
+    b,
+    y,
+    w,
+    S,
+    x,
+    k,
+    V,
+    E,
+    M,
+    _,
+    z,
+    q,
+    O,
+    L,
+    D,
+    I,
+    U,
+    j,
+    N,
+    F,
+    A,
+    R;
+  function H(t) {
+    e[16](t);
+  }
+  let Y = { disabled: e[13] || e[8], symbol: e[12] };
+  function G(t) {
+    e[20](t);
+  }
+  (void 0 !== e[4] && (Y.value = e[4]),
+    (n = new yt({ props: Y })),
+    d.push(() => c(n, "value", H)),
+    n.$on("input", e[17]),
+    n.$on("step", e[18]));
+  let Z = {
+    disabled: e[13],
+    label: window.tr(window.lang.trade.form.fields.price),
+    initialValue: e[19],
+    digits: e[12].digits ?? 0,
+    tickSize: e[12].tickSize,
+  };
+  function W(t) {
+    e[22](t);
+  }
+  (void 0 !== e[0] && (Z.value = e[0]),
+    (y = new mt({ props: Z })),
+    d.push(() => c(y, "value", G)));
+  let J = {
+    nullable: !0,
+    disabled: e[13],
+    label: "Stop Limit " + window.tr(window.lang.trade.form.fields.price),
+    initialValue: e[21],
+    digits: e[12].digits ?? 0,
+    tickSize: e[12].tickSize,
+  };
+  function K(t) {
+    e[24](t);
+  }
+  (void 0 !== e[1] && (J.value = e[1]),
+    (k = new mt({ props: J })),
+    d.push(() => c(k, "value", W)));
+  let Q = {
+    nullable: !0,
+    disabled: e[13] || !e[12].isOrderSlAllowed,
+    label: window.tr(window.lang.trade.form.fields.stopLoss),
+    initialValue: e[23],
+    digits: e[12].digits ?? 0,
+    tickSize: e[12].tickSize,
+    orange: !0,
+    clear: null !== e[2],
+  };
+  function X(t) {
+    e[26](t);
+  }
+  (void 0 !== e[2] && (Q.value = e[2]),
+    (_ = new mt({ props: Q })),
+    d.push(() => c(_, "value", K)));
+  let ee = {
+    nullable: !0,
+    disabled: e[13] || !e[12].isOrderTpAllowed,
+    label: window.tr(window.lang.trade.form.fields.takeProfit),
+    initialValue: e[25],
+    digits: e[12].digits ?? 0,
+    tickSize: e[12].tickSize,
+    green: !0,
+    clear: null !== e[3],
+  };
+  (void 0 !== e[3] && (ee.value = e[3]),
+    (L = new mt({ props: ee })),
+    d.push(() => c(L, "value", X)));
+  let te = e[12].isExchangeExecution && ai(e);
+  function ie(t) {
+    e[28](t);
+  }
+  function ne(t) {
+    e[29](t);
+  }
+  let le = { disabled: e[13], config: e[12] };
+  return (
+    void 0 !== e[5] && (le.value = e[5]),
+    void 0 !== e[6] && (le.date = e[6]),
+    (N = new ri({ props: le })),
+    d.push(() => c(N, "value", ie)),
+    d.push(() => c(N, "date", ne)),
+    {
+      c() {
+        ((t = B("div")),
+          (i = B("div")),
+          g(n.$$.fragment),
+          (v = C()),
+          (b = B("div")),
+          g(y.$$.fragment),
+          (S = C()),
+          (x = B("div")),
+          g(k.$$.fragment),
+          (E = C()),
+          (M = B("div")),
+          g(_.$$.fragment),
+          (q = C()),
+          (O = B("div")),
+          g(L.$$.fragment),
+          (I = C()),
+          te && te.c(),
+          (U = C()),
+          (j = B("div")),
+          g(N.$$.fragment),
+          a(i, "class", "volume svelte-ubxnem"),
+          a(b, "class", "price svelte-ubxnem"),
+          a(x, "class", "trigger svelte-ubxnem"),
+          a(M, "class", "sl svelte-ubxnem"),
+          a(O, "class", "tp svelte-ubxnem"),
+          a(j, "class", "expiration svelte-ubxnem"),
+          a(t, "class", "stop-limit svelte-ubxnem"),
+          h(t, "filling", e[12].isExchangeExecution));
+      },
+      m(e, l) {
+        (o(e, t, l),
+          s(t, i),
+          f(n, i, null),
+          s(t, v),
+          s(t, b),
+          f(y, b, null),
+          s(t, S),
+          s(t, x),
+          f(k, x, null),
+          s(t, E),
+          s(t, M),
+          f(_, M, null),
+          s(t, q),
+          s(t, O),
+          f(L, O, null),
+          s(t, I),
+          te && te.m(t, null),
+          s(t, U),
+          s(t, j),
+          f(N, j, null),
+          (R = !0));
+      },
+      p(e, [i]) {
+        const l = {};
+        (8448 & i && (l.disabled = e[13] || e[8]),
+          4096 & i && (l.symbol = e[12]),
+          !r && 16 & i && ((r = !0), (l.value = e[4]), $(() => (r = !1))),
+          n.$set(l));
+        const o = {};
+        (8192 & i && (o.disabled = e[13]),
+          52736 & i && (o.initialValue = e[19]),
+          4096 & i && (o.digits = e[12].digits ?? 0),
+          4096 & i && (o.tickSize = e[12].tickSize),
+          !w && 1 & i && ((w = !0), (o.value = e[0]), $(() => (w = !1))),
+          y.$set(o));
+        const s = {};
+        (8192 & i && (s.disabled = e[13]),
+          52736 & i && (s.initialValue = e[21]),
+          4096 & i && (s.digits = e[12].digits ?? 0),
+          4096 & i && (s.tickSize = e[12].tickSize),
+          !V && 2 & i && ((V = !0), (s.value = e[1]), $(() => (V = !1))),
+          k.$set(s));
+        const a = {};
+        (12288 & i && (a.disabled = e[13] || !e[12].isOrderSlAllowed),
+          52737 & i && (a.initialValue = e[23]),
+          4096 & i && (a.digits = e[12].digits ?? 0),
+          4096 & i && (a.tickSize = e[12].tickSize),
+          4 & i && (a.clear = null !== e[2]),
+          !z && 4 & i && ((z = !0), (a.value = e[2]), $(() => (z = !1))),
+          _.$set(a));
+        const d = {};
+        (12288 & i && (d.disabled = e[13] || !e[12].isOrderTpAllowed),
+          52737 & i && (d.initialValue = e[25]),
+          4096 & i && (d.digits = e[12].digits ?? 0),
+          4096 & i && (d.tickSize = e[12].tickSize),
+          8 & i && (d.clear = null !== e[3]),
+          !D && 8 & i && ((D = !0), (d.value = e[3]), $(() => (D = !1))),
+          L.$set(d),
+          e[12].isExchangeExecution
+            ? te
+              ? (te.p(e, i), 4096 & i && m(te, 1))
+              : ((te = ai(e)), te.c(), m(te, 1), te.m(t, U))
+            : te &&
+              (P(),
+              p(te, 1, 1, () => {
+                te = null;
+              }),
+              T()));
+        const c = {};
+        (8192 & i && (c.disabled = e[13]),
+          4096 & i && (c.config = e[12]),
+          !F && 32 & i && ((F = !0), (c.value = e[5]), $(() => (F = !1))),
+          !A && 64 & i && ((A = !0), (c.date = e[6]), $(() => (A = !1))),
+          N.$set(c),
+          (!R || 4096 & i) && h(t, "filling", e[12].isExchangeExecution));
+      },
+      i(e) {
+        R ||
+          (m(n.$$.fragment, e),
+          m(y.$$.fragment, e),
+          m(k.$$.fragment, e),
+          m(_.$$.fragment, e),
+          m(L.$$.fragment, e),
+          m(te),
+          m(N.$$.fragment, e),
+          (R = !0));
+      },
+      o(e) {
+        (p(n.$$.fragment, e),
+          p(y.$$.fragment, e),
+          p(k.$$.fragment, e),
+          p(_.$$.fragment, e),
+          p(L.$$.fragment, e),
+          p(te),
+          p(N.$$.fragment, e),
+          (R = !1));
+      },
+      d(e) {
+        (e && l(t), u(n), u(y), u(k), u(_), u(L), te && te.d(), u(N));
+      },
+    }
+  );
+}
+function ci(e, t, i) {
+  let { price: n } = t,
+    { trigger: l } = t,
+    { sl: o } = t,
+    { tp: s } = t,
+    { volume: r } = t,
+    { expiration: a } = t,
+    { date: d } = t,
+    { modify: c = !1 } = t,
+    { section: u } = t,
+    { type: p } = t,
+    { marketPrice: m } = t,
+    { symbol: $ } = t,
+    { disabled: f = !1 } = t,
+    { fillingType: g } = t,
+    { orderUtils: v } = t,
+    { utils: b } = t;
+  return (
+    (e.$$set = (e) => {
+      ("price" in e && i(0, (n = e.price)),
+        "trigger" in e && i(1, (l = e.trigger)),
+        "sl" in e && i(2, (o = e.sl)),
+        "tp" in e && i(3, (s = e.tp)),
+        "volume" in e && i(4, (r = e.volume)),
+        "expiration" in e && i(5, (a = e.expiration)),
+        "date" in e && i(6, (d = e.date)),
+        "modify" in e && i(8, (c = e.modify)),
+        "section" in e && i(9, (u = e.section)),
+        "type" in e && i(10, (p = e.type)),
+        "marketPrice" in e && i(11, (m = e.marketPrice)),
+        "symbol" in e && i(12, ($ = e.symbol)),
+        "disabled" in e && i(13, (f = e.disabled)),
+        "fillingType" in e && i(7, (g = e.fillingType)),
+        "orderUtils" in e && i(14, (v = e.orderUtils)),
+        "utils" in e && i(15, (b = e.utils)));
+    }),
+    [
+      n,
+      l,
+      o,
+      s,
+      r,
+      a,
+      d,
+      g,
+      c,
+      u,
+      p,
+      m,
+      $,
+      f,
+      v,
+      b,
+      function (e) {
+        ((r = e), i(4, r));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      () => b.calcPendingPrice(v, u, p, m),
+      function (e) {
+        ((n = e), i(0, n));
+      },
+      () => b.calcPendingTriggerPrice(v, u, p, m),
+      function (e) {
+        ((l = e), i(1, l));
+      },
+      () => b.calcPendingSL(v, u, p, m, n),
+      function (e) {
+        ((o = e), i(2, o));
+      },
+      () => b.calcPendingTP(v, u, p, m, n),
+      function (e) {
+        ((s = e), i(3, s));
+      },
+      function (e) {
+        ((g = e), i(7, g));
+      },
+      function (e) {
+        ((a = e), i(5, a));
+      },
+      function (e) {
+        ((d = e), i(6, d));
+      },
+    ]
+  );
+}
+class ui extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, ci, di, i, {
+        price: 0,
+        trigger: 1,
+        sl: 2,
+        tp: 3,
+        volume: 4,
+        expiration: 5,
+        date: 6,
+        modify: 8,
+        section: 9,
+        type: 10,
+        marketPrice: 11,
+        symbol: 12,
+        disabled: 13,
+        fillingType: 7,
+        orderUtils: 14,
+        utils: 15,
+      }));
+  }
+}
+function pi(e) {
+  let t, i, n, s;
+  function r(t) {
+    e[24](t);
+  }
+  let v = { pending: !0, config: e[11], disabled: e[7] };
+  return (
+    void 0 !== e[6] && (v.value = e[6]),
+    (i = new Nt({ props: v })),
+    d.push(() => c(i, "value", r)),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "filling svelte-fxm6z1"));
+      },
+      m(e, n) {
+        (o(e, t, n), f(i, t, null), (s = !0));
+      },
+      p(e, t) {
+        const l = {};
+        (2048 & t && (l.config = e[11]),
+          128 & t && (l.disabled = e[7]),
+          !n && 64 & t && ((n = !0), (l.value = e[6]), $(() => (n = !1))),
+          i.$set(l));
+      },
+      i(e) {
+        s || (m(i.$$.fragment, e), (s = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (s = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function mi(e) {
+  let t, i, n, r, v, b, y, w, S, x, k, V, E, M, _, z, q, O, L, D, I, U, j;
+  function N(t) {
+    e[15](t);
+  }
+  let F = { disabled: e[12] || e[7], symbol: e[11] };
+  function A(t) {
+    e[19](t);
+  }
+  (void 0 !== e[2] && (F.value = e[2]),
+    (n = new yt({ props: F })),
+    d.push(() => c(n, "value", N)),
+    n.$on("input", e[16]),
+    n.$on("step", e[17]));
+  let R = {
+    disabled: e[12],
+    label: window.tr(window.lang.trade.form.fields.price),
+    initialValue: e[18],
+    digits: e[11].digits ?? 0,
+    tickSize: e[11].tickSize,
+  };
+  function H(t) {
+    e[21](t);
+  }
+  (void 0 !== e[5] && (R.value = e[5]),
+    (y = new mt({ props: R })),
+    d.push(() => c(y, "value", A)));
+  let Y = {
+    nullable: !0,
+    disabled: e[12] || !e[11].isOrderSlAllowed,
+    label: window.tr(window.lang.trade.form.fields.stopLoss) + " ",
+    initialValue: e[20],
+    digits: e[11].digits ?? 0,
+    tickSize: e[11].tickSize,
+    orange: !0,
+    clear: null !== e[0],
+  };
+  function G(t) {
+    e[23](t);
+  }
+  (void 0 !== e[0] && (Y.value = e[0]),
+    (k = new mt({ props: Y })),
+    d.push(() => c(k, "value", H)));
+  let Z = {
+    nullable: !0,
+    disabled: e[12] || !e[11].isOrderTpAllowed,
+    label: window.tr(window.lang.trade.form.fields.takeProfit) + " ",
+    initialValue: e[22],
+    digits: e[11].digits ?? 0,
+    tickSize: e[11].tickSize,
+    green: !0,
+    clear: null !== e[1],
+  };
+  (void 0 !== e[1] && (Z.value = e[1]),
+    (_ = new mt({ props: Z })),
+    d.push(() => c(_, "value", G)));
+  let W = e[11].isExchangeExecution && pi(e);
+  function J(t) {
+    e[25](t);
+  }
+  function K(t) {
+    e[26](t);
+  }
+  let Q = { disabled: e[12], config: e[11] };
+  return (
+    void 0 !== e[3] && (Q.value = e[3]),
+    void 0 !== e[4] && (Q.date = e[4]),
+    (D = new ri({ props: Q })),
+    d.push(() => c(D, "value", J)),
+    d.push(() => c(D, "date", K)),
+    {
+      c() {
+        ((t = B("div")),
+          (i = B("div")),
+          g(n.$$.fragment),
+          (v = C()),
+          (b = B("div")),
+          g(y.$$.fragment),
+          (S = C()),
+          (x = B("div")),
+          g(k.$$.fragment),
+          (E = C()),
+          (M = B("div")),
+          g(_.$$.fragment),
+          (q = C()),
+          W && W.c(),
+          (O = C()),
+          (L = B("div")),
+          g(D.$$.fragment),
+          a(i, "class", "volume svelte-fxm6z1"),
+          a(b, "class", "price svelte-fxm6z1"),
+          a(x, "class", "sl svelte-fxm6z1"),
+          a(M, "class", "tp svelte-fxm6z1"),
+          a(L, "class", "expiration svelte-fxm6z1"),
+          a(t, "class", "limit svelte-fxm6z1"),
+          h(t, "filling", e[11].isExchangeExecution));
+      },
+      m(e, l) {
+        (o(e, t, l),
+          s(t, i),
+          f(n, i, null),
+          s(t, v),
+          s(t, b),
+          f(y, b, null),
+          s(t, S),
+          s(t, x),
+          f(k, x, null),
+          s(t, E),
+          s(t, M),
+          f(_, M, null),
+          s(t, q),
+          W && W.m(t, null),
+          s(t, O),
+          s(t, L),
+          f(D, L, null),
+          (j = !0));
+      },
+      p(e, [i]) {
+        const l = {};
+        (4224 & i && (l.disabled = e[12] || e[7]),
+          2048 & i && (l.symbol = e[11]),
+          !r && 4 & i && ((r = !0), (l.value = e[2]), $(() => (r = !1))),
+          n.$set(l));
+        const o = {};
+        (4096 & i && (o.disabled = e[12]),
+          26368 & i && (o.initialValue = e[18]),
+          2048 & i && (o.digits = e[11].digits ?? 0),
+          2048 & i && (o.tickSize = e[11].tickSize),
+          !w && 32 & i && ((w = !0), (o.value = e[5]), $(() => (w = !1))),
+          y.$set(o));
+        const s = {};
+        (6144 & i && (s.disabled = e[12] || !e[11].isOrderSlAllowed),
+          1 & i &&
+            (s.label = window.tr(window.lang.trade.form.fields.stopLoss) + " "),
+          26400 & i && (s.initialValue = e[20]),
+          2048 & i && (s.digits = e[11].digits ?? 0),
+          2048 & i && (s.tickSize = e[11].tickSize),
+          1 & i && (s.clear = null !== e[0]),
+          !V && 1 & i && ((V = !0), (s.value = e[0]), $(() => (V = !1))),
+          k.$set(s));
+        const a = {};
+        (6144 & i && (a.disabled = e[12] || !e[11].isOrderTpAllowed),
+          2 & i &&
+            (a.label =
+              window.tr(window.lang.trade.form.fields.takeProfit) + " "),
+          26400 & i && (a.initialValue = e[22]),
+          2048 & i && (a.digits = e[11].digits ?? 0),
+          2048 & i && (a.tickSize = e[11].tickSize),
+          2 & i && (a.clear = null !== e[1]),
+          !z && 2 & i && ((z = !0), (a.value = e[1]), $(() => (z = !1))),
+          _.$set(a),
+          e[11].isExchangeExecution
+            ? W
+              ? (W.p(e, i), 2048 & i && m(W, 1))
+              : ((W = pi(e)), W.c(), m(W, 1), W.m(t, O))
+            : W &&
+              (P(),
+              p(W, 1, 1, () => {
+                W = null;
+              }),
+              T()));
+        const d = {};
+        (4096 & i && (d.disabled = e[12]),
+          2048 & i && (d.config = e[11]),
+          !I && 8 & i && ((I = !0), (d.value = e[3]), $(() => (I = !1))),
+          !U && 16 & i && ((U = !0), (d.date = e[4]), $(() => (U = !1))),
+          D.$set(d),
+          (!j || 2048 & i) && h(t, "filling", e[11].isExchangeExecution));
+      },
+      i(e) {
+        j ||
+          (m(n.$$.fragment, e),
+          m(y.$$.fragment, e),
+          m(k.$$.fragment, e),
+          m(_.$$.fragment, e),
+          m(W),
+          m(D.$$.fragment, e),
+          (j = !0));
+      },
+      o(e) {
+        (p(n.$$.fragment, e),
+          p(y.$$.fragment, e),
+          p(k.$$.fragment, e),
+          p(_.$$.fragment, e),
+          p(W),
+          p(D.$$.fragment, e),
+          (j = !1));
+      },
+      d(e) {
+        (e && l(t), u(n), u(y), u(k), u(_), W && W.d(), u(D));
+      },
+    }
+  );
+}
+function $i(e, t, i) {
+  let { sl: n = null } = t,
+    { tp: l = null } = t,
+    { volume: o } = t,
+    { expiration: s } = t,
+    { date: r } = t,
+    { modify: a = !1 } = t,
+    { section: d } = t,
+    { type: c } = t,
+    { marketPrice: u } = t,
+    { price: p } = t,
+    { symbol: m } = t,
+    { disabled: $ = !1 } = t,
+    { fillingType: f } = t,
+    { orderUtils: g } = t,
+    { utils: v } = t;
+  return (
+    F(() => {
+      null == p && u > 0 && i(5, (p = v.calcPendingPrice(g, d, c, u)));
+    }),
+    (e.$$set = (e) => {
+      ("sl" in e && i(0, (n = e.sl)),
+        "tp" in e && i(1, (l = e.tp)),
+        "volume" in e && i(2, (o = e.volume)),
+        "expiration" in e && i(3, (s = e.expiration)),
+        "date" in e && i(4, (r = e.date)),
+        "modify" in e && i(7, (a = e.modify)),
+        "section" in e && i(8, (d = e.section)),
+        "type" in e && i(9, (c = e.type)),
+        "marketPrice" in e && i(10, (u = e.marketPrice)),
+        "price" in e && i(5, (p = e.price)),
+        "symbol" in e && i(11, (m = e.symbol)),
+        "disabled" in e && i(12, ($ = e.disabled)),
+        "fillingType" in e && i(6, (f = e.fillingType)),
+        "orderUtils" in e && i(13, (g = e.orderUtils)),
+        "utils" in e && i(14, (v = e.utils)));
+    }),
+    [
+      n,
+      l,
+      o,
+      s,
+      r,
+      p,
+      f,
+      a,
+      d,
+      c,
+      u,
+      m,
+      $,
+      g,
+      v,
+      function (e) {
+        ((o = e), i(2, o));
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      function (t) {
+        V.call(this, e, t);
+      },
+      () => v.calcPendingPrice(g, d, c, u),
+      function (e) {
+        ((p = e), i(5, p));
+      },
+      () => v.calcPendingSL(g, d, c, u, p),
+      function (e) {
+        ((n = e), i(0, n));
+      },
+      () => v.calcPendingTP(g, d, c, u, p),
+      function (e) {
+        ((l = e), i(1, l));
+      },
+      function (e) {
+        ((f = e), i(6, f));
+      },
+      function (e) {
+        ((s = e), i(3, s));
+      },
+      function (e) {
+        ((r = e), i(4, r));
+      },
+    ]
+  );
+}
+class fi extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, $i, mi, i, {
+        sl: 0,
+        tp: 1,
+        volume: 2,
+        expiration: 3,
+        date: 4,
+        modify: 7,
+        section: 8,
+        type: 9,
+        marketPrice: 10,
+        price: 5,
+        symbol: 11,
+        disabled: 12,
+        fillingType: 6,
+        orderUtils: 13,
+        utils: 14,
+      }));
+  }
+}
+function gi(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.accept) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function vi(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.reject) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function bi(e) {
+  let t, i, n, r, d, c, $, v, b;
+  return (
+    (n = new Ue({
+      props: { digits: e[2].digits, bid: e[1].bid, ask: e[1].ask },
+    })),
+    (c = new $e({
+      props: {
+        outline: !0,
+        disabled: e[0].isBuy ? e[4] : e[3],
+        $$slots: { default: [gi] },
+        $$scope: { ctx: e },
+      },
+    })),
+    c.$on("click", e[5]),
+    (v = new $e({
+      props: {
+        outline: !0,
+        red: !0,
+        $$slots: { default: [vi] },
+        $$scope: { ctx: e },
+      },
+    })),
+    v.$on("click", e[6]),
+    {
+      c() {
+        ((t = B("div")),
+          (t.textContent = `${window.tr(window.lang.trade.form.acceptNewQuotes)}`),
+          (i = C()),
+          g(n.$$.fragment),
+          (r = C()),
+          (d = B("div")),
+          g(c.$$.fragment),
+          ($ = C()),
+          g(v.$$.fragment),
+          a(t, "class", "message svelte-15nj9h3"),
+          a(d, "class", "footer-row svelte-15nj9h3"));
+      },
+      m(e, l) {
+        (o(e, t, l),
+          o(e, i, l),
+          f(n, e, l),
+          o(e, r, l),
+          o(e, d, l),
+          f(c, d, null),
+          s(d, $),
+          f(v, d, null),
+          (b = !0));
+      },
+      p(e, [t]) {
+        const i = {};
+        (4 & t && (i.digits = e[2].digits),
+          2 & t && (i.bid = e[1].bid),
+          2 & t && (i.ask = e[1].ask),
+          n.$set(i));
+        const l = {};
+        (25 & t && (l.disabled = e[0].isBuy ? e[4] : e[3]),
+          256 & t && (l.$$scope = { dirty: t, ctx: e }),
+          c.$set(l));
+        const o = {};
+        (256 & t && (o.$$scope = { dirty: t, ctx: e }), v.$set(o));
+      },
+      i(e) {
+        b ||
+          (m(n.$$.fragment, e),
+          m(c.$$.fragment, e),
+          m(v.$$.fragment, e),
+          (b = !0));
+      },
+      o(e) {
+        (p(n.$$.fragment, e),
+          p(c.$$.fragment, e),
+          p(v.$$.fragment, e),
+          (b = !1));
+      },
+      d(e) {
+        (e && (l(t), l(i), l(r), l(d)), u(n, e), u(c), u(v));
+      },
+    }
+  );
+}
+function yi(e, t, i) {
+  const n = E();
+  let { action: l } = t,
+    { result: o } = t,
+    { config: s } = t,
+    { disabledSell: r = !1 } = t,
+    { disabledBuy: a = !1 } = t;
+  return (
+    (e.$$set = (e) => {
+      ("action" in e && i(0, (l = e.action)),
+        "result" in e && i(1, (o = e.result)),
+        "config" in e && i(2, (s = e.config)),
+        "disabledSell" in e && i(3, (r = e.disabledSell)),
+        "disabledBuy" in e && i(4, (a = e.disabledBuy)));
+    }),
+    [
+      l,
+      o,
+      s,
+      r,
+      a,
+      function () {
+        l.isBuy ? n("accept", 0) : l.isSell && n("accept", 1);
+      },
+      function () {
+        n("reject");
+      },
+    ]
+  );
+}
+class wi extends e {
+  constructor(e) {
+    (super(),
+      t(this, e, yi, bi, i, {
+        action: 0,
+        result: 1,
+        config: 2,
+        disabledSell: 3,
+        disabledBuy: 4,
+      }));
+  }
+}
+function Si(e) {
+  let t, i;
+  return (
+    (t = new re({
+      props: {
+        type: "header",
+        value: e[0],
+        $$slots: { default: [Ti] },
+        $$scope: { ctx: e },
+      },
+    })),
+    t.$on("input", e[38]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (1 & i[0] && (n.value = e[0]),
+          (524288 & i[0]) | (4096 & i[2]) && (n.$$scope = { dirty: i, ctx: e }),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function hi(e) {
+  let t,
+    i,
+    r,
+    d = e[23].info + "";
+  return {
+    c() {
+      ((t = B("div")),
+        (i = _(d)),
+        a(t, "class", "edit-order svelte-1mnv5a8"),
+        a(t, "title", (r = e[23].info)));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, n) {
+      (8388608 & n[0] && d !== (d = e[23].info + "") && M(i, d),
+        8388608 & n[0] && r !== (r = e[23].info) && a(t, "title", r));
+    },
+    i: n,
+    o: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function xi(e) {
+  let t,
+    i,
+    r,
+    d = e[22].info + "";
+  return {
+    c() {
+      ((t = B("div")),
+        (i = _(d)),
+        a(t, "class", "edit-order svelte-1mnv5a8"),
+        a(t, "title", (r = e[22].info)));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, n) {
+      (4194304 & n[0] && d !== (d = e[22].info + "") && M(i, d),
+        4194304 & n[0] && r !== (r = e[22].info) && a(t, "title", r));
+    },
+    i: n,
+    o: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function ki(e) {
+  let t,
+    i,
+    n = Zi(e[19]) + "";
+  return {
+    c() {
+      ((t = B("option")),
+        (i = _(n)),
+        (t.__value = 0),
+        I(t, t.__value),
+        a(t, "class", "svelte-1mnv5a8"));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, t) {
+      524288 & t[0] && n !== (n = Zi(e[19]) + "") && M(i, n);
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Bi(e) {
+  let t, i, r, d, c;
+  return {
+    c() {
+      ((t = B("option")),
+        (i = _("Buy Limit")),
+        (r = C()),
+        (d = B("option")),
+        (c = _("Sell Limit")),
+        (t.__value = 2),
+        I(t, t.__value),
+        a(t, "class", "svelte-1mnv5a8"),
+        (d.__value = 3),
+        I(d, d.__value),
+        a(d, "class", "svelte-1mnv5a8"));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i), o(e, r, n), o(e, d, n), s(d, c));
+    },
+    p: n,
+    d(e) {
+      e && (l(t), l(r), l(d));
+    },
+  };
+}
+function Vi(e) {
+  let t, i, r, d, c;
+  return {
+    c() {
+      ((t = B("option")),
+        (i = _("Buy Stop")),
+        (r = C()),
+        (d = B("option")),
+        (c = _("Sell Stop")),
+        (t.__value = 4),
+        I(t, t.__value),
+        a(t, "class", "svelte-1mnv5a8"),
+        (d.__value = 5),
+        I(d, d.__value),
+        a(d, "class", "svelte-1mnv5a8"));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i), o(e, r, n), o(e, d, n), s(d, c));
+    },
+    p: n,
+    d(e) {
+      e && (l(t), l(r), l(d));
+    },
+  };
+}
+function Pi(e) {
+  let t, i, r, d, c;
+  return {
+    c() {
+      ((t = B("option")),
+        (i = _("Buy Stop Limit")),
+        (r = C()),
+        (d = B("option")),
+        (c = _("Sell Stop Limit")),
+        (t.__value = 6),
+        I(t, t.__value),
+        a(t, "class", "svelte-1mnv5a8"),
+        (d.__value = 7),
+        I(d, d.__value),
+        a(d, "class", "svelte-1mnv5a8"));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i), o(e, r, n), o(e, d, n), s(d, c));
+    },
+    p: n,
+    d(e) {
+      e && (l(t), l(r), l(d));
+    },
+  };
+}
+function Ti(e) {
+  let t,
+    i,
+    n,
+    s,
+    r = e[19].isOrderMarketAllowed && ki(e),
+    a = e[19].isOrderLimitAllowed && Bi(),
+    d = e[19].isOrderStopAllowed && Vi(),
+    c = e[19].isOrderStopLimitAllowed && Pi();
+  return {
+    c() {
+      (r && r.c(),
+        (t = C()),
+        a && a.c(),
+        (i = C()),
+        d && d.c(),
+        (n = C()),
+        c && c.c(),
+        (s = O()));
+    },
+    m(e, l) {
+      (r && r.m(e, l),
+        o(e, t, l),
+        a && a.m(e, l),
+        o(e, i, l),
+        d && d.m(e, l),
+        o(e, n, l),
+        c && c.m(e, l),
+        o(e, s, l));
+    },
+    p(e, l) {
+      (e[19].isOrderMarketAllowed
+        ? r
+          ? r.p(e, l)
+          : ((r = ki(e)), r.c(), r.m(t.parentNode, t))
+        : r && (r.d(1), (r = null)),
+        e[19].isOrderLimitAllowed
+          ? a
+            ? a.p(e, l)
+            : ((a = Bi()), a.c(), a.m(i.parentNode, i))
+          : a && (a.d(1), (a = null)),
+        e[19].isOrderStopAllowed
+          ? d
+            ? d.p(e, l)
+            : ((d = Vi()), d.c(), d.m(n.parentNode, n))
+          : d && (d.d(1), (d = null)),
+        e[19].isOrderStopLimitAllowed
+          ? c
+            ? c.p(e, l)
+            : ((c = Pi()), c.c(), c.m(s.parentNode, s))
+          : c && (c.d(1), (c = null)));
+    },
+    d(e) {
+      (e && (l(t), l(i), l(n), l(s)),
+        r && r.d(e),
+        a && a.d(e),
+        d && d.d(e),
+        c && c.d(e));
+    },
+  };
+}
+function Ci(e) {
+  let t, i, n, l, o, s, r, a, v, b;
+  function y(t) {
+    e[62](t);
+  }
+  function w(t) {
+    e[63](t);
+  }
+  function S(t) {
+    e[64](t);
+  }
+  function h(t) {
+    e[65](t);
+  }
+  function x(t) {
+    e[66](t);
+  }
+  function k(t) {
+    e[67](t);
+  }
+  function B(t) {
+    e[68](t);
+  }
+  function V(t) {
+    e[69](t);
+  }
+  let P = {
+    modify: Boolean(e[22]),
+    utils: e[18].utils,
+    section: e[21],
+    type: e[0],
+    marketPrice: e[20],
+    symbol: e[19],
+    orderUtils: e[17],
+    disabled: !e[29],
+  };
+  return (
+    void 0 !== e[1] && (P.price = e[1]),
+    void 0 !== e[5] && (P.trigger = e[5]),
+    void 0 !== e[2] && (P.sl = e[2]),
+    void 0 !== e[3] && (P.tp = e[3]),
+    void 0 !== e[10] && (P.volume = e[10]),
+    void 0 !== e[6] && (P.expiration = e[6]),
+    void 0 !== e[7] && (P.date = e[7]),
+    void 0 !== e[4] && (P.fillingType = e[4]),
+    (t = new ui({ props: P })),
+    d.push(() => c(t, "price", y)),
+    d.push(() => c(t, "trigger", w)),
+    d.push(() => c(t, "sl", S)),
+    d.push(() => c(t, "tp", h)),
+    d.push(() => c(t, "volume", x)),
+    d.push(() => c(t, "expiration", k)),
+    d.push(() => c(t, "date", B)),
+    d.push(() => c(t, "fillingType", V)),
+    t.$on("input", e[43]),
+    t.$on("step", e[43]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (b = !0));
+      },
+      p(e, d) {
+        const c = {};
+        (4194304 & d[0] && (c.modify = Boolean(e[22])),
+          262144 & d[0] && (c.utils = e[18].utils),
+          2097152 & d[0] && (c.section = e[21]),
+          1 & d[0] && (c.type = e[0]),
+          1048576 & d[0] && (c.marketPrice = e[20]),
+          524288 & d[0] && (c.symbol = e[19]),
+          131072 & d[0] && (c.orderUtils = e[17]),
+          536870912 & d[0] && (c.disabled = !e[29]),
+          !i && 2 & d[0] && ((i = !0), (c.price = e[1]), $(() => (i = !1))),
+          !n && 32 & d[0] && ((n = !0), (c.trigger = e[5]), $(() => (n = !1))),
+          !l && 4 & d[0] && ((l = !0), (c.sl = e[2]), $(() => (l = !1))),
+          !o && 8 & d[0] && ((o = !0), (c.tp = e[3]), $(() => (o = !1))),
+          !s &&
+            1024 & d[0] &&
+            ((s = !0), (c.volume = e[10]), $(() => (s = !1))),
+          !r &&
+            64 & d[0] &&
+            ((r = !0), (c.expiration = e[6]), $(() => (r = !1))),
+          !a && 128 & d[0] && ((a = !0), (c.date = e[7]), $(() => (a = !1))),
+          !v &&
+            16 & d[0] &&
+            ((v = !0), (c.fillingType = e[4]), $(() => (v = !1))),
+          t.$set(c));
+      },
+      i(e) {
+        b || (m(t.$$.fragment, e), (b = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (b = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Ei(e) {
+  let t, i, n, l, o, s, r, a, v;
+  function b(t) {
+    e[55](t);
+  }
+  function y(t) {
+    e[56](t);
+  }
+  function w(t) {
+    e[57](t);
+  }
+  function S(t) {
+    e[58](t);
+  }
+  function h(t) {
+    e[59](t);
+  }
+  function x(t) {
+    e[60](t);
+  }
+  function k(t) {
+    e[61](t);
+  }
+  let B = {
+    modify: Boolean(e[22]),
+    section: e[21],
+    type: e[0],
+    marketPrice: e[20],
+    symbol: e[19],
+    orderUtils: e[17],
+    disabled: !e[29],
+    utils: e[18].utils,
+  };
+  return (
+    void 0 !== e[1] && (B.price = e[1]),
+    void 0 !== e[2] && (B.sl = e[2]),
+    void 0 !== e[3] && (B.tp = e[3]),
+    void 0 !== e[10] && (B.volume = e[10]),
+    void 0 !== e[6] && (B.expiration = e[6]),
+    void 0 !== e[7] && (B.date = e[7]),
+    void 0 !== e[4] && (B.fillingType = e[4]),
+    (t = new fi({ props: B })),
+    d.push(() => c(t, "price", b)),
+    d.push(() => c(t, "sl", y)),
+    d.push(() => c(t, "tp", w)),
+    d.push(() => c(t, "volume", S)),
+    d.push(() => c(t, "expiration", h)),
+    d.push(() => c(t, "date", x)),
+    d.push(() => c(t, "fillingType", k)),
+    t.$on("input", e[43]),
+    t.$on("step", e[43]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (v = !0));
+      },
+      p(e, d) {
+        const c = {};
+        (4194304 & d[0] && (c.modify = Boolean(e[22])),
+          2097152 & d[0] && (c.section = e[21]),
+          1 & d[0] && (c.type = e[0]),
+          1048576 & d[0] && (c.marketPrice = e[20]),
+          524288 & d[0] && (c.symbol = e[19]),
+          131072 & d[0] && (c.orderUtils = e[17]),
+          536870912 & d[0] && (c.disabled = !e[29]),
+          262144 & d[0] && (c.utils = e[18].utils),
+          !i && 2 & d[0] && ((i = !0), (c.price = e[1]), $(() => (i = !1))),
+          !n && 4 & d[0] && ((n = !0), (c.sl = e[2]), $(() => (n = !1))),
+          !l && 8 & d[0] && ((l = !0), (c.tp = e[3]), $(() => (l = !1))),
+          !o &&
+            1024 & d[0] &&
+            ((o = !0), (c.volume = e[10]), $(() => (o = !1))),
+          !s &&
+            64 & d[0] &&
+            ((s = !0), (c.expiration = e[6]), $(() => (s = !1))),
+          !r && 128 & d[0] && ((r = !0), (c.date = e[7]), $(() => (r = !1))),
+          !a &&
+            16 & d[0] &&
+            ((a = !0), (c.fillingType = e[4]), $(() => (a = !1))),
+          t.$set(c));
+      },
+      i(e) {
+        v || (m(t.$$.fragment, e), (v = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (v = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Mi(e) {
+  let t, i, n, l, o, s;
+  function r(t) {
+    e[51](t);
+  }
+  function a(t) {
+    e[52](t);
+  }
+  function v(t) {
+    e[53](t);
+  }
+  function b(t) {
+    e[54](t);
+  }
+  let y = {
+    section: e[21],
+    type: e[0],
+    marketPrice: e[20],
+    symbol: e[19],
+    orderUtils: e[17],
+    disabled: !e[29] || e[31],
+    utils: e[18].utils,
+  };
+  return (
+    void 0 !== e[2] && (y.sl = e[2]),
+    void 0 !== e[3] && (y.tp = e[3]),
+    void 0 !== e[10] && (y.volume = e[10]),
+    void 0 !== e[4] && (y.fillingType = e[4]),
+    (t = new Yt({ props: y })),
+    d.push(() => c(t, "sl", r)),
+    d.push(() => c(t, "tp", a)),
+    d.push(() => c(t, "volume", v)),
+    d.push(() => c(t, "fillingType", b)),
+    t.$on("input", e[43]),
+    t.$on("step", e[43]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (s = !0));
+      },
+      p(e, s) {
+        const r = {};
+        (2097152 & s[0] && (r.section = e[21]),
+          1 & s[0] && (r.type = e[0]),
+          1048576 & s[0] && (r.marketPrice = e[20]),
+          524288 & s[0] && (r.symbol = e[19]),
+          131072 & s[0] && (r.orderUtils = e[17]),
+          (536870912 & s[0]) | (1 & s[1]) && (r.disabled = !e[29] || e[31]),
+          262144 & s[0] && (r.utils = e[18].utils),
+          !i && 4 & s[0] && ((i = !0), (r.sl = e[2]), $(() => (i = !1))),
+          !n && 8 & s[0] && ((n = !0), (r.tp = e[3]), $(() => (n = !1))),
+          !l &&
+            1024 & s[0] &&
+            ((l = !0), (r.volume = e[10]), $(() => (l = !1))),
+          !o &&
+            16 & s[0] &&
+            ((o = !0), (r.fillingType = e[4]), $(() => (o = !1))),
+          t.$set(r));
+      },
+      i(e) {
+        s || (m(t.$$.fragment, e), (s = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (s = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function _i(e) {
+  let t, i, n, l, o, s, r;
+  function a(t) {
+    e[46](t);
+  }
+  function v(t) {
+    e[47](t);
+  }
+  function b(t) {
+    e[48](t);
+  }
+  function y(t) {
+    e[49](t);
+  }
+  function w(t) {
+    e[50](t);
+  }
+  let S = {
+    accountStore: e[12],
+    positionsStore: e[14],
+    price: e[1],
+    position: e[23],
+    section: e[21],
+    isBuy: e[23].isBuy,
+    isSell: e[23].isSell,
+    marketPrice: e[20],
+    symbol: e[19],
+    disabled: !e[29] || e[31],
+    utils: e[18].utils,
+  };
+  return (
+    void 0 !== e[2] && (S.sl = e[2]),
+    void 0 !== e[3] && (S.tp = e[3]),
+    void 0 !== e[8] && (S.comment = e[8]),
+    void 0 !== e[24] && (S.closeByPositionId = e[24]),
+    void 0 !== e[10] && (S.volume = e[10]),
+    (t = new Vt({ props: S })),
+    d.push(() => c(t, "sl", a)),
+    d.push(() => c(t, "tp", v)),
+    d.push(() => c(t, "comment", b)),
+    d.push(() => c(t, "closeByPositionId", y)),
+    d.push(() => c(t, "volume", w)),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (r = !0));
+      },
+      p(e, r) {
+        const a = {};
+        (4096 & r[0] && (a.accountStore = e[12]),
+          16384 & r[0] && (a.positionsStore = e[14]),
+          2 & r[0] && (a.price = e[1]),
+          8388608 & r[0] && (a.position = e[23]),
+          2097152 & r[0] && (a.section = e[21]),
+          8388608 & r[0] && (a.isBuy = e[23].isBuy),
+          8388608 & r[0] && (a.isSell = e[23].isSell),
+          1048576 & r[0] && (a.marketPrice = e[20]),
+          524288 & r[0] && (a.symbol = e[19]),
+          (536870912 & r[0]) | (1 & r[1]) && (a.disabled = !e[29] || e[31]),
+          262144 & r[0] && (a.utils = e[18].utils),
+          !i && 4 & r[0] && ((i = !0), (a.sl = e[2]), $(() => (i = !1))),
+          !n && 8 & r[0] && ((n = !0), (a.tp = e[3]), $(() => (n = !1))),
+          !l && 256 & r[0] && ((l = !0), (a.comment = e[8]), $(() => (l = !1))),
+          !o &&
+            16777216 & r[0] &&
+            ((o = !0), (a.closeByPositionId = e[24]), $(() => (o = !1))),
+          !s &&
+            1024 & r[0] &&
+            ((s = !0), (a.volume = e[10]), $(() => (s = !1))),
+          t.$set(a));
+      },
+      i(e) {
+        r || (m(t.$$.fragment, e), (r = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (r = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function zi(e) {
+  let t, i, n;
+  return (
+    (i = new $e({
+      props: {
+        red: e[17].isSell(e[0]),
+        disabled:
+          !e[29] ||
+          (!e[19].isExchangeExecution &&
+            e[32].calcPendingDisable(
+              e[17],
+              e[19],
+              e[0],
+              e[10],
+              e[1],
+              e[20],
+              e[2],
+              e[3],
+              e[5],
+              e[30],
+            )),
+        $$slots: { default: [Li] },
+        $$scope: { ctx: e },
+      },
+    })),
+    i.$on("click", e[35]),
+    {
+      c() {
+        ((t = B("div")),
+          g(i.$$.fragment),
+          a(t, "class", "buttons svelte-1mnv5a8"));
+      },
+      m(e, l) {
+        (o(e, t, l), f(i, t, null), (n = !0));
+      },
+      p(e, t) {
+        const n = {};
+        (131073 & t[0] && (n.red = e[17].isSell(e[0])),
+          1612317743 & t[0] &&
+            (n.disabled =
+              !e[29] ||
+              (!e[19].isExchangeExecution &&
+                e[32].calcPendingDisable(
+                  e[17],
+                  e[19],
+                  e[0],
+                  e[10],
+                  e[1],
+                  e[20],
+                  e[2],
+                  e[3],
+                  e[5],
+                  e[30],
+                ))),
+          4096 & t[2] && (n.$$scope = { dirty: t, ctx: e }),
+          i.$set(n));
+      },
+      i(e) {
+        n || (m(i.$$.fragment, e), (n = !0));
+      },
+      o(e) {
+        (p(i.$$.fragment, e), (n = !1));
+      },
+      d(e) {
+        (e && l(t), u(i));
+      },
+    }
+  );
+}
+function qi(e) {
+  let t, i, n, s;
+  const r = [Ui, Ii, Di],
+    a = [];
+  function d(e, t) {
+    var i, n;
+    return e[19].isRequestExecution ||
+      (e[19].isInstantExecution &&
+        e[19].maxInstantVolume &&
+        e[10] > e[19].maxInstantVolume)
+      ? 0
+      : e[19].isInstantExecution &&
+          10004 ===
+            (null == (n = null == (i = e[25].request) ? void 0 : i.result)
+              ? void 0
+              : n.code)
+        ? 1
+        : 2;
+  }
+  return (
+    (t = d(e)),
+    (i = a[t] = r[t](e)),
+    {
+      c() {
+        (i.c(), (n = O()));
+      },
+      m(e, i) {
+        (a[t].m(e, i), o(e, n, i), (s = !0));
+      },
+      p(e, l) {
+        let o = t;
+        ((t = d(e)),
+          t === o
+            ? a[t].p(e, l)
+            : (P(),
+              p(a[o], 1, 1, () => {
+                a[o] = null;
+              }),
+              T(),
+              (i = a[t]),
+              i ? i.p(e, l) : ((i = a[t] = r[t](e)), i.c()),
+              m(i, 1),
+              i.m(n.parentNode, n)));
+      },
+      i(e) {
+        s || (m(i), (s = !0));
+      },
+      o(e) {
+        (p(i), (s = !1));
+      },
+      d(e) {
+        (e && l(n), a[t].d(e));
+      },
+    }
+  );
+}
+function Oi(e) {
+  let t, i, n, s;
+  const r = [Ni, ji],
+    d = [];
+  function c(e, t) {
+    return e[22] ? 0 : e[23] ? 1 : -1;
+  }
+  return (
+    ~(i = c(e)) && (n = d[i] = r[i](e)),
+    {
+      c() {
+        ((t = B("div")), n && n.c(), a(t, "class", "buttons svelte-1mnv5a8"));
+      },
+      m(e, n) {
+        (o(e, t, n), ~i && d[i].m(t, null), (s = !0));
+      },
+      p(e, l) {
+        let o = i;
+        ((i = c(e)),
+          i === o
+            ? ~i && d[i].p(e, l)
+            : (n &&
+                (P(),
+                p(d[o], 1, 1, () => {
+                  d[o] = null;
+                }),
+                T()),
+              ~i
+                ? ((n = d[i]),
+                  n ? n.p(e, l) : ((n = d[i] = r[i](e)), n.c()),
+                  m(n, 1),
+                  n.m(t, null))
+                : (n = null)));
+      },
+      i(e) {
+        s || (m(n), (s = !0));
+      },
+      o(e) {
+        (p(n), (s = !1));
+      },
+      d(e) {
+        (e && l(t), ~i && d[i].d());
+      },
+    }
+  );
+}
+function Li(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.placeOrder) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Di(e) {
+  let t, i;
+  return (
+    (t = new Qe({
+      props: {
+        ticksStore: e[16],
+        ticksController: e[15],
+        config: e[19],
+        disabledSell:
+          !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30]),
+        disabledBuy:
+          !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30]),
+      },
+    })),
+    t.$on("open", e[36]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (65536 & i[0] && (n.ticksStore = e[16]),
+          32768 & i[0] && (n.ticksController = e[15]),
+          524288 & i[0] && (n.config = e[19]),
+          1611661324 & i[0] &&
+            (n.disabledSell =
+              !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30])),
+          1611661324 & i[0] &&
+            (n.disabledBuy =
+              !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30])),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Ii(e) {
+  let t, i;
+  return (
+    (t = new wi({
+      props: {
+        result: e[25].request.result,
+        action: e[25].request.action,
+        config: e[19],
+        disabledSell:
+          !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30]),
+        disabledBuy:
+          !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30]),
+      },
+    })),
+    t.$on("accept", e[41]),
+    t.$on("reject", e[42]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (33554432 & i[0] && (n.result = e[25].request.result),
+          33554432 & i[0] && (n.action = e[25].request.action),
+          524288 & i[0] && (n.config = e[19]),
+          1611661324 & i[0] &&
+            (n.disabledSell =
+              !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30])),
+          1611661324 & i[0] &&
+            (n.disabledBuy =
+              !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30])),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Ui(e) {
+  let t, i;
+  return (
+    (t = new Ge({
+      props: {
+        tradeStore: e[13],
+        config: e[19],
+        disabledSell:
+          !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30]),
+        disabledBuy:
+          !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30]),
+      },
+    })),
+    t.$on("open", e[36]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (8192 & i[0] && (n.tradeStore = e[13]),
+          524288 & i[0] && (n.config = e[19]),
+          1611661324 & i[0] &&
+            (n.disabledSell =
+              !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30])),
+          1611661324 & i[0] &&
+            (n.disabledBuy =
+              !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30])),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function ji(e) {
+  let t, i, n, s;
+  const r = [Ai, Fi],
+    a = [];
+  function d(e, t) {
+    var i, n;
+    return e[19].isInstantExecution &&
+      10004 ===
+        (null == (n = null == (i = e[25].request) ? void 0 : i.result)
+          ? void 0
+          : n.code)
+      ? 0
+      : 1;
+  }
+  return (
+    (t = d(e)),
+    (i = a[t] = r[t](e)),
+    {
+      c() {
+        (i.c(), (n = O()));
+      },
+      m(e, i) {
+        (a[t].m(e, i), o(e, n, i), (s = !0));
+      },
+      p(e, l) {
+        let o = t;
+        ((t = d(e)),
+          t === o
+            ? a[t].p(e, l)
+            : (P(),
+              p(a[o], 1, 1, () => {
+                a[o] = null;
+              }),
+              T(),
+              (i = a[t]),
+              i ? i.p(e, l) : ((i = a[t] = r[t](e)), i.c()),
+              m(i, 1),
+              i.m(n.parentNode, n)));
+      },
+      i(e) {
+        s || (m(i), (s = !0));
+      },
+      o(e) {
+        (p(i), (s = !1));
+      },
+      d(e) {
+        (e && l(n), a[t].d(e));
+      },
+    }
+  );
+}
+function Ni(e) {
+  let t, i, n, s;
+  return (
+    (t = new $e({
+      props: {
+        disabled:
+          !e[29] ||
+          e[32].calcOrderDisable(
+            e[19],
+            e[22],
+            e[1],
+            e[2],
+            e[3],
+            e[5],
+            e[6],
+            e[7],
+            e[8],
+            e[20],
+            e[30],
+          ),
+        $$slots: { default: [Ri] },
+        $$scope: { ctx: e },
+      },
+    })),
+    t.$on("click", e[33]),
+    (n = new $e({
+      props: {
+        disabled: !e[29],
+        orange: !0,
+        $$slots: { default: [Hi] },
+        $$scope: { ctx: e },
+      },
+    })),
+    n.$on("click", e[37]),
+    {
+      c() {
+        (g(t.$$.fragment), (i = C()), g(n.$$.fragment));
+      },
+      m(e, l) {
+        (f(t, e, l), o(e, i, l), f(n, e, l), (s = !0));
+      },
+      p(e, i) {
+        const l = {};
+        (1616380398 & i[0] &&
+          (l.disabled =
+            !e[29] ||
+            e[32].calcOrderDisable(
+              e[19],
+              e[22],
+              e[1],
+              e[2],
+              e[3],
+              e[5],
+              e[6],
+              e[7],
+              e[8],
+              e[20],
+              e[30],
+            )),
+          4096 & i[2] && (l.$$scope = { dirty: i, ctx: e }),
+          t.$set(l));
+        const o = {};
+        (536870912 & i[0] && (o.disabled = !e[29]),
+          4096 & i[2] && (o.$$scope = { dirty: i, ctx: e }),
+          n.$set(o));
+      },
+      i(e) {
+        s || (m(t.$$.fragment, e), m(n.$$.fragment, e), (s = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), p(n.$$.fragment, e), (s = !1));
+      },
+      d(e) {
+        (e && l(i), u(t, e), u(n, e));
+      },
+    }
+  );
+}
+function Fi(e) {
+  let t, i;
+  return (
+    (t = new Le({
+      props: {
+        tradeStore: e[13],
+        positionsStore: e[14],
+        volume: e[10],
+        marketPrice: e[20],
+        config: e[19],
+        positionId: e[23].id,
+        closeByPosition: e[9],
+        disabledModify:
+          !e[29] ||
+          e[32].calcPositionDisable(
+            e[23],
+            e[2],
+            e[3],
+            e[10],
+            e[8],
+            e[20],
+            e[30],
+          ),
+        disabledClose:
+          !e[29] ||
+          Number(e[2]) !== e[23].sl ||
+          Number(e[3]) !== e[23].tp ||
+          e[8] !== e[23].comment,
+      },
+    })),
+    t.$on("close", e[40]),
+    t.$on("modify", e[34]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (8192 & i[0] && (n.tradeStore = e[13]),
+          16384 & i[0] && (n.positionsStore = e[14]),
+          1024 & i[0] && (n.volume = e[10]),
+          1048576 & i[0] && (n.marketPrice = e[20]),
+          524288 & i[0] && (n.config = e[19]),
+          8388608 & i[0] && (n.positionId = e[23].id),
+          512 & i[0] && (n.closeByPosition = e[9]),
+          1620051212 & i[0] &&
+            (n.disabledModify =
+              !e[29] ||
+              e[32].calcPositionDisable(
+                e[23],
+                e[2],
+                e[3],
+                e[10],
+                e[8],
+                e[20],
+                e[30],
+              )),
+          545259788 & i[0] &&
+            (n.disabledClose =
+              !e[29] ||
+              Number(e[2]) !== e[23].sl ||
+              Number(e[3]) !== e[23].tp ||
+              e[8] !== e[23].comment),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Ai(e) {
+  let t, i;
+  return (
+    (t = new wi({
+      props: {
+        result: e[25].request.result,
+        action: e[25].request.action,
+        config: e[19],
+        disabledSell:
+          !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30]),
+        disabledBuy:
+          !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30]),
+      },
+    })),
+    t.$on("accept", e[41]),
+    t.$on("reject", e[42]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (33554432 & i[0] && (n.result = e[25].request.result),
+          33554432 & i[0] && (n.action = e[25].request.action),
+          524288 & i[0] && (n.config = e[19]),
+          1611661324 & i[0] &&
+            (n.disabledSell =
+              !e[29] || e[32].calcMarketDisable(!1, e[20], e[2], e[3], e[30])),
+          1611661324 & i[0] &&
+            (n.disabledBuy =
+              !e[29] || e[32].calcMarketDisable(!0, e[20], e[2], e[3], e[30])),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Ri(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.modify) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Hi(e) {
+  let t,
+    i = window.tr(window.lang.trade.form.buttons.delete) + "";
+  return {
+    c() {
+      t = _(i);
+    },
+    m(e, i) {
+      o(e, t, i);
+    },
+    p: n,
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Yi(e) {
+  let t,
+    i,
+    n = e[18].utils.whyTradeIsDisabled(e[12], e[19]) + "";
+  return {
+    c() {
+      ((t = B("div")), (i = _(n)), a(t, "class", "message svelte-1mnv5a8"));
+    },
+    m(e, n) {
+      (o(e, t, n), s(t, i));
+    },
+    p(e, t) {
+      790528 & t[0] &&
+        n !== (n = e[18].utils.whyTradeIsDisabled(e[12], e[19]) + "") &&
+        M(i, n);
+    },
+    d(e) {
+      e && l(t);
+    },
+  };
+}
+function Gi(e) {
+  let t, i, r, v, b, y, w, S, x, k, V, E, M, _, z, q, O, L, D, I;
+  const U = [xi, hi, Si],
+    j = [];
+  function N(e, t) {
+    return e[22] ? 0 : e[23] ? 1 : 2;
+  }
+  ((v = N(e)), (b = j[v] = U[v](e)));
+  let F = (function (e) {
+    let t, i, s;
+    return (
+      (i = new X({
+        props: {
+          color: "var(--color-fill-blue)",
+          stretch: !0,
+          icon: Z,
+          title: window.tr(window.lang.trade.form.close),
+        },
+      })),
+      i.$on("click", e[39]),
+      {
+        c() {
+          ((t = B("div")),
+            g(i.$$.fragment),
+            a(t, "class", "close svelte-1mnv5a8"));
+        },
+        m(e, n) {
+          (o(e, t, n), f(i, t, null), (s = !0));
+        },
+        p: n,
+        i(e) {
+          s || (m(i.$$.fragment, e), (s = !0));
+        },
+        o(e) {
+          (p(i.$$.fragment, e), (s = !1));
+        },
+        d(e) {
+          (e && l(t), u(i));
+        },
+      }
+    );
+  })(e);
+  const A = [_i, Mi, Ei, Ci],
+    R = [];
+  function H(e, t) {
+    return e[23] ? 0 : e[27] ? 1 : e[26] ? 2 : e[28] ? 3 : -1;
+  }
+  function Y(t) {
+    e[70](t);
+  }
+  ~(k = H(e)) && (V = R[k] = A[k](e));
+  let G = {
+    disabled: !e[29] || e[31] || Boolean(e[22] || e[23]),
+    type: "text",
+    label: window.tr(window.lang.trade.form.fields.comment),
+  };
+  (void 0 !== e[8] && (G.value = e[8]),
+    (_ = new Xt({ props: G })),
+    d.push(() => c(_, "value", Y)));
+  const W = [Oi, qi, zi],
+    J = [];
+  function K(e, t) {
+    return e[22] || e[23] ? 0 : e[27] ? 1 : e[26] || e[28] ? 2 : -1;
+  }
+  ~(O = K(e)) && (L = J[O] = W[O](e));
+  let Q = !e[29] && Yi(e);
+  return {
+    c() {
+      var n, l, o, s;
+      ((t = B("div")),
+        (i = B("div")),
+        (r = B("div")),
+        b.c(),
+        (y = C()),
+        F && F.c(),
+        (w = C()),
+        (S = B("div")),
+        (x = B("div")),
+        V && V.c(),
+        (E = C()),
+        (M = B("div")),
+        g(_.$$.fragment),
+        (q = C()),
+        L && L.c(),
+        (D = C()),
+        Q && Q.c(),
+        a(r, "class", "main-select svelte-1mnv5a8"),
+        h(
+          r,
+          "red",
+          (null == (n = e[22]) ? void 0 : n.isSell) ||
+            (null == (l = e[23]) ? void 0 : l.isSell) ||
+            (!e[17].isMarket(e[0]) && e[17].isSell(e[0])),
+        ),
+        h(
+          r,
+          "blue",
+          (null == (o = e[22]) ? void 0 : o.isBuy) ||
+            (null == (s = e[23]) ? void 0 : s.isBuy) ||
+            (!e[17].isMarket(e[0]) && e[17].isBuy(e[0])),
+        ),
+        a(i, "class", "header svelte-1mnv5a8"),
+        a(M, "class", "comment"),
+        a(x, "class", "form svelte-1mnv5a8"),
+        h(x, "modify-form", e[23]),
+        a(S, "class", "content svelte-1mnv5a8"),
+        a(t, "class", "wrapper svelte-1mnv5a8"));
+    },
+    m(e, n) {
+      (o(e, t, n),
+        s(t, i),
+        s(i, r),
+        j[v].m(r, null),
+        s(i, y),
+        F && F.m(i, null),
+        s(t, w),
+        s(t, S),
+        s(S, x),
+        ~k && R[k].m(x, null),
+        s(x, E),
+        s(x, M),
+        f(_, M, null),
+        s(S, q),
+        ~O && J[O].m(S, null),
+        s(S, D),
+        Q && Q.m(S, null),
+        (I = !0));
+    },
+    p(e, t) {
+      var i, n, l, o;
+      let s = v;
+      ((v = N(e)),
+        v === s
+          ? j[v].p(e, t)
+          : (P(),
+            p(j[s], 1, 1, () => {
+              j[s] = null;
+            }),
+            T(),
+            (b = j[v]),
+            b ? b.p(e, t) : ((b = j[v] = U[v](e)), b.c()),
+            m(b, 1),
+            b.m(r, null)),
+        (!I || 12713985 & t[0]) &&
+          h(
+            r,
+            "red",
+            (null == (i = e[22]) ? void 0 : i.isSell) ||
+              (null == (n = e[23]) ? void 0 : n.isSell) ||
+              (!e[17].isMarket(e[0]) && e[17].isSell(e[0])),
+          ),
+        (!I || 12713985 & t[0]) &&
+          h(
+            r,
+            "blue",
+            (null == (l = e[22]) ? void 0 : l.isBuy) ||
+              (null == (o = e[23]) ? void 0 : o.isBuy) ||
+              (!e[17].isMarket(e[0]) && e[17].isBuy(e[0])),
+          ),
+        F.p(e, t));
+      let a = k;
+      ((k = H(e)),
+        k === a
+          ? ~k && R[k].p(e, t)
+          : (V &&
+              (P(),
+              p(R[a], 1, 1, () => {
+                R[a] = null;
+              }),
+              T()),
+            ~k
+              ? ((V = R[k]),
+                V ? V.p(e, t) : ((V = R[k] = A[k](e)), V.c()),
+                m(V, 1),
+                V.m(x, E))
+              : (V = null)));
+      const d = {};
+      ((549453824 & t[0]) | (1 & t[1]) &&
+        (d.disabled = !e[29] || e[31] || Boolean(e[22] || e[23])),
+        !z && 256 & t[0] && ((z = !0), (d.value = e[8]), $(() => (z = !1))),
+        _.$set(d),
+        (!I || 8388608 & t[0]) && h(x, "modify-form", e[23]));
+      let c = O;
+      ((O = K(e)),
+        O === c
+          ? ~O && J[O].p(e, t)
+          : (L &&
+              (P(),
+              p(J[c], 1, 1, () => {
+                J[c] = null;
+              }),
+              T()),
+            ~O
+              ? ((L = J[O]),
+                L ? L.p(e, t) : ((L = J[O] = W[O](e)), L.c()),
+                m(L, 1),
+                L.m(S, D))
+              : (L = null)),
+        e[29]
+          ? Q && (Q.d(1), (Q = null))
+          : Q
+            ? Q.p(e, t)
+            : ((Q = Yi(e)), Q.c(), Q.m(S, null)));
+    },
+    i(e) {
+      I || (m(b), m(F), m(V), m(_.$$.fragment, e), m(L), (I = !0));
+    },
+    o(e) {
+      (p(b), p(F), p(V), p(_.$$.fragment, e), p(L), (I = !1));
+    },
+    d(e) {
+      (e && l(t),
+        j[v].d(),
+        F && F.d(),
+        ~k && R[k].d(),
+        u(_),
+        ~O && J[O].d(),
+        Q && Q.d());
+    },
+  };
+}
+function Zi(e) {
+  return (null == e ? void 0 : e.isExchangeExecution)
+    ? window.tr(window.lang.trade.form.executionMode.exchange)
+    : (null == e ? void 0 : e.isMarketExecution)
+      ? window.tr(window.lang.trade.form.executionMode.market)
+      : (null == e ? void 0 : e.isRequestExecution)
+        ? window.tr(window.lang.trade.form.executionMode.request)
+        : window.tr(window.lang.trade.form.executionMode.instant);
+}
+function Wi(e, t, i) {
+  let l,
+    o,
+    s,
+    r = n,
+    a = () => (r(), (r = z(u, (e) => i(71, (o = e)))), u),
+    d = n,
+    c = () => (d(), (d = z($, (e) => i(25, (s = e)))), $);
+  (e.$$.on_destroy.push(() => r()), e.$$.on_destroy.push(() => d()));
+  let { configStore: u } = t;
+  a();
+  let { accountStore: p } = t,
+    { symbolsController: m } = t,
+    { tradeStore: $ } = t;
+  c();
+  let { positionsStore: f } = t,
+    { ticksController: g } = t,
+    { ticksStore: v } = t,
+    { orderUtils: b } = t,
+    { interactionStore: y } = t,
+    { tradeController: w } = t;
+  const S = w.utils,
+    h = E();
+  let x,
+    k,
+    { symbol: B } = t,
+    { price: V } = t,
+    { sl: P } = t,
+    { tp: T } = t,
+    { fillingType: C } = t,
+    { type: M = 0 } = t,
+    { marketPrice: _ = 0 } = t,
+    { section: q } = t,
+    { trigger: O } = t,
+    { expiration: L = 0 } = t,
+    { date: D = null } = t,
+    { comment: I } = t,
+    { order: U = null } = t,
+    { position: j = null } = t,
+    { closeByPosition: N = null } = t,
+    { volume: F } = t,
+    H = null,
+    Y = !1,
+    G = !1,
+    Z = !1;
+  return (
+    (e.$$set = (e) => {
+      ("configStore" in e && a(i(11, (u = e.configStore))),
+        "accountStore" in e && i(12, (p = e.accountStore)),
+        "symbolsController" in e && i(44, (m = e.symbolsController)),
+        "tradeStore" in e && c(i(13, ($ = e.tradeStore))),
+        "positionsStore" in e && i(14, (f = e.positionsStore)),
+        "ticksController" in e && i(15, (g = e.ticksController)),
+        "ticksStore" in e && i(16, (v = e.ticksStore)),
+        "orderUtils" in e && i(17, (b = e.orderUtils)),
+        "interactionStore" in e && i(45, (y = e.interactionStore)),
+        "tradeController" in e && i(18, (w = e.tradeController)),
+        "symbol" in e && i(19, (B = e.symbol)),
+        "price" in e && i(1, (V = e.price)),
+        "sl" in e && i(2, (P = e.sl)),
+        "tp" in e && i(3, (T = e.tp)),
+        "fillingType" in e && i(4, (C = e.fillingType)),
+        "type" in e && i(0, (M = e.type)),
+        "marketPrice" in e && i(20, (_ = e.marketPrice)),
+        "section" in e && i(21, (q = e.section)),
+        "trigger" in e && i(5, (O = e.trigger)),
+        "expiration" in e && i(6, (L = e.expiration)),
+        "date" in e && i(7, (D = e.date)),
+        "comment" in e && i(8, (I = e.comment)),
+        "order" in e && i(22, (U = e.order)),
+        "position" in e && i(23, (j = e.position)),
+        "closeByPosition" in e && i(9, (N = e.closeByPosition)),
+        "volume" in e && i(10, (F = e.volume)));
+    }),
+    (e.$$.update = () => {
+      var t, n;
+      (16793600 & e.$$.dirty[0] && i(9, (N = H ? f.getPosition(H) : null)),
+        12582912 & e.$$.dirty[0] &&
+          (async function (e, t) {
+            (await A(),
+              e
+                ? (i(0, (M = e.type)),
+                  i(2, (P = y.quickEdit.sl ?? e.sl ?? null)),
+                  i(3, (T = y.quickEdit.tp ?? e.tp ?? null)),
+                  i(1, (V = y.quickEdit.price ?? e.price ?? null)),
+                  i(5, (O = y.quickEdit.trigger ?? e.priceTrigger ?? null)),
+                  i(10, (F = e.volumeValue)),
+                  i(6, (L = e.expiration)),
+                  i(7, (D = e.date)),
+                  i(4, (C = e.filling)),
+                  i(8, (I = e.comment)))
+                : t &&
+                  (i(0, (M = t.isBuy ? 0 : 1)),
+                  i(2, (P = y.quickEdit.sl ?? t.sl ?? null)),
+                  i(3, (T = y.quickEdit.tp ?? t.tp ?? null)),
+                  i(1, (V = t.priceOpen ?? null)),
+                  i(10, (F = t.volumeValue)),
+                  i(8, (I = t.comment)),
+                  i(9, (N = null)),
+                  i(24, (H = null))));
+          })(U, j),
+        4325377 & e.$$.dirty[0] &&
+          i(
+            26,
+            (Y =
+              ((null == U ? void 0 : U.isLimit) ?? b.isLimit(M)) ||
+              ((null == U ? void 0 : U.isStop) ?? b.isStop(M))),
+          ),
+        8519681 & e.$$.dirty[0] && i(27, (G = Boolean(j ?? b.isMarket(M)))),
+        4325377 & e.$$.dirty[0] &&
+          i(28, (Z = (null == U ? void 0 : U.isStopLimit) ?? b.isStopLimit(M))),
+        (524288 & e.$$.dirty[0]) | (8192 & e.$$.dirty[1]) &&
+          i(29, (x = m.allowedTradeBySymbol(B))),
+        33554432 & e.$$.dirty[0] &&
+          i(
+            31,
+            (l =
+              10004 ===
+              (null == (n = null == (t = s.request) ? void 0 : t.result)
+                ? void 0
+                : n.code)),
+          ),
+        524288 & e.$$.dirty[0] &&
+          i(30, (k = B.stopsLevel ? B.stopsLevel / 10 ** B.digits : 0)));
+    }),
+    [
+      M,
+      V,
+      P,
+      T,
+      C,
+      O,
+      L,
+      D,
+      I,
+      N,
+      F,
+      u,
+      p,
+      $,
+      f,
+      g,
+      v,
+      b,
+      w,
+      B,
+      _,
+      q,
+      U,
+      j,
+      H,
+      s,
+      Y,
+      G,
+      Z,
+      x,
+      k,
+      l,
+      S,
+      function () {
+        h("modifyOrder");
+      },
+      function () {
+        h("modifyPosition");
+      },
+      function () {
+        (2 !== M && 3 !== M && 4 !== M && 5 !== M && 6 !== M && 7 !== M) ||
+          h("placeOrder", M);
+      },
+      function (e) {
+        h("openPosition", e.detail);
+      },
+      function () {
+        h("deleteOrder");
+      },
+      function (e) {
+        if (!(e.target instanceof HTMLSelectElement)) return;
+        const t = Number(e.target.value);
+        -1 === t
+          ? U
+            ? (i(0, (M = U.type)),
+              i(2, (P = U.sl || null)),
+              i(3, (T = U.tp || null)),
+              i(1, (V = U.price || null)),
+              i(5, (O = U.priceTrigger || null)),
+              i(10, (F = U.volumeValue)),
+              i(8, (I = U.comment)))
+            : j &&
+              (i(2, (P = j.sl || null)),
+              i(3, (T = j.tp || null)),
+              i(1, (V = j.priceOpen || null)),
+              i(10, (F = j.volumeValue)),
+              i(8, (I = j.comment)))
+          : (i(0, (M = t)),
+            i(1, (V = null)),
+            i(2, (P = null)),
+            i(3, (T = null)),
+            i(5, (O = null)),
+            i(7, (D = null)),
+            i(6, (L = 0)));
+      },
+      function () {
+        h("cancel");
+      },
+      function () {
+        h("closePosition");
+      },
+      function () {
+        h("acceptRequote");
+      },
+      function () {
+        h("rejectRequote");
+      },
+      async function () {
+        (await A(), R(u, (o.tradeVolume = F), o));
+      },
+      m,
+      y,
+      function (e) {
+        ((P = e), i(2, P));
+      },
+      function (e) {
+        ((T = e), i(3, T));
+      },
+      function (e) {
+        ((I = e), i(8, I));
+      },
+      function (e) {
+        ((H = e), i(24, H));
+      },
+      function (e) {
+        ((F = e), i(10, F));
+      },
+      function (e) {
+        ((P = e), i(2, P));
+      },
+      function (e) {
+        ((T = e), i(3, T));
+      },
+      function (e) {
+        ((F = e), i(10, F));
+      },
+      function (e) {
+        ((C = e), i(4, C));
+      },
+      function (e) {
+        ((V = e), i(1, V));
+      },
+      function (e) {
+        ((P = e), i(2, P));
+      },
+      function (e) {
+        ((T = e), i(3, T));
+      },
+      function (e) {
+        ((F = e), i(10, F));
+      },
+      function (e) {
+        ((L = e), i(6, L));
+      },
+      function (e) {
+        ((D = e), i(7, D));
+      },
+      function (e) {
+        ((C = e), i(4, C));
+      },
+      function (e) {
+        ((V = e), i(1, V));
+      },
+      function (e) {
+        ((O = e), i(5, O));
+      },
+      function (e) {
+        ((P = e), i(2, P));
+      },
+      function (e) {
+        ((T = e), i(3, T));
+      },
+      function (e) {
+        ((F = e), i(10, F));
+      },
+      function (e) {
+        ((L = e), i(6, L));
+      },
+      function (e) {
+        ((D = e), i(7, D));
+      },
+      function (e) {
+        ((C = e), i(4, C));
+      },
+      function (e) {
+        ((I = e), i(8, I));
+      },
+    ]
+  );
+}
+class Ji extends e {
+  constructor(e) {
+    (super(),
+      t(
+        this,
+        e,
+        Wi,
+        Gi,
+        i,
+        {
+          configStore: 11,
+          accountStore: 12,
+          symbolsController: 44,
+          tradeStore: 13,
+          positionsStore: 14,
+          ticksController: 15,
+          ticksStore: 16,
+          orderUtils: 17,
+          interactionStore: 45,
+          tradeController: 18,
+          symbol: 19,
+          price: 1,
+          sl: 2,
+          tp: 3,
+          fillingType: 4,
+          type: 0,
+          marketPrice: 20,
+          section: 21,
+          trigger: 5,
+          expiration: 6,
+          date: 7,
+          comment: 8,
+          order: 22,
+          position: 23,
+          closeByPosition: 9,
+          volume: 10,
+        },
+        null,
+        [-1, -1, -1],
+      ));
+  }
+}
+function Ki(e) {
+  let t,
+    s,
+    r = e[20],
+    a = Xi(e);
+  return {
+    c() {
+      (a.c(), (t = O()));
+    },
+    m(e, i) {
+      (a.m(e, i), o(e, t, i), (s = !0));
+    },
+    p(e, l) {
+      1048576 & l[0] && i(r, (r = e[20]))
+        ? (P(),
+          p(a, 1, 1, n),
+          T(),
+          (a = Xi(e)),
+          a.c(),
+          m(a, 1),
+          a.m(t.parentNode, t))
+        : a.p(e, l);
+    },
+    i(e) {
+      s || (m(a), (s = !0));
+    },
+    o(e) {
+      (p(a), (s = !1));
+    },
+    d(e) {
+      (e && l(t), a.d(e));
+    },
+  };
+}
+function Qi(e) {
+  let t, i;
+  return (
+    (t = new xe({
+      props: {
+        ordersStore: e[5],
+        apiUtilsTrade: e[3].apiUtilsTrade,
+        positionsStore: e[6],
+        request: e[30].request,
+      },
+    })),
+    t.$on("close", e[42]),
+    t.$on("back", e[57]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, n) {
+        (f(t, e, n), (i = !0));
+      },
+      p(e, i) {
+        const n = {};
+        (32 & i[0] && (n.ordersStore = e[5]),
+          8 & i[0] && (n.apiUtilsTrade = e[3].apiUtilsTrade),
+          64 & i[0] && (n.positionsStore = e[6]),
+          1073741824 & i[0] && (n.request = e[30].request),
+          t.$set(n));
+      },
+      i(e) {
+        i || (m(t.$$.fragment, e), (i = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (i = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function Xi(e) {
+  let t, i, n, l, o, s, r, a, v, b, y, w, S;
+  function h(t) {
+    e[58](t);
+  }
+  function x(t) {
+    e[59](t);
+  }
+  function k(t) {
+    e[60](t);
+  }
+  function B(t) {
+    e[61](t);
+  }
+  function V(t) {
+    e[62](t);
+  }
+  function P(t) {
+    e[63](t);
+  }
+  function T(t) {
+    e[64](t);
+  }
+  function C(t) {
+    e[65](t);
+  }
+  function E(t) {
+    e[66](t);
+  }
+  function M(t) {
+    e[67](t);
+  }
+  function _(t) {
+    e[68](t);
+  }
+  let z = {
+    configStore: e[8],
+    accountStore: e[9],
+    symbolsController: e[0],
+    tradeStore: e[4],
+    tradeController: e[3],
+    positionsStore: e[6],
+    ticksController: e[1],
+    ticksStore: e[2],
+    order: e[23],
+    position: e[24],
+    section: e[31],
+    marketPrice: e[22],
+    symbol: e[20],
+    orderUtils: e[10],
+    interactionStore: e[7],
+  };
+  return (
+    void 0 !== e[15] && (z.volume = e[15]),
+    void 0 !== e[16] && (z.price = e[16]),
+    void 0 !== e[18] && (z.sl = e[18]),
+    void 0 !== e[19] && (z.tp = e[19]),
+    void 0 !== e[14] && (z.type = e[14]),
+    void 0 !== e[17] && (z.trigger = e[17]),
+    void 0 !== e[28] && (z.comment = e[28]),
+    void 0 !== e[29] && (z.closeByPosition = e[29]),
+    void 0 !== e[25] && (z.fillingType = e[25]),
+    void 0 !== e[26] && (z.expiration = e[26]),
+    void 0 !== e[27] && (z.date = e[27]),
+    (t = new Ji({ props: z })),
+    d.push(() => c(t, "volume", h)),
+    d.push(() => c(t, "price", x)),
+    d.push(() => c(t, "sl", k)),
+    d.push(() => c(t, "tp", B)),
+    d.push(() => c(t, "type", V)),
+    d.push(() => c(t, "trigger", P)),
+    d.push(() => c(t, "comment", T)),
+    d.push(() => c(t, "closeByPosition", C)),
+    d.push(() => c(t, "fillingType", E)),
+    d.push(() => c(t, "expiration", M)),
+    d.push(() => c(t, "date", _)),
+    t.$on("placeOrder", e[34]),
+    t.$on("modifyOrder", e[36]),
+    t.$on("deleteOrder", e[41]),
+    t.$on("openPosition", e[35]),
+    t.$on("modifyPosition", e[37]),
+    t.$on("closePosition", e[38]),
+    t.$on("acceptRequote", e[39]),
+    t.$on("rejectRequote", e[40]),
+    t.$on("cancel", e[43]),
+    {
+      c() {
+        g(t.$$.fragment);
+      },
+      m(e, i) {
+        (f(t, e, i), (S = !0));
+      },
+      p(e, d) {
+        const c = {};
+        (256 & d[0] && (c.configStore = e[8]),
+          512 & d[0] && (c.accountStore = e[9]),
+          1 & d[0] && (c.symbolsController = e[0]),
+          16 & d[0] && (c.tradeStore = e[4]),
+          8 & d[0] && (c.tradeController = e[3]),
+          64 & d[0] && (c.positionsStore = e[6]),
+          2 & d[0] && (c.ticksController = e[1]),
+          4 & d[0] && (c.ticksStore = e[2]),
+          8388608 & d[0] && (c.order = e[23]),
+          16777216 & d[0] && (c.position = e[24]),
+          4194304 & d[0] && (c.marketPrice = e[22]),
+          1048576 & d[0] && (c.symbol = e[20]),
+          1024 & d[0] && (c.orderUtils = e[10]),
+          128 & d[0] && (c.interactionStore = e[7]),
+          !i &&
+            32768 & d[0] &&
+            ((i = !0), (c.volume = e[15]), $(() => (i = !1))),
+          !n &&
+            65536 & d[0] &&
+            ((n = !0), (c.price = e[16]), $(() => (n = !1))),
+          !l && 262144 & d[0] && ((l = !0), (c.sl = e[18]), $(() => (l = !1))),
+          !o && 524288 & d[0] && ((o = !0), (c.tp = e[19]), $(() => (o = !1))),
+          !s && 16384 & d[0] && ((s = !0), (c.type = e[14]), $(() => (s = !1))),
+          !r &&
+            131072 & d[0] &&
+            ((r = !0), (c.trigger = e[17]), $(() => (r = !1))),
+          !a &&
+            268435456 & d[0] &&
+            ((a = !0), (c.comment = e[28]), $(() => (a = !1))),
+          !v &&
+            536870912 & d[0] &&
+            ((v = !0), (c.closeByPosition = e[29]), $(() => (v = !1))),
+          !b &&
+            33554432 & d[0] &&
+            ((b = !0), (c.fillingType = e[25]), $(() => (b = !1))),
+          !y &&
+            67108864 & d[0] &&
+            ((y = !0), (c.expiration = e[26]), $(() => (y = !1))),
+          !w &&
+            134217728 & d[0] &&
+            ((w = !0), (c.date = e[27]), $(() => (w = !1))),
+          t.$set(c));
+      },
+      i(e) {
+        S || (m(t.$$.fragment, e), (S = !0));
+      },
+      o(e) {
+        (p(t.$$.fragment, e), (S = !1));
+      },
+      d(e) {
+        u(t, e);
+      },
+    }
+  );
+}
+function en(e) {
+  let t, i, n, s;
+  const r = [Qi, Ki],
+    a = [];
+  function d(e, t) {
+    var i, n;
+    return e[30].request &&
+      !e[30].request.quickTrade &&
+      0 !== (null == (i = e[30].request.action) ? void 0 : i.tradeAction) &&
+      10004 !== (null == (n = e[30].request.result) ? void 0 : n.code)
+      ? 0
+      : e[20]
+        ? 1
+        : -1;
+  }
+  return (
+    ~(t = d(e)) && (i = a[t] = r[t](e)),
+    {
+      c() {
+        (i && i.c(), (n = O()));
+      },
+      m(e, i) {
+        (~t && a[t].m(e, i), o(e, n, i), (s = !0));
+      },
+      p(e, l) {
+        let o = t;
+        ((t = d(e)),
+          t === o
+            ? ~t && a[t].p(e, l)
+            : (i &&
+                (P(),
+                p(a[o], 1, 1, () => {
+                  a[o] = null;
+                }),
+                T()),
+              ~t
+                ? ((i = a[t]),
+                  i ? i.p(e, l) : ((i = a[t] = r[t](e)), i.c()),
+                  m(i, 1),
+                  i.m(n.parentNode, n))
+                : (i = null)));
+      },
+      i(e) {
+        s || (m(i), (s = !0));
+      },
+      o(e) {
+        (p(i), (s = !1));
+      },
+      d(e) {
+        (e && l(n), ~t && a[t].d(e));
+      },
+    }
+  );
+}
+function tn(e, t, i) {
+  let l,
+    o,
+    s,
+    r,
+    a,
+    d,
+    c,
+    u,
+    p,
+    m,
+    $,
+    f,
+    g = n,
+    v = () => (g(), (g = z(D, (e) => i(30, (l = e)))), D),
+    b = n,
+    y = () => (b(), (b = z(K, (e) => i(69, (o = e)))), K),
+    w = n,
+    S = () => (w(), (w = z(U, (e) => i(70, (s = e)))), U),
+    h = n,
+    x = () => (h(), (h = z(I, (e) => i(71, (r = e)))), I),
+    k = n,
+    B = () => (k(), (k = z(A, (e) => i(53, (p = e)))), A),
+    V = n,
+    P = () => (V(), (V = z(O, (e) => i(54, (m = e)))), O),
+    T = n,
+    C = n,
+    E = () => (C(), (C = z(N, (e) => i(56, (f = e)))), N);
+  (e.$$.on_destroy.push(() => g()),
+    e.$$.on_destroy.push(() => b()),
+    e.$$.on_destroy.push(() => w()),
+    e.$$.on_destroy.push(() => h()),
+    e.$$.on_destroy.push(() => k()),
+    e.$$.on_destroy.push(() => V()),
+    e.$$.on_destroy.push(() => T()),
+    e.$$.on_destroy.push(() => C()));
+  let { symbolsStore: M } = t,
+    { symbolsController: _ } = t,
+    { ticksController: q } = t,
+    { ticksStore: O } = t;
+  P();
+  let { tradeController: L } = t,
+    { tradeStore: D } = t;
+  v();
+  let { ordersStore: I } = t;
+  x();
+  let { positionsStore: U } = t;
+  S();
+  let { interactionController: j } = t,
+    { interactionStore: N } = t;
+  E();
+  let { configStore: A } = t;
+  B();
+  let { chartController: G } = t,
+    { tradeLinesController: Z } = t,
+    { accountStore: W } = t,
+    { orderUtils: J } = t,
+    { layoutStore: K } = t;
+  y();
+  const Q = G.chart.sections.getByIndex(0),
+    X = Z.tradeLinesManager.getPrice();
+  H(e, X, (e) => i(52, (u = e)));
+  const ee = Z.tradeLinesManager.getSL();
+  H(e, ee, (e) => i(51, (c = e)));
+  const te = Z.tradeLinesManager.getTP();
+  H(e, te, (e) => i(50, (d = e)));
+  const ie = Z.tradeLinesManager.getTriggerPrice();
+  let ne;
+  H(e, ie, (e) => i(49, (a = e)));
+  let le,
+    oe,
+    se,
+    re = p.tradeVolume,
+    ae = null,
+    de = null,
+    ce = null,
+    ue = null,
+    pe = 2,
+    me = 0,
+    $e = "",
+    fe = 0,
+    ge = null,
+    ve = null,
+    be = null,
+    ye = "";
+  function we(e) {
+    if (!(null == oe ? void 0 : oe.tickSize))
+      return (null == oe ? void 0 : oe.digits)
+        ? Number(e.toFixed(null == oe ? void 0 : oe.digits))
+        : e;
+    const t = 10 ** oe.digits,
+      i = Math.round(e * t),
+      n = Math.round(oe.tickSize * t),
+      l = Math.trunc(i / n);
+    return i % n >= n / 2 ? (l * n + n) / t : (l * n) / t;
+  }
+  function Se() {
+    (o.setLayout({ tradeCreate: null, tradeEdit: !1 }),
+      j.setSelectedForEdit(),
+      l.resetRequest());
+  }
+  return (
+    F(() => {
+      (l.resetRequest(),
+        (function () {
+          null !== o.tradeCreate && i(14, (ne = o.tradeCreate));
+          const e = p.symbol === (null == oe ? void 0 : oe.symbol);
+          (R(X, (u.visible = e), u),
+            R(ee, (c.visible = e), c),
+            R(te, (d.visible = e), d),
+            R(ie, (a.visible = e && [6, 7].includes(ne)), a));
+        })());
+    }),
+    Y(() => {
+      (o.setLayout({ tradeCreate: null, tradeEdit: !1 }),
+        u.clear(),
+        c.clear(),
+        d.clear(),
+        a.clear(),
+        i(16, (ae = null)),
+        i(18, (ce = null)),
+        i(19, (ue = null)),
+        i(25, (pe = 2)),
+        "" !== N.selectedForEdit && j.setSelectedForEdit(),
+        (N.selectedPosition || N.selectedOrder || N.selectedHistoryPosition) &&
+          N.resetSelected(),
+        l.resetRequest());
+    }),
+    (e.$$set = (e) => {
+      ("symbolsStore" in e && i(44, (M = e.symbolsStore)),
+        "symbolsController" in e && i(0, (_ = e.symbolsController)),
+        "ticksController" in e && i(1, (q = e.ticksController)),
+        "ticksStore" in e && P(i(2, (O = e.ticksStore))),
+        "tradeController" in e && i(3, (L = e.tradeController)),
+        "tradeStore" in e && v(i(4, (D = e.tradeStore))),
+        "ordersStore" in e && x(i(5, (I = e.ordersStore))),
+        "positionsStore" in e && S(i(6, (U = e.positionsStore))),
+        "interactionController" in e && i(45, (j = e.interactionController)),
+        "interactionStore" in e && E(i(7, (N = e.interactionStore))),
+        "configStore" in e && B(i(8, (A = e.configStore))),
+        "chartController" in e && i(46, (G = e.chartController)),
+        "tradeLinesController" in e && i(47, (Z = e.tradeLinesController)),
+        "accountStore" in e && i(9, (W = e.accountStore)),
+        "orderUtils" in e && i(10, (J = e.orderUtils)),
+        "layoutStore" in e && y(i(11, (K = e.layoutStore))));
+    }),
+    (e.$$.update = () => {
+      var t;
+      if (
+        (33685504 & e.$$.dirty[1] &&
+          f.selectedForEdit !== ye &&
+          i(48, (ye = f.selectedForEdit)),
+        131072 & e.$$.dirty[1] &&
+          ((t = ye),
+          r.orderHas(t)
+            ? (i(23, (ve = r.getOrder(t))),
+              ve && (i(24, (be = null)), G.select(ve.symbol)))
+            : s.positionHas(t)
+              ? (i(24, (be = s.getPosition(t))),
+                be && (i(23, (ve = null)), G.select(be.symbol)))
+              : (i(23, (ve = null)), i(24, (be = null)))),
+        (9437187 & e.$$.dirty[0]) | (12591104 & e.$$.dirty[1]))
+      ) {
+        const e = (null == ve ? void 0 : ve.symbol) || p.symbol;
+        (oe && e === oe.symbol) ||
+          _.loadFullSymbols([e]).then(() => {
+            (i(20, (oe = M.getBySymbol(e))),
+              q.on(e),
+              i(21, (se = m.getTick(e))),
+              T(),
+              (T = z(se, (e) => i(55, ($ = e)))));
+          });
+      }
+      ((2900992 & e.$$.dirty[0]) | (16777216 & e.$$.dirty[1]) &&
+        se &&
+        ((0 !== ne && 1 !== ne) || (!ce && !ue)
+          ? J.isBuy(ne)
+            ? i(22, (fe = $.ask))
+            : J.isSell(ne) && i(22, (fe = $.bid))
+          : (ce && ue && ce > ue) ||
+              (null !== ce && ce > $.ask) ||
+              (null !== ue && ue < $.bid)
+            ? (i(22, (fe = $.bid)),
+              i(12, (ee.valueFrom = $.bid), ee),
+              i(13, (te.valueFrom = $.bid), te))
+            : ((ce && ue && ce < ue) ||
+                (null !== ce && ce < $.bid) ||
+                (null !== ue && ue > $.ask)) &&
+              (i(22, (fe = $.ask)),
+              i(12, (ee.valueFrom = $.ask), ee),
+              i(13, (te.valueFrom = $.ask), te))),
+        17760256 & e.$$.dirty[0] &&
+          (R(X, (u.coordinates.price1 = ae ?? 0), u),
+          R(X, (u.lock = Boolean(be)), u),
+          R(ee, (c.coordinates.price1 = ce ?? 0), c),
+          R(te, (d.coordinates.price1 = ue ?? 0), d),
+          R(ie, (a.coordinates.price1 = de ?? 0), a)),
+        (1163264 & e.$$.dirty[0]) | (2129920 & e.$$.dirty[1]) &&
+          (u.moving ||
+            (X.setValue({
+              value: ae,
+              type: ne,
+              digits: null == oe ? void 0 : oe.digits,
+              volume: re,
+            }),
+            G.chart.redraw())),
+        (5591040 & e.$$.dirty[0]) | (1081344 & e.$$.dirty[1]) &&
+          (c.moving ||
+            (ee.setValue({
+              value: ce,
+              valueFrom: 0 === ne || 1 === ne ? fe : ae,
+              type: ne,
+              digits: null == oe ? void 0 : oe.digits,
+              multiply: null == oe ? void 0 : oe.multiply,
+            }),
+            G.chart.redraw())),
+        (5857280 & e.$$.dirty[0]) | (557056 & e.$$.dirty[1]) &&
+          (d.moving ||
+            (te.setValue({
+              value: ue,
+              valueFrom: 0 === ne || 1 === ne ? fe : ae,
+              type: ne,
+              digits: null == oe ? void 0 : oe.digits,
+              multiply: null == oe ? void 0 : oe.multiply,
+            }),
+            G.chart.redraw())),
+        (1212416 & e.$$.dirty[0]) | (294912 & e.$$.dirty[1]) &&
+          (a.moving ||
+            (ie.setValue({
+              value: de,
+              digits: null == oe ? void 0 : oe.digits,
+              volume: re,
+            }),
+            G.chart.redraw())),
+        2097152 & e.$$.dirty[1] &&
+          (function (e) {
+            const t = 0 === ne || 1 === ne ? fe : e;
+            (ee.visible &&
+              ee.setValue({
+                value: ce,
+                valueFrom: t,
+                type: ne,
+                digits: null == oe ? void 0 : oe.digits,
+                multiply: null == oe ? void 0 : oe.multiply,
+              }),
+              te.visible &&
+                te.setValue({
+                  value: ue,
+                  valueFrom: t,
+                  type: ne,
+                  digits: null == oe ? void 0 : oe.digits,
+                  multiply: null == oe ? void 0 : oe.multiply,
+                }),
+              (ee.visible || te.visible) && G.chart.redraw());
+          })(u.coordinates.price1),
+        (25165824 & e.$$.dirty[0]) | (3932160 & e.$$.dirty[1]) &&
+          (function (e, t, n, l, o, s) {
+            const r = Boolean(!o && s);
+            (t && i(18, (ce = we(t))),
+              n && i(19, (ue = we(n))),
+              l && i(17, (de = we(l))),
+              e &&
+                !r &&
+                (i(16, (ae = we(e))),
+                ve ||
+                  be ||
+                  (null == oe ? void 0 : oe.isExchangeExecution) ||
+                  (J.isLimit(ne)
+                    ? J.isBuy(ne) && fe && ae > fe
+                      ? (i(14, (ne = 3)),
+                        X.setValue({ type: ne, value: ae }),
+                        ce &&
+                          ue &&
+                          ce < ue &&
+                          (i(18, ([ce, ue] = [ue, ce]), ce, i(19, ue)),
+                          ee.setValue({ value: ce }),
+                          te.setValue({ value: ue })))
+                      : J.isSell(ne) &&
+                        fe &&
+                        ae < fe &&
+                        (i(14, (ne = 2)),
+                        X.setValue({ type: ne, value: ae }),
+                        ce &&
+                          ue &&
+                          ce > ue &&
+                          (i(18, ([ce, ue] = [ue, ce]), ce, i(19, ue)),
+                          ee.setValue({ value: ce }),
+                          te.setValue({ value: ue })))
+                    : J.isStop(ne)
+                      ? J.isBuy(ne) && fe && ae < fe
+                        ? (i(14, (ne = 5)),
+                          X.setValue({ type: ne, value: ae }),
+                          ce &&
+                            ue &&
+                            ce < ue &&
+                            (i(18, ([ce, ue] = [ue, ce]), ce, i(19, ue)),
+                            ee.setValue({ value: ce }),
+                            te.setValue({ value: ue })))
+                        : J.isSell(ne) &&
+                          fe &&
+                          ae > fe &&
+                          (i(14, (ne = 4)),
+                          X.setValue({ type: ne, value: ae }),
+                          ce &&
+                            ue &&
+                            ce > ue &&
+                            (i(18, ([ce, ue] = [ue, ce]), ce, i(19, ue)),
+                            ee.setValue({ value: ce }),
+                            te.setValue({ value: ue })))
+                      : J.isStopLimit(ne) &&
+                        (J.isBuy(ne) && fe && de && ae < fe && ae < de
+                          ? (i(14, (ne = 7)),
+                            X.setValue({ type: ne, value: ae }),
+                            ce &&
+                              ue &&
+                              ce < ue &&
+                              (i(18, ([ce, ue] = [ue, ce]), ce, i(19, ue)),
+                              ee.setValue({ value: ce }),
+                              te.setValue({ value: ue }),
+                              ie.setValue({ value: de })))
+                          : J.isSell(ne) &&
+                            fe &&
+                            de &&
+                            ae > fe &&
+                            ae > de &&
+                            (i(14, (ne = 6)),
+                            X.setValue({ type: ne, value: ae }),
+                            ce &&
+                              ue &&
+                              ce > ue &&
+                              (i(18, ([ce, ue] = [ue, ce]), ce, i(19, ue)),
+                              ee.setValue({ value: ce }),
+                              te.setValue({ value: ue }),
+                              ie.setValue({ value: de })))))));
+          })(
+            u.coordinates.price1,
+            c.coordinates.price1,
+            d.coordinates.price1,
+            a.coordinates.price1,
+            ve,
+            be,
+          ));
+    }),
+    [
+      _,
+      q,
+      O,
+      L,
+      D,
+      I,
+      U,
+      N,
+      A,
+      W,
+      J,
+      K,
+      ee,
+      te,
+      ne,
+      re,
+      ae,
+      de,
+      ce,
+      ue,
+      oe,
+      se,
+      fe,
+      ve,
+      be,
+      pe,
+      me,
+      le,
+      $e,
+      ge,
+      l,
+      Q,
+      X,
+      ie,
+      function () {
+        oe &&
+          (2 === ne || 3 === ne
+            ? ae &&
+              L.openLimitOrder({
+                type: ne,
+                symbol: oe.symbol,
+                volume: re,
+                price: ae,
+                sl: ce ?? 0,
+                tp: ue ?? 0,
+                fillingType: pe,
+                expiration: me,
+                date: le,
+                comment: $e,
+              })
+            : 4 === ne || 5 === ne
+              ? ae &&
+                L.openStopOrder({
+                  type: ne,
+                  symbol: oe.symbol,
+                  volume: re,
+                  price: ae,
+                  sl: ce ?? 0,
+                  tp: ue ?? 0,
+                  fillingType: pe,
+                  expiration: me,
+                  date: le,
+                  comment: $e,
+                })
+              : (6 !== ne && 7 !== ne) ||
+                (ae &&
+                  de &&
+                  L.openStopLimitOrder({
+                    type: ne,
+                    symbol: oe.symbol,
+                    volume: re,
+                    price: ae,
+                    trigger: de,
+                    sl: ce ?? 0,
+                    tp: ue ?? 0,
+                    fillingType: pe,
+                    expiration: me,
+                    date: le ?? 0,
+                    comment: $e ?? "",
+                  })));
+      },
+      function (e) {
+        oe &&
+          L.openPosition({
+            type: e.detail,
+            symbol: oe.symbol,
+            volume: re,
+            sl: ce ?? 0,
+            tp: ue ?? 0,
+            fillingType: pe ?? 0,
+            comment: $e ?? "",
+          });
+      },
+      function () {
+        ve &&
+          (2 === ne || 3 === ne || 4 === ne || 5 === ne
+            ? L.modifyLimitOrder({
+                type: ne,
+                id: ve.order,
+                price: ae ?? 0,
+                sl: ce ?? 0,
+                tp: ue ?? 0,
+                expiration: me ?? 0,
+                date: le ?? 0,
+                comment: $e ?? "",
+              })
+            : (7 !== ne && 6 !== ne) ||
+              L.modifyStopLimitOrder({
+                type: ne,
+                id: ve.order,
+                price: ae ?? 0,
+                trigger: de ?? 0,
+                sl: ce ?? 0,
+                tp: ue ?? 0,
+                expiration: me ?? 0,
+                date: le ?? 0,
+                comment: $e ?? "",
+              }));
+      },
+      function () {
+        be &&
+          L.modifyPosition({
+            id: be.id,
+            sl: ce ?? 0,
+            tp: ue ?? 0,
+            comment: $e,
+          });
+      },
+      function () {
+        be &&
+          (ge
+            ? L.closePositionByPosition(be.id, ge.id)
+            : L.closePosition(be.id, !1, re));
+      },
+      function () {
+        L.acceptRequote();
+      },
+      function () {
+        l.resetRequest();
+      },
+      function () {
+        (null == ve ? void 0 : ve.order) &&
+          L.deleteOrder(null == ve ? void 0 : ve.order);
+      },
+      Se,
+      function () {
+        Se();
+      },
+      M,
+      j,
+      G,
+      Z,
+      ye,
+      a,
+      d,
+      c,
+      u,
+      p,
+      m,
+      $,
+      f,
+      () => {
+        R(D, (l.request = void 0), l);
+      },
+      function (e) {
+        ((re = e), i(15, re));
+      },
+      function (e) {
+        ((ae = e), i(16, ae));
+      },
+      function (e) {
+        ((ce = e), i(18, ce));
+      },
+      function (e) {
+        ((ue = e), i(19, ue));
+      },
+      function (e) {
+        ((ne = e), i(14, ne));
+      },
+      function (e) {
+        ((de = e), i(17, de));
+      },
+      function (e) {
+        (($e = e), i(28, $e));
+      },
+      function (e) {
+        ((ge = e), i(29, ge));
+      },
+      function (e) {
+        ((pe = e), i(25, pe));
+      },
+      function (e) {
+        ((me = e), i(26, me));
+      },
+      function (e) {
+        ((le = e), i(27, le));
+      },
+    ]
+  );
+}
+class nn extends e {
+  constructor(e) {
+    (super(),
+      t(
+        this,
+        e,
+        tn,
+        en,
+        i,
+        {
+          symbolsStore: 44,
+          symbolsController: 0,
+          ticksController: 1,
+          ticksStore: 2,
+          tradeController: 3,
+          tradeStore: 4,
+          ordersStore: 5,
+          positionsStore: 6,
+          interactionController: 45,
+          interactionStore: 7,
+          configStore: 8,
+          chartController: 46,
+          tradeLinesController: 47,
+          accountStore: 9,
+          orderUtils: 10,
+          layoutStore: 11,
+        },
+        null,
+        [-1, -1, -1],
+      ));
+  }
+}
+export { nn as default };

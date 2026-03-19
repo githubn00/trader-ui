@@ -73,7 +73,8 @@ import {
   q as Fs2c,
   r as FrFmc,
   s as EpFmc,
-  t2 as MOsFmc
+  t2 as MOsFmc,
+  u as AfFmc
 } from "./YtNU6idj.js";
 import "./CezRPkQL.js";
 import { T as ut, a as dt, F as wt } from "./u3aYl0h9.js";
@@ -1340,6 +1341,7 @@ function an(t) {
 }
 function Gt2(t){let n,e,s,r;return(n=new Fs2c({props:{settings:t[0]}}),s=new ne2c({props:{analysisManager:t[1],settings:t[0]}}),{c(){(A(n.$$.fragment),(e=u()),A(s.$$.fragment))},m(t,a){(x(n,t,a),$(t,e,a),x(s,t,a),(r=!0))},p(t,e){const a={};(1&e&&(a.settings=t[0]),n.$set(a));const r={};(2&e&&(r.analysisManager=t[1]),1&e&&(r.settings=t[0]),s.$set(r))},i(t){r||(h(n.$$.fragment,t),h(s.$$.fragment,t),(r=!0))},o(t){(M(n.$$.fragment,t),M(s.$$.fragment,t),(r=!1))},d(t){(t&&a(e),k(n,t),k(s,t))}})}
 function Ep2tc(t){let n,e,s,r;return(n=new EpFmc({props:{settings:t[0]}}),s=new L({props:{analysisManager:t[1],settings:t[0]}}),{c(){(A(n.$$.fragment),(e=u()),A(s.$$.fragment))},m(t,a){(x(n,t,a),$(t,e,a),x(s,t,a),(r=!0))},p(t,e){const a={};(1&e&&(a.settings=t[0]),n.$set(a));const r={};(2&e&&(r.analysisManager=t[1]),1&e&&(r.settings=t[0]),s.$set(r))},i(t){r||(h(n.$$.fragment,t),h(s.$$.fragment,t),(r=!0))},o(t){(M(n.$$.fragment,t),M(s.$$.fragment,t),(r=!1))},d(t){(t&&a(e),k(n,t),k(s,t))}})}
+function Af2tc(t){let n,e,s,r;return(n=new AfFmc({props:{settings:t[0]}}),s=new L({props:{analysisManager:t[1],settings:t[0]}}),{c(){(A(n.$$.fragment),(e=u()),A(s.$$.fragment))},m(t,a){(x(n,t,a),$(t,e,a),x(s,t,a),(r=!0))},p(t,e){const a={};(1&e&&(a.settings=t[0]),n.$set(a));const r={};(2&e&&(r.analysisManager=t[1]),1&e&&(r.settings=t[0]),s.$set(r))},i(t){r||(h(n.$$.fragment,t),h(s.$$.fragment,t),(r=!0))},o(t){(M(n.$$.fragment,t),M(s.$$.fragment,t),(r=!1))},d(t){(t&&a(e),k(n,t),k(s,t))}})}
 function rn(t) {
   let n, e, s, r;
   const i = [
@@ -1376,6 +1378,7 @@ function rn(t) {
       Ct,
       Gt2,
       Ep2tc,
+      Af2tc,
       Xt2,
     ],
     o = [];
@@ -1452,6 +1455,8 @@ function rn(t) {
                                                                   : "engulfing" === t[0].type
                                                                   ? 32
                                                                   : "mao_" === t[0].type
+                                                                  ? 32
+                                                                  : "alerts" === t[0].type
                                                                   ? 33
                                                                   : -1;
   }
