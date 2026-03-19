@@ -1559,19 +1559,18 @@ class Co {
       (this.editIndicator = this.editIndicator.bind(this)));
   }
   async init(t) {
-    let e = await Gi(this, U).getAll("symbol", t);
+    let e = await Gi(this, U).getAll("symbol", xo);
     e = e
       .map((t) => ((t.index = t.index ?? 0), t))
       .sort((t, e) => (t.index ?? 0) - (e.index ?? 0))
       .map((t, e) => ((t.index = e), t));
-    const s = t ? await Gi(this, U).getAll("symbol", xo) : [];
-    this.indicatorsStore.reset([...s, ...e]);
+    this.indicatorsStore.reset([...e]);
   }
   destroy() {}
   sectionMove(t) {}
   save(t, e) {
     const s = t.toJSON(),
-      i = e ? { symbol: 8 & t.flags ? xo : e, ...s } : { ...s };
+      i = { symbol: xo, ...s };
     return (this.indicatorsStore.add(i), Gi(this, U).add(i), this);
   }
   remove(t) {
@@ -5477,7 +5476,7 @@ class ah {
         const { symbol: t, period: e } = Gi(this, ii).configStore,
           s = Gi(this, Zs).getBySymbol(t);
         (this.chart.sections.init(),
-          await Ki(this, oi, li).call(this),
+          this._indLoaded || (this._indLoaded = !0, await Ki(this, oi, li).call(this)),
           await Ki(this, oi, ci).call(this),
           await this.updateCalendar(),
           await this.chart.setBars(
