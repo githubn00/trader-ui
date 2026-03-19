@@ -508,6 +508,32 @@ function re(t) {
     return !!e && this.data.find((t) => t.section === e);
   }));
 const oe = new Map();
+function drawDashSegment(t, x1, y1, x2, y2, dashLen, gapLen, phase) {
+  const dx = x2-x1, dy = y2-y1, dist = Math.sqrt(dx*dx+dy*dy);
+  if (!dist) return phase;
+  const ux = dx/dist, uy = dy/dist, cycle = dashLen+gapLen;
+  let pos = 0, phaseCur = phase % cycle;
+  while (pos < dist) {
+    const inDash = phaseCur < dashLen;
+    const segEnd = inDash ? dashLen : cycle;
+    const step = Math.min(segEnd - phaseCur, dist - pos);
+    const nx = x1+ux*(pos+step), ny = y1+uy*(pos+step);
+    inDash ? t.lineTo(nx, ny) : t.moveTo(nx, ny);
+    pos += step; phaseCur += step;
+    if (phaseCur >= cycle) phaseCur -= cycle;
+  }
+  return phaseCur;
+}
+function drawDashedLine(t, pts, lineType) {
+  const [dashLen, gapLen] = lineType === 2 ? [2, 4] : [8, 4];
+  let phase = 0, prevP = null;
+  for (const p of pts) {
+    if (!p) { prevP = null; phase = 0; continue; }
+    if (prevP) phase = drawDashSegment(t, prevP[0], prevP[1], p[0], p[1], dashLen, gapLen, phase);
+    else t.moveTo(p[0], p[1]);
+    prevP = p;
+  }
+}
 class ce extends Ss {
   constructor(t, s = 5e3, e) {
     (super(t, s, e),
@@ -605,15 +631,28 @@ class ce extends Ss {
     let l = a.startX(),
       h = !1;
     t.lineStyle(e.thickness, e.color);
-    for (let r = n, o = n + a.getCount() + 1 + i; r < o; r++) {
-      if (r >= 0) {
-        const e = s[r - i];
-        if (e) {
-          const s = this.valueToY(e);
-          h ? t.lineTo(l, s) : (t.moveTo(l, s), (h = !0));
+    const lineType = e.lineType || 0;
+    if (lineType === 0) {
+      for (let r = n, o = n + a.getCount() + 1 + i; r < o; r++) {
+        if (r >= 0) {
+          const e = s[r - i];
+          if (e) {
+            const s = this.valueToY(e);
+            h ? t.lineTo(l, s) : (t.moveTo(l, s), (h = !0));
+          } else h = !1;
         }
+        l += a.getStep();
       }
-      l += a.getStep();
+    } else {
+      const pts = [];
+      for (let r = n, o = n + a.getCount() + 1 + i; r < o; r++) {
+        if (r >= 0) {
+          const v = s[r - i];
+          pts.push(v ? [l, this.valueToY(v)] : null);
+        }
+        l += a.getStep();
+      }
+      drawDashedLine(t, pts, lineType);
     }
   }
   drawHistogram(t, s, e) {

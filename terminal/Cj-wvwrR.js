@@ -163,9 +163,9 @@ const k = class s extends f {
         apply: 4,
       },
       {
-        jaws: { visible: !0, color: 3912676, thickness: 1 },
-        teeth: { visible: !0, color: 16711790, thickness: 1 },
-        lips: { visible: !0, color: 3589905, thickness: 1 },
+        jaws: { visible: !0, color: 3912676, thickness: 1, lineType: 0 },
+        teeth: { visible: !0, color: 16711790, thickness: 1, lineType: 0 },
+        lips: { visible: !0, color: 3589905, thickness: 1, lineType: 0 },
       },
       s.type,
       s.category,
@@ -217,7 +217,7 @@ const j = class s extends f {
     super(
       e,
       { left: 2, right: 2 },
-      { line: { color: 8421504, thickness: 1 } },
+      { line: { color: 8421504, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -276,7 +276,7 @@ const I = class s extends f {
     super(
       e,
       { apply: 0, distance: 14 },
-      { line: { color: 10032405, thickness: 1 } },
+      { line: { color: 10032405, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -291,7 +291,7 @@ const B = class s extends f {
     super(
       e,
       { distance: 13, apply: 4 },
-      { line: { color: 16711790, thickness: 1 } },
+      { line: { color: 16711790, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -306,7 +306,7 @@ const J = class s extends f {
     super(
       e,
       { distance: 13, apply: 4 },
-      { line: { color: 623026, thickness: 1 } },
+      { line: { color: 623026, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -322,7 +322,7 @@ const N = class s extends f {
       e,
       { distance: 14, apply: 3 },
       {
-        line: { color: 10054165, thickness: 1 },
+        line: { color: 10054165, thickness: 1, lineType: 0 },
         up: { visible: !0, color: 12632256 },
         down: { visible: !0, color: 12632256 },
         background: { visible: !0, color: 6764544, alpha: 0.1 },
@@ -342,7 +342,7 @@ const T = class s extends f {
       e,
       { apply: 0, distance: 14 },
       {
-        line: { color: 10054165, thickness: 1 },
+        line: { color: 10054165, thickness: 1, lineType: 0 },
         up: { visible: !0, color: 12632256 },
         down: { visible: !0, color: 12632256 },
         background: { visible: !0, color: 6764544, alpha: 0.1 },
@@ -362,7 +362,7 @@ const P = class s extends f {
       e,
       { apply: 0, volumes: 0, method: 0, distance: 14 },
       {
-        line: { color: 14050900, thickness: 1 },
+        line: { color: 14050900, thickness: 1, lineType: 0 },
         null: { visible: !0, color: 12632256 },
       },
       s.type,
@@ -380,8 +380,8 @@ const K = class s extends f {
       e,
       { fast: 12, slow: 26, macd: 9, apply: 0 },
       {
-        line: { visible: !0, color: 16711790, thickness: 1 },
-        signal: { visible: !0, color: 38143, thickness: 1 },
+        line: { visible: !0, color: 16711790, thickness: 1, lineType: 0 },
+        signal: { visible: !0, color: 38143, thickness: 1, lineType: 0 },
       },
       s.type,
       s.category,
@@ -398,8 +398,8 @@ const K_ = class s extends f {
       e,
       { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0 },
       {
-        line: { visible: !0, color: 16711790, thickness: 1 },
-        signal: { visible: !0, color: 38143, thickness: 1 },
+        line: { visible: !0, color: 16711790, thickness: 1, lineType: 0 },
+        signal: { visible: !0, color: 38143, thickness: 1, lineType: 0 },
       },
       s.type,
       s.category,
@@ -415,7 +415,7 @@ const q = class s extends f {
     super(
       e,
       { fast: 12, slow: 26, macd: 9, apply: 0 },
-      { line: { color: 16711790, thickness: 1 } },
+      { line: { color: 16711790, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -430,7 +430,7 @@ const q_ = class s extends f {
     super(
       e,
       { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0 },
-      { line: { color: 16711790, thickness: 1 } },
+      { line: { color: 16711790, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -445,7 +445,7 @@ const G = class s extends f {
     super(
       e,
       { apply: 0, distance: 10 },
-      { line: { color: 10066197, thickness: 1 } },
+      { line: { color: 10066197, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -461,7 +461,7 @@ const L = class s extends f {
       e,
       { apply: 3, distance: 14 },
       {
-        line: { color: 9311641, thickness: 1 },
+        line: { color: 9311641, thickness: 1, lineType: 0 },
         up: { visible: !0, color: 12632256 },
         down: { visible: !0, color: 12632256 },
         background: { visible: !0, color: 6750413, alpha: 0.1 },
@@ -481,8 +481,8 @@ const X = class s extends f {
       e,
       { distance: 10, apply: 4 },
       {
-        rvi: { visible: !0, color: 32768, thickness: 1 },
-        signal: { visible: !0, color: 16711680, thickness: 1 },
+        rvi: { visible: !0, color: 32768, thickness: 1, lineType: 0 },
+        signal: { visible: !0, color: 16711680, thickness: 1, lineType: 0 },
         null: { visible: !0, color: 12632256 },
       },
       s.type,
@@ -500,8 +500,8 @@ const Z = class s extends f {
       e,
       { apply: 0, distanceK: 5, distanceD: 3, slowing: 3, price: 0, method: 0 },
       {
-        line: { visible: !0, color: 38143, thickness: 1 },
-        signal: { visible: !0, color: 16738816, thickness: 1 },
+        line: { visible: !0, color: 38143, thickness: 1, lineType: 0 },
+        signal: { visible: !0, color: 16738816, thickness: 1, lineType: 0 },
         up: { visible: !0, color: 12632256 },
         down: { visible: !0, color: 12632256 },
         background: { visible: !0, color: 6750413, alpha: 0.1 },
@@ -521,7 +521,7 @@ const _ = class s extends f {
       e,
       { distance: 14, apply: 1 },
       {
-        line: { color: 10032405, thickness: 1 },
+        line: { color: 10032405, thickness: 1, lineType: 0 },
         null: { visible: !0, color: 12632256 },
       },
       s.type,
@@ -539,7 +539,7 @@ const es = class s extends f {
       e,
       { apply: 0, distance: 14 },
       {
-        line: { color: 3828904, thickness: 1 },
+        line: { color: 3828904, thickness: 1, lineType: 0 },
         up: { visible: !0, color: 12632256, thickness: 1 },
         down: { visible: !0, color: 12632256, thickness: 1 },
         background: { visible: !0, color: 6750413, alpha: 0.1 },
@@ -559,7 +559,7 @@ const is = class s extends f {
       e,
       { distance: 10, apply: 0 },
       {
-        base: { visible: !0, color: 5395284, thickness: 1 },
+        base: { visible: !0, color: 5395284, thickness: 1, lineType: 0 },
         plus: { visible: !0, color: 5416532, thickness: 1 },
         minus: { visible: !0, color: 16274260, thickness: 1 },
       },
@@ -578,11 +578,11 @@ const as = class s extends f {
       e,
       { apply: 0, distance: 10, shift: 0, method: 0, deviation: 2 },
       {
-        line: { color: 3835309, thickness: 1 },
+        line: { color: 3835309, thickness: 1, lineType: 0 },
         background: { visible: !0, color: 1279108, alpha: 0.1 },
         up: { visible: !0, color: 1279108, thickness: 1 },
         down: { visible: !0, color: 1279108, thickness: 1 },
-        base: { visible: !0, color: 8856355, thickness: 1 },
+        base: { visible: !0, color: 8856355, thickness: 1, lineType: 0 },
       },
       s.type,
       s.category,
@@ -599,11 +599,11 @@ const ls = class s extends f {
       e,
       { apply: 0, distance: 10, shift: 0, method: 0, deviation: 0.05 },
       {
-        line: { color: 3835309, thickness: 1 },
+        line: { color: 3835309, thickness: 1, lineType: 0 },
         background: { visible: !0, color: 38143, alpha: 0.1 },
         up: { visible: !0, color: 38143, thickness: 1 },
         down: { visible: !0, color: 38143, thickness: 1 },
-        base: { visible: !0, color: 16738816, thickness: 1 },
+        base: { visible: !0, color: 16738816, thickness: 1, lineType: 0 },
       },
       s.type,
       s.category,
@@ -620,15 +620,15 @@ const ns = class s extends f {
       e,
       { tenkan: 9, kijun: 26, senkou: 52, apply: 0 },
       {
-        tenkan: { visible: !0, color: 11952482, thickness: 1 },
-        kijun: { visible: !0, color: 5617146, thickness: 1 },
-        chikou: { visible: !0, color: 8370018, thickness: 1 },
+        tenkan: { visible: !0, color: 11952482, thickness: 1, lineType: 0 },
+        kijun: { visible: !0, color: 5617146, thickness: 1, lineType: 0 },
+        chikou: { visible: !0, color: 8370018, thickness: 1, lineType: 0 },
         up: {
-          line: { visible: !0, color: 5165137, thickness: 1 },
+          line: { visible: !0, color: 5165137, thickness: 1, lineType: 0 },
           background: { visible: !0, color: 5165137, alpha: 0.15 },
         },
         down: {
-          line: { visible: !0, color: 16274260, thickness: 1 },
+          line: { visible: !0, color: 16274260, thickness: 1, lineType: 0 },
           background: { visible: !0, color: 16274260, alpha: 0.15 },
         },
       },
@@ -646,7 +646,7 @@ const gs = class s extends f {
     super(
       e,
       { apply: 0, distance: 10, shift: 0, method: 0 },
-      { line: { color: 3835309, thickness: 1 } },
+      { line: { color: 3835309, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -661,7 +661,7 @@ const us = class s extends f {
     super(
       e,
       { apply: 0, step: 0.02, max: 0.2 },
-      { line: { color: 3828904, thickness: 1 } },
+      { line: { color: 3828904, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -676,7 +676,7 @@ const hs = class s extends f {
     super(
       e,
       { apply: 0, distance: 10, shift: 0, method: 0 },
-      { line: { color: 1279108, thickness: 1 } },
+      { line: { color: 1279108, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -691,7 +691,7 @@ const ks = class s extends f {
     super(
       e,
       { apply: 0, volumes: 0 },
-      { line: { color: 10066197, thickness: 1 } },
+      { line: { color: 10066197, thickness: 1, lineType: 0 } },
       s.type,
       s.category,
       s.digits,
@@ -707,7 +707,7 @@ const bs = class s extends f {
       e,
       { volumes: 0, distance: 14, apply: 5 },
       {
-        line: { color: 4561173, thickness: 1 },
+        line: { color: 4561173, thickness: 1, lineType: 0 },
         up: { visible: !0, color: 12632256 },
         down: { visible: !0, color: 12632256 },
         background: { visible: !0, color: 6750413, alpha: 0.1 },
@@ -726,7 +726,7 @@ const xs = class s extends f {
     super(
       e,
       { volumes: 0, apply: 0 },
-      { line: { color: 3828904, thickness: 1 } },
+      { line: { color: 3828904, thickness: 1, lineType: 0 } },
       "obv",
       3,
       0,
