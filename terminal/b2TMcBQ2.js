@@ -1142,9 +1142,7 @@ function alertsSma(prices, period) {
 function alertsMa(bars, period, maType) {
   if (!bars || bars.length === 0) return null;
   const closes = new Float64Array(bars.length);
-  for (let i = 0; i < bars.length; i++) {
-    closes[i] = (bars[i] && bars[i].close) || 0;
-  }
+  for (let i = 0; i < bars.length; i++) closes[i] = bars.close(i);
   return maType === 1 ? alertsSma(closes, period) : alertsEma(closes, period);
 }
 
@@ -1153,47 +1151,41 @@ function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
   const useMaCross = params && params.useMaCross ? params.useMaCross : 1;
   const useMaSlope = params && params.useMaSlope ? params.useMaSlope : 1;
   const useBreakout = params && params.useBreakout ? params.useBreakout : 1;
-  const maSlope = (params && params.maSlope) || 20;
+  const maSlopeN = (params && params.maSlope) || 20;
   const breakoutPercent = (params && params.breakoutPercent) || 2;
 
-  const start = update ? Math.max(0, bars.length - 10) : 0;
+  const start = update ? Math.max(1, bars.length - 10) : 1;
 
   for (let i = start; i < bars.length; i++) {
     bull[i] = 0; bear[i] = 0; slope[i] = 0; breakout[i] = 0;
 
-    const bar = bars[i];
-    if (!bar) continue;
-    const close = bar.close, high = bar.high, low = bar.low, open = bar.open;
+    const close = bars.close(i), high = bars.high(i), low = bars.low(i), open = bars.open(i);
     if (!close || !high || !low) continue;
 
     // Price Action Pattern (5-bar range breakout)
     if (usePrice && i >= 5) {
       let maxHigh = high, minLow = low;
       for (let j = i - 5; j < i; j++) {
-        if (bars[j]) {
-          maxHigh = Math.max(maxHigh, bars[j].high || high);
-          minLow = Math.min(minLow, bars[j].low || low);
-        }
+        maxHigh = Math.max(maxHigh, bars.high(j));
+        minLow = Math.min(minLow, bars.low(j));
       }
-      if (close > maxHigh && high === close) bull[i] = low;
-      if (close < minLow && low === close) bear[i] = high;
+      if (close > maxHigh) bull[i] = low;
+      if (close < minLow) bear[i] = high;
     }
 
     // MA Crossovers
     if (useMaCross && ma && i > 0) {
-      const prevBar = bars[i - 1];
-      if (prevBar && prevBar.close) {
-        const prevClose = prevBar.close;
-        const prevMa = ma[i - 1];
-        if (prevClose <= prevMa && close > ma[i]) bull[i] = low;
-        if (prevClose >= prevMa && close < ma[i]) bear[i] = high;
+      const prevClose = bars.close(i - 1);
+      if (prevClose && ma[i - 1]) {
+        if (prevClose <= ma[i - 1] && close > ma[i]) bull[i] = low;
+        if (prevClose >= ma[i - 1] && close < ma[i]) bear[i] = high;
       }
     }
 
     // MA Slope Changes
-    if (useMaSlope && ma && i >= maSlope) {
-      const slopeNow = ma[i] - ma[i - maSlope];
-      const slopePrev = ma[i - 1] - ma[i - 1 - maSlope];
+    if (useMaSlope && ma && i >= maSlopeN && (i - 1 - maSlopeN) >= 0) {
+      const slopeNow = ma[i] - ma[i - maSlopeN];
+      const slopePrev = ma[i - 1] - ma[i - 1 - maSlopeN];
       if (slopePrev <= 0 && slopeNow > 0) {
         slope[i] = (high + low) / 2;
       } else if (slopePrev >= 0 && slopeNow < 0) {
@@ -1203,9 +1195,9 @@ function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
 
     // Breakout (rapid price move)
     if (useBreakout && i > 0) {
-      const prevBar = bars[i - 1];
-      if (prevBar && prevBar.close) {
-        const pctChange = ((close - prevBar.close) / prevBar.close) * 100;
+      const prevClose = bars.close(i - 1);
+      if (prevClose) {
+        const pctChange = ((close - prevClose) / prevClose) * 100;
         if (Math.abs(pctChange) > breakoutPercent) {
           breakout[i] = (high + low) / 2;
         }
@@ -1215,37 +1207,39 @@ function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
 }
 
 function alertsDrawUp(t, s, e, i) {
-  const a = 5, n = 3;
-  t.moveTo(s - a, e + n);
-  t.lineTo(s, e - n * 2);
-  t.lineTo(s + a, e + n);
-  t.closePath();
-  t.fillStyle = "#" + i.color.toString(16).padStart(6, "0");
-  t.fill();
+  const a = 5 + 2 * (i.thickness || 1), n = e - a;
+  t.lineStyle(1, i.color);
+  t.beginFill(i.color);
+  t.moveTo(s, n);
+  t.lineTo(s + a, n + a);
+  t.lineTo(s - a, n + a);
+  t.lineTo(s, n);
+  t.endFill();
 }
 
 function alertsDrawDn(t, s, e, i) {
-  const a = 5, n = 3;
-  t.moveTo(s - a, e - n);
-  t.lineTo(s, e + n * 2);
-  t.lineTo(s + a, e - n);
-  t.closePath();
-  t.fillStyle = "#" + i.color.toString(16).padStart(6, "0");
-  t.fill();
+  const a = 5 + 2 * (i.thickness || 1), n = e + a;
+  t.lineStyle(1, i.color);
+  t.beginFill(i.color);
+  t.moveTo(s, n);
+  t.lineTo(s + a, n - a);
+  t.lineTo(s - a, n - a);
+  t.lineTo(s, n);
+  t.endFill();
 }
 
 function alertsDrawCircle(t, s, e, i) {
-  t.beginPath();
-  t.arc(s, e, 4, 0, Math.PI * 2);
-  t.strokeStyle = "#" + i.color.toString(16).padStart(6, "0");
-  t.lineWidth = i.thickness || 1;
-  t.stroke();
+  const r = 3 + (i.thickness || 1);
+  t.lineStyle(i.thickness || 1, i.color);
+  t.drawCircle(s, e, r);
 }
 
 function alertsDrawSquare(t, s, e, i) {
-  const sz = 5;
-  t.fillStyle = "#" + i.color.toString(16).padStart(6, "0");
-  t.fillRect(s - sz / 2, e - sz / 2, sz, sz);
+  const sz = 4 + 2 * (i.thickness || 1);
+  t.lineStyle(1, i.color);
+  t.beginFill(i.color);
+  t.drawRect(s - sz / 2, e - sz / 2, sz, sz);
+  t.endFill();
 }
 
 function engulfEma(prices, period) {
@@ -1341,18 +1335,35 @@ class Ae2 extends ce {
   _drawGraph(t) {
     const { settings: s, chart: e } = this, { state: i } = e;
     const { bullish: a, bearish: n, maSlope: l, breakout: r } = s.style;
+    const showLabels = s.params && s.params.showLabels;
     let o = i.startX();
     const c = i.getFrom();
     for (let g = c, u = c + i.getCount() + 1; g < u; g++) {
       if (g >= 0) {
         let p = this._aBull && this._aBull[g];
-        if (p) alertsDrawUp(t, o, this.valueToY(p), a);
+        if (p) {
+          const y = this.valueToY(p);
+          alertsDrawUp(t, o, y, a);
+          if (showLabels) { const tx = this.createText("Bull"); tx.tint = a.color; tx.x = o + 6; tx.y = y - 14; t.addChild(tx); }
+        }
         p = this._aBear && this._aBear[g];
-        if (p) alertsDrawDn(t, o, this.valueToY(p), n);
+        if (p) {
+          const y = this.valueToY(p);
+          alertsDrawDn(t, o, y, n);
+          if (showLabels) { const tx = this.createText("Bear"); tx.tint = n.color; tx.x = o + 6; tx.y = y + 2; t.addChild(tx); }
+        }
         p = this._aSlope && this._aSlope[g];
-        if (p) alertsDrawCircle(t, o, this.valueToY(p), l);
+        if (p) {
+          const y = this.valueToY(p);
+          alertsDrawCircle(t, o, y, l);
+          if (showLabels) { const tx = this.createText("Slope"); tx.tint = l.color; tx.x = o + 6; tx.y = y - 8; t.addChild(tx); }
+        }
         p = this._aBreakout && this._aBreakout[g];
-        if (p) alertsDrawSquare(t, o, this.valueToY(p), r);
+        if (p) {
+          const y = this.valueToY(p);
+          alertsDrawSquare(t, o, y, r);
+          if (showLabels) { const tx = this.createText("Brk"); tx.tint = r.color; tx.x = o + 6; tx.y = y - 8; t.addChild(tx); }
+        }
       }
       o += i.getStep();
     }
