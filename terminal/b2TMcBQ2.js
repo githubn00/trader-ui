@@ -1143,7 +1143,7 @@ function alertsMa(bars, period, maType) {
   if (!bars || bars.length === 0) return null;
   const closes = new Float64Array(bars.length);
   for (let i = 0; i < bars.length; i++) {
-    closes[i] = bars[i].close;
+    closes[i] = (bars[i] && bars[i].close) || 0;
   }
   return maType === 1 ? alertsSma(closes, period) : alertsEma(closes, period);
 }
