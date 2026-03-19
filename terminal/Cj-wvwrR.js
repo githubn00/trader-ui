@@ -97,6 +97,8 @@ function h(s) {
       return "Volumes";
     case "engulfing":
       return "Engulfing Patterns";
+    case "alerts":
+      return "Price & MA Alerts";
     default:
       return s;
   }
@@ -769,6 +771,35 @@ const Ep2 = class s extends f {
   }
 };
 ((Ep2.type = "engulfing"), (Ep2.category = 6), (Ep2.digits = 0), (Ep2.flags = 0));
+const Ap2 = class s extends f {
+  constructor(e) {
+    super(
+      e,
+      {
+        maPeriod: 50,
+        maType: 0,
+        maSlope: 20,
+        breakoutPercent: 2,
+        usePrice: 1,
+        useMaCross: 1,
+        useMaSlope: 1,
+        useBreakout: 1,
+      },
+      {
+        bullish: { color: 65280, thickness: 2 },
+        bearish: { color: 16711680, thickness: 2 },
+        maSlope: { color: 16776960, thickness: 1 },
+        breakout: { color: 255, thickness: 2 },
+      },
+      s.type,
+      s.category,
+      s.digits,
+      s.flags,
+    );
+  }
+};
+((Ap2.type = "alerts"), (Ap2.category = 6), (Ap2.digits = 0), (Ap2.flags = 0));
+let ap2 = Ap2;
 let ep2 = Ep2;
 export {
   f as A,
@@ -778,6 +809,7 @@ export {
   ws as E,
   Ms as F,
   ep2 as ep,
+  ap2 as ap,
   v as a,
   m as b,
   w as c,

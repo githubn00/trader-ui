@@ -116,6 +116,7 @@ const yt = [
     "go",
     "mf",
     "engulfing",
+    "alerts",
   ],
   Mt = {};
 [
@@ -127,7 +128,8 @@ const yt = [
   ["ao", 4, "AC", "Accelerator Oscillator"],
   ["awesome", 4, "AO", "Awesome Oscillator"],
   ["fractals", 4, "Fractals", "Fractals"],
-  ["engulfing", 6, "Engulfing", "Engulfing Patterns"],
+  ["alerts", 6, "Alerts", "Price & MA Alerts"],
+    ["engulfing", 6, "Engulfing", "Engulfing Patterns"],
   ["go", 4, "Gator", "Gator Oscillator"],
   ["mf", 4, "BW MFI", "Market Facilitation Index"],
   ["atr", 2, "ATR", "Average True Range"],
