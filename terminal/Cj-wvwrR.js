@@ -799,6 +799,35 @@ const Ap2 = class s extends f {
   }
 };
 ((Ap2.type = "alerts"), (Ap2.category = 6), (Ap2.digits = 0), (Ap2.flags = 0));
+const Xp2 = class s extends f {
+  constructor(e) {
+    super(
+      e,
+      {
+        fastPeriod: 12, fastType: 0,
+        slowPeriod: 26, slowType: 0,
+        velocityLookback: 3,
+        barsBeforeAlert: 5,
+        useMacdFilter: 0,
+        macdFast: 12, macdSlow: 26, macdSignal: 9,
+        notifications: 1,
+        sameSymbol: 1, sourceSymbol: "",
+        sameTimeframe: 1, sourceTimeframe: 0,
+      },
+      {
+        fast: { visible: 1, color: 0xffaa00, thickness: 1, lineType: 0 },
+        slow: { visible: 1, color: 0x00aaff, thickness: 1, lineType: 0 },
+        alert: { visible: 1, color: 0xff4444, thickness: 2 },
+      },
+      s.type,
+      s.category,
+      s.digits,
+      s.flags,
+    );
+  }
+};
+((Xp2.type = "xover"), (Xp2.category = 6), (Xp2.digits = 0), (Xp2.flags = 0));
+let xp2 = Xp2;
 let ap2 = Ap2;
 let ep2 = Ep2;
 export {
@@ -810,6 +839,7 @@ export {
   Ms as F,
   ep2 as ep,
   ap2 as ap,
+  xp2 as xp,
   v as a,
   m as b,
   w as c,

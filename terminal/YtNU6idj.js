@@ -47,4 +47,199 @@ function AfRs(t){let e,s;return e=new yt({props:{$$slots:{default:[AfEs]},$$scop
 function AfOs(t,e,s){let n,o2=M,l2=()=>(o2(),o2=W(i,(t=>s(1,n=t))),i);t.$$.on_destroy.push((()=>o2()));let{settings:i}=e;return l2(),t.$$set=t=>{"settings"in t&&l2(s(0,i=t.settings))},[i,n,function(e){t.$$.not_equal(n.params.maPeriod,e)&&(n.params.maPeriod=e,i.set(n))},function(e){t.$$.not_equal(n.params.maType,e)&&(n.params.maType=e,i.set(n))},function(e){t.$$.not_equal(n.params.maSlope,e)&&(n.params.maSlope=e,i.set(n))},function(e){t.$$.not_equal(n.params.breakoutPercent,e)&&(n.params.breakoutPercent=e,i.set(n))},function(e){t.$$.not_equal(n.style.bullish.visible,e)&&(n.style.bullish.visible=e,i.set(n))},function(e){t.$$.not_equal(n.style.bullish.color,e)&&(n.style.bullish.color=e,i.set(n))},function(e){t.$$.not_equal(n.style.bullish.thickness,e)&&(n.style.bullish.thickness=e,i.set(n))},function(e){t.$$.not_equal(n.style.bearish.visible,e)&&(n.style.bearish.visible=e,i.set(n))},function(e){t.$$.not_equal(n.style.bearish.color,e)&&(n.style.bearish.color=e,i.set(n))},function(e){t.$$.not_equal(n.style.bearish.thickness,e)&&(n.style.bearish.thickness=e,i.set(n))},function(e){t.$$.not_equal(n.style.maSlope.visible,e)&&(n.style.maSlope.visible=e,i.set(n))},function(e){t.$$.not_equal(n.style.maSlope.color,e)&&(n.style.maSlope.color=e,i.set(n))},function(e){t.$$.not_equal(n.style.maSlope.thickness,e)&&(n.style.maSlope.thickness=e,i.set(n))},function(e){n.params=n.params||{};t.$$.not_equal(n.params.showLabels,e)&&(n.params.showLabels=e,i.set(n))}]}
 class AfFm extends t{constructor(t){super(),e(this,t,AfOs,AfRs,s,{settings:0})}}
 // ── end AfFm ──────────────────────────────────────────────────────────────
-function MOsWt(t){let e,s,n,i;function a(e){t[6](e)}function c(e){t[7](e)}let r={label:window.tr(window.lang.chart.indicators.form.line.style)};return void 0!==t[1].style.line.color&&(r.color=t[1].style.line.color),void 0!==t[1].style.line.thickness&&(r.thickness=t[1].style.line.thickness),void 0!==t[1].style.line.lineType&&(r.lineType=t[1].style.line.lineType),e=new xt({props:r}),q.push((()=>x(e,"color",a))),q.push((()=>x(e,"thickness",c))),q.push((()=>x(e,"lineType",function(v){t[1].style.line.lineType=v;t[0].set(t[1]);}))),{c(){_(e.$$.fragment)},m(t,s){k(e,t,s),i=!0},p(t,o){const l={};!s&&2&o&&(s=!0,l.color=t[1].style.line.color,j((()=>s=!1))),!n&&2&o&&(n=!0,l.thickness=t[1].style.line.thickness,j((()=>n=!1))),e.$set(l)},i(t){i||(l(e.$$.fragment,t),i=!0)},o(t){o(e.$$.fragment,t),i=!1},d(t){b(e,t)}}}function MOsEs(t){let e,s,a,c,r,$,u,p,d,f;function m(e){t[2](e)}function g(e){t[3](e)}function y(e){t[4](e)}let w={};function v(e){t[5](e)}void 0!==t[1].params.fast&&(w.fast=t[1].params.fast),void 0!==t[1].params.slow&&(w.slow=t[1].params.slow),void 0!==t[1].params.macd&&(w.macd=t[1].params.macd),e=new St({props:w}),q.push((()=>x(e,"fast",m))),q.push((()=>x(e,"slow",g))),q.push((()=>x(e,"macd",y)));let D={};return void 0!==t[1].params.apply&&(D.value=t[1].params.apply),$=new Q({props:D}),q.push((()=>x($,"value",v))),d=new R({props:{label:window.tr(window.lang.chart.indicators.form.line.style),$$slots:{default:[MOsWt]},$$scope:{ctx:t}}}),{c(){_(e.$$.fragment),r=h(),_($.$$.fragment),p=h(),_(d.$$.fragment)},m(t,s){k(e,t,s),i(t,r,s),k($,t,s),i(t,p,s),k(d,t,s),f=!0},p(t,n){const o={};!s&&2&n&&(s=!0,o.fast=t[1].params.fast,j((()=>s=!1))),!a&&2&n&&(a=!0,o.slow=t[1].params.slow,j((()=>a=!1))),!c&&2&n&&(c=!0,o.macd=t[1].params.macd,j((()=>c=!1))),e.$set(o);const l={};!u&&2&n&&(u=!0,l.value=t[1].params.apply,j((()=>u=!1))),$.$set(l);const i={};258&n&&(i.$$scope={dirty:n,ctx:t}),d.$set(i)},i(t){f||(l(e.$$.fragment,t),l($.$$.fragment,t),l(d.$$.fragment,t),f=!0)},o(t){o(e.$$.fragment,t),o($.$$.fragment,t),o(d.$$.fragment,t),f=!1},d(t){t&&(n(r),n(p)),b(e,t),b($,t),b(d,t)}}}function MOsRs(t){let e,s;return e=new yt({props:{$$slots:{default:[MOsEs]},$$scope:{ctx:t}}}),{c(){_(e.$$.fragment)},m(t,n){k(e,t,n),s=!0},p(t,[s]){const n={};258&s&&(n.$$scope={dirty:s,ctx:t}),e.$set(n)},i(t){s||(l(e.$$.fragment,t),s=!0)},o(t){o(e.$$.fragment,t),s=!1},d(t){b(e,t)}}}function MOsOs(t,e,s){let n,o2=M,l2=()=>(o2(),o2=W(i,(t=>s(1,n=t))),i);t.$$.on_destroy.push((()=>o2()));let{settings:i}=e;return l2(),t.$$set=t=>{"settings"in t&&l2(s(0,i=t.settings))},[i,n,function(e){t.$$.not_equal(n.params.fast,e)&&(n.params.fast=e,i.set(n))},function(e){t.$$.not_equal(n.params.slow,e)&&(n.params.slow=e,i.set(n))},function(e){t.$$.not_equal(n.params.macd,e)&&(n.params.macd=e,i.set(n))},function(e){t.$$.not_equal(n.params.apply,e)&&(n.params.apply=e,i.set(n))},function(e){t.$$.not_equal(n.style.line.color,e)&&(n.style.line.color=e,i.set(n))},function(e){t.$$.not_equal(n.style.line.thickness,e)&&(n.style.line.thickness=e,i.set(n))}]}class MOsFm extends t{constructor(t){super(),e(this,t,MOsOs,MOsRs,s,{settings:0})}}export{Ln as A,Kn as B,Ls as C,Ps as D,In as E,Vs as F,Pe as G,Gn as I,Qn as M,as as O,io as P,rn as R,wn as S,qn as T,ne as V,Mn as W,ys as a,_s as b,Us as c,Fs as d,nn as e,Zs as f,dn as g,ds as h,Ye as i,ss as j,be as k,me as l,De as m,Te as n,Oe as o,ne2 as p,Fs2 as q,FrFm as r,EpFm as s,MOsFm as t2,AfFm as u};
+function MOsWt(t){let e,s,n,i;function a(e){t[6](e)}function c(e){t[7](e)}let r={label:window.tr(window.lang.chart.indicators.form.line.style)};return void 0!==t[1].style.line.color&&(r.color=t[1].style.line.color),void 0!==t[1].style.line.thickness&&(r.thickness=t[1].style.line.thickness),void 0!==t[1].style.line.lineType&&(r.lineType=t[1].style.line.lineType),e=new xt({props:r}),q.push((()=>x(e,"color",a))),q.push((()=>x(e,"thickness",c))),q.push((()=>x(e,"lineType",function(v){t[1].style.line.lineType=v;t[0].set(t[1]);}))),{c(){_(e.$$.fragment)},m(t,s){k(e,t,s),i=!0},p(t,o){const l={};!s&&2&o&&(s=!0,l.color=t[1].style.line.color,j((()=>s=!1))),!n&&2&o&&(n=!0,l.thickness=t[1].style.line.thickness,j((()=>n=!1))),e.$set(l)},i(t){i||(l(e.$$.fragment,t),i=!0)},o(t){o(e.$$.fragment,t),i=!1},d(t){b(e,t)}}}function MOsEs(t){let e,s,a,c,r,$,u,p,d,f;function m(e){t[2](e)}function g(e){t[3](e)}function y(e){t[4](e)}let w={};function v(e){t[5](e)}void 0!==t[1].params.fast&&(w.fast=t[1].params.fast),void 0!==t[1].params.slow&&(w.slow=t[1].params.slow),void 0!==t[1].params.macd&&(w.macd=t[1].params.macd),e=new St({props:w}),q.push((()=>x(e,"fast",m))),q.push((()=>x(e,"slow",g))),q.push((()=>x(e,"macd",y)));let D={};return void 0!==t[1].params.apply&&(D.value=t[1].params.apply),$=new Q({props:D}),q.push((()=>x($,"value",v))),d=new R({props:{label:window.tr(window.lang.chart.indicators.form.line.style),$$slots:{default:[MOsWt]},$$scope:{ctx:t}}}),{c(){_(e.$$.fragment),r=h(),_($.$$.fragment),p=h(),_(d.$$.fragment)},m(t,s){k(e,t,s),i(t,r,s),k($,t,s),i(t,p,s),k(d,t,s),f=!0},p(t,n){const o={};!s&&2&n&&(s=!0,o.fast=t[1].params.fast,j((()=>s=!1))),!a&&2&n&&(a=!0,o.slow=t[1].params.slow,j((()=>a=!1))),!c&&2&n&&(c=!0,o.macd=t[1].params.macd,j((()=>c=!1))),e.$set(o);const l={};!u&&2&n&&(u=!0,l.value=t[1].params.apply,j((()=>u=!1))),$.$set(l);const i={};258&n&&(i.$$scope={dirty:n,ctx:t}),d.$set(i)},i(t){f||(l(e.$$.fragment,t),l($.$$.fragment,t),l(d.$$.fragment,t),f=!0)},o(t){o(e.$$.fragment,t),o($.$$.fragment,t),o(d.$$.fragment,t),f=!1},d(t){t&&(n(r),n(p)),b(e,t),b($,t),b(d,t)}}}function MOsRs(t){let e,s;return e=new yt({props:{$$slots:{default:[MOsEs]},$$scope:{ctx:t}}}),{c(){_(e.$$.fragment)},m(t,n){k(e,t,n),s=!0},p(t,[s]){const n={};258&s&&(n.$$scope={dirty:s,ctx:t}),e.$set(n)},i(t){s||(l(e.$$.fragment,t),s=!0)},o(t){o(e.$$.fragment,t),s=!1},d(t){b(e,t)}}}function MOsOs(t,e,s){let n,o2=M,l2=()=>(o2(),o2=W(i,(t=>s(1,n=t))),i);t.$$.on_destroy.push((()=>o2()));let{settings:i}=e;return l2(),t.$$set=t=>{"settings"in t&&l2(s(0,i=t.settings))},[i,n,function(e){t.$$.not_equal(n.params.fast,e)&&(n.params.fast=e,i.set(n))},function(e){t.$$.not_equal(n.params.slow,e)&&(n.params.slow=e,i.set(n))},function(e){t.$$.not_equal(n.params.macd,e)&&(n.params.macd=e,i.set(n))},function(e){t.$$.not_equal(n.params.apply,e)&&(n.params.apply=e,i.set(n))},function(e){t.$$.not_equal(n.style.line.color,e)&&(n.style.line.color=e,i.set(n))},function(e){t.$$.not_equal(n.style.line.thickness,e)&&(n.style.line.thickness=e,i.set(n))}]}class MOsFm extends t{constructor(t){super(),e(this,t,MOsOs,MOsRs,s,{settings:0})}}
+// ── XoverFm ──────────────────────────────────────────────────────────────
+function XoverNumWidget(cbIdx, paramKey, min2, max2) {
+  return function(t) {
+    let e, s2, n;
+    function a(v) { t[cbIdx](v); }
+    let r = { type: 'number', min: min2 != null ? min2 : 0, max: max2 != null ? max2 : 999 };
+    const cur = t[1].params[paramKey]; if (cur != null) r.value = cur;
+    e = new K({ props: r }); q.push((() => x(e, 'value', a)));
+    return {
+      c() { _(e.$$.fragment); },
+      m(t2, s3) { k(e, t2, s3); n = !0; },
+      p(t2, drt) { const o = {}; if (!s2 && 2 & drt) { s2 = !0; const v2 = t2[1].params[paramKey]; if (v2 != null) o.value = v2; j((() => s2 = !1)); } e.$$set(o); },
+      i(t2) { n || (l(e.$$.fragment, t2), n = !0); },
+      o(t2) { o(e.$$.fragment, t2); n = !1; },
+      d(t2) { b(e, t2); }
+    };
+  };
+}
+const XoverWtFP  = XoverNumWidget(2,  'fastPeriod', 1, 500);
+const XoverWtSP  = XoverNumWidget(4,  'slowPeriod', 1, 500);
+const XoverWtVL  = XoverNumWidget(6,  'velocityLookback', 1, 20);
+const XoverWtBA  = XoverNumWidget(7,  'barsBeforeAlert', 1, 100);
+const XoverWtNt  = XoverNumWidget(8,  'notifications', 0, 1);
+const XoverWtMF  = XoverNumWidget(9,  'useMacdFilter', 0, 1);
+const XoverWtMFa = XoverNumWidget(10, 'macdFast', 1, 200);
+const XoverWtMFs = XoverNumWidget(11, 'macdSlow', 1, 200);
+const XoverWtMFg = XoverNumWidget(12, 'macdSignal', 1, 200);
+const XoverWtSym = XoverNumWidget(13, 'sameSymbol', 0, 1);
+const XoverWtSTF = XoverNumWidget(15, 'sameTimeframe', 0, 1);
+function XoverTypeWidget(cbIdx, paramKey) {
+  return function(t) {
+    let el, handler;
+    return {
+      c() {
+        el = m('select');
+        el.innerHTML = '<option value="0">EMA</option><option value="1">SMA</option>';
+        el.style.cssText = 'background:#1a1a2e;color:#ccc;border:1px solid #444;font-size:11px;padding:2px;border-radius:3px;cursor:pointer';
+      },
+      m(r, s3) {
+        i(r, el, s3);
+        const v = t[1].params[paramKey]; if (v != null) el.value = String(v);
+        el.addEventListener('change', handler = function() { t[cbIdx](+el.value); });
+      },
+      p(t2, drt) { if (2 & drt) { const v = t2[1].params[paramKey]; if (v != null) el.value = String(v); } },
+      d(r) { r && n(el); el.removeEventListener('change', handler); }
+    };
+  };
+}
+const XoverWtFT = XoverTypeWidget(3, 'fastType');
+const XoverWtST = XoverTypeWidget(5, 'slowType');
+function XoverTfWidget(t) {
+  const TF = [[1,'M1'],[2,'M5'],[4,'M15'],[8,'M30'],[16,'H1'],[32,'H4'],[64,'D1'],[128,'W1'],[256,'MN']];
+  let el, handler;
+  return {
+    c() {
+      el = m('select');
+      el.innerHTML = TF.map(([v, lbl]) => '<option value="' + v + '">' + lbl + '</option>').join('');
+      el.style.cssText = 'background:#1a1a2e;color:#ccc;border:1px solid #444;font-size:11px;padding:2px;border-radius:3px;cursor:pointer';
+    },
+    m(r, s3) {
+      i(r, el, s3);
+      if (t[1].params.sourceTimeframe != null) el.value = String(t[1].params.sourceTimeframe);
+      el.addEventListener('change', handler = function() { t[16](+el.value); });
+    },
+    p(t2, drt) { if (2 & drt && t2[1].params.sourceTimeframe != null) el.value = String(t2[1].params.sourceTimeframe); },
+    d(r) { r && n(el); el.removeEventListener('change', handler); }
+  };
+}
+function XoverSymWidget(t) {
+  let el, handler;
+  return {
+    c() {
+      el = m('input'); el.type = 'text'; el.placeholder = 'e.g. EURUSD';
+      el.style.cssText = 'background:#1a1a2e;color:#ccc;border:1px solid #444;font-size:11px;padding:2px 4px;border-radius:3px;width:80px';
+    },
+    m(r, s3) {
+      i(r, el, s3);
+      if (t[1].params.sourceSymbol != null) el.value = t[1].params.sourceSymbol;
+      el.addEventListener('input', handler = function() { t[14](el.value); });
+    },
+    p(t2, drt) { if (2 & drt && t2[1].params.sourceSymbol != null) el.value = t2[1].params.sourceSymbol; },
+    d(r) { r && n(el); el.removeEventListener('input', handler); }
+  };
+}
+function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
+  return function(t) {
+    let e, Z1 = !1, Z2 = !1, Z3 = !1, nn;
+    let r = {};
+    const st = t[1].style[styleKey];
+    void 0 !== st.visible && (r.visible = st.visible);
+    void 0 !== st.color && (r.color = st.color);
+    void 0 !== st.thickness && (r.thickness = st.thickness);
+    if (useLineType) void 0 !== st.lineType && (r.lineType = st.lineType);
+    e = new xt({ props: r });
+    q.push((() => x(e, 'visible', v2 => t[vCb](v2))));
+    q.push((() => x(e, 'color', v2 => t[colCb](v2))));
+    q.push((() => x(e, 'thickness', v2 => t[thkCb](v2))));
+    if (useLineType) q.push((() => x(e, 'lineType', function(v2) { t[1].style[styleKey].lineType = v2; t[0].set(t[1]); })));
+    return {
+      c() { _(e.$$.fragment); },
+      m(t2, s3) { k(e, t2, s3); nn = !0; },
+      p(t2, drt) {
+        const o = {};
+        !Z1 && 2 & drt && (Z1 = !0, o.visible = t2[1].style[styleKey].visible, j((() => Z1 = !1)));
+        !Z2 && 2 & drt && (Z2 = !0, o.color = t2[1].style[styleKey].color, j((() => Z2 = !1)));
+        !Z3 && 2 & drt && (Z3 = !0, o.thickness = t2[1].style[styleKey].thickness, j((() => Z3 = !1)));
+        e.$$set(o);
+      },
+      i(t2) { nn || (l(e.$$.fragment, t2), nn = !0); },
+      o(t2) { o(e.$$.fragment, t2); nn = !1; },
+      d(t2) { b(e, t2); }
+    };
+  };
+}
+const XoverFaSt = XoverStPicker(17, 18, 19, true,  'fast');
+const XoverSlSt = XoverStPicker(20, 21, 22, true,  'slow');
+const XoverAlSt = XoverStPicker(23, 24, 25, false, 'alert');
+function XoverEs(t) {
+  const rows = [
+    new R({ props: { label: 'Same Symbol (1=chart)', $$$$slots: { default: [XoverWtSym] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Source Symbol',         $$$$slots: { default: [XoverSymWidget] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Same Timeframe (1=chart)', $$$$slots: { default: [XoverWtSTF] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Source Timeframe',      $$$$slots: { default: [XoverTfWidget] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Fast Period',           $$$$slots: { default: [XoverWtFP] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Fast Type',             $$$$slots: { default: [XoverWtFT] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Slow Period',           $$$$slots: { default: [XoverWtSP] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Slow Type',             $$$$slots: { default: [XoverWtST] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Velocity Lookback',     $$$$slots: { default: [XoverWtVL] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Bars Before Alert',     $$$$slots: { default: [XoverWtBA] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Notifications (1=on)',  $$$$slots: { default: [XoverWtNt] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Filter (1=on)',    $$$$slots: { default: [XoverWtMF] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Fast',             $$$$slots: { default: [XoverWtMFa] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Slow',             $$$$slots: { default: [XoverWtMFs] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Signal',           $$$$slots: { default: [XoverWtMFg] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Fast MA Style',         $$$$slots: { default: [XoverFaSt] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Slow MA Style',         $$$$slots: { default: [XoverSlSt] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Alert Marker',          $$$$slots: { default: [XoverAlSt] }, $$$$scope: { ctx: t } } }),
+  ];
+  const seps = rows.slice(0, -1).map(() => h());
+  return {
+    c() { for (const r of rows) _(r.$$.fragment); },
+    m(t2, ins) { for (let ii = 0; ii < rows.length; ii++) { k(rows[ii], t2, ins); if (ii < seps.length) i(t2, seps[ii], ins); } },
+    p(t2, drt) { const sc = { $$$$scope: { dirty: drt, ctx: t2 } }; for (const r of rows) r.$$set({ ...sc }); },
+    i(t2) { for (const r of rows) l(r.$$.fragment, t2); },
+    o(t2) { for (const r of rows) o(r.$$.fragment, t2); },
+    d(t2) { if (t2) for (const sp of seps) n(sp); for (const r of rows) b(r, t2); }
+  };
+}
+function XoverRs(t) {
+  let e, nn;
+  e = new yt({ props: { $$$$slots: { default: [XoverEs] }, $$$$scope: { ctx: t } } });
+  return {
+    c() { _(e.$$.fragment); },
+    m(t2, ins) { k(e, t2, ins); nn = !0; },
+    p(t2, [drt]) { const sc = {}; 2 & drt && (sc.$$$$scope = { dirty: drt, ctx: t2 }); e.$$set(sc); },
+    i(t2) { nn || (l(e.$$.fragment, t2), nn = !0); },
+    o(t2) { o(e.$$.fragment, t2); nn = !1; },
+    d(t2) { b(e, t2); }
+  };
+}
+function XoverOs(t, e, s) {
+  let n2, o2 = M, l2 = () => (o2(), o2 = W(i, (t2 => s(1, n2 = t2))), i);
+  t.$$$$.on_destroy.push((() => o2()));
+  let { settings: i } = e;
+  return l2(), t.$$$$set = t2 => { 'settings' in t2 && l2(s(0, i = t2.settings)); }, [
+    i, n2,
+    v => { t.$$$$.not_equal(n2.params.fastPeriod, v) && (n2.params.fastPeriod = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.fastType, v) && (n2.params.fastType = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.slowPeriod, v) && (n2.params.slowPeriod = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.slowType, v) && (n2.params.slowType = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.velocityLookback, v) && (n2.params.velocityLookback = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.barsBeforeAlert, v) && (n2.params.barsBeforeAlert = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.notifications, v) && (n2.params.notifications = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.useMacdFilter, v) && (n2.params.useMacdFilter = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.macdFast, v) && (n2.params.macdFast = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.macdSlow, v) && (n2.params.macdSlow = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.macdSignal, v) && (n2.params.macdSignal = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.sameSymbol, v) && (n2.params.sameSymbol = v, i.set(n2)); },
+    v => { n2.params.sourceSymbol !== v && (n2.params.sourceSymbol = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.sameTimeframe, v) && (n2.params.sameTimeframe = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.params.sourceTimeframe, v) && (n2.params.sourceTimeframe = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.fast.visible, v) && (n2.style.fast.visible = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.fast.color, v) && (n2.style.fast.color = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.fast.thickness, v) && (n2.style.fast.thickness = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.slow.visible, v) && (n2.style.slow.visible = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.slow.color, v) && (n2.style.slow.color = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.slow.thickness, v) && (n2.style.slow.thickness = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.alert.visible, v) && (n2.style.alert.visible = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.alert.color, v) && (n2.style.alert.color = v, i.set(n2)); },
+    v => { t.$$$$.not_equal(n2.style.alert.thickness, v) && (n2.style.alert.thickness = v, i.set(n2)); },
+  ];
+}
+class XoverFm extends t { constructor(t2) { super(); e(this, t2, XoverOs, XoverRs, s, { settings: 0 }); } }
+// ── end XoverFm ──────────────────────────────────────────────────────────
+export{Ln as A,Kn as B,Ls as C,Ps as D,In as E,Vs as F,Pe as G,Gn as I,Qn as M,as as O,io as P,rn as R,wn as S,qn as T,ne as V,Mn as W,ys as a,_s as b,Us as c,Fs as d,nn as e,Zs as f,dn as g,ds as h,Ye as i,ss as j,be as k,me as l,De as m,Te as n,Oe as o,ne2 as p,Fs2 as q,FrFm as r,EpFm as s,MOsFm as t2,AfFm as u,XoverFm as v};

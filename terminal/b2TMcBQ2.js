@@ -187,6 +187,7 @@ import {
   t as le,
   ap as ApS,
   ep as EpS,
+  xp as XpS,
 } from "./Cj-wvwrR.js";
 class he extends Fs {
   constructor() {
@@ -263,6 +264,11 @@ class he extends Fs {
         (([h, r] = this.getOptions(o.AnalysisAlertsSettings.flags)),
           (l = new o.AnalysisAlertsSettings({ ...i, index: r })),
           (n = new o.AnalysisAlerts(h, 5e3, l)));
+        break;
+      case "xover":
+        (([h, r] = this.getOptions(o.AnalysisXoverSettings.flags)),
+          (l = new o.AnalysisXoverSettings({ ...i, index: r })),
+          (n = new o.AnalysisXover(h, 5e3, l)));
         break;
       case "engulfing":
         (([h, r] = this.getOptions(o.AnalysisEngulfingPatternsSettings.flags)),
@@ -1405,6 +1411,149 @@ class Ae2 extends ce {
         }
       }
       o += i.getStep();
+    }
+  }
+  value(t) { return []; }
+}
+
+
+// ── xover helpers ──────────────────────────────────────────────────────────
+function xoverMa(prices, period, type) {
+  return type === 1 ? alertsSma(prices, period) : alertsEma(prices, period);
+}
+const _notifyCooldown = new Map();
+function fireNotification(title, body) {
+  const key = title + '|' + body;
+  if (_notifyCooldown.has(key)) return;
+  _notifyCooldown.set(key, 1);
+  setTimeout(() => _notifyCooldown.delete(key), 60000);
+  if (typeof Notification === 'undefined') return;
+  if (Notification.permission === 'granted') {
+    new Notification(title, { body });
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then(p => { if (p === 'granted') new Notification(title, { body }); });
+  }
+}
+const xoverCacheMap = new Map();
+let _xoverPrevKey;
+// ── Xe2 class ───────────────────────────────────────────────────────────────
+class Xe2 extends ce {
+  constructor() { super(...arguments); this._prevInZone = false; this._barsToX = null; }
+  get yMin() { return this.chart.state.extrema[0] / this.getYDigits(); }
+  get yMax() { return this.chart.state.extrema[1] / this.getYDigits(); }
+  _titleArguments() { return []; }
+  title() {
+    const p = this.settings.params;
+    const f = p.fastPeriod || 12, s = p.slowPeriod || 26;
+    const ft = p.fastType ? 'SMA' : 'EMA', st = p.slowType ? 'SMA' : 'EMA';
+    return 'MA Crossover Forecast (' + ft + f + '/' + st + s + ')';
+  }
+  _hash() {
+    const { params: p } = this.settings;
+    return [p.fastPeriod, p.fastType, p.slowPeriod, p.slowType, p.sameTimeframe, p.sourceTimeframe, this.baseHash()].join('-');
+  }
+  _calc(update) {
+    super._calc();
+    const bars = this.chart.bars;
+    if (!bars || bars.length === 0) return;
+    const p = this.settings.params;
+    const hash = this._hash();
+    let cached = xoverCacheMap.get(hash);
+    let fastArr, slowArr;
+    if (cached) {
+      fastArr = cached.fast; slowArr = cached.slow;
+    } else {
+      const len = bars.length;
+      const tfMs = (!p.sameTimeframe && p.sourceTimeframe) ? Ni2(p.sourceTimeframe) * 60000 : 0;
+      if (tfMs) {
+        const htCl = [], htBarMap = new Int32Array(len);
+        let cs = -1, htIdx = -1;
+        for (let j = 0; j < len; j++) {
+          const bc = Math.floor(bars.time(j) / tfMs) * tfMs;
+          if (bc !== cs) { cs = bc; htIdx++; htCl.push(bars.close(j)); }
+          else { htCl[htIdx] = bars.close(j); }
+          htBarMap[j] = htIdx;
+        }
+        const htLen = htCl.length;
+        const htP = new Float64Array(htLen);
+        for (let j = 0; j < htLen; j++) htP[j] = htCl[j];
+        const htFast = xoverMa(htP, p.fastPeriod || 12, p.fastType || 0);
+        const htSlow = xoverMa(htP, p.slowPeriod || 26, p.slowType || 0);
+        fastArr = new Float64Array(len); slowArr = new Float64Array(len);
+        for (let j = 0; j < len; j++) { fastArr[j] = htFast[htBarMap[j]]; slowArr[j] = htSlow[htBarMap[j]]; }
+      } else {
+        const closes = new Float64Array(len);
+        for (let j = 0; j < len; j++) closes[j] = bars.close(j);
+        fastArr = xoverMa(closes, p.fastPeriod || 12, p.fastType || 0);
+        slowArr = xoverMa(closes, p.slowPeriod || 26, p.slowType || 0);
+      }
+      xoverCacheMap.set(hash, { fast: fastArr, slow: slowArr });
+      if (_xoverPrevKey && _xoverPrevKey !== hash) xoverCacheMap.delete(_xoverPrevKey);
+      _xoverPrevKey = hash;
+    }
+    this._fast = fastArr; this._slow = slowArr;
+    // Estimate crossover at last bar
+    const i = bars.length - 1;
+    const N = Math.max(1, p.velocityLookback || 3);
+    if (i >= N) {
+      const dFast = (fastArr[i] - fastArr[i - N]) / N;
+      const dSlow = (slowArr[i] - slowArr[i - N]) / N;
+      const gap = fastArr[i] - slowArr[i];
+      const dr = dFast - dSlow;
+      const barsToX = dr !== 0 ? -gap / dr : Infinity;
+      const threshold = p.barsBeforeAlert || 5;
+      const inZone = isFinite(barsToX) && barsToX > 0 && barsToX <= threshold;
+      // MACD filter: require histogram to have peaked/bottomed before alerting
+      if (inZone && p.useMacdFilter) {
+        const mf = p.macdFast || 12, ms2 = p.macdSlow || 26, mSig = p.macdSignal || 9;
+        const closes2 = new Float64Array(bars.length);
+        for (let j = 0; j < bars.length; j++) closes2[j] = bars.close(j);
+        const mFastArr = xoverMa(closes2, mf, 0), mSlowArr = xoverMa(closes2, ms2, 0);
+        const macdLine = new Float64Array(bars.length);
+        for (let j = 0; j < bars.length; j++) macdLine[j] = mFastArr[j] - mSlowArr[j];
+        const sigArr = xoverMa(macdLine, mSig, 0);
+        const hist0 = macdLine[i] - sigArr[i];
+        const hist1 = macdLine[i - 1] - sigArr[i - 1];
+        const hist2 = i >= 2 ? macdLine[i - 2] - sigArr[i - 2] : hist1;
+        // peaked = hist was rising then falling (for positive hist), or bottomed (negative)
+        const peaked = (hist2 < hist1 && hist1 > hist0);   // bull xover: fast was above slow
+        const bottomed = (hist2 > hist1 && hist1 < hist0); // bear xover: fast was below slow
+        const filterPass = gap > 0 ? peaked : bottomed;
+        if (!filterPass) { this._prevInZone = false; this._barsToX = null; return; }
+      }
+      if (inZone && !this._prevInZone && p.notifications !== 0) {
+        const dir = gap > 0 ? 'bearish' : 'bullish';
+        const sym = (bars.symbol || 'Chart').toUpperCase();
+        fireNotification('MA Crossover Alert: ' + sym, dir + ' crossover in ~' + Math.round(barsToX) + ' bar' + (Math.round(barsToX) !== 1 ? 's' : ''));
+      }
+      this._prevInZone = inZone;
+      this._barsToX = inZone ? barsToX : null;
+    } else {
+      this._prevInZone = false; this._barsToX = null;
+    }
+  }
+  _drawGraph(ctx) {
+    const { settings: s } = this, { state: st } = this.chart;
+    const { fast: fa, slow: sl, alert: al } = s.style;
+    if (fa.visible && this._fast) this.drawLine(ctx, this._fast, fa);
+    if (sl.visible && this._slow) this.drawLine(ctx, this._slow, sl);
+    if (this._barsToX != null && al.visible) {
+      // Mark the current bar + draw estimated crossover bar
+      const step = st.getStep(), from = st.getFrom(), count = st.getCount();
+      const curBarIdx = from + count; // last visible bar index
+      const curX = st.startX() + count * step;
+      const estX = curX + Math.round(this._barsToX) * step;
+      const yTop = this.valueToY(this.yMax);
+      const yBot = this.valueToY(this.yMin);
+      ctx.lineStyle(al.thickness || 2, al.color);
+      ctx.moveTo(curX, yTop); ctx.lineTo(curX, yBot); // current bar vertical line
+      // Dashed line to estimated crossover bar
+      if (estX > curX && estX < curX + 30 * step) {
+        ctx.moveTo(curX, (yTop + yBot) / 2); ctx.lineTo(estX, (yTop + yBot) / 2);
+        ctx.moveTo(estX, yTop); ctx.lineTo(estX, yBot);
+      }
+      const tx = this.createText('X~' + Math.round(this._barsToX));
+      if (tx) { tx.tint = al.color; tx.x = curX + 4; tx.y = yTop + 4; ctx.addChild(tx); }
     }
   }
   value(t) { return []; }
@@ -4212,6 +4361,8 @@ const rn = Object.freeze(
       AnalysisEngulfingPatternsSettings: EpS,
       AnalysisAlerts: Ae2,
       AnalysisAlertsSettings: ApS,
+      AnalysisXover: Xe2,
+      AnalysisXoverSettings: XpS,
       AnalysisGO: Ve,
       AnalysisGOSettings: Bs,
       AnalysisIKH: Wa,

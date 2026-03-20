@@ -59,6 +59,7 @@ import {
   s as EpFm,
   t2 as MOsFm,
   u as AfFm,
+  v as XoverFm2,
 } from "./YtNU6idj.js";
 import { Template as K } from "./DYij-JZu.js";
 import { F as Q } from "./u3aYl0h9.js";
@@ -1216,6 +1217,38 @@ function Af2t(t) {
     }
   );
 }
+function Xover2t(t) {
+  let n, s, r, g;
+  return (
+    (n = new XoverFm2({ props: { settings: t[0] } })),
+    (r = new b({ props: { analysisManager: t[1], settings: t[0] } })),
+    {
+      c() {
+        (p(n.$$.fragment), (s = c()), p(r.$$.fragment));
+      },
+      m(t, e) {
+        (f(n, t, e), i(t, s, e), f(r, t, e), (g = !0));
+      },
+      p(t, s) {
+        const e = {};
+        (1 & s && (e.settings = t[0]), n.$set(e));
+        const a = {};
+        (2 & s && (a.analysisManager = t[1]),
+          1 & s && (a.settings = t[0]),
+          r.$set(a));
+      },
+      i(t) {
+        g || ($(n.$$.fragment, t), $(r.$$.fragment, t), (g = !0));
+      },
+      o(t) {
+        (a(n.$$.fragment, t), a(r.$$.fragment, t), (g = !1));
+      },
+      d(t) {
+        (t && e(s), o(n, t), o(r, t));
+      },
+    }
+  );
+}
 function Nt(t) {
   let n, s, o, f;
   const p = [
@@ -1255,6 +1288,7 @@ function Nt(t) {
       Ep2t,
       ut2,
       Af2t,
+      Xover2t,
     ],
     c = [];
   function l(t, n) {
@@ -1344,6 +1378,8 @@ function Nt(t) {
                                                                               t[0]
                                                                                 .type
                                                                             ? 35
+                                                                            : "xover" === t[0].type
+                                                                            ? 36
                                                                             : -1;
   }
   return (
