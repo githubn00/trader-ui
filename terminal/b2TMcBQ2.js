@@ -1544,7 +1544,6 @@ class Xe2 extends ce {
       const barsToX = dr !== 0 ? -gap / dr : Infinity;
       const threshold = p.barsBeforeAlert || 5;
       const inZone = isFinite(barsToX) && barsToX > 0 && barsToX <= threshold;
-      console.log('[Xover]', { barsLen: bars.length, fast: fastArr[i].toFixed(5), slow: slowArr[i].toFixed(5), gap: gap.toFixed(5), dr: dr.toFixed(6), barsToX: isFinite(barsToX) ? barsToX.toFixed(2) : 'Inf', threshold, inZone });
       // MACD filter: require histogram to have peaked/bottomed before alerting
       if (inZone && p.useMacdFilter) {
         const mf = p.macdFast || 12, ms2 = p.macdSlow || 26, mSig = p.macdSignal || 9;
@@ -1560,7 +1559,6 @@ class Xe2 extends ce {
         // Bullish (gap<0): MACD line crossed above signal → histogram > 0
         // Bearish (gap>0): MACD line crossed below signal → histogram < 0
         const filterPass = gap > 0 ? hist0 < 0 : hist0 > 0;
-        console.log('[Xover MACD filter]', { hist0: hist0.toFixed(6), filterPass, dir: gap > 0 ? 'bearish' : 'bullish' });
         if (!filterPass) { this._prevInZone = false; this._barsToX = null; return; }
       }
       if (inZone && !this._prevInZone && p.notifications !== 0) {
