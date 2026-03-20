@@ -1583,7 +1583,7 @@ class Xe2 extends ce {
       ctx.lineStyle(al.thickness || 2, al.color);
       ctx.moveTo(curX, yTop); ctx.lineTo(curX, yBot); // current bar vertical line
       // Dashed line to estimated crossover bar
-      if (estX > curX && estX < curX + 30 * step) {
+      if (estX > curX) {
         ctx.moveTo(curX, (yTop + yBot) / 2); ctx.lineTo(estX, (yTop + yBot) / 2);
         ctx.moveTo(estX, yTop); ctx.lineTo(estX, yBot);
       }
