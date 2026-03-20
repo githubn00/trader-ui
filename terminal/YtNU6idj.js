@@ -173,30 +173,30 @@ const XoverSlSt = XoverStPicker(20, 21, 22, true,  'slow');
 const XoverAlSt = XoverStPicker(23, 24, 25, false, 'alert');
 function XoverEs(t) {
   const rows = [
-    new R({ props: { label: 'Same Symbol (1=chart)', $$$$slots: { default: [XoverWtSym] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Source Symbol',         $$$$slots: { default: [XoverSymWidget] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Same Timeframe (1=chart)', $$$$slots: { default: [XoverWtSTF] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Source Timeframe',      $$$$slots: { default: [XoverTfWidget] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Fast Period',           $$$$slots: { default: [XoverWtFP] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Fast Type',             $$$$slots: { default: [XoverWtFT] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Slow Period',           $$$$slots: { default: [XoverWtSP] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Slow Type',             $$$$slots: { default: [XoverWtST] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Velocity Lookback',     $$$$slots: { default: [XoverWtVL] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Bars Before Alert',     $$$$slots: { default: [XoverWtBA] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Notifications (1=on)',  $$$$slots: { default: [XoverWtNt] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'MACD Filter (1=on)',    $$$$slots: { default: [XoverWtMF] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'MACD Fast',             $$$$slots: { default: [XoverWtMFa] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'MACD Slow',             $$$$slots: { default: [XoverWtMFs] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'MACD Signal',           $$$$slots: { default: [XoverWtMFg] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Fast MA Style',         $$$$slots: { default: [XoverFaSt] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Slow MA Style',         $$$$slots: { default: [XoverSlSt] }, $$$$scope: { ctx: t } } }),
-    new R({ props: { label: 'Alert Marker',          $$$$slots: { default: [XoverAlSt] }, $$$$scope: { ctx: t } } }),
+    new R({ props: { label: 'Same Symbol (1=chart)', $$slots: { default: [XoverWtSym] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Source Symbol',         $$slots: { default: [XoverSymWidget] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Same Timeframe (1=chart)', $$slots: { default: [XoverWtSTF] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Source Timeframe',      $$slots: { default: [XoverTfWidget] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Fast Period',           $$slots: { default: [XoverWtFP] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Fast Type',             $$slots: { default: [XoverWtFT] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Slow Period',           $$slots: { default: [XoverWtSP] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Slow Type',             $$slots: { default: [XoverWtST] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Velocity Lookback',     $$slots: { default: [XoverWtVL] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Bars Before Alert',     $$slots: { default: [XoverWtBA] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Notifications (1=on)',  $$slots: { default: [XoverWtNt] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Filter (1=on)',    $$slots: { default: [XoverWtMF] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Fast',             $$slots: { default: [XoverWtMFa] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Slow',             $$slots: { default: [XoverWtMFs] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'MACD Signal',           $$slots: { default: [XoverWtMFg] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Fast MA Style',         $$slots: { default: [XoverFaSt] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Slow MA Style',         $$slots: { default: [XoverSlSt] }, $$scope: { ctx: t } } }),
+    new R({ props: { label: 'Alert Marker',          $$slots: { default: [XoverAlSt] }, $$scope: { ctx: t } } }),
   ];
   const seps = rows.slice(0, -1).map(() => h());
   return {
     c() { for (const r of rows) _(r.$$.fragment); },
     m(t2, ins) { for (let ii = 0; ii < rows.length; ii++) { k(rows[ii], t2, ins); if (ii < seps.length) i(t2, seps[ii], ins); } },
-    p(t2, drt) { const sc = { $$$$scope: { dirty: drt, ctx: t2 } }; for (const r of rows) r.$$set({ ...sc }); },
+    p(t2, drt) { const sc = { $$scope: { dirty: drt, ctx: t2 } }; for (const r of rows) r.$$set({ ...sc }); },
     i(t2) { for (const r of rows) l(r.$$.fragment, t2); },
     o(t2) { for (const r of rows) o(r.$$.fragment, t2); },
     d(t2) { if (t2) for (const sp of seps) n(sp); for (const r of rows) b(r, t2); }
@@ -204,11 +204,11 @@ function XoverEs(t) {
 }
 function XoverRs(t) {
   let e, nn;
-  e = new yt({ props: { $$$$slots: { default: [XoverEs] }, $$$$scope: { ctx: t } } });
+  e = new yt({ props: { $$slots: { default: [XoverEs] }, $$scope: { ctx: t } } });
   return {
     c() { _(e.$$.fragment); },
     m(t2, ins) { k(e, t2, ins); nn = !0; },
-    p(t2, [drt]) { const sc = {}; 2 & drt && (sc.$$$$scope = { dirty: drt, ctx: t2 }); e.$$set(sc); },
+    p(t2, [drt]) { const sc = {}; 2 & drt && (sc.$$scope = { dirty: drt, ctx: t2 }); e.$$set(sc); },
     i(t2) { nn || (l(e.$$.fragment, t2), nn = !0); },
     o(t2) { o(e.$$.fragment, t2); nn = !1; },
     d(t2) { b(e, t2); }
@@ -216,34 +216,34 @@ function XoverRs(t) {
 }
 function XoverOs(t, e, s) {
   let n2, o2 = M, l2 = () => (o2(), o2 = W(i, (t2 => s(1, n2 = t2))), i);
-  t.$$$$.on_destroy.push((() => o2()));
+  t.$$.on_destroy.push((() => o2()));
   let { settings: i } = e;
-  return l2(), t.$$$$set = t2 => { 'settings' in t2 && l2(s(0, i = t2.settings)); }, [
+  return l2(), t.$$set = t2 => { 'settings' in t2 && l2(s(0, i = t2.settings)); }, [
     i, n2,
-    v => { t.$$$$.not_equal(n2.params.fastPeriod, v) && (n2.params.fastPeriod = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.fastType, v) && (n2.params.fastType = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.slowPeriod, v) && (n2.params.slowPeriod = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.slowType, v) && (n2.params.slowType = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.velocityLookback, v) && (n2.params.velocityLookback = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.barsBeforeAlert, v) && (n2.params.barsBeforeAlert = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.notifications, v) && (n2.params.notifications = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.useMacdFilter, v) && (n2.params.useMacdFilter = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.macdFast, v) && (n2.params.macdFast = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.macdSlow, v) && (n2.params.macdSlow = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.macdSignal, v) && (n2.params.macdSignal = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.sameSymbol, v) && (n2.params.sameSymbol = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.fastPeriod, v) && (n2.params.fastPeriod = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.fastType, v) && (n2.params.fastType = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.slowPeriod, v) && (n2.params.slowPeriod = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.slowType, v) && (n2.params.slowType = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.velocityLookback, v) && (n2.params.velocityLookback = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.barsBeforeAlert, v) && (n2.params.barsBeforeAlert = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.notifications, v) && (n2.params.notifications = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.useMacdFilter, v) && (n2.params.useMacdFilter = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.macdFast, v) && (n2.params.macdFast = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.macdSlow, v) && (n2.params.macdSlow = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.macdSignal, v) && (n2.params.macdSignal = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.sameSymbol, v) && (n2.params.sameSymbol = v, i.set(n2)); },
     v => { n2.params.sourceSymbol !== v && (n2.params.sourceSymbol = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.sameTimeframe, v) && (n2.params.sameTimeframe = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.params.sourceTimeframe, v) && (n2.params.sourceTimeframe = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.fast.visible, v) && (n2.style.fast.visible = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.fast.color, v) && (n2.style.fast.color = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.fast.thickness, v) && (n2.style.fast.thickness = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.slow.visible, v) && (n2.style.slow.visible = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.slow.color, v) && (n2.style.slow.color = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.slow.thickness, v) && (n2.style.slow.thickness = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.alert.visible, v) && (n2.style.alert.visible = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.alert.color, v) && (n2.style.alert.color = v, i.set(n2)); },
-    v => { t.$$$$.not_equal(n2.style.alert.thickness, v) && (n2.style.alert.thickness = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.sameTimeframe, v) && (n2.params.sameTimeframe = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.params.sourceTimeframe, v) && (n2.params.sourceTimeframe = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.fast.visible, v) && (n2.style.fast.visible = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.fast.color, v) && (n2.style.fast.color = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.fast.thickness, v) && (n2.style.fast.thickness = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.slow.visible, v) && (n2.style.slow.visible = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.slow.color, v) && (n2.style.slow.color = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.slow.thickness, v) && (n2.style.slow.thickness = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.alert.visible, v) && (n2.style.alert.visible = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.alert.color, v) && (n2.style.alert.color = v, i.set(n2)); },
+    v => { t.$$.not_equal(n2.style.alert.thickness, v) && (n2.style.alert.thickness = v, i.set(n2)); },
   ];
 }
 class XoverFm extends t { constructor(t2) { super(); e(this, t2, XoverOs, XoverRs, s, { settings: 0 }); } }
