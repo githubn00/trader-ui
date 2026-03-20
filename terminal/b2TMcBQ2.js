@@ -1523,16 +1523,22 @@ class Xe2 extends ce {
     this._fast = fastArr; this._slow = slowArr;
     // Estimate crossover at last bar
     const i = bars.length - 1;
-    const N = Math.max(1, p.velocityLookback || 3);
+    const N = Math.max(2, p.velocityLookback || 3);
     if (i >= N) {
-      const dFast = (fastArr[i] - fastArr[i - N]) / N;
-      const dSlow = (slowArr[i] - slowArr[i - N]) / N;
+      // Linear regression slope of the gap over the lookback window
+      // More robust than 2-point endpoint velocity — resists short-term noise
+      let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+      for (let k = 0; k <= N; k++) {
+        const gk = fastArr[i - N + k] - slowArr[i - N + k];
+        sumX += k; sumY += gk; sumXY += k * gk; sumX2 += k * k;
+      }
+      const M = N + 1;
+      const dr = (M * sumXY - sumX * sumY) / (M * sumX2 - sumX * sumX);
       const gap = fastArr[i] - slowArr[i];
-      const dr = dFast - dSlow;
       const barsToX = dr !== 0 ? -gap / dr : Infinity;
       const threshold = p.barsBeforeAlert || 5;
       const inZone = isFinite(barsToX) && barsToX > 0 && barsToX <= threshold;
-      console.log('[Xover]', { fast: fastArr[i].toFixed(5), slow: slowArr[i].toFixed(5), gap: gap.toFixed(5), dFast: dFast.toFixed(5), dSlow: dSlow.toFixed(5), dr: dr.toFixed(5), barsToX: isFinite(barsToX) ? barsToX.toFixed(2) : 'Inf', threshold, inZone });
+      console.log('[Xover]', { barsLen: bars.length, fast: fastArr[i].toFixed(5), slow: slowArr[i].toFixed(5), gap: gap.toFixed(5), dr: dr.toFixed(6), barsToX: isFinite(barsToX) ? barsToX.toFixed(2) : 'Inf', threshold, inZone });
       // MACD filter: require histogram to have peaked/bottomed before alerting
       if (inZone && p.useMacdFilter) {
         const mf = p.macdFast || 12, ms2 = p.macdSlow || 26, mSig = p.macdSignal || 9;
