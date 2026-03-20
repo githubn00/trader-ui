@@ -1447,6 +1447,12 @@ class Ae2 extends ce {
 
 
 // ── xover helpers ──────────────────────────────────────────────────────────
+const _xoverLabelSlots = new Map();
+let _xoverSlotCounter = 0;
+function xoverLabelSlot(instance) {
+  if (!_xoverLabelSlots.has(instance)) _xoverLabelSlots.set(instance, _xoverSlotCounter++);
+  return _xoverLabelSlots.get(instance);
+}
 function xoverMa(prices, period, type) {
   return type === 1 ? alertsSma(prices, period) : alertsEma(prices, period);
 }
@@ -1588,7 +1594,7 @@ class Xe2 extends ce {
         ctx.moveTo(estX, yTop); ctx.lineTo(estX, yBot);
       }
       const tx = this.createText('X~' + Math.round(this._barsToX));
-      if (tx) { tx.tint = al.color; tx.x = curX + 4; tx.y = yTop + 4 + (this.settings.index || 0) * 16; ctx.addChild(tx); }
+      if (tx) { tx.tint = al.color; tx.x = curX + 4; tx.y = yTop + 4 + xoverLabelSlot(this) * 16; ctx.addChild(tx); }
     }
   }
   value(t) { return []; }
