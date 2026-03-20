@@ -1551,11 +1551,10 @@ class Xe2 extends ce {
         const hist0 = macdLine[i] - sigArr[i];
         const hist1 = macdLine[i - 1] - sigArr[i - 1];
         const hist2 = i >= 2 ? macdLine[i - 2] - sigArr[i - 2] : hist1;
-        // peaked = hist was rising then falling (for positive hist), or bottomed (negative)
-        const peaked = (hist2 < hist1 && hist1 > hist0);   // bull xover: fast was above slow
-        const bottomed = (hist2 > hist1 && hist1 < hist0); // bear xover: fast was below slow
-        const filterPass = gap > 0 ? peaked : bottomed;
-        console.log('[Xover MACD filter]', { hist2: hist2.toFixed(6), hist1: hist1.toFixed(6), hist0: hist0.toFixed(6), peaked, bottomed, filterPass, dir: gap > 0 ? 'bearish' : 'bullish' });
+        // Bullish (gap<0): MACD line crossed above signal → histogram > 0
+        // Bearish (gap>0): MACD line crossed below signal → histogram < 0
+        const filterPass = gap > 0 ? hist0 < 0 : hist0 > 0;
+        console.log('[Xover MACD filter]', { hist0: hist0.toFixed(6), filterPass, dir: gap > 0 ? 'bearish' : 'bullish' });
         if (!filterPass) { this._prevInZone = false; this._barsToX = null; return; }
       }
       if (inZone && !this._prevInZone && p.notifications !== 0) {
