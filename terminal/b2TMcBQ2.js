@@ -1588,7 +1588,7 @@ class Xe2 extends ce {
         ctx.moveTo(estX, yTop); ctx.lineTo(estX, yBot);
       }
       const tx = this.createText('X~' + Math.round(this._barsToX));
-      if (tx) { tx.tint = al.color; tx.x = curX + 4; tx.y = yTop + 4; ctx.addChild(tx); }
+      if (tx) { tx.tint = al.color; tx.x = curX + 4; tx.y = yTop + 4 + (this.settings.index || 0) * 16; ctx.addChild(tx); }
     }
   }
   value(t) { return []; }
