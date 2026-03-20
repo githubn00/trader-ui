@@ -1577,8 +1577,7 @@ class Xe2 extends ce {
     if (this._barsToX != null && al.visible) {
       // Mark the current bar + draw estimated crossover bar
       const step = st.getStep(), from = st.getFrom(), count = st.getCount();
-      const curBarIdx = from + count; // last visible bar index
-      const curX = st.startX() + count * step;
+      const curX = st.startX() + (this._fast.length - 1 - from) * step;
       const estX = curX + Math.round(this._barsToX) * step;
       const yTop = this.valueToY(this.yMax);
       const yBot = this.valueToY(this.yMin);
