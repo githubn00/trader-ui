@@ -760,8 +760,8 @@ const Ep2 = class s extends f {
       e,
       { maPeriod: 50, maType: 0 },
       {
-        bullish: { color: 65280, thickness: 1 },
-        bearish: { color: 16711680, thickness: 1 },
+        bullish: { visible: true, color: 65280, thickness: 1 },
+        bearish: { visible: true, color: 16711680, thickness: 1 },
       },
       s.type,
       s.category,
@@ -784,6 +784,10 @@ const Ap2 = class s extends f {
         useMaCross: 1,
         useMaSlope: 1,
         useBreakout: 1,
+        showLabels: 0,
+        useFractals: 0,
+        fractalLeft: 5,
+        fractalRight: 5,
       },
       {
         bullish: { color: 65280, thickness: 2 },

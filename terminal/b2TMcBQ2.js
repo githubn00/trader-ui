@@ -1191,13 +1191,15 @@ function alertsMa(bars, period, maType) {
   return maType === 1 ? alertsSma(closes, period) : alertsEma(closes, period);
 }
 
-function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
+function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update, fracHi, fracLo) {
   const usePrice = params && params.usePrice ? params.usePrice : 1;
   const useMaCross = params && params.useMaCross ? params.useMaCross : 1;
   const useMaSlope = params && params.useMaSlope ? params.useMaSlope : 1;
   const useBreakout = params && params.useBreakout ? params.useBreakout : 1;
   const maSlopeN = (params && params.maSlope) || 20;
   const breakoutPercent = (params && params.breakoutPercent) || 2;
+  const useFractals = params && params.useFractals ? 1 : 0;
+  const fracLookback = 10;
 
   const start = update ? Math.max(1, bars.length - 10) : 1;
 
@@ -1246,6 +1248,24 @@ function alertsCalc(bull, bear, slope, breakout, bars, ma, params, update) {
         if (Math.abs(pctChange) > breakoutPercent) {
           breakout[i] = (high + low) / 2;
         }
+      }
+    }
+
+    // Fractal confirmation filter: suppress bull/bear signals without nearby fractal support/resistance
+    if (useFractals && fracHi && fracLo) {
+      if (bull[i]) {
+        let confirmed = false;
+        for (let f = Math.max(0, i - fracLookback); f <= i; f++) {
+          if (fracLo[f]) { confirmed = true; break; }
+        }
+        if (!confirmed) bull[i] = 0;
+      }
+      if (bear[i]) {
+        let confirmed = false;
+        for (let f = Math.max(0, i - fracLookback); f <= i; f++) {
+          if (fracHi[f]) { confirmed = true; break; }
+        }
+        if (!confirmed) bear[i] = 0;
       }
     }
   }
@@ -1358,18 +1378,27 @@ class Ae2 extends ce {
     const p2 = this.settings.params;
     const maPeriod = (p2 && p2.maPeriod != null) ? p2.maPeriod : 50;
     const maType = (p2 && p2.maType) || 0;
-    const e = [this.baseHash(), maPeriod, maType].join("-");
+    const useFrac = p2 && p2.useFractals ? 1 : 0;
+    const fLeft = (p2 && p2.fractalLeft) || 5;
+    const fRight = (p2 && p2.fractalRight) || 5;
+    const e = [this.baseHash(), maPeriod, maType, useFrac, fLeft, fRight].join("-");
     let bull = alertsBullMap.get(e), bear = alertsBearMap.get(e);
     let sl = alertsSlopeMap.get(e), br = alertsBreakoutMap.get(e);
     const ma = maPeriod > 0 ? alertsMa(s, maPeriod, maType) : null;
+    let fracHi = null, fracLo = null;
+    if (useFrac) {
+      fracHi = new Float64Array(s.length);
+      fracLo = new Float64Array(s.length);
+      Oe(fracHi, fracLo, s, fLeft, fRight, !!t);
+    }
     if (bull && bear && sl && br) {
-      if (t) alertsCalc(bull, bear, sl, br, s, ma, p2, true);
+      if (t) alertsCalc(bull, bear, sl, br, s, ma, p2, true, fracHi, fracLo);
     } else {
       (bull = new Float64Array(s.length)),
         (bear = new Float64Array(s.length)),
         (sl = new Float64Array(s.length)),
         (br = new Float64Array(s.length)),
-        alertsCalc(bull, bear, sl, br, s, ma, p2, false),
+        alertsCalc(bull, bear, sl, br, s, ma, p2, false, fracHi, fracLo),
         alertsBullMap.set(e, bull),
         alertsBearMap.set(e, bear),
         alertsSlopeMap.set(e, sl),

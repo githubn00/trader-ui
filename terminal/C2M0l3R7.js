@@ -1460,7 +1460,7 @@ function rn(t) {
                                                                   : "engulfing" === t[0].type
                                                                   ? 32
                                                                   : "mao_" === t[0].type
-                                                                  ? 32
+                                                                  ? 34
                                                                   : "alerts" === t[0].type
                                                                   ? 33
                                                                   : "xover" === t[0].type
