@@ -1581,18 +1581,28 @@ class Xe2 extends ce {
       // Mark the current bar + draw estimated crossover bar
       const step = st.getStep(), from = st.getFrom(), count = st.getCount();
       const curX = st.startX() + (this._fast.length - 1 - from) * step;
+      const markX = curX + 2 * step;
       const estX = curX + Math.round(this._barsToX) * step;
       const yTop = this.valueToY(this.yMax);
       const yBot = this.valueToY(this.yMin);
+      const p2 = this.settings.params;
+      const lastIdx = this._fast.length - 1;
+      const gap2 = this._fast[lastIdx] - this._slow[lastIdx];
+      const arrow = gap2 > 0 ? 'v' : '^';
+      const fLabel = (p2.fastType ? 'S' : 'E') + (p2.fastPeriod || 12);
+      const sLabel = (p2.slowType ? 'S' : 'E') + (p2.slowPeriod || 26);
+      const slot = xoverLabelSlot(this);
+      const labelY = yTop + 4 + slot * 16;
+      const lineTop = yTop + 4 + _xoverSlotCounter * 16 + 2; // start below all labels
       ctx.lineStyle(al.thickness || 2, al.color);
-      ctx.moveTo(curX, yTop); ctx.lineTo(curX, yBot); // current bar vertical line
+      ctx.moveTo(markX, lineTop); ctx.lineTo(markX, yBot); // current bar vertical line (offset 2 bars right)
       // Dashed line to estimated crossover bar
-      if (estX > curX) {
-        ctx.moveTo(curX, (yTop + yBot) / 2); ctx.lineTo(estX, (yTop + yBot) / 2);
-        ctx.moveTo(estX, yTop); ctx.lineTo(estX, yBot);
+      if (estX > markX) {
+        ctx.moveTo(markX, (yTop + yBot) / 2); ctx.lineTo(estX, (yTop + yBot) / 2);
+        ctx.moveTo(estX, lineTop); ctx.lineTo(estX, yBot);
       }
-      const tx = this.createText('X~' + Math.round(this._barsToX));
-      if (tx) { tx.tint = al.color; tx.x = curX + 4; tx.y = yTop + 4 + xoverLabelSlot(this) * 16; ctx.addChild(tx); }
+      const tx = this.createText('X~' + Math.round(this._barsToX) + arrow + ' ' + fLabel + '/' + sLabel);
+      if (tx) { tx.tint = al.color; tx.x = markX + 4; tx.y = labelY; ctx.addChild(tx); }
     }
   }
   value(t) { return []; }
