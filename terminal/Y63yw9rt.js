@@ -650,7 +650,7 @@ class xt {
       (s && ((r = s[1]), h.delete(s[0])), r && ((r.text = t), (r.name = i)));
     }
     return (
-      r || (r = new et(t, { fontName: "Trebuchet MS", fontSize: 12 })),
+      r || (r = new et(t, { fontName: "Trebuchet MS", fontSize: 14 })),
       e.push(r),
       r && ((!s && i) || ((r.alpha = 1), (r.tint = 0)), (r.name = i)),
       r
