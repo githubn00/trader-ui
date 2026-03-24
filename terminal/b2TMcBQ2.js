@@ -2512,13 +2512,13 @@ class Wi2 extends ce{
     }
     ((this.data=i),_s(this,it2,a));
     if(s.showBidZero){
-      const bars=this.chart.bars,len=i.length;const bidDiff=new Float64Array(len);let bidAtCross=NaN;
-      for(let j=1;j<len;j++){if((i[j-1]<0&&i[j]>=0)||(i[j-1]>0&&i[j]<=0))bidAtCross=bars.close(j);bidDiff[j]=isNaN(bidAtCross)?0:bars.close(j)-bidAtCross;}
-      this._bidZeroDiffW=bidDiff;
-    }else{this._bidZeroDiffW=null;}
+      const bars=this.chart.bars,len=i.length;const bidDiff=new Float64Array(len);let bidAtCross=NaN;const crosses=[];
+      for(let j=1;j<len;j++){if((i[j-1]<0&&i[j]>=0)||(i[j-1]>0&&i[j]<=0)){bidAtCross=bars.close(j);crosses.push({idx:j,price:bidAtCross});}bidDiff[j]=isNaN(bidAtCross)?0:bars.close(j)-bidAtCross;}
+      this._bidZeroDiffW=bidDiff;this._bidZeroCrossesW=crosses;
+    }else{this._bidZeroDiffW=null;this._bidZeroCrossesW=null;}
     this._calcExtremum(...(this._bidZeroDiffW?[i,a,this._bidZeroDiffW]:[i,a]));
   }
-  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(i.line.visible&&s&&this.drawHistogram(t,s,i.line),i.signal.visible&&vs(this,it2)&&this.drawLine(t,vs(this,it2),i.signal),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffW&&this.drawLine(t,this._bidZeroDiffW,i.bidZero));if(p2.showBidZero&&p2.showBidZeroLabel&&i.bidZero&&this._bidZeroDiffW){const d=this._bidZeroDiffW,st=this.chart.state,step=st.getStep(),from=st.getFrom(),lastIdx=d.length-1,tipVal=d[lastIdx];if(tipVal!==0&&!isNaN(tipVal)){const tipX=st.startX()+(lastIdx-from)*step,tipY=this.valueToY(tipVal),tx=this.createText(tipVal.toFixed(e.digits));if(tx){tx.tint=i.bidZero.color;tx.x=tipX+4;tx.y=tipY-8;t.addChild(tx);}}}}
+  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(i.line.visible&&s&&this.drawHistogram(t,s,i.line),i.signal.visible&&vs(this,it2)&&this.drawLine(t,vs(this,it2),i.signal),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffW&&this.drawLine(t,this._bidZeroDiffW,i.bidZero));if(p2.showBidZero&&p2.showBidZeroLabel&&i.bidZero&&this._bidZeroDiffW){const bars=this.chart.bars,d=this._bidZeroDiffW,st=this.chart.state,step=st.getStep(),from=st.getFrom(),count=st.getCount(),digits=this.chart.digits,col=i.bidZero.color;for(const cr of(this._bidZeroCrossesW||[])){if(cr.idx<from||cr.idx>from+count+1)continue;const cx=st.startX()+(cr.idx-from)*step,cy=this.valueToY(0),tx=this.createText(cr.price.toFixed(digits));if(tx){tx.tint=col;tx.x=cx+4;tx.y=cy-8;t.addChild(tx);}}const lastIdx=d.length-1,tipX=st.startX()+(lastIdx-from)*step,tipY=this.valueToY(d[lastIdx]),tx2=this.createText(bars.close(lastIdx).toFixed(digits));if(tx2){tx2.tint=col;tx2.x=tipX+4;tx2.y=tipY-8;t.addChild(tx2);}}}
 }
 ((it2=new WeakMap()),(at2=new WeakMap()),(nt2=new WeakSet()),(lt2=function(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");}));
 const Hi = new Map(),
@@ -2646,13 +2646,13 @@ class Di2 extends ce{
     }
     ((this.data=i));
     if(s.showBidZero){
-      const bars=this.chart.bars,len=i.length;const bidDiff=new Float64Array(len);let bidAtCross=NaN;
-      for(let j=1;j<len;j++){if((i[j-1]<0&&i[j]>=0)||(i[j-1]>0&&i[j]<=0))bidAtCross=bars.close(j);bidDiff[j]=isNaN(bidAtCross)?0:bars.close(j)-bidAtCross;}
-      this._bidZeroDiffD=bidDiff;
-    }else{this._bidZeroDiffD=null;}
+      const bars=this.chart.bars,len=i.length;const bidDiff=new Float64Array(len);let bidAtCross=NaN;const crosses=[];
+      for(let j=1;j<len;j++){if((i[j-1]<0&&i[j]>=0)||(i[j-1]>0&&i[j]<=0)){bidAtCross=bars.close(j);crosses.push({idx:j,price:bidAtCross});}bidDiff[j]=isNaN(bidAtCross)?0:bars.close(j)-bidAtCross;}
+      this._bidZeroDiffD=bidDiff;this._bidZeroCrossesD=crosses;
+    }else{this._bidZeroDiffD=null;this._bidZeroCrossesD=null;}
     this._calcExtremum(...(this._bidZeroDiffD?[i,this._bidZeroDiffD]:[i]));
   }
-  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(s&&this.drawHistogram(t,s,i.line),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffD&&this.drawLine(t,this._bidZeroDiffD,i.bidZero));if(p2.showBidZero&&p2.showBidZeroLabel&&i.bidZero&&this._bidZeroDiffD){const d=this._bidZeroDiffD,st=this.chart.state,step=st.getStep(),from=st.getFrom(),lastIdx=d.length-1,tipVal=d[lastIdx];if(tipVal!==0&&!isNaN(tipVal)){const tipX=st.startX()+(lastIdx-from)*step,tipY=this.valueToY(tipVal),tx=this.createText(tipVal.toFixed(e.digits));if(tx){tx.tint=i.bidZero.color;tx.x=tipX+4;tx.y=tipY-8;t.addChild(tx);}}}}
+  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(s&&this.drawHistogram(t,s,i.line),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffD&&this.drawLine(t,this._bidZeroDiffD,i.bidZero));if(p2.showBidZero&&p2.showBidZeroLabel&&i.bidZero&&this._bidZeroDiffD){const bars=this.chart.bars,d=this._bidZeroDiffD,st=this.chart.state,step=st.getStep(),from=st.getFrom(),count=st.getCount(),digits=this.chart.digits,col=i.bidZero.color;for(const cr of(this._bidZeroCrossesD||[])){if(cr.idx<from||cr.idx>from+count+1)continue;const cx=st.startX()+(cr.idx-from)*step,cy=this.valueToY(0),tx=this.createText(cr.price.toFixed(digits));if(tx){tx.tint=col;tx.x=cx+4;tx.y=cy-8;t.addChild(tx);}}const lastIdx=d.length-1,tipX=st.startX()+(lastIdx-from)*step,tipY=this.valueToY(d[lastIdx]),tx2=this.createText(bars.close(lastIdx).toFixed(digits));if(tx2){tx2.tint=col;tx2.x=tipX+4;tx2.y=tipY-8;t.addChild(tx2);}}}
 }
 ((ht2=new WeakMap()),(rt2=new WeakSet()),(ot2=function(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");}));
 ((ht = new WeakMap()),
