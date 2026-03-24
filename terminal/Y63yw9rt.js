@@ -590,6 +590,7 @@ class xt {
       (this.yNull = 0),
       (this.extrema = [0, 0]),
       (this.textPool = { used: [], unUsed: new Map() }),
+      (this.textPoolSmall = { used: [], unUsed: new Map() }),
       R(this, b, {}),
       (this.chart = t.chart),
       (this.settings = s),
@@ -635,6 +636,25 @@ class xt {
       i.has(h) ? t.destroy() : i.set(h, t);
     }),
       (this.textPool.used = []));
+    const { used: ts, unUsed: is } = this.textPoolSmall;
+    (ts.forEach((t) => {
+      const { text: s, name: e } = t, h = e || s;
+      is.has(h) ? t.destroy() : is.set(h, t);
+    }), (this.textPoolSmall.used = []));
+  }
+  createTextSmall(t, i = "", s = !0) {
+    const { used: e, unUsed: h } = this.textPoolSmall, a = i || t;
+    let r;
+    if ((a && ((r = h.get(a)), h.delete(a)), !r)) {
+      const s = h.entries().next().value;
+      (s && ((r = s[1]), h.delete(s[0])), r && ((r.text = t), (r.name = i)));
+    }
+    return (
+      r || (r = new et(t, { fontName: "Trebuchet MS", fontSize: 8 })),
+      e.push(r),
+      r && ((!s && i) || ((r.alpha = 1), (r.tint = 0)), (r.name = i)),
+      r
+    );
   }
   _init() {}
   getYDigits() {
