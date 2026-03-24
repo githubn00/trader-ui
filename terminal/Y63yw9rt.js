@@ -650,7 +650,7 @@ class xt {
       (s && ((r = s[1]), h.delete(s[0])), r && ((r.text = t), (r.name = i)));
     }
     return (
-      r || (r = new et(t, { fontName: "Trebuchet MS", fontSize: 14 })),
+      r || (r = new et(t, { fontName: "Trebuchet MS", fontSize: 16 })),
       e.push(r),
       r && ((!s && i) || ((r.alpha = 1), (r.tint = 0)), (r.name = i)),
       r
@@ -892,12 +892,18 @@ class wt extends xt {
       i.endFill(),
       this.container.addChild(i));
     const s = this._createGraphics();
+    const ul = this._createGraphics("labels");
     ((s.x = i.x),
       (s.y = i.y),
       (s.mask = i),
       (s.eventMode = "none"),
+      (ul.x = i.x),
+      (ul.y = i.y),
+      (this.labelContainer = ul),
       this._drawGraph(s, t),
-      this.container.addChild(s));
+      this.container.addChild(s),
+      this.container.addChild(ul),
+      (this.labelContainer = null));
   }
 }
 navigator.userAgent.toLocaleLowerCase().indexOf("firefox");
