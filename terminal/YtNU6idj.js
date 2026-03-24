@@ -141,6 +141,7 @@ function XoverSymWidget(t) {
 function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
   return function(t) {
     let e, Z1 = !1, Z2 = !1, Z3 = !1, nn;
+    let chk, chkHandler;
     let r = {};
     const st = t[1].style[styleKey];
     void 0 !== st.visible && (r.visible = st.visible);
@@ -153,9 +154,19 @@ function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
     q.push((() => x(e, 'thickness', v2 => t[thkCb](v2))));
     if (useLineType) q.push((() => x(e, 'lineType', function(v2) { t[1].style[styleKey].lineType = v2; t[0].set(t[1]); })));
     return {
-      c() { _(e.$$.fragment); },
-      m(t2, s3) { k(e, t2, s3); nn = !0; },
+      c() {
+        chk = m('input'); chk.type = 'checkbox';
+        chk.style.cssText = 'margin-right:4px;cursor:pointer;vertical-align:middle';
+        _(e.$$.fragment);
+      },
+      m(t2, s3) {
+        chk.checked = !!t[1].style[styleKey].visible;
+        chk.addEventListener('change', chkHandler = function() { t[vCb](chk.checked); });
+        i(t2, chk, s3);
+        k(e, t2, s3); nn = !0;
+      },
       p(t2, drt) {
+        if (2 & drt) chk.checked = !!t2[1].style[styleKey].visible;
         const o = {};
         !Z1 && 2 & drt && (Z1 = !0, o.visible = t2[1].style[styleKey].visible, j((() => Z1 = !1)));
         !Z2 && 2 & drt && (Z2 = !0, o.color = t2[1].style[styleKey].color, j((() => Z2 = !1)));
@@ -164,7 +175,7 @@ function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
       },
       i(t2) { nn || (l(e.$$.fragment, t2), nn = !0); },
       o(t2) { o(e.$$.fragment, t2); nn = !1; },
-      d(t2) { b(e, t2); }
+      d(t2) { if (t2) n(chk); chk.removeEventListener('change', chkHandler); b(e, t2); }
     };
   };
 }

@@ -94,6 +94,7 @@ function XoverSymWidget(t) {
 function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
   return function(t) {
     let e, Z1 = !1, Z2 = !1, Z3 = !1, nn;
+    let chk, chkHandler;
     let r = {};
     const st = t[1].style[styleKey];
     void 0 !== st.visible && (r.visible = st.visible);
@@ -106,9 +107,19 @@ function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
     q.push((() => x(e, ${q1}thickness${q1}, v2 => t[thkCb](v2))));
     if (useLineType) q.push((() => x(e, ${q1}lineType${q1}, function(v2) { t[1].style[styleKey].lineType = v2; t[0].set(t[1]); })));
     return {
-      c() { _(e.${ds}.fragment); },
-      m(t2, s3) { k(e, t2, s3); nn = !0; },
+      c() {
+        chk = m(${q1}input${q1}); chk.type = ${q1}checkbox${q1};
+        chk.style.cssText = ${q1}margin-right:4px;cursor:pointer;vertical-align:middle${q1};
+        _(e.${ds}.fragment);
+      },
+      m(t2, s3) {
+        chk.checked = !!t[1].style[styleKey].visible;
+        chk.addEventListener(${q1}change${q1}, chkHandler = function() { t[vCb](chk.checked); });
+        i(t2, chk, s3);
+        k(e, t2, s3); nn = !0;
+      },
       p(t2, drt) {
+        if (2 & drt) chk.checked = !!t2[1].style[styleKey].visible;
         const o = {};
         !Z1 && 2 & drt && (Z1 = !0, o.visible = t2[1].style[styleKey].visible, j((() => Z1 = !1)));
         !Z2 && 2 & drt && (Z2 = !0, o.color = t2[1].style[styleKey].color, j((() => Z2 = !1)));
@@ -117,7 +128,7 @@ function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
       },
       i(t2) { nn || (l(e.${ds}.fragment, t2), nn = !0); },
       o(t2) { o(e.${ds}.fragment, t2); nn = !1; },
-      d(t2) { b(e, t2); }
+      d(t2) { if (t2) n(chk); chk.removeEventListener(${q1}change${q1}, chkHandler); b(e, t2); }
     };
   };
 }
@@ -203,8 +214,16 @@ class XoverFm extends t { constructor(t2) { super(); e(this, t2, XoverOs, XoverR
 // ── end XoverFm ──────────────────────────────────────────────────────────
 `;
 
-const exportIdx = src.lastIndexOf('export{');
-src = src.substring(0, exportIdx) + xoverCode + src.substring(exportIdx);
-src = src.replace('MOsFm as t2,AfFm as u}', 'MOsFm as t2,AfFm as u,XoverFm as v}');
+if (src.includes('class XoverFm')) {
+  // Already injected — update XoverStPicker in place
+  src = src.replace(
+    /function XoverStPicker\([\s\S]*?\n\}\nconst XoverFaSt/,
+    xoverCode.match(/function XoverStPicker[\s\S]*?\n\}\nconst XoverFaSt/)[0]
+  );
+} else {
+  const exportIdx = src.lastIndexOf('export{');
+  src = src.substring(0, exportIdx) + xoverCode + src.substring(exportIdx);
+  src = src.replace('MOsFm as t2,AfFm as u}', 'MOsFm as t2,AfFm as u,XoverFm as v}');
+}
 fs.writeFileSync('c:/Users/bcalderon/repo/trader-ui/terminal/YtNU6idj.js', src);
 console.log('Done, total length:', src.length);
