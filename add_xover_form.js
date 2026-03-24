@@ -93,40 +93,42 @@ function XoverSymWidget(t) {
 }
 function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
   return function(t) {
-    let e, Z1 = !1, Z2 = !1, Z3 = !1, nn;
+    let e, Z2 = !1, Z3 = !1, nn;
     let chk, chkHandler;
-    let r = {};
     const st = t[1].style[styleKey];
-    void 0 !== st.visible && (r.visible = st.visible);
+    let r = {};
+    // Do NOT pass visible to xt — xt renders a "Line style" label when visible is bound.
+    // Our checkbox owns visibility exclusively.
     void 0 !== st.color && (r.color = st.color);
     void 0 !== st.thickness && (r.thickness = st.thickness);
     if (useLineType) void 0 !== st.lineType && (r.lineType = st.lineType);
     e = new xt({ props: r });
-    q.push((() => x(e, ${q1}visible${q1}, v2 => t[vCb](v2))));
     q.push((() => x(e, ${q1}color${q1}, v2 => t[colCb](v2))));
     q.push((() => x(e, ${q1}thickness${q1}, v2 => t[thkCb](v2))));
     if (useLineType) q.push((() => x(e, ${q1}lineType${q1}, function(v2) { t[1].style[styleKey].lineType = v2; t[0].set(t[1]); })));
     return {
       c() { _(e.${ds}.fragment); },
       m(t2, s3) {
-        chk = m(${q1}input${q1}); chk.type = ${q1}checkbox${q1};
+        chk = document.createElement(${q1}input${q1}); chk.type = ${q1}checkbox${q1};
         chk.style.cssText = ${q1}margin-right:4px;cursor:pointer;vertical-align:middle${q1};
         chk.checked = !!t[1].style[styleKey].visible;
         chk.addEventListener(${q1}change${q1}, chkHandler = function() { t[vCb](chk.checked); });
-        i(t2, chk, s3);
+        t2.insertBefore(chk, s3 || null);
         k(e, t2, s3); nn = !0;
       },
       p(t2, drt) {
         if (2 & drt) chk.checked = !!t2[1].style[styleKey].visible;
         const o = {};
-        !Z1 && 2 & drt && (Z1 = !0, o.visible = t2[1].style[styleKey].visible, j((() => Z1 = !1)));
         !Z2 && 2 & drt && (Z2 = !0, o.color = t2[1].style[styleKey].color, j((() => Z2 = !1)));
         !Z3 && 2 & drt && (Z3 = !0, o.thickness = t2[1].style[styleKey].thickness, j((() => Z3 = !1)));
         e.${ds}set(o);
       },
       i(t2) { nn || (l(e.${ds}.fragment, t2), nn = !0); },
       o(t2) { o(e.${ds}.fragment, t2); nn = !1; },
-      d(t2) { if (t2) n(chk); chk.removeEventListener(${q1}change${q1}, chkHandler); b(e, t2); }
+      d(t2) {
+        if (chk) { chk.removeEventListener(${q1}change${q1}, chkHandler); if (t2 && chk.parentNode) chk.parentNode.removeChild(chk); }
+        b(e, t2);
+      }
     };
   };
 }
