@@ -2518,7 +2518,7 @@ class Wi2 extends ce{
     }else{this._bidZeroDiffW=null;}
     this._calcExtremum(...(this._bidZeroDiffW?[i,a,this._bidZeroDiffW]:[i,a]));
   }
-  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(i.line.visible&&s&&this.drawHistogram(t,s,i.line),i.signal.visible&&vs(this,it2)&&this.drawLine(t,vs(this,it2),i.signal),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffW&&this.drawLine(t,this._bidZeroDiffW,i.bidZero));}
+  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(i.line.visible&&s&&this.drawHistogram(t,s,i.line),i.signal.visible&&vs(this,it2)&&this.drawLine(t,vs(this,it2),i.signal),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffW&&this.drawLine(t,this._bidZeroDiffW,i.bidZero));if(p2.showBidZero&&p2.showBidZeroLabel&&i.bidZero&&this._bidZeroDiffW){const d=this._bidZeroDiffW,st=this.chart.state,step=st.getStep(),from=st.getFrom(),lastIdx=d.length-1,tipVal=d[lastIdx];if(tipVal!==0&&!isNaN(tipVal)){const tipX=st.startX()+(lastIdx-from)*step,tipY=this.valueToY(tipVal),tx=this.createText(tipVal.toFixed(e.digits));if(tx){tx.tint=i.bidZero.color;tx.x=tipX+4;tx.y=tipY-8;t.addChild(tx);}}}}
 }
 ((it2=new WeakMap()),(at2=new WeakMap()),(nt2=new WeakSet()),(lt2=function(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");}));
 const Hi = new Map(),
@@ -2652,7 +2652,7 @@ class Di2 extends ce{
     }else{this._bidZeroDiffD=null;}
     this._calcExtremum(...(this._bidZeroDiffD?[i,this._bidZeroDiffD]:[i]));
   }
-  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(s&&this.drawHistogram(t,s,i.line),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffD&&this.drawLine(t,this._bidZeroDiffD,i.bidZero));}
+  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(s&&this.drawHistogram(t,s,i.line),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffD&&this.drawLine(t,this._bidZeroDiffD,i.bidZero));if(p2.showBidZero&&p2.showBidZeroLabel&&i.bidZero&&this._bidZeroDiffD){const d=this._bidZeroDiffD,st=this.chart.state,step=st.getStep(),from=st.getFrom(),lastIdx=d.length-1,tipVal=d[lastIdx];if(tipVal!==0&&!isNaN(tipVal)){const tipX=st.startX()+(lastIdx-from)*step,tipY=this.valueToY(tipVal),tx=this.createText(tipVal.toFixed(e.digits));if(tx){tx.tint=i.bidZero.color;tx.x=tipX+4;tx.y=tipY-8;t.addChild(tx);}}}}
 }
 ((ht2=new WeakMap()),(rt2=new WeakSet()),(ot2=function(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");}));
 ((ht = new WeakMap()),

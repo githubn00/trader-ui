@@ -261,7 +261,7 @@ class XoverFm extends t { constructor(t2) { super(); e(this, t2, XoverOs, XoverR
 // ── end XoverFm ──────────────────────────────────────────────────────────
 
 // ── MACD_Fm / MAO_Fm (Bid Zero Cross extension) ───────────────────────────
-function BidZeroChkWidget(cbIdx) {
+function BidZeroChkWidget(cbIdx, paramKey) {
   return function(t) {
     let chk, chkHandler;
     return {
@@ -270,11 +270,11 @@ function BidZeroChkWidget(cbIdx) {
         chk = document.createElement('input');
         chk.type = 'checkbox';
         chk.style.cssText = 'display:inline-block!important;width:13px!important;height:13px!important;margin-right:4px!important;cursor:pointer!important;vertical-align:middle!important;opacity:1!important;visibility:visible!important;-webkit-appearance:checkbox!important;appearance:checkbox!important';
-        chk.checked = !!t[1].params.showBidZero;
+        chk.checked = !!t[1].params[paramKey];
         chk.addEventListener('change', chkHandler = function() { t[cbIdx](chk.checked ? 1 : 0); });
         t2.insertBefore(chk, s3 || null);
       },
-      p(t2, drt) { if (2 & drt) chk.checked = !!t2[1].params.showBidZero; },
+      p(t2, drt) { if (2 & drt) chk.checked = !!t2[1].params[paramKey]; },
       i() {},
       o() {},
       d(t2) {
@@ -283,8 +283,6 @@ function BidZeroChkWidget(cbIdx) {
     };
   };
 }
-const _BidZeroChkW = BidZeroChkWidget(2);
-const _BidZeroStW  = XoverStPicker(3, 4, 5, true, 'bidZero');
 function MACD_FmOs(t, e, s) {
   let n, o2=M, l2=()=>(o2(), o2=W(i, (t2 => s(1, n=t2))), i);
   t.$$.on_destroy.push(()=>o2());
@@ -295,25 +293,28 @@ function MACD_FmOs(t, e, s) {
     v => { t.$$.not_equal(n.style.bidZero.visible, v) && (n.style.bidZero.visible = v, i.set(n)); },
     v => { t.$$.not_equal(n.style.bidZero.color, v) && (n.style.bidZero.color = v, i.set(n)); },
     v => { t.$$.not_equal(n.style.bidZero.thickness, v) && (n.style.bidZero.thickness = v, i.set(n)); },
+    v => { t.$$.not_equal(n.params.showBidZeroLabel, v) && (n.params.showBidZeroLabel = v, i.set(n)); },
   ];
 }
 function MACD_FmRs(t) {
-  let e1, e2, e3, nn;
-  const BizChk = BidZeroChkWidget(2);
-  const BizSt  = XoverStPicker(3, 4, 5, true, 'bidZero');
+  let e1, e2, e3, e4, nn;
+  const BizChk  = BidZeroChkWidget(2, 'showBidZero');
+  const BizSt   = XoverStPicker(3, 4, 5, true, 'bidZero');
+  const BizLblChk = BidZeroChkWidget(6, 'showBidZeroLabel');
   e1 = new Fs2({ props: { settings: t[0] } });
   e2 = new R({ props: { label: 'Bid Zero Cross', $$slots: { default: [BizChk] }, $$scope: { ctx: t } } });
   e3 = new R({ props: { label: 'Bid Zero Style', $$slots: { default: [BizSt] }, $$scope: { ctx: t } } });
+  e4 = new R({ props: { label: 'Bid Zero Label', $$slots: { default: [BizLblChk] }, $$scope: { ctx: t } } });
   return {
-    c() { _(e1.$$.fragment); _(e2.$$.fragment); _(e3.$$.fragment); },
-    m(t2, ins) { k(e1, t2, ins); k(e2, t2, ins); k(e3, t2, ins); nn = !0; },
+    c() { _(e1.$$.fragment); _(e2.$$.fragment); _(e3.$$.fragment); _(e4.$$.fragment); },
+    m(t2, ins) { k(e1, t2, ins); k(e2, t2, ins); k(e3, t2, ins); k(e4, t2, ins); nn = !0; },
     p(t2, [drt]) {
       if (1 & drt) e1.$$set({ settings: t2[0] });
-      if (2 & drt) { const sc = { $$scope: { dirty: drt, ctx: t2 } }; e2.$$set(sc); e3.$$set(sc); }
+      if (2 & drt) { const sc = { $$scope: { dirty: drt, ctx: t2 } }; e2.$$set(sc); e3.$$set(sc); e4.$$set(sc); }
     },
-    i(t2) { nn || (l(e1.$$.fragment, t2), l(e2.$$.fragment, t2), l(e3.$$.fragment, t2), nn = !0); },
-    o(t2) { o(e1.$$.fragment, t2); o(e2.$$.fragment, t2); o(e3.$$.fragment, t2); nn = !1; },
-    d(t2) { b(e1, t2); b(e2, t2); b(e3, t2); }
+    i(t2) { nn || (l(e1.$$.fragment, t2), l(e2.$$.fragment, t2), l(e3.$$.fragment, t2), l(e4.$$.fragment, t2), nn = !0); },
+    o(t2) { o(e1.$$.fragment, t2); o(e2.$$.fragment, t2); o(e3.$$.fragment, t2); o(e4.$$.fragment, t2); nn = !1; },
+    d(t2) { b(e1, t2); b(e2, t2); b(e3, t2); b(e4, t2); }
   };
 }
 class MACD_Fm extends t { constructor(t2) { super(); e(this, t2, MACD_FmOs, MACD_FmRs, s, { settings: 0 }); } }
@@ -327,25 +328,28 @@ function MAO_FmOs(t, e, s) {
     v => { t.$$.not_equal(n.style.bidZero.visible, v) && (n.style.bidZero.visible = v, i.set(n)); },
     v => { t.$$.not_equal(n.style.bidZero.color, v) && (n.style.bidZero.color = v, i.set(n)); },
     v => { t.$$.not_equal(n.style.bidZero.thickness, v) && (n.style.bidZero.thickness = v, i.set(n)); },
+    v => { t.$$.not_equal(n.params.showBidZeroLabel, v) && (n.params.showBidZeroLabel = v, i.set(n)); },
   ];
 }
 function MAO_FmRs(t) {
-  let e1, e2, e3, nn;
-  const BizChk = BidZeroChkWidget(2);
-  const BizSt  = XoverStPicker(3, 4, 5, true, 'bidZero');
+  let e1, e2, e3, e4, nn;
+  const BizChk  = BidZeroChkWidget(2, 'showBidZero');
+  const BizSt   = XoverStPicker(3, 4, 5, true, 'bidZero');
+  const BizLblChk = BidZeroChkWidget(6, 'showBidZeroLabel');
   e1 = new MOsFm({ props: { settings: t[0] } });
   e2 = new R({ props: { label: 'Bid Zero Cross', $$slots: { default: [BizChk] }, $$scope: { ctx: t } } });
   e3 = new R({ props: { label: 'Bid Zero Style', $$slots: { default: [BizSt] }, $$scope: { ctx: t } } });
+  e4 = new R({ props: { label: 'Bid Zero Label', $$slots: { default: [BizLblChk] }, $$scope: { ctx: t } } });
   return {
-    c() { _(e1.$$.fragment); _(e2.$$.fragment); _(e3.$$.fragment); },
-    m(t2, ins) { k(e1, t2, ins); k(e2, t2, ins); k(e3, t2, ins); nn = !0; },
+    c() { _(e1.$$.fragment); _(e2.$$.fragment); _(e3.$$.fragment); _(e4.$$.fragment); },
+    m(t2, ins) { k(e1, t2, ins); k(e2, t2, ins); k(e3, t2, ins); k(e4, t2, ins); nn = !0; },
     p(t2, [drt]) {
       if (1 & drt) e1.$$set({ settings: t2[0] });
-      if (2 & drt) { const sc = { $$scope: { dirty: drt, ctx: t2 } }; e2.$$set(sc); e3.$$set(sc); }
+      if (2 & drt) { const sc = { $$scope: { dirty: drt, ctx: t2 } }; e2.$$set(sc); e3.$$set(sc); e4.$$set(sc); }
     },
-    i(t2) { nn || (l(e1.$$.fragment, t2), l(e2.$$.fragment, t2), l(e3.$$.fragment, t2), nn = !0); },
-    o(t2) { o(e1.$$.fragment, t2); o(e2.$$.fragment, t2); o(e3.$$.fragment, t2); nn = !1; },
-    d(t2) { b(e1, t2); b(e2, t2); b(e3, t2); }
+    i(t2) { nn || (l(e1.$$.fragment, t2), l(e2.$$.fragment, t2), l(e3.$$.fragment, t2), l(e4.$$.fragment, t2), nn = !0); },
+    o(t2) { o(e1.$$.fragment, t2); o(e2.$$.fragment, t2); o(e3.$$.fragment, t2); o(e4.$$.fragment, t2); nn = !1; },
+    d(t2) { b(e1, t2); b(e2, t2); b(e3, t2); b(e4, t2); }
   };
 }
 class MAO_Fm extends t { constructor(t2) { super(); e(this, t2, MAO_FmOs, MAO_FmRs, s, { settings: 0 }); } }
