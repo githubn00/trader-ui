@@ -154,12 +154,10 @@ function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
     q.push((() => x(e, 'thickness', v2 => t[thkCb](v2))));
     if (useLineType) q.push((() => x(e, 'lineType', function(v2) { t[1].style[styleKey].lineType = v2; t[0].set(t[1]); })));
     return {
-      c() {
+      c() { _(e.$$.fragment); },
+      m(t2, s3) {
         chk = m('input'); chk.type = 'checkbox';
         chk.style.cssText = 'margin-right:4px;cursor:pointer;vertical-align:middle';
-        _(e.$$.fragment);
-      },
-      m(t2, s3) {
         chk.checked = !!t[1].style[styleKey].visible;
         chk.addEventListener('change', chkHandler = function() { t[vCb](chk.checked); });
         i(t2, chk, s3);
