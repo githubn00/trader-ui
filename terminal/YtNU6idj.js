@@ -157,7 +157,7 @@ function XoverStPicker(vCb, colCb, thkCb, useLineType, styleKey) {
       c() { _(e.$$.fragment); },
       m(t2, s3) {
         chk = document.createElement('input'); chk.type = 'checkbox';
-        chk.style.cssText = 'margin-right:4px;cursor:pointer;vertical-align:middle';
+        chk.style.cssText = 'display:inline-block!important;width:13px!important;height:13px!important;margin-right:4px!important;cursor:pointer!important;vertical-align:middle!important;opacity:1!important;visibility:visible!important;-webkit-appearance:checkbox!important;appearance:checkbox!important';
         chk.checked = !!t[1].style[styleKey].visible;
         chk.addEventListener('change', chkHandler = function() { t[vCb](chk.checked); });
         t2.insertBefore(chk, s3 || null);
