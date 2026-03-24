@@ -2510,9 +2510,15 @@ class Wi2 extends ce{
         const h=vs(this,at2);(h&&(ki2.delete(h),xi2.delete(h),Fi2.delete(h),Si2.delete(h)),_s(this,at2,e));
       }
     }
-    ((this.data=i),_s(this,it2,a),this._calcExtremum(i,a));
+    ((this.data=i),_s(this,it2,a));
+    if(s.showBidZero){
+      const bars=this.chart.bars,len=i.length;const bidDiff=new Float64Array(len);let bidAtCross=NaN;
+      for(let j=1;j<len;j++){if((i[j-1]<0&&i[j]>=0)||(i[j-1]>0&&i[j]<=0))bidAtCross=bars.close(j);bidDiff[j]=isNaN(bidAtCross)?0:bars.close(j)-bidAtCross;}
+      this._bidZeroDiffW=bidDiff;
+    }else{this._bidZeroDiffW=null;}
+    this._calcExtremum(...(this._bidZeroDiffW?[i,a,this._bidZeroDiffW]:[i,a]));
   }
-  _drawGraph(t){const{data:s,settings:e}=this,{style:i}=e;(i.line.visible&&s&&this.drawHistogram(t,s,i.line),i.signal.visible&&vs(this,it2)&&this.drawLine(t,vs(this,it2),i.signal));}
+  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(i.line.visible&&s&&this.drawHistogram(t,s,i.line),i.signal.visible&&vs(this,it2)&&this.drawLine(t,vs(this,it2),i.signal),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffW&&this.drawLine(t,this._bidZeroDiffW,i.bidZero));}
 }
 ((it2=new WeakMap()),(at2=new WeakMap()),(nt2=new WeakSet()),(lt2=function(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");}));
 const Hi = new Map(),
@@ -2638,9 +2644,15 @@ class Di2 extends ce{
         const r=vs(this,ht2);(r&&(Hi2.delete(r),ji2.delete(r),Oi2.delete(r),Pi2.delete(r),Ii2.delete(r)),_s(this,ht2,e));
       }
     }
-    ((this.data=i),this._calcExtremum());
+    ((this.data=i));
+    if(s.showBidZero){
+      const bars=this.chart.bars,len=i.length;const bidDiff=new Float64Array(len);let bidAtCross=NaN;
+      for(let j=1;j<len;j++){if((i[j-1]<0&&i[j]>=0)||(i[j-1]>0&&i[j]<=0))bidAtCross=bars.close(j);bidDiff[j]=isNaN(bidAtCross)?0:bars.close(j)-bidAtCross;}
+      this._bidZeroDiffD=bidDiff;
+    }else{this._bidZeroDiffD=null;}
+    this._calcExtremum(...(this._bidZeroDiffD?[i,this._bidZeroDiffD]:[i]));
   }
-  _drawGraph(t){const{data:s,settings:e}=this,{style:i}=e;s&&this.drawHistogram(t,s,i.line);}
+  _drawGraph(t){const{data:s,settings:e}=this,{style:i,params:p2}=e;(s&&this.drawHistogram(t,s,i.line),p2.showBidZero&&i.bidZero&&i.bidZero.visible&&this._bidZeroDiffD&&this.drawLine(t,this._bidZeroDiffD,i.bidZero));}
 }
 ((ht2=new WeakMap()),(rt2=new WeakSet()),(ot2=function(){const{params:t}=this.settings;return[t.fast,t.slow,t.macd,t.sameTimeframeSource,t.sourceTimeframe,this.baseHash()].join("-");}));
 ((ht = new WeakMap()),

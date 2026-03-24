@@ -396,10 +396,11 @@ const K_ = class s extends f {
   constructor(e) {
     super(
       e,
-      { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0 },
+      { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0, showBidZero: 0 },
       {
         line: { visible: !0, color: 16711790, thickness: 1, lineType: 0 },
         signal: { visible: !0, color: 38143, thickness: 1, lineType: 0 },
+        bidZero: { visible: !0, color: 0x00ff88, thickness: 1, lineType: 0 },
       },
       s.type,
       s.category,
@@ -429,8 +430,11 @@ const q_ = class s extends f {
   constructor(e) {
     super(
       e,
-      { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0 },
-      { line: { color: 16711790, thickness: 1, lineType: 0 } },
+      { fast: 12, slow: 26, macd: 9, apply: 0, sameTimeframeSource: 1, sourceTimeframe: 0, showBidZero: 0 },
+      {
+        line: { color: 16711790, thickness: 1, lineType: 0 },
+        bidZero: { visible: !0, color: 0x00ff88, thickness: 1, lineType: 0 },
+      },
       s.type,
       s.category,
       s.digits,

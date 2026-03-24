@@ -54,12 +54,13 @@ import {
   G as q,
   o as H,
   p as ne2,
-  q as Fs2,
   r as FrFm,
   s as EpFm,
   t2 as MOsFm,
   u as AfFm,
   v as XoverFm2,
+  w as MACD_Fm,
+  aa2 as MAO_Fm,
 } from "./YtNU6idj.js";
 import { Template as K } from "./DYij-JZu.js";
 import { F as Q } from "./u3aYl0h9.js";
@@ -580,7 +581,7 @@ function yt(t) {
 function ut2(t) {
   let n, s, r, g;
   return (
-    (n = new MOsFm({ props: { settings: t[0] } })),
+    (n = new MAO_Fm({ props: { settings: t[0] } })),
     (r = new ne2({ props: { analysisManager: t[1], settings: t[0] } })),
     {
       c() {
@@ -708,7 +709,7 @@ function Mt(t) {
 function Mt2(t) {
   let n, s, r, g;
   return (
-    (n = new Fs2({ props: { settings: t[0] } })),
+    (n = new MACD_Fm({ props: { settings: t[0] } })),
     (r = new ne2({ props: { analysisManager: t[1], settings: t[0] } })),
     {
       c() {
