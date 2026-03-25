@@ -310,6 +310,7 @@ import {
 } from "./Y63yw9rt.js";
 import { i as xr, H as Cr, O as Wr } from "./BmK36PA1.js";
 import { h as Br, f as Er, B as _r, u as Dr } from "./CSht1uUK.js";
+import customBarsManager from "./customBarsManager.js";
 class Hr {
   constructor(i, r, o) {
     (Xi(this, t),
@@ -1387,7 +1388,13 @@ class vo {
         if (r && i && ((r.delay && s) || (!r.delay && !s))) {
           const t = this.ticksStore.setTick(i, !0);
           if (!r) throw new Error(`symbol "${t.symbol}" doesn't exist`);
-          (Gi(this, R).barsStore.extends(r, t), t.refresh());
+          (Gi(this, R).barsStore.extends(r, t),
+           customBarsManager.onTick(
+             t.symbol,
+             t.timeMs instanceof Date ? t.timeMs.getTime() : Number(t.timeMs),
+             t.bidOriginal || t.bid,
+           ),
+           t.refresh());
         }
       }),
       Ji(this, j, t),
@@ -5134,6 +5141,8 @@ class Gn {
   }
 }
 function Xn(t, e) {
+  // Sub-minute custom periods: check epoch-ms divisibility directly.
+  if (e === 1 / 6) return t % 10000 === 0; // 10-second boundary
   const s = new Date(t);
   if (0 !== s.getUTCMilliseconds() || 0 !== s.getUTCSeconds()) return !1;
   switch (e) {
@@ -5226,7 +5235,7 @@ class Jn {
       !(function (t, e) {
         const s = new Uint32Array(t);
         for (let i = 0, r = s.length; i < r; i += 12)
-          if (!Xn(1e3 * s[i], e)) return !1;
+          if (!Xn(1e3 * s[i], e)) { console.warn(`[alignment] FAIL period=${e} t=${1e3*s[i]} i=${i}`); return !1; }
         return !0;
       })(o, r.period)
     )
@@ -5235,10 +5244,11 @@ class Jn {
         (r.pendingDirection = 0),
         new Error(`bars is not aligned by period (${r.symbol}, ${r.period})`)
       );
+    console.log(`[js] imposed ${o.byteLength/48} bars for ${t} period=${e}`);
     return (
       (r.pending = !1),
       (r.real = !0),
-      (r.lastLoadedBarTime = r.time(r.length - 1)),
+      (r.lastLoadedBarTime = r.length > 0 ? r.time(r.length - 1) : 0),
       this.update(t, e, o),
       o
     );
@@ -5283,6 +5293,10 @@ class eh extends sr {
     return (this.data[e] && this.data[e][s]) || this.add(t, e, s);
   }
   extends(t, e) {
+    // Reject ticks from the far future (>1 day) — period-switch artifacts with bogus
+    // timestamps cause Int32 overflow in the bar buffer and corrupt pagination.
+    const _tickMs = e.timeMs instanceof Date ? e.timeMs.getTime() : Number(e.timeMs);
+    if (_tickMs > Date.now() + 86400000) return;
     const s = this.data[e.symbol];
     s &&
       Object.values(s).forEach((s) =>

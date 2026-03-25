@@ -42,6 +42,8 @@ function C(t, e = 1, i = 0) {
   return (A(s, e, i), s.getTime());
 }
 function A(t, e = 1, i = 1) {
+  // Sub-minute custom periods: advance by seconds (setUTCSeconds rolls over correctly).
+  if (e === 1 / 6) { t.setUTCSeconds(t.getUTCSeconds() + 10 * i); return; }
   switch (e) {
     case 1:
       t.setUTCMinutes(t.getUTCMinutes() + 1 * i);
@@ -253,7 +255,9 @@ class N extends k {
     ) {
       const o = T(l.timeMs, this.period);
       let u = this.length - 1;
-      const c = this.time(u);
+      // When buffer is empty, c = o so D(o,c) = 0 (same-bar update path).
+      // The seed block below (after price extraction) will impose the actual first bar.
+      const c = u < 0 ? o : this.time(u);
       if (o < c) return;
       this.askPrice = x(l.askOriginal, t.digits);
       const f = (function (t, e) {
@@ -284,39 +288,54 @@ class N extends k {
         return x(n, t.digits);
       })(t, l);
       if (!f) return;
+      if (this.period === 1/6) console.log(`[Bars.extends] S10 tick: price=${f}, length=${this.length}, o=${o}, c=${c}, m=${D(o,c,this.period)}`);
+      // Seed the first bar when buffer is empty — prevents DataView out-of-bounds reads
+      // on this.time(-1) / this.bar(-1) which crash for any zero-length Bars instance.
+      if (!this.length) {
+        const _sb = new ArrayBuffer(48), _dv = new DataView(_sb), _rd = new Date(T(o, this.period));
+        let _t = 0;
+        (_dv.setUint32(_t,        _rd.getTime() / 1e3, !0),
+         _dv.setFloat64((_t+=4), f, !0),
+         _dv.setFloat64((_t+=8), f, !0),
+         _dv.setFloat64((_t+=8), f, !0),
+         _dv.setFloat64((_t+=8), f, !0));
+        this.impose(_sb);
+        u = 0;
+      }
       this.lastBarBefore = this.bar(this.length - 1);
       const m = D(o, c, this.period);
-      (m <= 1 &&
-        (1 === m &&
-          (this.impose(
-            (function (t, e, i = 100, s = 0) {
-              const n = new ArrayBuffer(48 * i),
-                r = new Date(T(t, e)),
-                a = new DataView(n);
-              for (let h = i - 1; h >= 0; h--) {
-                let t = 48 * h;
-                (a.setInt32(t, r.getTime() / 1e3, !0),
-                  a.setFloat64((t += 4), s || 1, !0),
-                  a.setFloat64((t += 8), s || 1, !0),
-                  a.setFloat64((t += 8), s || 0, !0),
-                  a.setFloat64((t += 8), s || 0, !0),
-                  A(r, e, -1));
-              }
-              return n;
-            })(o, this.period, 1, f),
-          ),
-          (u += 1)),
-        "number" == typeof l.fields &&
-          8 & l.fields &&
-          U(this, i, h).call(
-            this,
-            u,
-            this.realVolume(u) + p(this, e).call(this, l.volLast, 8),
-          ),
-        U(this, i, a).call(this, u, this.tickVolume(u) + 1),
-        U(this, i, r).call(this, u, f),
-        U(this, i, s).call(this, u, Math.max(f, this.high(u))),
-        U(this, i, n).call(this, u, Math.min(f, this.low(u)))),
+      // Create a new bar for any forward gap (m>=1), not just exactly 1 step.
+      // This handles both normal next-bar (m=1) and gaps after reconnect or stale data.
+      (m >= 1 &&
+        (this.impose(
+          (function (t, e, i = 100, s = 0) {
+            const n = new ArrayBuffer(48 * i),
+              r = new Date(T(t, e)),
+              a = new DataView(n);
+            for (let h = i - 1; h >= 0; h--) {
+              let t = 48 * h;
+              (a.setUint32(t, r.getTime() / 1e3, !0),
+                a.setFloat64((t += 4), s || 1, !0),
+                a.setFloat64((t += 8), s || 1, !0),
+                a.setFloat64((t += 8), s || 0, !0),
+                a.setFloat64((t += 8), s || 0, !0),
+                A(r, e, -1));
+            }
+            return n;
+          })(o, this.period, 1, f),
+        ),
+        (u += 1)),
+      "number" == typeof l.fields &&
+        8 & l.fields &&
+        U(this, i, h).call(
+          this,
+          u,
+          this.realVolume(u) + p(this, e).call(this, l.volLast, 8),
+        ),
+      U(this, i, a).call(this, u, this.tickVolume(u) + 1),
+      U(this, i, r).call(this, u, f),
+      U(this, i, s).call(this, u, Math.max(f, this.high(u))),
+      U(this, i, n).call(this, u, Math.min(f, this.low(u))),
         (this.lastBarAfter = this.bar(this.length - 1)),
         (this.lastPrice = f));
     }

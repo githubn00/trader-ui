@@ -333,6 +333,7 @@ class yt extends oe {
   }
 }
 function _t(e) {
+  if (e === 1 / 6) return "S10";
   switch (e) {
     case 1:
       return window.tr(window.lang.chart.period.short.M1);

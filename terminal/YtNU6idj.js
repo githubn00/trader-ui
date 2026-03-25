@@ -105,7 +105,7 @@ function XoverTypeWidget(cbIdx, paramKey) {
 const XoverWtFT = XoverTypeWidget(3, 'fastType');
 const XoverWtST = XoverTypeWidget(5, 'slowType');
 function XoverTfWidget(t) {
-  const TF = [[1,'M1'],[2,'M5'],[4,'M15'],[8,'M30'],[16,'H1'],[32,'H4'],[64,'D1'],[128,'W1'],[256,'MN']];
+  const TF = [[512,'S10'],[1,'M1'],[2,'M5'],[4,'M15'],[8,'M30'],[16,'H1'],[32,'H4'],[64,'D1'],[128,'W1'],[256,'MN']];
   let el, handler;
   return {
     c() {

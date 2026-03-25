@@ -1555,6 +1555,34 @@ class vn extends u {
     (super(), d(this, t, null, wn, p, {}));
   }
 }
+function S10n(t) {
+  let e, n;
+  return {
+    c() {
+      ((e = g("svg")),
+        (n = g("text")),
+        (n.textContent = "S10"),
+        w(n, "x", "12"),
+        w(n, "y", "16"),
+        w(n, "text-anchor", "middle"),
+        w(n, "font-size", "8"),
+        w(n, "fill", "currentColor"),
+        w(e, "width", "24"),
+        w(e, "height", "24"),
+        w(e, "viewBox", "0 0 24 24"),
+        w(e, "xmlns", "http://www.w3.org/2000/svg"));
+    },
+    m(t, r) {
+      ($(t, e, r), f(e, n));
+    },
+    p: m,
+    i: m,
+    o: m,
+    d(t) {
+      t && h(e);
+    },
+  };
+}
 function yn(t) {
   let e, n, o;
   return {
@@ -13535,6 +13563,14 @@ function Qa(t) {
 }
 const Ja = [
   {
+    value: 1 / 6,
+    icon: class extends u {
+      constructor(t) {
+        (super(), d(this, t, null, S10n, p, {}));
+      }
+    },
+  },
+  {
     value: 1,
     icon: class extends u {
       constructor(t) {
@@ -13594,6 +13630,7 @@ const Ja = [
   },
 ];
 function Ga(t) {
+  if (t === 1 / 6) return "10 Seconds";
   switch (t) {
     case 1:
       return window.tr(window.lang.chart.period.full.M1);

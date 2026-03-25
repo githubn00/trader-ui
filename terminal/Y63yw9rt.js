@@ -198,6 +198,8 @@ class lt extends ot {
   }
 }
 function ct(t, i) {
+  // Fast-path for sub-minute custom periods: pure epoch-ms arithmetic, no Date needed.
+  if (i === 1 / 6) return Math.floor(t / 10000) * 10000; // snap to 10-second boundary
   const s = new Date(t);
   switch (
     (s.setUTCMilliseconds(0),
@@ -828,7 +830,7 @@ const Mt = class t extends it {
       (this.uid = mt(16)),
       (this.parent = ""),
       (this.visible = !0),
-      (this.mask = { period: 511, navigator: !0 }),
+      (this.mask = { period: 1023, navigator: !0 }),
       (this.params = { distance: 10 }),
       (this.type = i.type),
       i && ft(this, i));
@@ -868,6 +870,7 @@ class wt extends xt {
       const { period: i } = this.chart.bars,
         s = t.mask.period;
       return !!(
+        (1 / 6 === i && 512 & s) ||
         (1 === i && 1 & s) ||
         (5 === i && 2 & s) ||
         (15 === i && 4 & s) ||

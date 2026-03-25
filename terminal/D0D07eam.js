@@ -882,6 +882,7 @@ class ws extends Se {
   (W = new WeakMap()));
 const fs = 0.75 * De;
 class ms extends Fe {
+  isDrawingAllowed() { return !0; }
   _draw() {
     2 === this.chart.chartType ? super._draw() : this.clear();
   }
@@ -927,7 +928,14 @@ class ms extends Fe {
   }
 }
 class vs extends Fe {
+  draw() {
+    if (!this._vsCount) this._vsCount = 0;
+    this._vsCount++;
+    if (this._vsCount <= 3 || this._vsCount % 300 === 0) { console.log(`[vs.draw #${this._vsCount}] period=${this.chart.bars?.period}, isAllowed=${this.isDrawingAllowed()}, visible=${this.visible()}, mask=${this.settings?.mask?.period}`); }
+    return super.draw();
+  }
   _draw() {
+    if (!this._s10drawLogged) { this._s10drawLogged = true; console.log(`[vs._draw] chartType=${this.chart.chartType}, period=${this.chart.bars?.period}, real=${this.chart.bars?.real}, length=${this.chart.bars?.length}`); }
     1 === this.chart.chartType ? super._draw() : this.clear();
   }
   _drawGraph(t, i) {
@@ -937,6 +945,7 @@ class vs extends Fe {
       a = e.getStep(),
       n = a > 3 ? 0.4 * a : 0,
       o = h.length - 1;
+    if (h.period === 1/6 && !this._s10logged) { this._s10logged = true; console.log(`[vs._drawGraph] S10: length=${h.length}, real=${h.real}, from=${r}, count=${e.getCount()}, step=${a}, close0=${h.close(0)}, closeEnd=${h.close(o)}`); }
     let c = e.startX();
     for (let l = r, d = r + e.getCount() + 1; l < d; l++) {
       const e = Math.round(c);

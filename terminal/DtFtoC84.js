@@ -2211,7 +2211,7 @@ function he(t) {
     },
   };
 }
-const ve = [1, 2, 4, 8, 16, 32, 64, 128, 256];
+const ve = [512, 1, 2, 4, 8, 16, 32, 64, 128, 256];
 function xe(t, e, n) {
   let { mask: s } = e;
   function o({ detail: t }, e) {
@@ -2225,7 +2225,7 @@ function xe(t, e, n) {
       s,
       o,
       function ({ detail: t }) {
-        t.checked ? n(0, (s.period = 511), s) : n(0, (s.period = 0), s);
+        t.checked ? n(0, (s.period = 1023), s) : n(0, (s.period = 0), s);
       },
       (t, e) => o(e, t),
     ]

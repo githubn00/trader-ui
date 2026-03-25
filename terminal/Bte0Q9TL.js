@@ -1,6 +1,7 @@
 import { _ as t, af as e, ag as i, ah as s, ai as r } from "./CQSQNu0h.js";
 import { l as a } from "./C8gngcK2.js";
 import "./CHj1SSsY.js";
+import customBarsManager from "./customBarsManager.js";
 !(function (e, i, s, r, a, o, n) {
   var c,
     l,
@@ -10339,6 +10340,13 @@ import "./CHj1SSsY.js";
   oa = new WeakMap();
   class gd extends Rc {
     async getRates(t) {
+      // Route custom (sub-minute) periods to the local tick-aggregator — server won't know them.
+      if (md(t.period) === 0) {
+        await customBarsManager.watch(t.symbol, t.period);
+        const _buf = customBarsManager.getRates(t.symbol, t.period, t.from ?? 0, t.to ?? Date.now());
+        console.log(`[gd.getRates] S10 period=${t.period} from=${t.from} to=${t.to} → ${_buf.byteLength/48} bars`);
+        return _buf;
+      }
       try {
         const e = await this.socket.sendCommand(
           11,
