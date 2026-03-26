@@ -286,6 +286,7 @@ async function ls(t, i, e = 1, s, h, r, a) {
   const n = t.time(-1),
     o = ns(n, ss(i, e), t.period, s, h, r),
     c = await a(t.symbol, t.period, o, n, -1);
+  if (null == c) { t.final = !0; return; }
   if (c && !c.byteLength) {
     if (e < 20) return void (await ls(t, i, e + 1, s, h, r, a));
     t.final = !0;
@@ -928,14 +929,8 @@ class ms extends Fe {
   }
 }
 class vs extends Fe {
-  draw() {
-    if (!this._vsCount) this._vsCount = 0;
-    this._vsCount++;
-    if (this._vsCount <= 3 || this._vsCount % 300 === 0) { console.log(`[vs.draw #${this._vsCount}] period=${this.chart.bars?.period}, isAllowed=${this.isDrawingAllowed()}, visible=${this.visible()}, mask=${this.settings?.mask?.period}`); }
-    return super.draw();
-  }
+  isDrawingAllowed() { return !0; }
   _draw() {
-    if (!this._s10drawLogged) { this._s10drawLogged = true; console.log(`[vs._draw] chartType=${this.chart.chartType}, period=${this.chart.bars?.period}, real=${this.chart.bars?.real}, length=${this.chart.bars?.length}`); }
     1 === this.chart.chartType ? super._draw() : this.clear();
   }
   _drawGraph(t, i) {
@@ -945,7 +940,6 @@ class vs extends Fe {
       a = e.getStep(),
       n = a > 3 ? 0.4 * a : 0,
       o = h.length - 1;
-    if (h.period === 1/6 && !this._s10logged) { this._s10logged = true; console.log(`[vs._drawGraph] S10: length=${h.length}, real=${h.real}, from=${r}, count=${e.getCount()}, step=${a}, close0=${h.close(0)}, closeEnd=${h.close(o)}`); }
     let c = e.startX();
     for (let l = r, d = r + e.getCount() + 1; l < d; l++) {
       const e = Math.round(c);
@@ -981,6 +975,7 @@ class ys extends Fe {
   constructor() {
     (super(...arguments), ue(this, C));
   }
+  isDrawingAllowed() { return !0; }
   _draw() {
     this.chart.bars.real ? super._draw() : this.clear();
   }
@@ -1117,6 +1112,7 @@ class Ws extends Ee {
   }
 }
 class Cs extends Fe {
+  isDrawingAllowed() { return !0; }
   get yMin() {
     return 0;
   }

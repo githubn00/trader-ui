@@ -288,7 +288,6 @@ class N extends k {
         return x(n, t.digits);
       })(t, l);
       if (!f) return;
-      if (this.period === 1/6) console.log(`[Bars.extends] S10 tick: price=${f}, length=${this.length}, o=${o}, c=${c}, m=${D(o,c,this.period)}`);
       // Seed the first bar when buffer is empty — prevents DataView out-of-bounds reads
       // on this.time(-1) / this.bar(-1) which crash for any zero-length Bars instance.
       if (!this.length) {
@@ -373,7 +372,7 @@ function v(t) {
     U(this, i, u).call(this, 48 * t + 40, e);
   }),
   (l = function () {
-    ((this.final = this.length >= 9e3),
+    ((this.final = this.final || this.length >= 9e3),
       this.final &&
         (this.buffer = this.buffer.slice(
           this.buffer.byteLength - 432e3,

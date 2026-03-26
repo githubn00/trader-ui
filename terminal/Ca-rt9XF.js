@@ -5235,7 +5235,7 @@ class Jn {
       !(function (t, e) {
         const s = new Uint32Array(t);
         for (let i = 0, r = s.length; i < r; i += 12)
-          if (!Xn(1e3 * s[i], e)) { console.warn(`[alignment] FAIL period=${e} t=${1e3*s[i]} i=${i}`); return !1; }
+          if (!Xn(1e3 * s[i], e)) return !1;
         return !0;
       })(o, r.period)
     )
@@ -5244,7 +5244,6 @@ class Jn {
         (r.pendingDirection = 0),
         new Error(`bars is not aligned by period (${r.symbol}, ${r.period})`)
       );
-    console.log(`[js] imposed ${o.byteLength/48} bars for ${t} period=${e}`);
     return (
       (r.pending = !1),
       (r.real = !0),

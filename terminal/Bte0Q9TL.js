@@ -10344,7 +10344,8 @@ import customBarsManager from "./customBarsManager.js";
       if (md(t.period) === 0) {
         await customBarsManager.watch(t.symbol, t.period);
         const _buf = customBarsManager.getRates(t.symbol, t.period, t.from ?? 0, t.to ?? Date.now());
-        console.log(`[gd.getRates] S10 period=${t.period} from=${t.from} to=${t.to} → ${_buf.byteLength/48} bars`);
+        // Return null for empty historical requests so ls() exits without 20 retries
+        if (!_buf.byteLength) return null;
         return _buf;
       }
       try {

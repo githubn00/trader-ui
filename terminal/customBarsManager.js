@@ -18,6 +18,7 @@ const DB_NAME    = "traderCustomBars";
 const STORE_NAME = "bars";
 const BAR_BYTES  = 48;
 const MAX_BARS   = 9000; // matches Bars.MAX_COUNT in CSht1uUK.js
+let _farFutureWarned = false;
 const FLUSH_DELAY_MS = 500;
 
 // Maps period (minutes) → interval (seconds).
@@ -91,13 +92,28 @@ function _readBar(dv, index) {
   };
 }
 
-/** Serialize completed bars (+ optional current bar) into a single ArrayBuffer. */
+/** Serialize completed bars (+ optional current bar) into a single ArrayBuffer.
+ *  Only returns bars from the most recent contiguous session (gap ≤ 50s) to
+ *  avoid sparse impose() which creates huge empty time-slots in the chart. */
 function _barsToBuffer(completedBars, inProgress, fromSec, toSec) {
-  const rows = [];
-  for (const b of completedBars) {
-    if (b.timeSec >= fromSec && b.timeSec <= toSec) rows.push(b);
+  // Build full bar list to find the most recent contiguous block
+  const all = completedBars.slice();
+  if (inProgress) all.push(inProgress);
+  if (!all.length) return new ArrayBuffer(0);
+
+  // Walk backwards — stop when gap between consecutive bars exceeds 50s (5 × S10)
+  const maxGapSec = 50;
+  let contigStart = all.length - 1;
+  for (let i = all.length - 1; i > 0; i--) {
+    if (all[i].timeSec - all[i - 1].timeSec > maxGapSec) break;
+    contigStart = i - 1;
   }
-  if (inProgress && inProgress.timeSec <= toSec) rows.push(inProgress);
+
+  // From the contiguous block, only include bars in the requested time range
+  const rows = [];
+  for (let i = contigStart; i < all.length; i++) {
+    if (all[i].timeSec >= fromSec && all[i].timeSec <= toSec) rows.push(all[i]);
+  }
 
   const buf = new ArrayBuffer(rows.length * BAR_BYTES);
   const dv  = new DataView(buf);
@@ -164,7 +180,7 @@ export function onTick(symbol, timeMs, price) {
   // Reject ticks from the far future (>1 day ahead) — these are synthetic/stale artifacts
   // that arrive when switching periods and would corrupt the bar sequence.
   if (timeMs > Date.now() + 86400000) {
-    console.warn(`[customBars] onTick: rejecting far-future tick for ${symbol}: ${new Date(timeMs).toISOString()}`);
+    if (!_farFutureWarned) { _farFutureWarned = true; console.warn(`[customBars] rejecting far-future ticks (first: ${symbol} ${new Date(timeMs).toISOString()})`); }
     return;
   }
 
