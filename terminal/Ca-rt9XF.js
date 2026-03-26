@@ -5495,8 +5495,7 @@ class ah {
       Xi(this, wi, async () => {
         const { symbol: t, period: e } = Gi(this, ii).configStore,
           s = Gi(this, Zs).getBySymbol(t);
-        (this.chart.sections.init(),
-          this._indLoaded || (this._indLoaded = !0, await Ki(this, oi, li).call(this)),
+        (this._indLoaded || (this._indLoaded = !0, await Ki(this, oi, li).call(this)),
           await Ki(this, oi, ci).call(this),
           await this.updateCalendar(),
           await this.chart.setBars(
