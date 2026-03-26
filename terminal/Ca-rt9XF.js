@@ -3396,7 +3396,7 @@ const yn = class extends sr {
       (this.parent = ""),
       (this.params = {}),
       (this.style = {}),
-      (this.mask = { period: 511, navigator: !0 }),
+      (this.mask = { period: 1023, navigator: !0 }),
       t && Pr(this, t));
   }
   toJSON() {

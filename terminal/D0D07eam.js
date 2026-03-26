@@ -1101,7 +1101,7 @@ class Ws extends Ee {
       (this.uid = Ae(16)),
       (this.parent = ""),
       (this.visible = !0),
-      (this.mask = { period: 511, navigator: !0 }),
+      (this.mask = { period: 1023, navigator: !0 }),
       (this.params = {}),
       (this.type = i),
       (this.title = e),

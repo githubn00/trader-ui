@@ -2088,6 +2088,8 @@ function we(t) {
             return window.tr(window.lang.chart.period.full.W1);
           case 256:
             return window.tr(window.lang.chart.period.full.MN);
+          case 512:
+            return "S10";
           default:
             return window.tr(window.lang.chart.period.full.Unknown);
         }
@@ -2110,8 +2112,8 @@ function ye(t) {
   return (
     (e = new Y({
       props: {
-        checked: 511 !== t[0].period && Boolean(t[4] & t[0].period),
-        disabled: 511 === t[0].period,
+        checked: 1023 !== t[0].period && Boolean(t[4] & t[0].period),
+        disabled: 1023 === t[0].period,
         $$slots: { default: [we] },
         $$scope: { ctx: t },
       },
@@ -2130,8 +2132,8 @@ function ye(t) {
         t = n;
         const o = {};
         (1 & s &&
-          (o.checked = 511 !== t[0].period && Boolean(t[4] & t[0].period)),
-          1 & s && (o.disabled = 511 === t[0].period),
+          (o.checked = 1023 !== t[0].period && Boolean(t[4] & t[0].period)),
+          1 & s && (o.disabled = 1023 === t[0].period),
           128 & s && (o.$$scope = { dirty: s, ctx: t }),
           e.$set(o));
       },
@@ -2151,7 +2153,7 @@ function he(t) {
   let e, n, s, c, g;
   ((n = new Y({
     props: {
-      checked: 511 === t[0].period,
+      checked: 1023 === t[0].period,
       $$slots: { default: [me] },
       $$scope: { ctx: t },
     },
@@ -2178,7 +2180,7 @@ function he(t) {
     p(t, [e]) {
       const s = {};
       if (
-        (1 & e && (s.checked = 511 === t[0].period),
+        (1 & e && (s.checked = 1023 === t[0].period),
         128 & e && (s.$$scope = { dirty: e, ctx: t }),
         n.$set(s),
         3 & e)

@@ -785,7 +785,7 @@ function ft(t, i = {}) {
     (t.title = i.title || t.title || ""),
     (t.digits = t.digits ?? 0),
     (t.mask = {
-      period: (null == (s = i.mask) ? void 0 : s.period) ?? 511,
+      period: (null == (s = i.mask) ? void 0 : s.period) ?? 1023,
       navigator: (null == (e = i.mask) ? void 0 : e.navigator) ?? !0,
     }),
     i.params && (t.params = { ...i.params }),
@@ -802,9 +802,9 @@ function vt(t) {
   t.visible || (i.visible = t.visible);
   const s = t.mask;
   return (
-    (511 === s.period && s.navigator) ||
+    (1023 === s.period && s.navigator) ||
       ((i.mask = {}),
-      511 !== s.period && (i.mask.period = s.period),
+      1023 !== s.period && (i.mask.period = s.period),
       s.navigator || (i.mask.navigator = s.navigator)),
     i
   );

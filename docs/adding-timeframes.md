@@ -30,6 +30,8 @@ The `Ni2` function in `terminal/b2TMcBQ2.js` converts bitmask → minutes.
 
 New bitmask values must be the next power of 2 after the current highest (currently 512).
 
+> Bitmask values are **not** chronological sort keys. After adding `512 = S10`, numeric bit order no longer matches timeframe order (`512` is smaller than `M1` in time, but larger as a bitmask). Use an explicit display-order array when you need timeframe ordering.
+
 ---
 
 ## Files to Edit

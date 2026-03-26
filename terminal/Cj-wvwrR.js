@@ -120,7 +120,7 @@ class f extends p {
       n(this, t, a.visible ?? !0),
       (this.visible = l(this, t)),
       (this.mask = {
-        period: (null == (b = a.mask) ? void 0 : b.period) ?? 511,
+        period: (null == (b = a.mask) ? void 0 : b.period) ?? 1023,
         navigator: (null == (m = a.mask) ? void 0 : m.navigator) ?? !0,
       }),
       n(this, s, JSON.stringify({ ...c, ...a.params })),

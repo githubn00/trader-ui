@@ -157,7 +157,7 @@ Key behaviors:
 - When `sameTimeframeSource` toggled OFF: auto-sets period mask to current TF bit only
 - `onSrcTF`: only sets `sourceTimeframe` when `checked=true` (single-select)
 - `Qt2m` disables non-current TFs when `sameTimeframeSource=false`
-- `Yt2s` only shows TFs with bit > current TF bit
+- `Yt2s` only shows TFs after the current TF in display order (`ee.slice(curIdx + 1)`)
 
 ### Anchor pattern for multiple conditionals in render function
 

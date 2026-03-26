@@ -302,6 +302,7 @@ class I extends P {
       const { period: i } = this.chart.bars,
         e = t.mask.period;
       return !!(
+        (1 / 6 === i && 512 & e) ||
         (1 === i && 1 & e) ||
         (5 === i && 2 & e) ||
         (15 === i && 4 & e) ||
@@ -569,7 +570,7 @@ class J {
         this,
         a,
         JSON.stringify({
-          period: (null == (M = P.mask) ? void 0 : M.period) ?? 511,
+          period: (null == (M = P.mask) ? void 0 : M.period) ?? 1023,
           navigator: (null == (j = P.mask) ? void 0 : j.navigator) ?? !0,
         }),
       ),
@@ -599,9 +600,9 @@ class J {
     e && Object.keys(e).length && (t.style = e);
     const { mask: s } = this;
     return (
-      (511 === s.period && s.navigator) ||
+      (1023 === s.period && s.navigator) ||
         ((t.mask = {}),
-        511 !== s.period && (t.mask.period = s.period),
+        1023 !== s.period && (t.mask.period = s.period),
         s.navigator || (t.mask.navigator = s.navigator)),
       this.name && this.name !== T(this.type) && (t.name = this.name),
       void 0 !== this.firstCreation && (t.firstCreation = this.firstCreation),
