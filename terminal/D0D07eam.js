@@ -2280,6 +2280,7 @@ class Ps extends Xe {
       (this.y = 0),
       (this.width = 400),
       (this.height = 400),
+      (this.layoutSize = null),
       we(this, ei, i),
       we(this, si, e),
       this.setDigits(t.digits));
@@ -2371,10 +2372,118 @@ class Rs extends Xe {
       we(this, oi, t),
       we(this, di, i ?? pe(this, di)),
       we(this, gi, e ?? pe(this, gi)),
+      (this._dividerDrag = null),
+      (this._dividerGap = 1),
+      (this._collapsedHeight = 42),
+      (this._dividerMinHeight = 60),
+      (this._dividerHitSize = 4),
+      (this._onSectionDividerPointerDown = (t) => {
+        var i, e, s, h;
+        if (pe(this, oi).mode) return;
+        if (t.ctrlKey || t.metaKey || t.shiftKey) return;
+        const r =
+            (null == (i = t.global) ? void 0 : i.x) ??
+            (null == (s = t.data) ? void 0 : s.global.x),
+          a =
+            (null == (e = t.global) ? void 0 : e.y) ??
+            (null == (h = t.data) ? void 0 : h.global.y),
+          n = this._getDividerAt(r, a);
+        if (!n) return;
+        (t.stopPropagation && t.stopPropagation(),
+          t.originalEvent &&
+            t.originalEvent.preventDefault &&
+            t.originalEvent.preventDefault(),
+          (this._dividerDrag = {
+            top: n.top,
+            bottom: n.bottom,
+            startY: a,
+            startTop: n.top.height,
+            startBottom: n.bottom.height,
+          }));
+        const { stage: o } = pe(this, oi).app;
+        o &&
+          (o.addEventListener("pointermove", this._onSectionDividerPointerMove),
+          o.addEventListener("pointerup", this._onSectionDividerPointerUp),
+          o.addEventListener(
+            "pointerupoutside",
+            this._onSectionDividerPointerUp,
+          ),
+          (o.cursor = "ns-resize"));
+      }),
+      (this._onSectionDividerPointerMove = (t) => {
+        var i, e, s, h;
+        if (!this._dividerDrag) return;
+        const r =
+          (null == (i = t.global) ? void 0 : i.y) ??
+          (null == (e = t.data) ? void 0 : e.global.y);
+        if ("number" != typeof r) return;
+        (t.stopPropagation && t.stopPropagation(),
+          t.originalEvent &&
+            t.originalEvent.preventDefault &&
+            t.originalEvent.preventDefault());
+        const { top: a, bottom: n, startY: o, startTop: l, startBottom: c } =
+            this._dividerDrag,
+          d = l + c,
+          g = Math.min(this._dividerMinHeight, 0.5 * d),
+          u = Math.min(this._dividerMinHeight, 0.5 * d);
+        let p = l + (r - o);
+        ((p = Math.max(g, Math.min(d - u, p))),
+          (a.layoutSize = p),
+          (n.layoutSize = d - p),
+          this.resize(),
+          pe(this, oi).redraw());
+      }),
+      (this._onSectionDividerPointerUp = () => {
+        const { stage: t } = pe(this, oi).app;
+        t &&
+          (t.removeEventListener(
+            "pointermove",
+            this._onSectionDividerPointerMove,
+          ),
+          t.removeEventListener("pointerup", this._onSectionDividerPointerUp),
+          t.removeEventListener(
+            "pointerupoutside",
+            this._onSectionDividerPointerUp,
+          ),
+          (t.cursor = "auto")),
+          (this._dividerDrag = null);
+      }),
       (this.destroy = this.destroy.bind(this)),
       pe(this, oi).on("119", pe(this, fi)),
       pe(this, oi).on("120", pe(this, vi)),
-      pe(this, oi).on("121", this.destroy));
+      pe(this, oi).on("121", this.destroy),
+      this._bindDividerEvents());
+  }
+  _bindDividerEvents() {
+    const { stage: t } = pe(this, oi).app;
+    t && ((t.eventMode = "static"), t.addEventListener("pointerdown", this._onSectionDividerPointerDown));
+  }
+  _unbindDividerEvents() {
+    const { stage: t } = pe(this, oi).app;
+    t &&
+      (t.removeEventListener("pointerdown", this._onSectionDividerPointerDown),
+      t.removeEventListener("pointermove", this._onSectionDividerPointerMove),
+      t.removeEventListener("pointerup", this._onSectionDividerPointerUp),
+      t.removeEventListener("pointerupoutside", this._onSectionDividerPointerUp),
+      (t.cursor = "auto")),
+      (this._dividerDrag = null);
+  }
+  _getDividerAt(t, i) {
+    if ("number" != typeof t || "number" != typeof i) return null;
+    const { state: e } = pe(this, oi),
+      s = e.yAxisWidth || 0,
+      h = e.yAxisIsLeft ? 0 : e.graphX,
+      r = h + e.graphWidth + s;
+    if (t < h || t > r) return null;
+    const a = this.getSections();
+    for (let t = 0; t < a.length - 1; t++) {
+      const e = a[t],
+        s = a[t + 1];
+      if (e.collapsed() || s.collapsed()) continue;
+      if (Math.abs(i - (e.y + e.height)) <= this._dividerHitSize)
+        return { top: e, bottom: s };
+    }
+    return null;
   }
   getSections() {
     return pe(this, ci).length
@@ -2435,38 +2544,48 @@ class Rs extends Xe {
   resize() {
     const { state: t } = pe(this, oi),
       i = this.getSections(),
-      e = i.filter((t) => t.collapsed()).length;
-    let s = i.length - e;
-    const h = t.graphHeight - t.graphY;
-    let r = i.length;
-    if (r) {
-      const a = i[0];
-      if (
-        ((a.x = t.graphX),
-        (a.y = t.graphY),
-        (a.width = t.graphWidth),
-        (a.height = h),
-        r > 1)
-      ) {
-        ((r -= 1), (s -= 1));
-        const n = 42;
-        s ? (a.height = 0.6 * h) : (a.height -= n * e);
-        let o = 0.4 * h;
-        ((o -= e * n), (o /= s), (o -= r));
-        let c = a.y + a.height;
-        i.slice(1).forEach((i) => {
-          ((c += 1),
-            (i.x = Math.round(t.graphX)),
-            (i.y = Math.round(c)),
-            (i.width = t.graphWidth),
-            (i.height = o),
-            i.collapsed() && (i.height = n),
-            (c += i.height));
-        });
-        const l = i[i.length - 1];
-        l.collapsed() || (l.height = t.graphHeight - t.graphY - l.y);
+      e = t.graphHeight - t.graphY,
+      s = i.filter((t) => t.collapsed()).length,
+      h = i.filter((t) => !t.collapsed()),
+      r = Math.max(0, i.length - 1) * this._dividerGap,
+      a = Math.max(0, e - r - s * this._collapsedHeight),
+      n = new Map();
+    if (h.length) {
+      const t = h.length > 1 ? 0.6 * a : a,
+        i = h.length > 1 ? (0.4 * a) / (h.length - 1) : a;
+      h.forEach((e, s) => {
+        ("number" == typeof e.layoutSize && e.layoutSize > 0) ||
+          (e.layoutSize = 0 === s ? t : i);
+      });
+      let e = h.reduce((t, i) => t + Math.max(1, i.layoutSize || 0), 0);
+      e ||
+        ((e = 1),
+        h.length && (h[0].layoutSize = 1));
+      let s = a;
+      h.forEach((t, i) => {
+        let r =
+          i === h.length - 1
+            ? s
+            : Math.max(0, Math.round((a * Math.max(1, t.layoutSize || 0)) / e));
+        ((r = Math.min(s, r)), n.set(t.uid, r), (s -= r));
+      });
+      if (h.length) {
+        const t = h[h.length - 1].uid;
+        n.set(t, Math.max(0, (n.get(t) ?? 0) + s));
       }
     }
+    let o = t.graphY;
+    const l = i.length;
+    i.forEach((i, s) => {
+      let h = i.collapsed() ? this._collapsedHeight : Math.max(0, n.get(i.uid) ?? 0);
+      ((i.x = Math.round(t.graphX)),
+        (i.y = Math.round(o)),
+        (i.width = t.graphWidth),
+        s === l - 1 && (h = Math.max(0, t.graphY + e - o)),
+        (i.height = h),
+        i.collapsed() || (i.layoutSize = i.height),
+        (o += i.height + (s < l - 1 ? this._dividerGap : 0)));
+    });
     return (fe(this, ui, mi).call(this), this);
   }
   getByIndex(t) {
@@ -2487,6 +2606,7 @@ class Rs extends Xe {
   }
   destroy() {
     (super.destroy(),
+      this._unbindDividerEvents(),
       pe(this, oi).off("119", pe(this, fi)),
       pe(this, oi).off("120", pe(this, vi)),
       pe(this, oi).off("121", this.destroy),
