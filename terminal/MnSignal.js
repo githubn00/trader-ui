@@ -1379,7 +1379,7 @@ function pt(t, e, n) {
     ]
   );
 }
-const Vt = new Set(["engulfing", "alerts"]);
+const Vt = new Set(["engulfing", "alerts", "xover"]);
 class wt extends t {
   constructor(t) {
     (super(),
