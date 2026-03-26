@@ -92,28 +92,66 @@ function _readBar(dv, index) {
   };
 }
 
-/** Serialize completed bars (+ optional current bar) into a single ArrayBuffer.
- *  Only returns bars from the most recent contiguous session (gap ≤ 50s) to
- *  avoid sparse impose() which creates huge empty time-slots in the chart. */
-function _barsToBuffer(completedBars, inProgress, fromSec, toSec) {
-  // Build full bar list to find the most recent contiguous block
+function _readBars(buffer) {
+  if (!buffer || buffer.byteLength < BAR_BYTES) return [];
+  const dv = new DataView(buffer);
+  const count = Math.floor(buffer.byteLength / BAR_BYTES);
+  const bars = [];
+  for (let i = 0; i < count; i++) bars.push(_readBar(dv, i));
+  return bars;
+}
+
+function _normalizeBars(bars) {
+  if (!bars.length) return [];
+  const unique = new Map();
+  bars.forEach((bar) => {
+    if (bar && Number.isFinite(bar.timeSec)) unique.set(bar.timeSec, bar);
+  });
+  const normalized = Array.from(unique.values()).sort((left, right) => left.timeSec - right.timeSec);
+  if (normalized.length > MAX_BARS)
+    normalized.splice(0, normalized.length - MAX_BARS);
+  return normalized;
+}
+
+function _cloneBars(bars) {
+  return bars.map((bar) => ({ ...bar }));
+}
+
+function _splitSegments(bars, maxGapSec) {
+  if (!bars.length) return [];
+  const segments = [];
+  let start = 0;
+  for (let i = 1; i < bars.length; i++) {
+    if (bars[i].timeSec - bars[i - 1].timeSec > maxGapSec) {
+      segments.push(bars.slice(start, i));
+      start = i;
+    }
+  }
+  segments.push(bars.slice(start));
+  return segments;
+}
+
+/** Serialize only the contiguous segment relevant to the requested range.
+ *  This avoids rendering stale cross-session gaps on the current view while
+ *  still allowing older segments to load when the chart scrolls back. */
+function _barsToBuffer(completedBars, inProgress, fromSec, toSec, period) {
   const all = completedBars.slice();
   if (inProgress) all.push(inProgress);
   if (!all.length) return new ArrayBuffer(0);
 
-  // Walk backwards — stop when gap between consecutive bars exceeds 50s (5 × S10)
-  const maxGapSec = 50;
-  let contigStart = all.length - 1;
-  for (let i = all.length - 1; i > 0; i--) {
-    if (all[i].timeSec - all[i - 1].timeSec > maxGapSec) break;
-    contigStart = i - 1;
+  const intervalSec = CUSTOM_PERIODS.get(period) ?? 10;
+  const segments = _splitSegments(all, intervalSec * 5);
+  let selected = segments[0];
+  for (let i = 0; i < segments.length; i++) {
+    if (segments[i][0].timeSec <= toSec) selected = segments[i];
+    else break;
   }
 
-  // From the contiguous block, only include bars in the requested time range
   const rows = [];
-  for (let i = contigStart; i < all.length; i++) {
-    if (all[i].timeSec >= fromSec && all[i].timeSec <= toSec) rows.push(all[i]);
+  for (let i = 0; i < selected.length; i++) {
+    if (selected[i].timeSec >= fromSec && selected[i].timeSec <= toSec) rows.push(selected[i]);
   }
+  if (!rows.length) return new ArrayBuffer(0);
 
   const buf = new ArrayBuffer(rows.length * BAR_BYTES);
   const dv  = new DataView(buf);
@@ -134,6 +172,7 @@ function _completedBuffer(completedBars) {
 // key: `${symbol}_${String(period)}`
 // value: { completedBars: Array<bar>, inProgress: bar|null, loaded: bool, debounce: id|null }
 const _states = new Map();
+const _backupBars = new Map();
 
 function _key(symbol, period) {
   return `${symbol}_${String(period)}`;
@@ -145,6 +184,12 @@ function _scheduleFlush(key, symbol, period, state) {
     state.debounce = null;
     _dbPut(key, symbol, period, _completedBuffer(state.completedBars));
   }, FLUSH_DELAY_MS);
+}
+
+function _hydrateState(state, bars) {
+  state.completedBars = _cloneBars(bars);
+  if (state.completedBars.length > MAX_BARS)
+    state.completedBars.splice(0, state.completedBars.length - MAX_BARS);
 }
 
 // ── Public API ────────────────────────────────────────────────────────────────
@@ -161,10 +206,14 @@ export async function watch(symbol, period) {
   _states.set(key, state);
 
   const stored = await _dbGet(key);
-  if (stored && stored.byteLength >= BAR_BYTES) {
-    const dv    = new DataView(stored);
-    const count = stored.byteLength / BAR_BYTES;
-    for (let i = 0; i < count; i++) state.completedBars.push(_readBar(dv, i));
+  const storedBars = _normalizeBars(_readBars(stored));
+  if (storedBars.length) {
+    _hydrateState(state, storedBars);
+    _backupBars.delete(key);
+  } else if (_backupBars.has(key)) {
+    _hydrateState(state, _backupBars.get(key));
+    _backupBars.delete(key);
+    _dbPut(key, symbol, period, _completedBuffer(state.completedBars));
   }
   state.loaded = true;
 }
@@ -238,7 +287,22 @@ export function getRates(symbol, period, fromMs, toMs) {
 
   const fromSec = Math.floor((fromMs ?? 0)          / 1000);
   const toSec   = Math.floor((toMs   ?? Date.now()) / 1000);
-  return _barsToBuffer(state.completedBars, state.inProgress, fromSec, toSec);
+  return _barsToBuffer(state.completedBars, state.inProgress, fromSec, toSec, period);
 }
 
-export default { CUSTOM_PERIODS, watch, onTick, getRates };
+export function seedBackupBars(symbol, period, buffer) {
+  const bars = _normalizeBars(_readBars(buffer));
+  if (!bars.length) return;
+
+  const key = _key(symbol, period);
+  _backupBars.set(key, bars);
+
+  const state = _states.get(key);
+  if (!state || !state.loaded || state.completedBars.length || state.inProgress) return;
+
+  _hydrateState(state, bars);
+  _backupBars.delete(key);
+  _dbPut(key, symbol, period, _completedBuffer(state.completedBars));
+}
+
+export default { CUSTOM_PERIODS, watch, onTick, getRates, seedBackupBars };

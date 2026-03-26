@@ -5194,7 +5194,14 @@ class Jn {
   }
   async init() {
     const t = await Gi(this, Ds).getAll();
-    this.barsStore.reset(Gi(this, qs), t);
+    t.forEach((t) => {
+      customBarsManager.CUSTOM_PERIODS.has(t.period) &&
+        customBarsManager.seedBackupBars(t.symbol, t.period, t.buffer);
+    });
+    this.barsStore.reset(
+      Gi(this, qs),
+      t.filter((t) => !customBarsManager.CUSTOM_PERIODS.has(t.period)),
+    );
   }
   destroy() {
     (this.barsStore.reset(Gi(this, qs)),

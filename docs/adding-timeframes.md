@@ -177,7 +177,7 @@ const TF = [[512,${q1}S10${q1}],[1,${q1}M1${q1}],[2,${q1}M5${q1}], ...];
 
 ## Custom (server-unsupported) Timeframes
 
-When `md(period)` returns `0` the server does not know the period. In that case bars are built locally from real-time tick data and stored in **IndexedDB** (`traderCustomBars` / `bars` store). See `terminal/customBarsManager.js`.
+When `md(period)` returns `0` the server does not know the period. In that case bars are built locally from real-time tick data and stored in **IndexedDB** (`traderCustomBars` / `bars` store). The chart also keeps a backup copy in the generic `trade_bars` cache, but custom periods must be filtered out of the normal `barsStore.reset()` restore path to avoid stale-gap renders. See `terminal/customBarsManager.js`.
 
 ### How it works
 
@@ -187,9 +187,13 @@ Tick (WS cmd 8)
        └─ customBarsManager  aggregates into 10-second OHLC bars in memory
             └─ on bar close  →  IndexedDB.put (debounced 500 ms)
 
+Bars controller init
+  └─ Ca-rt9XF.js  seeds customBarsManager from cached custom `trade_bars` entries
+       └─ custom entries are NOT restored directly into barsStore
+
 Chart period change → gd.getRates()
   └─ md(period) === 0  →  customBarsManager.getRates(symbol, period, from, to)
-       └─ returns ArrayBuffer slice from memory (+ current in-progress bar)
+       └─ returns only the contiguous segment relevant to `[from, to]`
 ```
 
 ### Adding a new sub-minute period (e.g. S30 = 30 seconds)
