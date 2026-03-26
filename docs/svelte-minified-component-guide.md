@@ -471,10 +471,10 @@ const Fp = {
 
 `Wp` is `true` on hi-DPI (retina) screens — it selects the `2x` atlas; otherwise the standard atlas is used.
 
-**The committed source must always use `/terminal/font/` paths.** `fonts://` is a build-time virtual scheme — `build.js` patches the file to `fonts://` during the build (and inlines polyfills for fetch + Image.src), but that only works inside the inlined `index.html` artifact. In the dev server (and git), the file must use `/terminal/font/`.
+**The committed source must always use `/terminal/font/` paths.** `fonts://` is a build-time virtual scheme used only inside the generated single-file artifact. `build.js` now rewrites the bundled output to `fonts://` (and inlines polyfills for fetch + Image.src), but the source file in git and on the dev server must stay on `/terminal/font/`.
 
-**Build side-effect:** `build.js` modifies `CezRPkQL.js` and `CRNNNCwz.js` in-place. After a build, restore them with:
+**Build side-effect:** `build.js` may still modify `CRNNNCwz.js` in-place to disable the PIXI worker image path. Restore it after a build with:
 ```
-git checkout terminal/CezRPkQL.js terminal/CRNNNCwz.js
+git checkout terminal/CRNNNCwz.js
 ```
-Committing the patched versions causes the "URL scheme fonts is not supported" error on the dev server.
+Committing a `fonts://`-patched `CezRPkQL.js` causes the "URL scheme fonts is not supported" error on the dev server.

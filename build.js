@@ -99,6 +99,21 @@ async function downloadAll() {
 //                        = join("fonts://", "axis_0.png") = "fonts://axis_0.png")
 // fetch() polyfill serves .fnt XML; Image.src setter polyfill serves PNG data URIs.
 
+const DEV_FONT_PATHS = `Fp = {
+    axis:   Wp ? "/terminal/font/axis2x.fnt"   : "/terminal/font/axis.fnt",
+    axisb:  Wp ? "/terminal/font/axisb2x.fnt"  : "/terminal/font/axisb.fnt",
+    values: Wp ? "/terminal/font/values2x.fnt" : "/terminal/font/values.fnt",
+  },`;
+
+const BUNDLE_FONT_REWRITES = new Map([
+  ['"/terminal/font/axis.fnt"', '"fonts://axis.fnt"'],
+  ['"/terminal/font/axis2x.fnt"', '"fonts://axis2x.fnt"'],
+  ['"/terminal/font/axisb.fnt"', '"fonts://axisb.fnt"'],
+  ['"/terminal/font/axisb2x.fnt"', '"fonts://axisb2x.fnt"'],
+  ['"/terminal/font/values.fnt"', '"fonts://values.fnt"'],
+  ['"/terminal/font/values2x.fnt"', '"fonts://values2x.fnt"'],
+]);
+
 function buildFontRegistry() {
   const fontDir = path.join(TERMINAL_DIR, "font");
   const reg = {}; // url → content (string for xml, data-uri string for png)
@@ -130,30 +145,21 @@ function buildFontRegistry() {
 }
 
 function patchSources() {
-  // ── Patch CezRPkQL.js: replace font URLs with fonts:// virtual scheme ────
+  // ── Ensure CezRPkQL.js keeps dev-server font URLs ────────────────────────
   const fontFile = path.join(TERMINAL_DIR, "CezRPkQL.js");
   let src = fs.readFileSync(fontFile, "utf8");
-
-  // Replace the Fp object with fonts:// virtual URLs (preserve the Wp HiDPI ternary).
-  // Include the trailing comma since Fp is part of a multi-variable const chain.
-  const fp = `Fp = {
-    axis:   Wp ? "fonts://axis2x.fnt"   : "fonts://axis.fnt",
-    axisb:  Wp ? "fonts://axisb2x.fnt"  : "fonts://axisb.fnt",
-    values: Wp ? "fonts://values2x.fnt" : "fonts://values.fnt",
-  },`;
-
-  if (src.includes("fonts://axis.fnt")) {
-    console.log("  Fp already has fonts:// virtual URLs — skipping");
+  if (src.includes('"/terminal/font/axis.fnt"')) {
+    console.log("  Fp already uses /terminal/font URLs — skipping");
   } else {
     const patched = src.replace(
       /Fp\s*=\s*\{[\s\S]*?axis[\s\S]*?axisb[\s\S]*?values[\s\S]*?\},/,
-      fp
+      DEV_FONT_PATHS
     );
     if (patched === src) {
       console.warn("  WARNING: Fp pattern not found in CezRPkQL.js — fonts may not load");
     } else {
       fs.writeFileSync(fontFile, patched, "utf8");
-      console.log("  Patched Fp with fonts:// virtual URLs");
+      console.log("  Restored Fp to /terminal/font URLs for dev-server compatibility");
     }
   }
 
@@ -181,6 +187,23 @@ function patchSources() {
   }
 }
 
+function patchBundleFontUrls(bundlePath) {
+  let bundle = fs.readFileSync(bundlePath, "utf8");
+  let patched = bundle;
+
+  for (const [from, to] of BUNDLE_FONT_REWRITES.entries()) {
+    patched = patched.split(from).join(to);
+  }
+
+  if (patched === bundle) {
+    console.warn("  WARNING: bundle font URL rewrite did not change anything");
+    return;
+  }
+
+  fs.writeFileSync(bundlePath, patched, "utf8");
+  console.log("  Rewrote bundled font URLs to fonts:// virtual paths");
+}
+
 // ── 3. Bundle with esbuild ────────────────────────────────────────────────────
 
 function bundle() {
@@ -195,6 +218,8 @@ function bundle() {
       `--define:process.env.NODE_ENV=\\"production\\"`,
     { stdio: "inherit", cwd: TERMINAL_DIR }
   );
+
+  patchBundleFontUrls(bundlePath);
 
   const size = fs.statSync(bundlePath).size;
   console.log(`Bundle: ${(size / 1024).toFixed(1)} KB`);

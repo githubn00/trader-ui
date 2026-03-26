@@ -6397,9 +6397,13 @@ class xh {
     (Xi(this, Ui),
       Xi(this, Vi),
       (this.disabled = !1),
+      (this.build = t),
       (this.api = s),
       Ji(this, Vi, e),
       (this.apiUtils = i),
+      (this.Chart = r),
+      (this.AnalysisManager = o),
+      (this.ObjectManager = n),
       e.journal.journalController.connectApi(s),
       (this.notify = new dh(s)),
       (this.notices = new In(s, i.trade)),
@@ -6470,6 +6474,90 @@ class xh {
         i.order,
       )),
       (this.tradeLines = new Oh(this.chart.chartController, i.order)));
+  }
+  async createChartWorkspace(t = {}) {
+    const e = {
+        apiUtils: this.apiUtils,
+        notify: this.notify,
+        notices: this.notices,
+        history: this.history,
+        books: this.books,
+        corporateLinks: this.corporateLinks,
+        bars: this.bars,
+        userSettings: this.userSettings,
+        account: this.account,
+        symbols: this.symbols,
+        ticks: this.ticks,
+        trade: this.trade,
+        watchlist: this.watchlist,
+      },
+      s = Gi(this, Vi),
+      i = new Gn(
+        gr.configs,
+        this.symbols.symbolsController,
+        this.watchlist.watchlistController,
+      );
+    await i.configsController.init();
+    const r = { ...this.configs.configStore.getOptions(), ...(t.config ?? {}) };
+    r.symbol &&
+      (i.configsController.setConfig(r.symbol),
+      i.configStore.setOptions(r, !0),
+      "number" == typeof r.tradeVolume && (i.configStore.tradeVolume = r.tradeVolume),
+      i.configStore.refresh());
+    const o = new ko(gr.objects),
+      n = new Bo(gr.indicators),
+      h = new lh(
+        this.build,
+        t.Chart ?? this.Chart,
+        t.AnalysisManager ?? this.AnalysisManager,
+        t.ObjectManager ?? this.ObjectManager,
+        s.uiSettings.uiSettingsController,
+        s.layout.layoutController,
+        i.configsController,
+        s.theme.themeController,
+        this.bars.barsController,
+        this.symbols.symbolsController,
+        this.account.accountController,
+        o.objectsController,
+        n.indicatorsController,
+        this.ticks.ticksController,
+        s.hotkeys.hotkeysController,
+      ),
+      a = new Hn(s.layout.layoutController, this.trade.tradeController),
+      l = new Cn(
+        gr.marks,
+        a.interactionController,
+        h.chartController,
+        this.account.accountController,
+        this.trade.tradeController,
+        this.history.historyController,
+        this.symbols.symbolsController,
+        s.layout.layoutController.layoutStore,
+        this.userSettings.userSettingsStore,
+        this.ticks.ticksController,
+        this.apiUtils.order,
+      ),
+      c = new Oh(h.chartController, this.apiUtils.order),
+      d = {
+        ...e,
+        configs: i,
+        objects: o,
+        indicators: n,
+        chart: h,
+        interaction: a,
+        marks: l,
+        tradeLines: c,
+      };
+    return (
+      l.marksController.init(),
+      (d.destroyWorkspace = async () => {
+        (l.marksController.destroy(),
+          c.tradeLinesController.destroy(),
+          h.chartController.destroy(),
+          i.configsController.destroy());
+      }),
+      d
+    );
   }
   async init() {
     this.account.accountStore.isResetPass ||

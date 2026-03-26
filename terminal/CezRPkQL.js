@@ -12705,8 +12705,39 @@ function ja(t) {
     n = e[0].getTitle(6);
   return ((e[18] = n), e);
 }
+function chartLayoutLeftButton(t) {
+  let e, n, o;
+  function r2(e) {
+    t[20](e);
+  }
+  return {
+    c() {
+      ((e = L("button")),
+        w(e, "type", "button"),
+        w(e, "title", "Charts"),
+        w(e, "aria-label", "Charts"),
+        w(e, "class", "chart-layout-launcher"),
+        k(e, "active", t[19]));
+    },
+    m(t, r) {
+      ($(t, e, r), (o = T(e, "click", r2)), (n = !0));
+    },
+    p(t, n) {
+      (!n || 524288 & n) && k(e, "active", t[19]);
+    },
+    i(t) {
+      n = !0;
+    },
+    o(t) {
+      n = !1;
+    },
+    d(t) {
+      (t && h(e), o());
+    },
+  };
+}
 function _a(t) {
-  let e, n, o, r, l, i, s, a, u, d, p, m, g, v, C, b, x, k;
+  let e, n, o, r, l, i, s, a, u, d, p, m, g, v, C, b, x, k, ee;
   function H(e) {
     t[11](e);
   }
@@ -12900,6 +12931,7 @@ function _a(t) {
       }
     );
   })(t);
+  let J2 = chartLayoutLeftButton(t);
   return {
     c() {
       ((e = L("div")),
@@ -12907,6 +12939,8 @@ function _a(t) {
         et(o.$$.fragment),
         (l = V()),
         (i = L("div")),
+        J2.c(),
+        (ee = V()),
         et(s.$$.fragment),
         (u = V()),
         et(d.$$.fragment),
@@ -12927,6 +12961,8 @@ function _a(t) {
         tt(o, n, null),
         f(e, l),
         f(e, i),
+        J2.m(i, null),
+        f(i, ee),
         tt(s, i, null),
         f(i, u),
         tt(d, i, null),
@@ -12967,6 +13003,7 @@ function _a(t) {
           128 & e &&
           ((p = !0), (i.checked = t[7].locked), ht(() => (p = !1))),
         d.$set(i),
+        J2.p(t, e),
         v.p(B(t, 1), e),
         P.p(ja(t), e),
         Q_sg && Q_sg.p(t, e),
@@ -12975,6 +13012,7 @@ function _a(t) {
     i(t) {
       k ||
         (S(o.$$.fragment, t),
+        S(J2),
         S(s.$$.fragment, t),
         S(d.$$.fragment, t),
         S(v),
@@ -12985,6 +13023,7 @@ function _a(t) {
     },
     o(t) {
       (y(o.$$.fragment, t),
+        y(J2),
         y(s.$$.fragment, t),
         y(d.$$.fragment, t),
         y(v),
@@ -12996,6 +13035,7 @@ function _a(t) {
     d(t) {
       (t && (h(e), h(b), h(x)),
         G(o),
+        J2.d(),
         G(s),
         G(d),
         _[1].d(),
@@ -13153,7 +13193,9 @@ function qa(t, e, n) {
   u();
   let { layoutStore: g } = e;
   s();
-  let w = !1;
+  let { chartLayoutOpen: C = !1 } = e,
+    { onChartLayoutToggle: b = m } = e,
+    w = !1;
   const v = [c.HistoryPositions, c.HistoryOrders, c.HistoryDeals];
   function y(t) {
     o.botPanel === t
@@ -13165,7 +13207,9 @@ function qa(t, e, n) {
       ("hotkeysController" in t && n(0, (h = t.hotkeysController)),
         "chartStore" in t && p(n(1, ($ = t.chartStore))),
         "uiSettingsStore" in t && u(n(2, (f = t.uiSettingsStore))),
-        "layoutStore" in t && s(n(3, (g = t.layoutStore))));
+        "layoutStore" in t && s(n(3, (g = t.layoutStore))),
+        "chartLayoutOpen" in t && n(19, (C = t.chartLayoutOpen)),
+        "onChartLayoutToggle" in t && n(20, (b = t.onChartLayoutToggle)));
     }),
     (t.$$.update = () => {
       16 & t.$$.dirty && n(5, (w = v.includes(o.botPanel)));
@@ -13215,6 +13259,9 @@ function qa(t, e, n) {
       function () {
         o.setLayout({ signals: !o.signals, tree: !1, depthOfMarket: !1 });
       },
+      null,
+      C,
+      b,
     ]
   );
 }
@@ -13226,6 +13273,8 @@ class Aa extends u {
         chartStore: 1,
         uiSettingsStore: 2,
         layoutStore: 3,
+        chartLayoutOpen: 19,
+        onChartLayoutToggle: 20,
       }));
   }
 }
@@ -17740,6 +17789,8 @@ function wp(t) {
         chartStore: t[0].chart.chartStore,
         uiSettingsStore: t[1].uiSettings.uiSettingsStore,
         layoutStore: t[1].layout.layoutStore,
+        chartLayoutOpen: t[32],
+        onChartLayoutToggle: t[33],
       },
     })),
     {
@@ -17755,6 +17806,8 @@ function wp(t) {
           1 & n[0] && (o.chartStore = t[0].chart.chartStore),
           2 & n[0] && (o.uiSettingsStore = t[1].uiSettings.uiSettingsStore),
           2 & n[0] && (o.layoutStore = t[1].layout.layoutStore),
+          256 & n[1] && (o.chartLayoutOpen = t[32]),
+          512 & n[1] && (o.onChartLayoutToggle = t[33]),
           e.$set(o));
       },
       i(t) {
@@ -18196,32 +18249,290 @@ function Mp(t) {
     }
   );
 }
-function Lp(t) {
+function chartPaneProps(t, e) {
+  const n = t[24][e];
+  return {
+    chartController: n.chart.chartController,
+    hotkeysController: t[1].hotkeys.hotkeysController,
+    objectsStore: n.objects.objectsStore,
+    symbolsStore: n.symbols.symbolsStore,
+    symbolsController: n.symbols.symbolsController,
+    accountStore: n.account.accountStore,
+    configStore: n.configs.configStore,
+    ticksController: n.ticks.ticksController,
+    ticksStore: n.ticks.ticksStore,
+    tradeController: n.trade.tradeController,
+    noticesStore: n.notices.noticesStore,
+    printError: n.notices.noticesController.printError,
+    interactionStore: n.interaction.interactionStore,
+    userSettingsStore: n.userSettings.userSettingsStore,
+    uiSettingsStore: t[1].uiSettings.uiSettingsStore,
+    layoutStore: t[1].layout.layoutStore,
+    brokerName: t[2].broker.name,
+    usersStore: t[1].users.usersStore,
+    positionsStore: n.trade.positionsStore,
+  };
+}
+function createChartPane(t, e) {
+  let n,
+    o,
+    r,
+    l = !1;
+  function i() {
+    t[31](e);
+  }
+  return (
+    (o = new Cs({ props: chartPaneProps(t, e) })),
+    {
+      c() {
+        ((n = L("div")),
+          et(o.$$.fragment),
+          w(n, "class", "chart-window"),
+          k(n, "active", e === t[25]),
+          k(n, "has-multiple", t[24].length > 1));
+      },
+      m(t, e) {
+        ($(t, n, e), tt(o, n, null), (r = T(n, "pointerdown", i)), (l = !0));
+      },
+      p(t, r) {
+        const l = {};
+        (1 & r[1] && (l.chartController = t[24][e].chart.chartController),
+          2 & r[0] && (l.hotkeysController = t[1].hotkeys.hotkeysController),
+          1 & r[1] && (l.objectsStore = t[24][e].objects.objectsStore),
+          1 & r[1] && (l.symbolsStore = t[24][e].symbols.symbolsStore),
+          1 & r[1] &&
+            (l.symbolsController = t[24][e].symbols.symbolsController),
+          1 & r[1] && (l.accountStore = t[24][e].account.accountStore),
+          1 & r[1] && (l.configStore = t[24][e].configs.configStore),
+          1 & r[1] && (l.ticksController = t[24][e].ticks.ticksController),
+          1 & r[1] && (l.ticksStore = t[24][e].ticks.ticksStore),
+          1 & r[1] && (l.tradeController = t[24][e].trade.tradeController),
+          1 & r[1] && (l.noticesStore = t[24][e].notices.noticesStore),
+          1 & r[1] &&
+            (l.printError = t[24][e].notices.noticesController.printError),
+          1 & r[1] &&
+            (l.interactionStore = t[24][e].interaction.interactionStore),
+          1 & r[1] &&
+            (l.userSettingsStore = t[24][e].userSettings.userSettingsStore),
+          2 & r[0] && (l.uiSettingsStore = t[1].uiSettings.uiSettingsStore),
+          2 & r[0] && (l.layoutStore = t[1].layout.layoutStore),
+          4 & r[0] && (l.brokerName = t[2].broker.name),
+          2 & r[0] && (l.usersStore = t[1].users.usersStore),
+          1 & r[1] && (l.positionsStore = t[24][e].trade.positionsStore),
+          o.$set(l),
+          k(n, "active", e === t[25]),
+          k(n, "has-multiple", t[24].length > 1));
+      },
+      i(t) {
+        l || (S(o.$$.fragment, t), (l = !0));
+      },
+      o(t) {
+        (y(o.$$.fragment, t), (l = !1));
+      },
+      d(t) {
+        (t && h(n), G(o), r());
+      },
+    }
+  );
+}
+function chartWorkspaceName(t, e) {
+  const n = t[24][e],
+    o = null == n ? void 0 : n.configs.configStore.symbol;
+  return o || "Chart " + (e + 1);
+}
+function createChartManagerRow(t, e) {
+  let n,
+    o,
+    r = chartWorkspaceName(t, e) + "",
+    l;
+  function i() {
+    (t[31](e), t[34]());
+  }
+  return {
+    c() {
+      ((n = L("button")),
+        (o = ft(r)),
+        w(n, "type", "button"),
+        w(n, "class", "chart-layout-panel-row chart-layout-panel-window-row"),
+        k(n, "active", e === t[25]));
+    },
+    m(t, e) {
+      ($(t, n, e), f(n, o), (l = T(n, "click", i)));
+    },
+    p(t, l) {
+      r !== (r = chartWorkspaceName(t, e) + "") && $t(o, r),
+        k(n, "active", e === t[25]);
+    },
+    i: m,
+    o: m,
+    d(t) {
+      (t && h(n), l());
+    },
+  };
+}
+function chartLayoutPopupBody(t) {
+  let e,
+    n,
+    o,
+    r,
+    l,
+    i,
+    s,
+    c,
+    a,
+    u,
+    d,
+    p,
+    m,
+    g,
+    v,
+    C,
+    b,
+    x,
+    Z,
+    ee,
+    z;
+  const j = () => {
+      (t[28](), t[34]());
+    },
+    _ = () => {
+      (t[29](), t[34]());
+    },
+    B = () => {
+      (t[30]("horizontal"), t[34]());
+    },
+    P = () => {
+      (t[30]("vertical"), t[34]());
+    },
+    N = () => {
+      (t[30]("grid"), t[34]());
+    };
+  let O = t[24][0] && createChartManagerRow(t, 0),
+    A = t[24][1] && createChartManagerRow(t, 1),
+    D = t[24][2] && createChartManagerRow(t, 2),
+    I = t[24][3] && createChartManagerRow(t, 3);
+  return {
+    c() {
+      ((e = L("div")),
+        (n = L("button")),
+        (o = ft("New Window")),
+        (r = V()),
+        O && O.c(),
+        (l = V()),
+        A && A.c(),
+        (i = V()),
+        D && D.c(),
+        (s = V()),
+        I && I.c(),
+        (c = V()),
+        (a = L("button")),
+        (u = ft("Tile Horizontally")),
+        (d = V()),
+        (p = L("button")),
+        (m = ft("Tile Vertically")),
+        (g = V()),
+        (v = L("button")),
+        (C = ft("Grid")),
+        (b = V()),
+        (x = L("div")),
+        (Z = L("button")),
+        (ee = ft("Remove Active")),
+        w(n, "type", "button"),
+        w(n, "class", "chart-layout-panel-row chart-layout-panel-new-row"),
+        k(n, "disabled", t[27] || t[24].length >= 4),
+        w(a, "type", "button"),
+        w(a, "class", "chart-layout-panel-row chart-layout-panel-horizontal-row"),
+        k(a, "active", "horizontal" === t[26]),
+        w(p, "type", "button"),
+        w(p, "class", "chart-layout-panel-row chart-layout-panel-vertical-row"),
+        k(p, "active", "vertical" === t[26]),
+        w(v, "type", "button"),
+        w(v, "class", "chart-layout-panel-row chart-layout-panel-grid-row"),
+        k(v, "active", "grid" === t[26]),
+        w(Z, "type", "button"),
+        w(Z, "class", "chart-layout-panel-remove"),
+        k(Z, "disabled", t[27] || t[24].length <= 1),
+        w(x, "class", "chart-layout-panel-footer"),
+        w(e, "class", "chart-layout-panel-content"));
+    },
+    m(t, y) {
+      ($(t, e, y),
+        f(e, n),
+        f(n, o),
+        f(e, r),
+        O && O.m(e, null),
+        f(e, l),
+        A && A.m(e, null),
+        f(e, i),
+        D && D.m(e, null),
+        f(e, s),
+        I && I.m(e, null),
+        f(e, c),
+        f(e, a),
+        f(a, u),
+        f(e, d),
+        f(e, p),
+        f(p, m),
+        f(e, g),
+        f(e, v),
+        f(v, C),
+        f(e, b),
+        f(e, x),
+        f(x, Z),
+        f(Z, ee),
+        (z = [
+          T(n, "click", j),
+          T(a, "click", B),
+          T(p, "click", P),
+          T(v, "click", N),
+          T(Z, "click", _),
+        ]));
+    },
+    p(t, y) {
+      (O ? O.p(t, y) : t[24][0] && ((O = createChartManagerRow(t, 0)), O.c(), O.m(e, l)));
+      (t[24][1]
+        ? A
+          ? A.p(t, y)
+          : ((A = createChartManagerRow(t, 1)), A.c(), A.m(e, i))
+        : A &&
+          (A.d(1), (A = null)));
+      (t[24][2]
+        ? D
+          ? D.p(t, y)
+          : ((D = createChartManagerRow(t, 2)), D.c(), D.m(e, s))
+        : D &&
+          (D.d(1), (D = null)));
+      (t[24][3]
+        ? I
+          ? I.p(t, y)
+          : ((I = createChartManagerRow(t, 3)), I.c(), I.m(e, c))
+        : I &&
+          (I.d(1), (I = null)));
+      (k(n, "disabled", t[27] || t[24].length >= 4),
+        k(a, "active", "horizontal" === t[26]),
+        k(p, "active", "vertical" === t[26]),
+        k(v, "active", "grid" === t[26]),
+        k(Z, "disabled", t[27] || t[24].length <= 1));
+    },
+    d(t) {
+      (t && h(e), O && O.d(), A && A.d(), D && D.d(), I && I.d(), E(z));
+    },
+  };
+}
+function chartLayoutPopup(t) {
   let e, n;
   return (
-    (e = new Cs({
+    (e = new jt({
       props: {
-        chartController: t[0].chart.chartController,
-        hotkeysController: t[1].hotkeys.hotkeysController,
-        objectsStore: t[0].objects.objectsStore,
-        symbolsStore: t[0].symbols.symbolsStore,
-        symbolsController: t[0].symbols.symbolsController,
-        accountStore: t[0].account.accountStore,
-        configStore: t[0].configs.configStore,
-        ticksController: t[0].ticks.ticksController,
-        ticksStore: t[0].ticks.ticksStore,
-        tradeController: t[0].trade.tradeController,
-        noticesStore: t[0].notices.noticesStore,
-        printError: t[0].notices.noticesController.printError,
-        interactionStore: t[0].interaction.interactionStore,
-        userSettingsStore: t[0].userSettings.userSettingsStore,
-        uiSettingsStore: t[1].uiSettings.uiSettingsStore,
-        layoutStore: t[1].layout.layoutStore,
-        brokerName: t[2].broker.name,
-        usersStore: t[1].users.usersStore,
-        positionsStore: t[0].trade.positionsStore,
+        title: "Charts",
+        draggable: !0,
+        width: 420,
+        height: 560,
+        $$slots: { close: [np], default: [chartLayoutPopupBody] },
+        $$scope: { ctx: t },
       },
     })),
+    e.$on("close", t[34]),
     {
       c() {
         et(e.$$.fragment);
@@ -18230,29 +18541,7 @@ function Lp(t) {
         (tt(e, t, o), (n = !0));
       },
       p(t, n) {
-        const o = {};
-        (1 & n[0] && (o.chartController = t[0].chart.chartController),
-          2 & n[0] && (o.hotkeysController = t[1].hotkeys.hotkeysController),
-          1 & n[0] && (o.objectsStore = t[0].objects.objectsStore),
-          1 & n[0] && (o.symbolsStore = t[0].symbols.symbolsStore),
-          1 & n[0] && (o.symbolsController = t[0].symbols.symbolsController),
-          1 & n[0] && (o.accountStore = t[0].account.accountStore),
-          1 & n[0] && (o.configStore = t[0].configs.configStore),
-          1 & n[0] && (o.ticksController = t[0].ticks.ticksController),
-          1 & n[0] && (o.ticksStore = t[0].ticks.ticksStore),
-          1 & n[0] && (o.tradeController = t[0].trade.tradeController),
-          1 & n[0] && (o.noticesStore = t[0].notices.noticesStore),
-          1 & n[0] &&
-            (o.printError = t[0].notices.noticesController.printError),
-          1 & n[0] && (o.interactionStore = t[0].interaction.interactionStore),
-          1 & n[0] &&
-            (o.userSettingsStore = t[0].userSettings.userSettingsStore),
-          2 & n[0] && (o.uiSettingsStore = t[1].uiSettings.uiSettingsStore),
-          2 & n[0] && (o.layoutStore = t[1].layout.layoutStore),
-          4 & n[0] && (o.brokerName = t[2].broker.name),
-          2 & n[0] && (o.usersStore = t[1].users.usersStore),
-          1 & n[0] && (o.positionsStore = t[0].trade.positionsStore),
-          e.$set(o));
+        e.$set({ $$scope: { dirty: n, ctx: t } });
       },
       i(t) {
         n || (S(e.$$.fragment, t), (n = !0));
@@ -18265,6 +18554,101 @@ function Lp(t) {
       },
     }
   );
+}
+function Lp(t) {
+  let e, n, o, r, l, i;
+  let s = t[24][0] && createChartPane(t, 0),
+    c = t[24][1] && createChartPane(t, 1),
+    a = t[24][2] && createChartPane(t, 2),
+    u = t[24][3] && createChartPane(t, 3),
+    d = "--chart-count: " + t[24].length + ";";
+  return {
+    c() {
+      ((e = L("div")),
+        (n = L("div")),
+        s && s.c(),
+        (o = V()),
+        c && c.c(),
+        (r = V()),
+        a && a.c(),
+        (l = V()),
+        u && u.c(),
+        w(n, "class", "multi-chart-workspace"),
+        w(n, "style", d),
+        k(n, "layout-horizontal", "horizontal" === t[26]),
+        k(n, "layout-vertical", "vertical" === t[26]),
+        k(n, "layout-grid", "grid" === t[26]),
+        k(n, "has-multiple", t[24].length > 1),
+        k(n, "count-1", 1 === t[24].length),
+        k(n, "count-2", 2 === t[24].length),
+        k(n, "count-3", 3 === t[24].length),
+        k(n, "count-4", t[24].length >= 4),
+        w(e, "class", "chart-workspace-shell"));
+    },
+    m(t, h) {
+      ($(t, e, h),
+        f(e, n),
+        s && s.m(n, null),
+        f(n, o),
+        c && c.m(n, null),
+        f(n, r),
+        a && a.m(n, null),
+        f(n, l),
+        u && u.m(n, null),
+        (i = !0));
+    },
+    p(t, i) {
+      (s ? s.p(t, i) : t[24][0] && ((s = createChartPane(t, 0)), s.c(), S(s, 1), s.m(n, o)));
+      (t[24][1]
+        ? c
+          ? c.p(t, i)
+          : ((c = createChartPane(t, 1)), c.c(), S(c, 1), c.m(n, r))
+        : c &&
+          (H(),
+          y(c, 1, 1, () => {
+            c = null;
+          }),
+          M()));
+      (t[24][2]
+        ? a
+          ? a.p(t, i)
+          : ((a = createChartPane(t, 2)), a.c(), S(a, 1), a.m(n, l))
+        : a &&
+          (H(),
+          y(a, 1, 1, () => {
+            a = null;
+          }),
+          M()));
+      (t[24][3]
+        ? u
+          ? u.p(t, i)
+          : ((u = createChartPane(t, 3)), u.c(), S(u, 1), u.m(n, null))
+        : u &&
+          (H(),
+          y(u, 1, 1, () => {
+            u = null;
+          }),
+          M()),
+        d !== (d = "--chart-count: " + t[24].length + ";") && w(n, "style", d),
+        k(n, "layout-horizontal", "horizontal" === t[26]),
+        k(n, "layout-vertical", "vertical" === t[26]),
+        k(n, "layout-grid", "grid" === t[26]),
+        k(n, "has-multiple", t[24].length > 1),
+        k(n, "count-1", 1 === t[24].length),
+        k(n, "count-2", 2 === t[24].length),
+        k(n, "count-3", 3 === t[24].length),
+        k(n, "count-4", t[24].length >= 4));
+    },
+    i(t) {
+      i || (s && S(s), c && S(c), a && S(a), u && S(u), (i = !0));
+    },
+    o(t) {
+      (s && y(s), c && y(c), a && y(a), u && y(u), (i = !1));
+    },
+    d(t) {
+      (t && h(e), s && s.d(), c && c.d(), a && a.d(), u && u.d());
+    },
+  };
 }
 function Vp(t) {
   let e, n, o;
@@ -18783,7 +19167,7 @@ function Ip(t) {
   return { c: m, m: m, p: m, i: m, o: m, d: m };
 }
 function Up(t) {
-  let e, n, o, r, l, i, s, c, a, u, d, p, m, g, v, C, b, x, k, Z;
+  let e, n, o, r, l, i, s, c, a, u, d, p, m, g, v, C, b, x, k, Z, ee;
   ((n = new ap({ props: { $$slots: { default: [gp] }, $$scope: { ctx: t } } })),
     (r = new Bd({
       props: { $$slots: { default: [wp] }, $$scope: { ctx: t } },
@@ -18808,7 +19192,8 @@ function Up(t) {
     j = t[7].botPanel && Ep(t),
     _ = t[0].chart.chartController.chart && jp(t),
     B = t[0].chart.chartController.chart && _p(t),
-    P = t[7].indicators && Bp(t);
+    P = t[7].indicators && Bp(t),
+    Np3 = t[32] && chartLayoutPopup(t);
   function N(e) {
     t[22](e);
   }
@@ -18839,6 +19224,8 @@ function Up(t) {
         P && P.c(),
         (m = V()),
         et(g.$$.fragment),
+        (ee = V()),
+        Np3 && Np3.c(),
         (C = V()),
         q && q.c(),
         (b = U()),
@@ -18865,6 +19252,8 @@ function Up(t) {
         P && P.m(e, null),
         f(e, m),
         tt(g, e, null),
+        $(t, ee, h),
+        Np3 && Np3.m(t, h),
         $(t, C, h),
         q && q.m(t, h),
         $(t, b, h),
@@ -18876,7 +19265,7 @@ function Up(t) {
       ((31 & o[0]) | (1 & o[1]) && (l.$$scope = { dirty: o, ctx: t }),
         n.$set(l));
       const c = {};
-      ((3 & o[0]) | (1 & o[1]) && (c.$$scope = { dirty: o, ctx: t }),
+      ((3 & o[0]) | (768 & o[1]) && (c.$$scope = { dirty: o, ctx: t }),
         r.$set(c),
         t[7].depthOfMarket ||
         t[7].tree ||
@@ -18894,7 +19283,7 @@ function Up(t) {
             }),
             M()));
       const h = {};
-      ((7 & o[0]) | (1 & o[1]) && (h.$$scope = { dirty: o, ctx: t }),
+      ((7 & o[0]) | (255 & o[1]) && (h.$$scope = { dirty: o, ctx: t }),
         s.$set(h),
         t[7].symbols
           ? z
@@ -18945,6 +19334,16 @@ function Up(t) {
             y(P, 1, 1, () => {
               P = null;
             }),
+            M()),
+        t[32]
+          ? Np3
+            ? Np3.p(t, o)
+            : ((Np3 = chartLayoutPopup(t)), Np3.c(), S(Np3, 1), Np3.m(C.parentNode, C))
+          : Np3 &&
+            (H(),
+            y(Np3, 1, 1, () => {
+              Np3 = null;
+            }),
             M()));
       const $ = {};
       (4 & o[0] && ($.traderConfig = t[2]),
@@ -18975,6 +19374,7 @@ function Up(t) {
         S(B),
         S(P),
         S(g.$$.fragment, t),
+        S(Np3),
         S(q),
         (x = !0));
     },
@@ -18989,11 +19389,12 @@ function Up(t) {
         y(B),
         y(P),
         y(g.$$.fragment, t),
+        y(Np3),
         y(q),
         (x = !1));
     },
     d(t) {
-      (t && (h(e), h(C), h(b)),
+      (t && (h(e), h(ee), h(C), h(b)),
         G(n),
         G(r),
         E && E.d(),
@@ -19004,6 +19405,7 @@ function Up(t) {
         B && B.d(),
         P && P.d(),
         G(g),
+        Np3 && Np3.d(t),
         q && q.d(t),
         (k = !1),
         Z());
@@ -19038,6 +19440,21 @@ function Gp(t, e, n) {
     { lang: h } = e,
     { symbol: $ } = e;
   const { layoutStore: f } = u.layout;
+  let g = s,
+    v = [s],
+    C = 0,
+    b = "grid",
+    x = !1,
+    Z = !1;
+  const k = (t = C) => {
+    const e = v[t] ?? s;
+    (n(25, (C = t)), n(0, (g = e)), g.chart.chartController.addHotkeys());
+  };
+  t.$$.on_destroy.push(() => {
+    v.forEach((t, e) => {
+      e && t.destroyWorkspace && t.destroyWorkspace();
+    });
+  });
   return (
     B(t, f, (t) => n(7, (r = t))),
     window.self.history.replaceState(
@@ -19046,7 +19463,10 @@ function Gp(t, e, n) {
       `/terminal${window.self.location.search}`,
     ),
     (t.$$set = (t) => {
-      ("modules" in t && n(0, (s = t.modules)),
+      ("modules" in t &&
+        ((s = t.modules),
+        n(24, (v = [s, ...v.slice(1)])),
+        k(Math.min(C, v.length - 1))),
         "ui" in t && n(1, (u = t.ui)),
         "traderConfig" in t && n(2, (d = t.traderConfig)),
         "auth" in t && n(3, (p = t.auth)),
@@ -19055,12 +19475,12 @@ function Gp(t, e, n) {
     }),
     (t.$$.update = () => {
       1 & t.$$.dirty[0] &&
-        (n(6, (o = s.configs.configStore)),
+        (n(6, (o = g.configs.configStore)),
         i(),
         (i = gt(o, (t) => n(8, (l = t)))));
     }),
     [
-      s,
+      g,
       u,
       d,
       p,
@@ -19075,7 +19495,7 @@ function Gp(t, e, n) {
       },
       function (t) {
         (q(f, (r.indicators = !1), r),
-          s.indicators.indicatorsController.save(t.detail, l.symbol));
+          g.indicators.indicatorsController.save(t.detail, l.symbol));
       },
       function () {
         q(f, (r.indicators = !1), r);
@@ -19108,6 +19528,51 @@ function Gp(t, e, n) {
       },
       function () {
         q(f, (r.signals = !1), r);
+      },
+      v,
+      C,
+      b,
+      x,
+      async function () {
+        if (x || v.length >= 4 || !s.createChartWorkspace) return;
+        n(27, (x = !0));
+        try {
+          const t = {
+              ...g.configs.configStore.getOptions(),
+              tradeVolume: g.configs.configStore.tradeVolume,
+            },
+            e = await s.createChartWorkspace({ config: t });
+          (n(24, (v = [...v, e])), k(v.length - 1));
+        } finally {
+          n(27, (x = !1));
+        }
+      },
+      async function () {
+        if (x || v.length <= 1) return;
+        n(27, (x = !0));
+        const t = v[C] && v[C].destroyWorkspace ? C : v.length - 1,
+          e = v[t];
+        try {
+          (e && e.destroyWorkspace && (await e.destroyWorkspace()),
+            n(24, (v = v.filter((e, n) => n !== t))),
+            k(Math.min(C, v.length - 1)));
+        } finally {
+          n(27, (x = !1));
+        }
+      },
+      function (t) {
+        ("horizontal" !== t && "vertical" !== t && "grid" !== t) ||
+          n(26, (b = t));
+      },
+      function (t) {
+        t !== C && v[t] && k(t);
+      },
+      Z,
+      function () {
+        n(32, (Z = !Z));
+      },
+      function () {
+        Z && n(32, (Z = !1));
       },
     ]
   );

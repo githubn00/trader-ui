@@ -8,6 +8,317 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+.chart-workspace-shell {
+  grid-area: chart;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+.chart-layout-launcher {
+  width: calc(var(--indent) * 4.5);
+  min-width: calc(var(--indent) * 4.5);
+  height: calc(var(--indent) * 4.5);
+  margin: var(--indent-half) auto;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--indent) * 1.25);
+  background: rgba(26, 33, 46, 0.92);
+  cursor: pointer;
+  display: block;
+  position: relative;
+  transition:
+    border-color 0.16s ease,
+    background-color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+.chart-layout-launcher::before,
+.chart-layout-launcher::after {
+  content: "";
+  width: 14px;
+  height: 11px;
+  border: 2px solid #eef4ff;
+  border-radius: 3px;
+  position: absolute;
+}
+.chart-layout-launcher::before {
+  top: 10px;
+  left: 16px;
+  opacity: 0.72;
+}
+.chart-layout-launcher::after {
+  top: 16px;
+  left: 10px;
+}
+.chart-layout-launcher:hover,
+.chart-layout-launcher.active {
+  border-color: rgba(118, 169, 255, 0.8);
+  background: rgba(34, 45, 68, 0.96);
+  box-shadow: 0 0 0 1px rgba(88, 146, 255, 0.18);
+}
+.chart-layout-panel-content {
+  min-width: min(100%, calc(var(--indent) * 52));
+  display: flex;
+  flex-direction: column;
+}
+.chart-layout-panel-row {
+  width: 100%;
+  min-height: calc(var(--indent) * 7.5);
+  padding: calc(var(--indent) * 2) calc(var(--indent) * 2.5)
+    calc(var(--indent) * 2) calc(var(--indent) * 7.5);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: #f2f5fa;
+  text-align: left;
+  font: inherit;
+  font-size: calc(var(--font-big) + 2px);
+  line-height: 1.2;
+  cursor: pointer;
+  position: relative;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    opacity 0.16s ease;
+}
+.chart-layout-panel-row::before {
+  content: "";
+  width: 20px;
+  height: 18px;
+  color: #a9b2bf;
+  position: absolute;
+  top: 50%;
+  left: calc(var(--indent) * 2.25);
+  transform: translateY(-50%);
+}
+.chart-layout-panel-row:hover,
+.chart-layout-panel-row.active {
+  background: rgba(96, 128, 179, 0.16);
+  color: #fff;
+}
+.chart-layout-panel-row.disabled,
+.chart-layout-panel-remove.disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.chart-layout-panel-new-row::before {
+  content: "+";
+  width: auto;
+  height: auto;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1;
+}
+.chart-layout-panel-window-row::before {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #9fb0c8;
+  border-radius: 4px;
+}
+.chart-layout-panel-window-row::after {
+  content: "\2261";
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 26px;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  right: calc(var(--indent) * 2);
+  transform: translateY(-50%);
+}
+.chart-layout-panel-window-row.active::before {
+  border-color: #cddcff;
+}
+.chart-layout-panel-horizontal-row::before {
+  background:
+    linear-gradient(currentColor 0 0) left top / 20px 5px no-repeat,
+    linear-gradient(currentColor 0 0) left bottom / 20px 5px no-repeat;
+  border-radius: 2px;
+}
+.chart-layout-panel-vertical-row::before {
+  background:
+    linear-gradient(currentColor 0 0) left top / 7px 18px no-repeat,
+    linear-gradient(currentColor 0 0) right top / 7px 18px no-repeat;
+  border-radius: 2px;
+}
+.chart-layout-panel-grid-row::before {
+  background:
+    linear-gradient(currentColor 0 0) left top / 8px 7px no-repeat,
+    linear-gradient(currentColor 0 0) right top / 8px 7px no-repeat,
+    linear-gradient(currentColor 0 0) left bottom / 8px 7px no-repeat,
+    linear-gradient(currentColor 0 0) right bottom / 8px 7px no-repeat;
+  border-radius: 2px;
+}
+.chart-layout-panel-footer {
+  padding: calc(var(--indent) * 2);
+}
+.chart-layout-panel-remove {
+  width: 100%;
+  min-height: calc(var(--indent) * 6.5);
+  border: none;
+  border-radius: 999px;
+  background: #9aa1ab;
+  color: #fff;
+  font: inherit;
+  font-size: calc(var(--font-big) + 1px);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease,
+    background-color 0.16s ease;
+}
+.chart-layout-panel-remove:hover {
+  background: #a8b0bb;
+}
+.chart-window-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 6;
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid rgba(144, 175, 220, 0.18);
+  border-radius: 999px;
+  background: rgba(7, 13, 24, 0.74);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(2, 6, 15, 0.22);
+}
+.chart-window-control {
+  min-width: 36px;
+  height: 34px;
+  border: 1px solid rgba(151, 177, 216, 0.18);
+  border-radius: 999px;
+  background: rgba(17, 28, 49, 0.86);
+  color: #edf4ff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0 12px;
+  cursor: pointer;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    opacity 0.16s ease;
+}
+.chart-window-control:hover {
+  border-color: rgba(121, 170, 255, 0.55);
+  background: rgba(30, 48, 81, 0.92);
+}
+.chart-window-control.active {
+  border-color: rgba(121, 170, 255, 0.92);
+  background: rgba(63, 108, 196, 0.34);
+  color: #fff;
+}
+.chart-window-control.disabled {
+  opacity: 0.42;
+  pointer-events: none;
+}
+.multi-chart-workspace {
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  gap: 10px;
+}
+.multi-chart-workspace.layout-horizontal {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--chart-count), minmax(0, 1fr));
+}
+.multi-chart-workspace.layout-vertical {
+  grid-template-columns: repeat(var(--chart-count), minmax(0, 1fr));
+  grid-template-rows: 1fr;
+}
+.multi-chart-workspace.layout-grid.count-1 {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+.multi-chart-workspace.layout-grid.count-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+}
+.multi-chart-workspace.layout-grid.count-3,
+.multi-chart-workspace.layout-grid.count-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.chart-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(10, 16, 29, 0.58);
+  box-shadow: inset 0 0 0 1px rgba(125, 150, 191, 0.08);
+  transition:
+    box-shadow 0.16s ease,
+    background-color 0.16s ease,
+    transform 0.16s ease;
+}
+.multi-chart-workspace.has-multiple .chart-window {
+  box-shadow: inset 0 0 0 1px rgba(125, 150, 191, 0.16);
+}
+.multi-chart-workspace.has-multiple .chart-window:hover {
+  box-shadow:
+    inset 0 0 0 1px rgba(148, 183, 243, 0.28),
+    0 0 0 1px rgba(72, 117, 196, 0.14);
+}
+.multi-chart-workspace.has-multiple .chart-window.active {
+  background: rgba(10, 19, 36, 0.78);
+  box-shadow:
+    inset 0 0 0 1px rgba(171, 205, 255, 0.28),
+    0 0 0 2px rgba(88, 146, 255, 0.95),
+    0 0 0 6px rgba(88, 146, 255, 0.18);
+}
+.chart-window > .chart.svelte-1sjkxxi {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+@media (max-width: 1024px) {
+  .chart-layout-panel-row {
+    min-height: calc(var(--indent) * 8.5);
+    font-size: calc(var(--font-big) + 4px);
+  }
+  .chart-layout-panel-footer {
+    padding: calc(var(--indent) * 2.5);
+  }
+  .chart-window-controls {
+    top: auto;
+    right: 8px;
+    bottom: calc(var(--indent) * 8);
+    left: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    right: 8px;
+    gap: 6px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    max-width: none;
+  }
+  .chart-window-control {
+    width: calc(var(--indent) * 4);
+    min-width: calc(var(--indent) * 4);
+    height: calc(var(--indent) * 4);
+    padding: 0;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    box-shadow: none;
+    font-size: 10px;
+  }
+  .multi-chart-workspace {
+    gap: 8px;
+  }
+}
 .fade.svelte-1wzx5tg {
   animation: 0.2s linear svelte-1wzx5tg-fade;
 }

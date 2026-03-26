@@ -25,24 +25,27 @@ Output: `index.html` (~7 MB) in the repo root.
 ### Step 1 — Download missing modules
 Scans all `.js` files in `terminal/` for `import "./foo.js"` references. Any dependency not already present on disk is fetched from the remote CDN (`https://mt5-6.xm-bz.com/terminal`) and saved to `terminal/`. Idempotent — already-present files are never re-downloaded.
 
-### Step 2 — Patch source files
-Two files are modified **in-place** before bundling:
+### Step 2 — Prepare source files
+One file may be modified **in-place** before bundling:
 
 | File | Patch |
 |---|---|
-| `terminal/CezRPkQL.js` | Replaces `/terminal/font/*.fnt` paths with `fonts://` virtual URLs so the inlined font polyfill can serve them |
 | `terminal/CRNNNCwz.js` | Sets `preferWorkers: !1, preferCreateImageBitmap: !1` in PIXI's `loadTextures` to force the `new Image()` path (bypasses Web Workers which don't have access to the `fonts://` polyfill) |
 
-Both patches are idempotent (checked before applying).
+The patch is idempotent (checked before applying).
 
-> **Important:** these patches modify the dev-server source files. Always restore them after a build:
+> **Important:** `terminal/CezRPkQL.js` must stay on `/terminal/font/*.fnt` in git and on the dev server. `build.js` now rewrites those paths only inside the generated `_bundle.js`, so the dev source no longer needs to be restored after a build.
+>
+> `terminal/CRNNNCwz.js` is still patched in-place. Restore it after a build if you don't want the worker override committed:
 > ```bash
-> git checkout terminal/CezRPkQL.js terminal/CRNNNCwz.js
+> git checkout terminal/CRNNNCwz.js
 > ```
-> Committing the patched versions causes `URL scheme "fonts" is not supported` errors on the dev server. See [svelte-minified-component-guide.md](svelte-minified-component-guide.md) for details.
+> Committing a `fonts://`-patched `terminal/CezRPkQL.js` causes `URL scheme "fonts" is not supported` errors on the dev server. See [svelte-minified-component-guide.md](svelte-minified-component-guide.md) for details.
 
 ### Step 3 — Bundle with esbuild
 Entry point: `terminal/CQSQNu0h.js`. esbuild resolves all local `./` imports into a single IIFE bundle (`_bundle.js`, deleted after assembly). Format: `--format=iife --platform=browser`.
+
+Immediately after bundling, `build.js` rewrites the bundled `/terminal/font/*.fnt` URLs to `fonts://*.fnt` so the inlined font polyfill can serve them inside the single-file artifact.
 
 ### Step 4 — Assemble HTML
 Starting from `terminal.html`:
@@ -68,8 +71,8 @@ Writes `index.html` and deletes `_bundle.js`.
 # 2. Test on dev server first (node server.js)
 # 3. Build
 node build.js
-# 4. Restore patched source files
-git checkout terminal/CezRPkQL.js terminal/CRNNNCwz.js
+# 4. Optionally restore the PIXI worker patch
+git checkout terminal/CRNNNCwz.js
 # 5. Commit everything
 git add index.html
 git commit -m "Build index.html"
