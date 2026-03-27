@@ -2480,6 +2480,9 @@ class sn {
   calcProfit(t, e, s, i, r) {
     return Gi(this, st).trade.calcProfit(t, e, s, i, r);
   }
+  calcLiquidationPrice(t) {
+    return Gi(this, st).trade.calcLiquidationPrice(t);
+  }
 }
 ((st = new WeakMap()),
   (it = new WeakMap()),
@@ -3960,6 +3963,32 @@ let fn = wn;
         );
       }
       const { quickEdit: a } = this.interactionStore;
+      if (Gi(this, Ce).showLiquidationLines) {
+        const s = Gi(this, We).calcLiquidationPrice({
+          positionId: r,
+          isBuy: e.isBuy,
+          symbol: e.symbol,
+          volume: o,
+          entryPrice: n,
+        });
+        if (s > 0) {
+          const e = this.valueToY(s);
+          e >= 0 &&
+            e <= this.section.height &&
+            this.drawHorizontalLine(
+              t,
+              `${r}-liquidation`,
+              e,
+              s,
+              this.interactionStore.selectedPosition === r
+                ? { line: 15439104, text: 15439104 }
+                : { line: 12169216, text: 12169216 },
+              `LIQ at ${lr(s, this.chart.digits)}`,
+              this.interactionStore.selectedPosition !== r,
+              !0,
+            );
+        }
+      }
       (((s.sl.inSection && null !== s.sl.y) || a.sl) &&
         Ki(this, He, Ie).call(this, t, e, s),
         ((s.tp.inSection && null !== s.tp.y) || a.tp) &&
@@ -4545,6 +4574,7 @@ class Pn {
       Xi(this, ms),
       Xi(this, bs, () => {
         Gi(this, hs).add({
+          showLiquidationLines: this.marksStore.showLiquidationLines,
           showSlTp: this.marksStore.showSlTp,
           showTradeOrders: this.marksStore.showTradeOrders,
           showTradePositions: this.marksStore.showTradePositions,
@@ -4610,6 +4640,9 @@ class Pn {
   }
   toggleHistoryTradeMarks(t = !this.marksStore.showTradeHistory) {
     this.marksStore.setOptions({ showTradeHistory: t });
+  }
+  toggleLiquidationPriceLines(t = !this.marksStore.showLiquidationLines) {
+    this.marksStore.setOptions({ showLiquidationLines: t });
   }
   async onSelectOrderMark(t) {
     (await tr(), Gi(this, as).interactionStore.setSelectedOrder(t));
@@ -4723,6 +4756,9 @@ class Pn {
       ? `${((e ? i - s : s - i) * r.multiply).toFixed(0)} points`
       : "";
   }
+  calcLiquidationPrice(t) {
+    return Gi(this, ds).calcLiquidationPrice(t);
+  }
   getMarketPrice(t, e) {
     const s = Gi(this, gs).ticksStore.getTick(t);
     let i = 0;
@@ -4754,6 +4790,7 @@ class xn extends sr {
       (this.showTradeOrders = !1),
       (this.showTradePositions = !1),
       (this.showTradeHistory = !1),
+      (this.showLiquidationLines = !1),
       (this.showSlTp = !1));
   }
   setOptions(t) {
@@ -4761,6 +4798,8 @@ class xn extends sr {
       (this.showTradePositions =
         t.showTradePositions ?? this.showTradePositions),
       (this.showTradeHistory = t.showTradeHistory ?? this.showTradeHistory),
+      (this.showLiquidationLines =
+        t.showLiquidationLines ?? this.showLiquidationLines),
       (this.showSlTp = t.showSlTp ?? this.showSlTp));
   }
 }
@@ -6133,6 +6172,15 @@ class Th extends Wr {
             s = `${this.style.text.title} ${this.volume || ""} at ${e}`;
           this.style.text.content = s;
         }
+        break;
+      case 4:
+        if (this.style.text.title) {
+          const e = t.toFixed(this.digits),
+            s = this.volume
+              ? `${this.style.text.title} ${this.volume} at ${e}`
+              : `${this.style.text.title} at ${e}`;
+          this.style.text.content = s;
+        }
     }
   }
   getPoints(t, e, s) {
@@ -6172,6 +6220,12 @@ class Ph extends Or {
   }
   getTriggerPrice() {
     return this.data[3].settings;
+  }
+  getBuyLiquidation() {
+    return this.data[4].settings;
+  }
+  getSellLiquidation() {
+    return this.data[5].settings;
   }
   getIndex(t) {
     return this.data.findIndex(
@@ -6314,6 +6368,70 @@ class Ph extends Or {
             Gi(this, Fi),
           ),
         ),
+        Ki(this, Ii, $i).call(
+          this,
+          fh,
+          new Th(
+            {
+              uid: "liquidation_buy",
+              type: 31,
+              visible: !1,
+              lock: !0,
+              lineType: 4,
+              style: {
+                line: {
+                  color: 15439104,
+                  thickness: 1,
+                  price: !0,
+                  priceColor: 15439104,
+                  priceFill: 16777215,
+                },
+                text: {
+                  title: "BUY LIQ",
+                  content: "",
+                  visible: !0,
+                  color: 15439104,
+                  size: 12,
+                  align: 0,
+                  valign: 0,
+                },
+              },
+            },
+            Gi(this, Fi),
+          ),
+        ),
+        Ki(this, Ii, $i).call(
+          this,
+          fh,
+          new Th(
+            {
+              uid: "liquidation_sell",
+              type: 31,
+              visible: !1,
+              lock: !0,
+              lineType: 4,
+              style: {
+                line: {
+                  color: 12169216,
+                  thickness: 1,
+                  price: !0,
+                  priceColor: 12169216,
+                  priceFill: 16777215,
+                },
+                text: {
+                  title: "SELL LIQ",
+                  content: "",
+                  visible: !0,
+                  color: 12169216,
+                  size: 12,
+                  align: 0,
+                  valign: 0,
+                },
+              },
+            },
+            Gi(this, Fi),
+          ),
+        ),
       ]),
       (this.inited = !0));
   }
@@ -6390,6 +6508,101 @@ class Lh {
 class Oh {
   constructor(t, e) {
     this.tradeLinesController = new Lh(t, e);
+  }
+}
+class LiquidationPreviewController {
+  constructor(t, e, s, i, r, o, n, h, a) {
+    ((this.tradeLinesController = t),
+      (this.tradeController = e),
+      (this.configStore = s),
+      (this.marksStore = i),
+      (this.ticksStore = r),
+      (this.symbolsStore = o),
+      (this.positionsStore = n),
+      (this.ordersStore = h),
+      (this.accountStore = a),
+      (this.tickSymbol = ""),
+      (this.tickUnsubscribe = null),
+      (this.updateTimer = 0),
+      (this.onConfigChange = this.onConfigChange.bind(this)),
+      (this.onDependencyChange = this.onDependencyChange.bind(this)),
+      (this.scheduleUpdate = this.scheduleUpdate.bind(this)),
+      (this.subscriptions = [
+        this.configStore.subscribe(this.onConfigChange),
+        this.marksStore.subscribe(this.onDependencyChange),
+        this.symbolsStore.subscribe(this.onDependencyChange),
+        this.positionsStore.subscribe(this.onDependencyChange),
+        this.ordersStore.subscribe(this.onDependencyChange),
+        this.accountStore.subscribe(this.onDependencyChange),
+      ]),
+      this.subscribeTick(this.configStore.symbol),
+      this.scheduleUpdate());
+  }
+  getBuyLine() {
+    return this.tradeLinesController.tradeLinesManager.getBuyLiquidation();
+  }
+  getSellLine() {
+    return this.tradeLinesController.tradeLinesManager.getSellLiquidation();
+  }
+  clearLines() {
+    (this.getBuyLine().clear(), this.getSellLine().clear());
+  }
+  subscribeTick(t) {
+    t === this.tickSymbol ||
+      (this.tickUnsubscribe &&
+        (this.tickUnsubscribe(), (this.tickUnsubscribe = null)),
+      (this.tickSymbol = t),
+      t &&
+        (this.tickUnsubscribe = this.ticksStore
+          .getTick(t)
+          .subscribe(this.scheduleUpdate)));
+  }
+  onConfigChange() {
+    (this.subscribeTick(this.configStore.symbol), this.scheduleUpdate());
+  }
+  onDependencyChange() {
+    this.scheduleUpdate();
+  }
+  scheduleUpdate() {
+    (this.updateTimer && window.clearTimeout(this.updateTimer),
+      (this.updateTimer = window.setTimeout(() => {
+        ((this.updateTimer = 0), this.update());
+      }, 50)));
+  }
+  update() {
+    const t = this.getBuyLine(),
+      e = this.getSellLine(),
+      s = this.configStore.symbol,
+      i = Number(this.configStore.tradeVolume);
+    if (!this.marksStore.showLiquidationLines || !s || !(i > 0))
+      return void this.clearLines();
+    const r = this.symbolsStore.getBySymbol(s),
+      o = this.ticksStore.getTick(s);
+    if (!r || !(o.ask > 0) || !(o.bid > 0)) return void this.clearLines();
+    const n = this.tradeController.calcLiquidationPrice({
+        symbol: s,
+        isBuy: !0,
+        volume: i,
+        entryPrice: o.ask,
+      }),
+      h = this.tradeController.calcLiquidationPrice({
+        symbol: s,
+        isBuy: !1,
+        volume: i,
+        entryPrice: o.bid,
+      });
+    n > 0
+      ? t.setValue({ value: n, digits: r.digits, volume: i })
+      : t.clear(),
+      h > 0
+        ? e.setValue({ value: h, digits: r.digits, volume: i })
+        : e.clear();
+  }
+  destroy() {
+    (this.updateTimer && window.clearTimeout(this.updateTimer),
+      this.tickUnsubscribe && this.tickUnsubscribe(),
+      this.subscriptions.forEach((t) => t && t()),
+      this.clearLines());
   }
 }
 class xh {
@@ -6469,7 +6682,18 @@ class xh {
         this.ticks.ticksController,
         i.order,
       )),
-      (this.tradeLines = new Oh(this.chart.chartController, i.order)));
+      (this.tradeLines = new Oh(this.chart.chartController, i.order)),
+      (this.liquidationPreview = new LiquidationPreviewController(
+        this.tradeLines.tradeLinesController,
+        this.trade.tradeController,
+        this.configs.configStore,
+        this.marks.marksStore,
+        this.ticks.ticksStore,
+        this.symbols.symbolsStore,
+        this.trade.positionsStore,
+        this.trade.ordersStore,
+        this.account.accountStore,
+      )));
   }
   async init() {
     this.account.accountStore.isResetPass ||
@@ -6498,6 +6722,7 @@ class xh {
       this.trade.tradeController.destroy(),
       this.watchlist.watchlistController.destroy(),
       this.marks.marksController.destroy(),
+      this.liquidationPreview.destroy(),
       this.tradeLines.tradeLinesController.destroy(),
       this.chart.chartController.destroy(),
       this.api.destroy());

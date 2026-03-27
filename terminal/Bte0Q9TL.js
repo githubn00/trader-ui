@@ -11915,7 +11915,7 @@ import customBarsManager from "./customBarsManager.js";
   ((Ta = new WeakMap()), (Ma = new WeakMap()));
   let uu = new Map();
   class pu {
-    constructor(t, e, i, s, r, a, o) {
+    constructor(t, e, i, s, r, a, o, n) {
       (fc(this, $a),
         fc(this, Sa, null),
         fc(this, za, new Set()),
@@ -11961,7 +11961,8 @@ import customBarsManager from "./customBarsManager.js";
         bc(this, La, s),
         bc(this, Oa, r),
         bc(this, xa, a),
-        bc(this, Aa, o));
+        bc(this, Aa, o),
+        (this.ratesController = n));
     }
     calcProfit(t, e, i, s, r) {
       const a = yc(this, La).getFullSymbolByName(t),
@@ -11985,6 +11986,149 @@ import customBarsManager from "./customBarsManager.js";
           ),
         n.profit
       );
+    }
+    calcLiquidationPrice(t) {
+      const e = yc(this, La).getFullSymbolByName(t.symbol),
+        i = yc(this, Oa).getAccount();
+      if (!e || !i || !this.ratesController) return null;
+      const s = yc(this, Wa).getTick(t.symbol, e.isDelayed());
+      if (!s) return null;
+      const r = hu(e, s),
+        o = Boolean(t.isBuy),
+        n = Number(t.entryPrice),
+        c = Number(t.volume),
+        l = o ? r.bid : r.ask;
+      if (!(n > 0) || !(c > 0) || !(l > 0)) return null;
+      const h = yc(this, xa).rateBuy(e, e.currency_profit, i.account_currency),
+        _ = yc(this, xa).rateSell(e, e.currency_profit, i.account_currency);
+      if (!(h > 0) || !(_ > 0)) return null;
+      let d = null;
+      if (t.positionId) {
+        try {
+          d = BigInt(t.positionId);
+        } catch {
+          return null;
+        }
+      }
+      const u = Math.max(
+          Math.abs((r.ask ?? l) - (r.bid ?? l)),
+          e.trade_tick_size || 1 / 10 ** e.digits,
+        ),
+        p = e.trade_tick_size || 1 / 10 ** e.digits,
+        y = () =>
+          this.getPositions().map((t) => ("function" == typeof t.copy ? t.copy() : t)),
+        g = () =>
+          this.getOrders().map((t) => ("function" == typeof t.copy ? t.copy() : t)),
+        m = (t) => {
+          const r = y(),
+            orders = g();
+          let position = null;
+          if (d)
+            position = r.find((t) => t.position_id === d) ?? null;
+          else {
+            const s = o
+                ? yc(this, xa).rateBuyMargin(e, i.account_currency, n)
+                : yc(this, xa).rateSellMargin(e, i.account_currency, n),
+              tradePosition = new vd({
+                trade_symbol: e.trade_symbol,
+                trade_action: o ? 0 : 1,
+                trade_volume: fh.toInt(c),
+                price_open: n,
+                price_close: l,
+                sl: 0,
+                tp: 0,
+                profit: 0,
+                rate_profit: o ? _ : h,
+                rate_margin: s > 0 ? s : 1,
+                commission: 0,
+                storage_: 0,
+                contract_size: e.trade_contract_size,
+                digits: e.digits,
+                digits_currency: i.currency_digits,
+                position_id: 0n,
+                comment: "",
+              });
+            ((position = tradePosition), r.push(tradePosition));
+          }
+          if (!position) return null;
+          const b = i.copy(),
+            S = new rd(yc(this, xa), this.ratesController, b),
+            w = {
+              ...s,
+              bid: o ? t : Math.max(t - u, p),
+              ask: o ? t + u : t,
+              last: t,
+            },
+            f = hu(e, w);
+          r.forEach((t) => {
+            if (t.trade_symbol !== e.trade_symbol) return;
+            let s = 0;
+            if (e.isCollateral())
+              b.isExchangeMargin()
+                ? (s = w.last ?? s)
+                : w.last
+                  ? (s = w.last)
+                  : (t.isBuy() && (s = f.bid), t.isSell() && (s = f.ask));
+            else
+              ((t.isBuy() && (s = f.bid)), (t.isSell() && (s = f.ask)));
+            s > 0 && ((t.price_close = s), _u(e, t, b, h, _, e.isCollateral()));
+          });
+          orders.forEach((t) => {
+            if (t.trade_symbol !== e.trade_symbol) return;
+            switch (t.order_type) {
+              case 0:
+              case 2:
+              case 4:
+              case 6:
+                f.ask && (t.price_current = f.ask);
+                break;
+              case 1:
+              case 3:
+              case 5:
+              case 7:
+                f.bid && (t.price_current = f.bid);
+            }
+          });
+          return S.calcAccount(orders, r), S.checkStopOut(b), b;
+        },
+        b = (t) =>
+          !!t &&
+          0 !== t.margin &&
+          (0 === t.margin_so_mode
+            ? t.margin_level <= t.margin_so_so
+            : t.equity <= t.margin_so_so);
+      const S = m(l);
+      if (!S) return null;
+      if (b(S)) return a.normalize(l, e.digits);
+      let w = l,
+        f = l,
+        k = Math.max(p, l * 1e-3),
+        v = null;
+      if (o) {
+        for (let t = 0; t < 32; t++) {
+          if (((w = Math.max(p, w - k)), (v = m(w)), b(v))) break;
+          if (w <= p) return null;
+          k *= 2;
+        }
+        if (!b(v)) return null;
+        for (let t = 0; t < 48; t++) {
+          const t = (w + f) / 2,
+            e = m(t);
+          b(e) ? (w = t) : (f = t);
+        }
+        return a.normalize(w, e.digits);
+      }
+      for (let t = 0; t < 32; t++) {
+        if (((f += k), (v = m(f)), b(v))) break;
+        k *= 2;
+      }
+      if (!b(v)) return null;
+      for (let t = 0; t < 48; t++) {
+        const t = (w + f) / 2,
+          e = m(t);
+        b(e) ? (f = t) : (w = t);
+      }
+      return a.normalize(f, e.digits);
     }
     async init() {
       await this.loadOpened();
@@ -12276,6 +12420,9 @@ import customBarsManager from "./customBarsManager.js";
         .getOrders()
         .map((e) => t.formatOrder(e));
     }
+    calcLiquidationPrice(t) {
+      return yc(this, qa).calcLiquidationPrice(t);
+    }
     static formatPosition(t) {
       return new ku({
         symbol: Rd(t),
@@ -12442,8 +12589,8 @@ import customBarsManager from "./customBarsManager.js";
     }
   }
   class Su {
-    constructor(t, e, i, s, r, a, o) {
-      ((this.controller = new pu(t, new vu(e), i, s, r, a, o)),
+    constructor(t, e, i, s, r, a, o, n) {
+      ((this.controller = new pu(t, new vu(e), i, s, r, a, o, n)),
         (this.view = new wu(this.controller)));
     }
   }
@@ -16114,6 +16261,7 @@ import customBarsManager from "./customBarsManager.js";
             yc(this, $n).controller,
             yc(this, Vn).controller,
             yc(this, Un).controller,
+            yc(this, qn).controller,
           ),
         ),
         bc(

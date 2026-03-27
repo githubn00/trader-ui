@@ -2096,7 +2096,34 @@ function ze(t) {
   };
 }
 function Oe(t) {
-  let e, n, o, r, l, c, i, s, a, d, u, g, h, p, v, C, k, x, M, S, L, Z, b, Y, W;
+  let e,
+    n,
+    o,
+    r,
+    l,
+    c,
+    i,
+    s,
+    a,
+    d,
+    u,
+    g,
+    h,
+    p,
+    v,
+    C,
+    k,
+    x,
+    M,
+    S,
+    L,
+    Z,
+    b,
+    Y,
+    W,
+    liquidationRow,
+    liquidationSpacer,
+    liquidationSyncing;
   function T(e) {
     t[42](e);
   }
@@ -2133,6 +2160,20 @@ function Oe(t) {
       },
     })),
     l.$on("change", t[41]));
+  let liquid = {
+    icon: Et,
+    title: "Liquidation Price Lines",
+    toggle: !0,
+    $$slots: { default: [liquidationLabel] },
+    $$scope: { ctx: t },
+  };
+  function liquidBind(e) {
+    t[52](e);
+  }
+  (void 0 !== t[22].showLiquidationLines &&
+    (liquid.checked = t[22].showLiquidationLines),
+    (liquidationRow = new B({ props: liquid })),
+    P.push(() => F(liquidationRow, "checked", liquidBind)));
   let E = {
     icon: Et,
     title: window.tr(window.lang.trade.menu.chartSettings.marks.sltp),
@@ -2226,6 +2267,8 @@ function Oe(t) {
           (r = _()),
           y(l.$$.fragment),
           (c = _()),
+          y(liquidationRow.$$.fragment),
+          (liquidationSpacer = _()),
           y(i.$$.fragment),
           (a = _()),
           y(d.$$.fragment),
@@ -2247,6 +2290,8 @@ function Oe(t) {
           m(t, r, s),
           V(l, t, s),
           m(t, c, s),
+          V(liquidationRow, t, s),
+          m(t, liquidationSpacer, s),
           V(i, t, s),
           m(t, a, s),
           V(d, t, s),
@@ -2275,6 +2320,14 @@ function Oe(t) {
         (4194304 & n[0] && (a.checked = t[22].showTradeHistory),
           8 & n[2] && (a.$$scope = { dirty: n, ctx: t }),
           l.$set(a));
+        const E = {};
+        (8 & n[2] && (E.$$scope = { dirty: n, ctx: t }),
+          !liquidationSyncing &&
+            4194304 & n[0] &&
+            ((liquidationSyncing = !0),
+            (E.checked = t[22].showLiquidationLines),
+            N(() => (liquidationSyncing = !1))),
+          liquidationRow.$set(E));
         const $ = {};
         (8 & n[2] && ($.$$scope = { dirty: n, ctx: t }),
           !s &&
@@ -2319,6 +2372,7 @@ function Oe(t) {
           (f(e.$$.fragment, t),
           f(o.$$.fragment, t),
           f(l.$$.fragment, t),
+          f(liquidationRow.$$.fragment, t),
           f(i.$$.fragment, t),
           f(d.$$.fragment, t),
           f(h.$$.fragment, t),
@@ -2332,6 +2386,7 @@ function Oe(t) {
         (w(e.$$.fragment, t),
           w(o.$$.fragment, t),
           w(l.$$.fragment, t),
+          w(liquidationRow.$$.fragment, t),
           w(i.$$.fragment, t),
           w(d.$$.fragment, t),
           w(h.$$.fragment, t),
@@ -2342,10 +2397,21 @@ function Oe(t) {
           (b = !1));
       },
       d(t) {
-        (t && ($(n), $(r), $(c), $(a), $(g), $(v), $(x), $(L), $(W)),
+        (t &&
+          ($(n),
+          $(r),
+          $(c),
+          $(liquidationSpacer),
+          $(a),
+          $(g),
+          $(v),
+          $(x),
+          $(L),
+          $(W)),
           H(e, t),
           H(o, t),
           H(l, t),
+          H(liquidationRow, t),
           H(i, t),
           H(d, t),
           H(h, t),
@@ -2408,6 +2474,22 @@ function Ne(t) {
 function je(t) {
   let e,
     n = window.tr(window.lang.trade.menu.chartSettings.marks.sltp) + "";
+  return {
+    c() {
+      e = M(n);
+    },
+    m(t, n) {
+      m(t, e, n);
+    },
+    p: u,
+    d(t) {
+      t && $(e);
+    },
+  };
+}
+function liquidationLabel(t) {
+  let e,
+    n = "Liquidation Price Lines";
   return {
     c() {
       e = M(n);
@@ -3988,6 +4070,10 @@ function Tn(e, n, r) {
       () => P.setLayout({ hotkeys: !0 }),
       () => {
         O(E, (d.barCountdown = !d.barCountdown), d);
+      },
+      function (t) {
+        e.$$.not_equal($.showLiquidationLines, t) &&
+          (($.showLiquidationLines = t), S.set($));
       },
     ]
   );
