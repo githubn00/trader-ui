@@ -2918,7 +2918,27 @@ class un extends vr {
       t
     );
   }
+  extendTouchHitArea(t, e) {
+    if (!fr()) return;
+    const s = t.hitArea;
+    if (s && Array.isArray(s.bands)) return void s.bands.push([e - 12, e + 12]);
+    t.hitArea = {
+      width: this.section.width + 1,
+      bands: [[e - 12, e + 12]],
+      contains(t, e) {
+        return (
+          t >= 0 &&
+          t <= this.width &&
+          this.bands.some(([s, i]) => e >= s && e <= i)
+        );
+      },
+    };
+  }
+  resetTouchHitArea(t) {
+    fr() && (t.hitArea = null);
+  }
   drawHorizontalLine(t, e, s, i, r, o, n, h) {
+    this.extendTouchHitArea(t, s);
     const a = this.chart.state.graphWidth + 1;
     if ((h && xr(t, 0, s, a, s), n)) {
       const e = Ki(this, Et, _t).call(this, r.line),
@@ -3180,7 +3200,8 @@ class un extends vr {
         const q = P ? { line: e, text: s } : { line: o, text: n };
         if (v === this.interactionStore.selectedHistoryPosition) {
           const t = this._createGraphics(`${v}selected`);
-          (this.container.addChild(t),
+          (this.resetTouchHitArea(t),
+            this.container.addChild(t),
             Br(_, O, x, C, W, { color: q.line, dash: 4 }));
           const { digits: e } = this.chart,
             s = `${P ? "BUY" : "SELL"} ${M} at ${lr(S, e)}`;
@@ -3433,7 +3454,9 @@ let bn = mn;
   (le = new WeakSet()),
   (ce = function (t) {
     t
-      ? (this.container.addEventListener("pointerdown", Gi(this, ye)),
+      ? ((this.container.interactive || (this.container.eventMode = "static")),
+        this.chart.app.stage.addEventListener("tap", this.touchTapHandler),
+        this.container.addEventListener("pointerdown", Gi(this, ye)),
         fr() ||
           (this.container.interactive || (this.container.eventMode = "static"),
           this.container.addEventListener("pointerdown", Gi(this, fe)),
@@ -3443,7 +3466,8 @@ let bn = mn;
         Ji(this, Zt, this.layoutStore.subscribe(Gi(this, de))),
         Ji(this, te, this.ordersStore.subscribe(Gi(this, de))),
         Ji(this, se, Gi(this, re).subscribe(Gi(this, de))))
-      : (this.container.removeEventListener("pointerdown", Gi(this, ye)),
+      : (this.chart.app.stage.removeEventListener("tap", this.touchTapHandler),
+        this.container.removeEventListener("pointerdown", Gi(this, ye)),
         fr() ||
           (this.container.removeEventListener("pointerdown", Gi(this, fe)),
           this.container.removeEventListener("pointerover", Gi(this, Se)),
@@ -3536,6 +3560,15 @@ let bn = mn;
 let Sn = class t extends un {
   constructor(e, s = 6e3, i, r, o, n, h, a, l, c, d) {
     (super(e, s, i, r, o, n, h, a),
+      (this.touchTapHandler = (e) => {
+        const s = "touch" === e.pointerType || fr(),
+          i = e.target instanceof wr ? dn(e.target) : null,
+          r = e.target instanceof wr ? e.target.name : void 0;
+        s &&
+          this.interactionStore.selectedOrder &&
+          (!(i instanceof t) || r !== this.interactionStore.selectedOrder) &&
+          (this.interactionStore.setSelectedOrder(), this.draw());
+      }),
       Xi(this, le),
       Xi(this, Kt),
       Xi(this, Zt),
@@ -3746,7 +3779,8 @@ let Sn = class t extends un {
     )
       return;
     const f = this._createGraphics(h);
-    ((f.name = h),
+    (this.resetTouchHitArea(f),
+      (f.name = h),
       (f.eventMode = "static"),
       (f.cursor =
         h === this.interactionStore.selectedOrder ? "ns-resize" : "pointer"),
@@ -3811,6 +3845,7 @@ let Sn = class t extends un {
   }
   destroy() {
     (super.destroy(),
+      this.chart.app.stage.removeEventListener("tap", this.touchTapHandler),
       this.container.removeEventListener("pointerdown", Gi(this, ye)),
       fr() ||
         (this.container.removeEventListener("pointerdown", Gi(this, fe)),
@@ -3853,7 +3888,9 @@ let fn = wn;
   (He = new WeakSet()),
   (qe = function (t) {
     t
-      ? (this.container.addEventListener("pointerdown", Gi(this, ze)),
+      ? ((this.container.interactive || (this.container.eventMode = "static")),
+        this.chart.app.stage.addEventListener("tap", this.touchTapHandler),
+        this.container.addEventListener("pointerdown", Gi(this, ze)),
         fr() ||
           (this.container.interactive || (this.container.eventMode = "static"),
           this.container.addEventListener("pointerdown", Gi(this, Ye)),
@@ -3864,7 +3901,8 @@ let fn = wn;
         Ji(this, Me, this.positionsStore.subscribe(Gi(this, Ae))),
         Ji(this, Le, Gi(this, Ce).subscribe(Gi(this, Ae))),
         Gi(this, Oe) || Ji(this, Te, Gi(this, Be).subscribe(Gi(this, Ae))))
-      : (this.container.removeEventListener("pointerdown", Gi(this, ze)),
+      : (this.chart.app.stage.removeEventListener("tap", this.touchTapHandler),
+        this.container.removeEventListener("pointerdown", Gi(this, ze)),
         fr() ||
           (this.container.removeEventListener("pointerdown", Gi(this, Ye)),
           this.container.removeEventListener("pointerover", Gi(this, Je)),
@@ -3881,6 +3919,7 @@ let fn = wn;
       s = this._createGraphics(`${t}mask`),
       i = this.createMask();
     return (
+      this.resetTouchHitArea(e),
       (s.mask = i),
       e.addChild(s),
       (e.name = t),
@@ -3910,7 +3949,8 @@ let fn = wn;
       f = this.getLevels(b, S, w);
     if (!(f.price.inSection || f.sl.inSection || f.tp.inSection)) return;
     const k = this._createGraphics(y);
-    ((k.name = y),
+    (this.resetTouchHitArea(k),
+      (k.name = y),
       (k.eventMode = "static"),
       (k.cursor =
         y === this.interactionStore.selectedPosition ? "ns-resize" : "pointer"),
@@ -4147,7 +4187,7 @@ let fn = wn;
     r && (k = { line: m, text: b });
     const v = this._createGraphics(n),
       M = this.createMask();
-    v.mask = M;
+    ((this.resetTouchHitArea(v)), (v.mask = M));
     let T = f ? { arrow: c, border: d } : { arrow: y, border: g };
     if (
       (r && (T = { arrow: S, border: w }),
@@ -4171,6 +4211,26 @@ let fn = wn;
 let kn = class t extends un {
   constructor(e, s = 6e3, i, r, o, n, h, a, l, c, d, u, p) {
     (super(e, s, i, r, o, n, h, a),
+      (this.touchTapHandler = (e) => {
+        const s = "touch" === e.pointerType || fr(),
+          i = e.target instanceof wr ? dn(e.target) : null,
+          r = e.target instanceof wr ? e.target.name : void 0,
+          o = this.interactionStore.selectedPosition;
+        if (!s || !o) return;
+        if (i instanceof t && r) {
+          if (Gi(this, Oe)) {
+            if (r === o) return;
+          } else if (this.positionsStore.positionHas(r)) {
+            if (r === o) return;
+          } else if (Gi(this, Be).dealHas(r)) {
+            const t = Gi(this, Be).getDeal(r);
+            if ((null == t ? void 0 : t.position) === o) return;
+          }
+        }
+        ((this.settings.selectedDeal = ""),
+          this.interactionStore.setSelectedPosition(),
+          this.draw());
+      }),
       Xi(this, He),
       Xi(this, ke),
       Xi(this, ve),
@@ -4424,6 +4484,7 @@ let kn = class t extends un {
   }
   destroy() {
     (super.destroy(),
+      this.chart.app.stage.removeEventListener("tap", this.touchTapHandler),
       this.container.removeEventListener("pointerdown", Gi(this, ze)),
       fr() ||
         (this.container.removeEventListener("pointerdown", Gi(this, Ye)),
