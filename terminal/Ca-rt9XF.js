@@ -3473,19 +3473,19 @@ let bn = mn;
         blurLine: y,
         blurText: g,
       } = this.chart.colors.tradeMark,
-      { quickEdit: m } = this.interactionStore;
-    let b = `SL at ${lr(d && m.sl ? m.sl : a, this.chart.digits)}`;
-    if (d && Gi(this, he) && m.sl && "sl" === Gi(this, ne)) {
-      const t = (6 !== c && 7 !== c) || !h ? n : h;
-      b += `, ${Gi(this, oe).getProfit(l, r, o, t, m.sl)}, ${Gi(this, oe).getPoints(l, o, t, m.sl)}`;
-    }
+      { quickEdit: m } = this.interactionStore,
+      b = d && m.sl ? m.sl : a,
+      S = (6 !== c && 7 !== c) || !h ? n : h;
+    let w = `SL at ${lr(b, this.chart.digits)}`;
+    b &&
+      (w += `, ${Gi(this, oe).getProfit(l, r, o, S, b)}, ${Gi(this, oe).getPoints(l, o, S, b)}`);
     this.drawHorizontalLine(
       t,
       i,
       d && m.sl ? this.valueToY(m.sl) : s,
-      d && m.sl ? m.sl : a,
-      d ? { line: u, text: p } : { line: y, text: g },
       b,
+      d ? { line: u, text: p } : { line: y, text: g },
+      w,
       this.interactionStore.selectedOrder !== i,
       !0,
     );
@@ -3509,19 +3509,19 @@ let bn = mn;
         blurLine: y,
         blurText: g,
       } = this.chart.colors.tradeMark,
-      { quickEdit: m } = this.interactionStore;
-    let b = `TP at ${lr(d && m.tp ? m.tp : a, this.chart.digits)}`;
-    if (d && Gi(this, he) && m.tp && "tp" === Gi(this, ne)) {
-      const t = (6 !== c && 7 !== c) || !h ? n : h;
-      b += `, ${Gi(this, oe).getProfit(l, r, o, t, m.tp)}, ${Gi(this, oe).getPoints(l, o, t, m.tp)}`;
-    }
+      { quickEdit: m } = this.interactionStore,
+      b = d && m.tp ? m.tp : a,
+      S = (6 !== c && 7 !== c) || !h ? n : h;
+    let w = `TP at ${lr(b, this.chart.digits)}`;
+    b &&
+      (w += `, ${Gi(this, oe).getProfit(l, r, o, S, b)}, ${Gi(this, oe).getPoints(l, o, S, b)}`);
     this.drawHorizontalLine(
       t,
       i,
       d && m.tp ? this.valueToY(m.tp) : s,
-      d && m.tp ? m.tp : a,
-      d ? { line: u, text: p } : { line: y, text: g },
       b,
+      d ? { line: u, text: p } : { line: y, text: g },
+      w,
       this.interactionStore.selectedOrder !== i,
       !0,
     );
@@ -3562,35 +3562,46 @@ let Sn = class t extends un {
       Xi(
         this,
         ye,
-        Zi(500, (t) => {
-          var e, s;
-          const { x: i, y: r } = t.global;
+        Zi(500, (e) => {
+          const { x: i, y: r } = e.global,
+            o = e.target instanceof wr ? dn(e.target) : null,
+            n = e.target instanceof wr ? e.target.name : void 0,
+            h = "touch" === e.pointerType || fr();
           if (
             ((this.clickData = { x: i, y: r }),
+            h && o instanceof t && n && n !== this.interactionStore.selectedOrder)
+          )
+            return (
+              e.stopPropagation(),
+              this.interactionStore.setSelectedOrder(n),
+              (this.layoutStore.tradeEdit || null !== this.layoutStore.tradeCreate) &&
+                Gi(this, ie).setSelectedForEdit(n),
+              void this.draw()
+            );
+          if (
             this.interactionStore.selectedOrder &&
-              t.target instanceof wr &&
-              (null == (e = t.target) ? void 0 : e.name) &&
-              (null == (s = t.target) ? void 0 : s.name) ===
-                this.interactionStore.selectedOrder)
+            o instanceof t &&
+            n &&
+            n === this.interactionStore.selectedOrder
           ) {
-            t.stopPropagation();
-            const e = this.ordersStore.getOrder(
+            e.stopPropagation();
+            const s = this.ordersStore.getOrder(
               this.interactionStore.selectedOrder,
             );
-            if (!e) return;
-            const { price: s, sl: i, tp: o, priceTrigger: n } = e,
-              h = this.getLevels(s, i, o, n),
-              a = !!h.tp.y && Math.abs(h.tp.y - r) <= 8,
-              l = !!h.sl.y && Math.abs(h.sl.y - r) <= 8,
-              c = !!h.trigger.y && Math.abs(h.trigger.y - r) <= 8,
-              d = !!h.price.y && Math.abs(h.price.y - r) <= 8;
-            (a
+            if (!s) return;
+            const { price: i, sl: o, tp: n, priceTrigger: h } = s,
+              a = this.getLevels(i, o, n, h),
+              l = !!a.tp.y && Math.abs(a.tp.y - r) <= 8,
+              c = !!a.sl.y && Math.abs(a.sl.y - r) <= 8,
+              d = !!a.trigger.y && Math.abs(a.trigger.y - r) <= 8,
+              u = !!a.price.y && Math.abs(a.price.y - r) <= 8;
+            (l
               ? Ji(this, ne, "tp")
-              : l
+              : c
                 ? Ji(this, ne, "sl")
-                : c && e.priceTrigger
+                : d && s.priceTrigger
                   ? Ji(this, ne, "trigger")
-                  : d && Ji(this, ne, "price"),
+                  : u && Ji(this, ne, "price"),
               this.chart.app.stage.addEventListener(
                 "pointermove",
                 Gi(this, me),
@@ -3942,27 +3953,29 @@ let fn = wn;
       Ki(this, He, Ve).call(this, p, y, t, g));
   }),
   (Fe = function (t, e, s, i) {
-    const { id: r, volumeValue: o, priceOpen: n, typeName: h } = e;
+    const { id: r, volumeValue: o, priceOpen: n, typeName: h, profit: a } = e;
     if (
       !this.layoutStore.tradeEdit ||
       this.interactionStore.selectedForEdit !== r
     ) {
       if (s.price.inSection) {
-        const e = h.length
+        const l = `PnL ${Gi(this, We).getPositionPnl(a)}`;
+        let c = h.length
           ? `${h.toUpperCase()} ${o} at ${lr(n, this.chart.digits)}`
           : "";
+        c = c ? `${c}, ${l}` : l;
         this.drawHorizontalLine(
           t,
           r,
           s.price.y,
           n,
           i,
-          e,
+          c,
           this.interactionStore.selectedPosition !== r,
           !0,
         );
       }
-      const { quickEdit: a } = this.interactionStore;
+      const { quickEdit: l } = this.interactionStore;
       if (Gi(this, Ce).showLiquidationLines) {
         const s = Gi(this, We).calcLiquidationPrice({
           positionId: r,
@@ -3989,9 +4002,9 @@ let fn = wn;
             );
         }
       }
-      (((s.sl.inSection && null !== s.sl.y) || a.sl) &&
+      (((s.sl.inSection && null !== s.sl.y) || l.sl) &&
         Ki(this, He, Ie).call(this, t, e, s),
-        ((s.tp.inSection && null !== s.tp.y) || a.tp) &&
+        ((s.tp.inSection && null !== s.tp.y) || l.tp) &&
           Ki(this, He, $e).call(this, t, e, s));
     }
   }),
@@ -4012,20 +4025,18 @@ let fn = wn;
         blurLine: u,
         blurText: p,
       } = this.chart.colors.tradeMark,
-      { quickEdit: y } = this.interactionStore;
-    let g = `SL at ${lr(l && y.sl ? y.sl : h, this.chart.digits)}`;
-    (l &&
-      Gi(this, _e) &&
-      y.sl &&
-      ("sl" === Gi(this, Ee) || "price" === Gi(this, Ee)) &&
-      (g += `, ${Gi(this, We).getProfit(a, r, o, n, y.sl)}, ${Gi(this, We).getPoints(a, o, n, y.sl)}`),
+      { quickEdit: y } = this.interactionStore,
+      g = l && y.sl ? y.sl : h;
+    let m = `SL at ${lr(g, this.chart.digits)}`;
+    (g &&
+      (m += `, ${Gi(this, We).getProfit(a, r, o, n, g)}, ${Gi(this, We).getPoints(a, o, n, g)}`),
       this.drawHorizontalLine(
         t,
         i,
         l && y.sl ? this.valueToY(y.sl) : (s.sl.y ?? 0),
-        l && y.sl ? y.sl : h,
-        l ? { line: c, text: d } : { line: u, text: p },
         g,
+        l ? { line: c, text: d } : { line: u, text: p },
+        m,
         this.interactionStore.selectedPosition !== i,
         !0,
       ));
@@ -4047,20 +4058,18 @@ let fn = wn;
         blurLine: u,
         blurText: p,
       } = this.chart.colors.tradeMark,
-      { quickEdit: y } = this.interactionStore;
-    let g = `TP at ${lr(l && y.tp ? y.tp : h, this.chart.digits)}`;
-    (l &&
-      Gi(this, _e) &&
-      y.tp &&
-      ("tp" === Gi(this, Ee) || "price" === Gi(this, Ee)) &&
-      (g += `, ${Gi(this, We).getProfit(a, r, o, n, y.tp)}, ${Gi(this, We).getPoints(a, o, n, y.tp)}`),
+      { quickEdit: y } = this.interactionStore,
+      g = l && y.tp ? y.tp : h;
+    let m = `TP at ${lr(g, this.chart.digits)}`;
+    (g &&
+      (m += `, ${Gi(this, We).getProfit(a, r, o, n, g)}, ${Gi(this, We).getPoints(a, o, n, g)}`),
       this.drawHorizontalLine(
         t,
         i,
         l && y.tp ? this.valueToY(y.tp) : (s.tp.y ?? 0),
-        l && y.tp ? y.tp : h,
-        l ? { line: c, text: d } : { line: u, text: p },
         g,
+        l ? { line: c, text: d } : { line: u, text: p },
+        m,
         this.interactionStore.selectedPosition !== i,
         !0,
       ));
@@ -4191,32 +4200,66 @@ let kn = class t extends un {
       Xi(
         this,
         ze,
-        Zi(500, (t) => {
-          var e, s;
-          const { x: i, y: r } = t.global;
+        Zi(500, (e) => {
+          const { x: i, y: r } = e.global,
+            o = e.target instanceof wr ? dn(e.target) : null,
+            n = e.target instanceof wr ? e.target.name : void 0,
+            h = "touch" === e.pointerType || fr();
           if (
             ((this.clickData = { x: i, y: r }),
-            this.interactionStore.selectedPosition &&
-              t.target instanceof wr &&
-              (null == (e = t.target) ? void 0 : e.name) &&
-              (null == (s = t.target) ? void 0 : s.name) ===
-                this.interactionStore.selectedPosition)
+            h && o instanceof t && n && n !== this.interactionStore.selectedPosition)
           ) {
-            t.stopPropagation();
-            const e = this.positionsStore.getPosition(
+            e.stopPropagation();
+            if (Gi(this, Oe))
+              (this.interactionStore.setSelectedPosition(n),
+                (this.layoutStore.tradeEdit ||
+                  null !== this.layoutStore.tradeCreate) &&
+                  Gi(this, xe).setSelectedForEdit(n));
+            else {
+              const t = this.positionsStore.positionHas(n),
+                e = Gi(this, Be).dealHas(n);
+              if (t)
+                (this.interactionStore.setSelectedPosition(n),
+                  (this.layoutStore.tradeEdit ||
+                    null !== this.layoutStore.tradeCreate) &&
+                    Gi(this, xe).setSelectedForEdit(n));
+              else if (e) {
+                this.settings.selectedDeal = n;
+                const t = Gi(this, Be).getDeal(this.settings.selectedDeal);
+                t &&
+                  (this.interactionStore.setSelectedPosition(
+                    null == t ? void 0 : t.position,
+                  ),
+                  (this.layoutStore.tradeEdit ||
+                    null !== this.layoutStore.tradeCreate) &&
+                    Gi(this, xe).setSelectedForEdit(
+                      null == t ? void 0 : t.position,
+                    ));
+              }
+            }
+            return void this.draw();
+          }
+          if (
+            this.interactionStore.selectedPosition &&
+            o instanceof t &&
+            n &&
+            n === this.interactionStore.selectedPosition
+          ) {
+            e.stopPropagation();
+            const s = this.positionsStore.getPosition(
               this.interactionStore.selectedPosition,
             );
-            if (!e) return;
-            const { priceOpen: s, sl: i, tp: o } = e,
-              n = this.getLevels(s, i, o),
-              h = !!n.price.y && Math.abs(n.price.y - r) <= 8,
-              a = !!n.tp.y && Math.abs(n.tp.y - r) <= 8,
-              l = !!n.sl.y && Math.abs(n.sl.y - r) <= 8;
-            (a
+            if (!s) return;
+            const { priceOpen: i, sl: o, tp: n } = s,
+              h = this.getLevels(i, o, n),
+              a = !!h.price.y && Math.abs(h.price.y - r) <= 8,
+              l = !!h.tp.y && Math.abs(h.tp.y - r) <= 8,
+              c = !!h.sl.y && Math.abs(h.sl.y - r) <= 8;
+            (l
               ? Ji(this, Ee, "tp")
-              : l
+              : c
                 ? Ji(this, Ee, "sl")
-                : h && Ji(this, Ee, "price"),
+                : a && Ji(this, Ee, "price"),
               this.chart.app.stage.addEventListener(
                 "pointermove",
                 Gi(this, Ge),
@@ -4653,6 +4696,12 @@ class Pn {
   async onSelectHistoryMark(t) {
     (await tr(), Gi(this, as).interactionStore.setSelectedHistoryPosition(t));
   }
+  clearSelectedOrderMark() {
+    Gi(this, as).interactionStore.setSelectedOrder();
+  }
+  clearSelectedPositionMark() {
+    Gi(this, as).interactionStore.setSelectedPosition();
+  }
   endQuickEditOrder() {
     if (1 === Gi(this, ys).oneClick) {
       const t = Gi(this, ds).ordersStore.getOrder(
@@ -4681,7 +4730,7 @@ class Pn {
           i,
         )
       )
-        return void Gi(this, as).interactionStore.resetQuickEdit();
+        return void this.clearSelectedOrderMark();
       2 === t.type || 3 === t.type || 4 === t.type || 5 === t.type
         ? Gi(this, ds).modifyLimitOrder({
             type: t.type,
@@ -4705,6 +4754,7 @@ class Pn {
             date: t.date,
             comment: t.comment,
           });
+      this.clearSelectedOrderMark();
     } else
       Gi(this, as).setSelectedForEdit(
         Gi(this, as).interactionStore.selectedOrder,
@@ -4733,14 +4783,14 @@ class Pn {
           r,
         )
       )
-        return void Gi(this, as).interactionStore.resetQuickEdit();
+        return void this.clearSelectedPositionMark();
       (Gi(this, ds).modifyPosition({
         id: e.id,
         sl: n.sl ?? e.sl,
         tp: n.tp ?? e.tp,
         comment: e.comment,
       }),
-        Gi(this, as).interactionStore.resetQuickEdit());
+        this.clearSelectedPositionMark());
     } else
       Gi(this, as).setSelectedForEdit(
         Gi(this, as).interactionStore.selectedPosition,
@@ -4749,6 +4799,11 @@ class Pn {
   getProfit(t, e, s, i, r) {
     const o = Gi(this, cs).accountStore.currency;
     return `${Gi(this, ds).calcProfit(t, e, s, i, r)} ${o}`;
+  }
+  getPositionPnl(t) {
+    const e = Number(null != t ? t : 0),
+      s = Gi(this, cs).accountStore.currency;
+    return `${e > 0 ? "+" : ""}${Number.isFinite(e) ? e : t} ${s}`;
   }
   getPoints(t, e, s, i) {
     const r = Gi(this, ps).getBySymbol(t);
