@@ -73,19 +73,37 @@ The trade-lines manager now owns two extra locked lines:
 
 These are updated by `LiquidationPreviewController`, which subscribes to:
 
-- `configStore` for selected symbol and lot size
+- `configStore` for selected symbol and stored lot sizes
 - `marksStore` for the toggle state
 - `ticksStore` for live bid/ask updates
 - `positionsStore`
 - `ordersStore`
 - `accountStore`
 - `symbolsStore`
+- `layoutStore`
+- the existing trade-form price line settings
+
+The controller has to support two volume sources:
+
+- When the market/order form is open (`tradeCreate` or `tradeEdit`), use the live volume from the existing trade-form price line. That path reflects the current form state before it is necessarily persisted.
+- When the form is not open, use the chart quick-trade lot size (`quickTradeVolume`), with `tradeVolume` as fallback.
 
 Preview calculation rules:
 
 - Buy preview uses current `ask` as entry.
 - Sell preview uses current `bid` as entry.
-- Both use `configStore.tradeVolume`.
+- Volume source depends on UI state as described above.
+
+### Visibility and redraw behavior
+
+For preview lines, raw field mutation was not enough.
+
+Important detail:
+
+- Use the object settings visibility API (`setVisible(true/false)`) instead of only mutating `visible`.
+- After updating or clearing preview lines, force a chart redraw.
+
+Without those two steps, the liquidation preview can calculate correctly but still not appear on screen.
 
 ## Build Gotchas
 
@@ -115,12 +133,15 @@ If `terminal/CezRPkQL.js` is only showing line-ending noise and not a real diff,
 If preview lines do not show:
 
 - confirm the `Liquidation Price Lines` toggle is enabled
-- confirm `tradeVolume > 0`
+- confirm the active UI source has volume:
+  - trade form open: live form volume
+  - trade form closed: quick-trade lot size or stored `tradeVolume`
 - confirm the active symbol has a live tick with valid `bid` and `ask`
 - confirm the liquidation calculator returns a non-null value
+- confirm the preview line path is calling `setVisible(...)`
+- confirm the chart is redrawn after the line update
 
 If position liquidation lines do not update:
 
 - confirm the position mark path is using the real `positionId`
 - confirm live trade/account updates are still flowing through the existing trade stores
-

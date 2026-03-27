@@ -6511,7 +6511,7 @@ class Oh {
   }
 }
 class LiquidationPreviewController {
-  constructor(t, e, s, i, r, o, n, h, a) {
+  constructor(t, e, s, i, r, o, n, h, a, l) {
     ((this.tradeLinesController = t),
       (this.tradeController = e),
       (this.configStore = s),
@@ -6521,6 +6521,8 @@ class LiquidationPreviewController {
       (this.positionsStore = n),
       (this.ordersStore = h),
       (this.accountStore = a),
+      (this.layoutStore = l),
+      (this.priceLine = this.tradeLinesController.tradeLinesManager.getPrice()),
       (this.tickSymbol = ""),
       (this.tickUnsubscribe = null),
       (this.updateTimer = 0),
@@ -6534,6 +6536,8 @@ class LiquidationPreviewController {
         this.positionsStore.subscribe(this.onDependencyChange),
         this.ordersStore.subscribe(this.onDependencyChange),
         this.accountStore.subscribe(this.onDependencyChange),
+        this.layoutStore.subscribe(this.onDependencyChange),
+        this.priceLine.subscribe(this.onDependencyChange),
       ]),
       this.subscribeTick(this.configStore.symbol),
       this.scheduleUpdate());
@@ -6544,8 +6548,20 @@ class LiquidationPreviewController {
   getSellLine() {
     return this.tradeLinesController.tradeLinesManager.getSellLiquidation();
   }
+  hideLine(t) {
+    (t.clear(), t.setVisible(!1));
+  }
+  showLine(t, e, s, i) {
+    (t.setVisible(!0), t.setValue({ value: e, digits: s, volume: i }));
+  }
+  redraw() {
+    this.tradeLinesController.tradeLinesManager.chart.redraw();
+  }
   clearLines() {
-    (this.getBuyLine().clear(), this.getSellLine().clear());
+    const t = this.getBuyLine(),
+      e = this.getSellLine(),
+      s = t.visible || e.visible;
+    (this.hideLine(t), this.hideLine(e), s && this.redraw());
   }
   subscribeTick(t) {
     t === this.tickSymbol ||
@@ -6573,7 +6589,15 @@ class LiquidationPreviewController {
     const t = this.getBuyLine(),
       e = this.getSellLine(),
       s = this.configStore.symbol,
-      i = Number(this.configStore.tradeVolume);
+      i = Number(
+        this.layoutStore.tradeEdit || null !== this.layoutStore.tradeCreate
+          ? this.priceLine.visible && this.priceLine.volume > 0
+            ? this.priceLine.volume
+            : this.configStore.tradeVolume
+          : this.configStore.quickTradeVolume > 0
+            ? this.configStore.quickTradeVolume
+            : this.configStore.tradeVolume,
+      );
     if (!this.marksStore.showLiquidationLines || !s || !(i > 0))
       return void this.clearLines();
     const r = this.symbolsStore.getBySymbol(s),
@@ -6592,11 +6616,12 @@ class LiquidationPreviewController {
         entryPrice: o.bid,
       });
     n > 0
-      ? t.setValue({ value: n, digits: r.digits, volume: i })
-      : t.clear(),
+      ? this.showLine(t, n, r.digits, i)
+      : this.hideLine(t),
       h > 0
-        ? e.setValue({ value: h, digits: r.digits, volume: i })
-        : e.clear();
+        ? this.showLine(e, h, r.digits, i)
+        : this.hideLine(e),
+      this.redraw();
   }
   destroy() {
     (this.updateTimer && window.clearTimeout(this.updateTimer),
@@ -6693,6 +6718,7 @@ class xh {
         this.trade.positionsStore,
         this.trade.ordersStore,
         this.account.accountStore,
+        e.layout.layoutController.layoutStore,
       )));
   }
   async init() {
